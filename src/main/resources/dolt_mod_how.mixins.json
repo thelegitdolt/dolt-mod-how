@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.dolthhaven.dolt_mod_how.core.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "dolt_mod_how.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+
+  ],
+  "minVersion": "0.8"
+}

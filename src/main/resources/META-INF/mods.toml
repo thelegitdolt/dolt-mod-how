@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "[32,)"
+issueTrackerURL = "https://github.com/team-abnormals/atmospheric/issues"
+license = "https://github.com/team-abnormals/atmospheric/blob/main/LICENSE.txt"
+
+[[mods]]
+modId = "dolt_mod_how"
+version = "${file.jarVersion}"
+logoFile = "logo.png"
+itemIcon = "atmospheric:passionfruit"
+configBackground = "atmospheric:textures/block/arid_sand.png"
+authors = "Team Abnormals"
+credits = "Dolt H. Haven"
+displayURL = "https://www.teamabnormals.com/mods/atmospheric"
+displayName = "Atmospheric"
+description = '''
+    Adds two unique biome types with several variants.
+    Also introduces several new types of blocks, foliage, and plants!
+    There will continue to be more biomes over time!
+    '''
+
+[[dependencies.dolt_mod_how]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.19.2,1.20)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[43.1.0,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "blueprint"
+    mandatory = true
+    versionRange = "[6.1.2,)"
+    ordering = "AFTER"
+    side = "BOTH"

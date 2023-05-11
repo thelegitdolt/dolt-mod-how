@@ -4,6 +4,8 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.ProfilePublicKey;
 import org.jetbrains.annotations.Nullable;
@@ -12,6 +14,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import umpaz.brewinandchewin.common.registry.BCEffects;
 
 import java.util.Objects;
@@ -28,7 +31,7 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
 
     @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;handleNetherPortalClient()V",
             at = @At(value = "HEAD"), cancellable = true)
-    private void DoltCompat$ThrowTipsyOverlayPacket(CallbackInfo ci) {
+    private void DoltModHow$ThrowTipsyOverlayPacket(CallbackInfo ci) {
         if (!this.isInsidePortal && !this.hasEffect(MobEffects.CONFUSION)) {
             if (this.hasEffect(BCEffects.TIPSY.get()) && Objects.requireNonNull(this.getEffect(BCEffects.TIPSY.get())).getDuration() > 60) {
                 this.oPortalTime = this.portalTime;
@@ -42,4 +45,11 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
             }
         }
     }
+
+    @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;removeEffectNoUpdate(Lnet/minecraft/world/effect/MobEffect;)Lnet/minecraft/world/effect/MobEffectInstance;",
+            at = @At(value = "HEAD"))
+    private void DoltModHow$RemoveTipsyNoUpdate(MobEffect p_108720_, CallbackInfoReturnable<MobEffectInstance> cir) {
+
+    }
+
 }

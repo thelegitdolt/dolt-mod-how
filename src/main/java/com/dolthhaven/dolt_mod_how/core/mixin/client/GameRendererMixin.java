@@ -26,7 +26,7 @@ public abstract class GameRendererMixin {
 
     @Inject(method = "Lnet/minecraft/client/renderer/GameRenderer;render(FJZ)V",
             at = @At(value = "INVOKE_ASSIGN", target = "Ljava/lang/Double;floatValue()F"))
-    private void DoltCompat$HandleTipsyOverlay(float partialTicks, long tall, boolean lean, CallbackInfo ci) {
+    private void DoltModHow$HandleTipsyOverlay(float partialTicks, long tall, boolean lean, CallbackInfo ci) {
         if (this.minecraft.player != null) {
             float f = Mth.lerp(partialTicks, this.minecraft.player.oPortalTime, this.minecraft.player.portalTime);
             float f1 = this.minecraft.options.screenEffectScale().get().floatValue();
@@ -37,7 +37,7 @@ public abstract class GameRendererMixin {
     }
 
     @Redirect(method = "renderLevel(FJLcom/mojang/blaze3d/vertex/PoseStack;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;hasEffect(Lnet/minecraft/world/effect/MobEffect;)Z"))
-    public boolean DoltCompat$HasEffectOrTipsy(LocalPlayer instance, MobEffect effect) {
+    public boolean DoltMowHow$HasEffectOrTipsy(LocalPlayer instance, MobEffect effect) {
         return instance.hasEffect(effect) || instance.hasEffect(BCEffects.TIPSY.get());
     }
 }

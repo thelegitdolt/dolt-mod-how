@@ -17,13 +17,13 @@ public class FungusColonyMixin {
     @Inject(method = "isValidBonemealTarget(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)Z",
     at = @At("RETURN"), cancellable = true)
     private void DoltModHow$BonemealableColonies(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(true);
+        if (state.getValue(FungusColonyBlock.COLONY_AGE) < 3) cir.setReturnValue(true);
     }
 
     @Inject(method = "isBonemealSuccess(Lnet/minecraft/world/level/Level;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z",
             at = @At("RETURN"), cancellable = true)
     private void DoltModHow$BoneMealableColonies(Level worldIn, RandomSource random, BlockPos pos, BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(true);
+        if (state.getValue(FungusColonyBlock.COLONY_AGE) < 3) cir.setReturnValue(true);
     }
 
     @Inject(method = "mayPlaceOn(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z",

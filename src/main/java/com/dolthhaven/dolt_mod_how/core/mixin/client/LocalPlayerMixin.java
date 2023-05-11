@@ -49,7 +49,10 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;removeEffectNoUpdate(Lnet/minecraft/world/effect/MobEffect;)Lnet/minecraft/world/effect/MobEffectInstance;",
             at = @At(value = "HEAD"))
     private void DoltModHow$RemoveTipsyNoUpdate(MobEffect p_108720_, CallbackInfoReturnable<MobEffectInstance> cir) {
-
+        if (p_108720_ == BCEffects.TIPSY.get()) {
+            this.oPortalTime = 0.0F;
+            this.portalTime = 0.0F;
+        }
     }
 
 }

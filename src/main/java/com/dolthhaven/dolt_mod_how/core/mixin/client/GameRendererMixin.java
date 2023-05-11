@@ -37,7 +37,7 @@ public abstract class GameRendererMixin {
     }
 
     @Redirect(method = "renderLevel(FJLcom/mojang/blaze3d/vertex/PoseStack;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;hasEffect(Lnet/minecraft/world/effect/MobEffect;)Z"))
-    public boolean DoltMowHow$HasEffectOrTipsy(LocalPlayer instance, MobEffect effect) {
+    public boolean DoltModHow$HasEffectOrTipsy(LocalPlayer instance, MobEffect effect) {
         return instance.hasEffect(effect) || instance.hasEffect(BCEffects.TIPSY.get());
     }
 }

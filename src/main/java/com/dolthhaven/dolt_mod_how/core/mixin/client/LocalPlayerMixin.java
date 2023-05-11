@@ -1,0 +1,45 @@
+package com.dolthhaven.dolt_mod_how.core.mixin.client;
+
+import com.mojang.authlib.GameProfile;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.ProfilePublicKey;
+import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import umpaz.brewinandchewin.common.registry.BCEffects;
+
+import java.util.Objects;
+
+@Mixin(LocalPlayer.class)
+public abstract class LocalPlayerMixin extends AbstractClientPlayer {
+    @Shadow
+    public float portalTime;
+    @Shadow public float oPortalTime;
+
+    public LocalPlayerMixin(ClientLevel p_234112_, GameProfile p_234113_, @Nullable ProfilePublicKey p_234114_) {
+        super(p_234112_, p_234113_, p_234114_);
+    }
+
+    @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;handleNetherPortalClient()V",
+            at = @At(value = "HEAD"), cancellable = true)
+    private void DoltCompat$ThrowTipsyOverlayPacket(CallbackInfo ci) {
+        if (!this.isInsidePortal && !this.hasEffect(MobEffects.CONFUSION)) {
+            if (this.hasEffect(BCEffects.TIPSY.get()) && Objects.requireNonNull(this.getEffect(BCEffects.TIPSY.get())).getDuration() > 60) {
+                this.oPortalTime = this.portalTime;
+                float amp = (float) Objects.requireNonNull(this.getEffect(BCEffects.TIPSY.get())).getAmplifier() + 1;
+                portalTime += 0.005667f;
+                if (portalTime > amp / 11) {
+                    portalTime = amp / 11;
+                }
+                this.processPortalCooldown();
+                ci.cancel();
+            }
+        }
+    }
+}

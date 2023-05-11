@@ -81,6 +81,19 @@ dependencies {
 
     implementation fg.deobf("com.teamabnormals:boatload:${project.minecraft}-${project.boatload}")
 
+    implementation fg.deobf("curse.maven:goodending-690161:4363719")
+    implementation fg.deobf("curse.maven:farmers_delight-398521:${project.farmersDelight}")
+    implementation fg.deobf("curse.maven:quark-243121:${project.quark}")
+    implementation fg.deobf("curse.maven:autoreglib-250363:${project.autoRegLib}")
+    implementation fg.deobf("curse.maven:environmental-388992:4415514")
+
+    implementation fg.deobf("curse.maven:brewinandchewin-637808:4468049")
+    implementation fg.deobf("curse.maven:farmersrespite-551453:4081312")
+    implementation fg.deobf("curse.maven:nethersdelight-496394:3971576")
+
+
+
+
     implementation fg.deobf("mezz.jei:jei-${project.minecraft}-common-api:${project.jei}")
     implementation fg.deobf("mezz.jei:jei-${project.minecraft}-forge-api:${project.jei}")
     runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge:${project.jei}")

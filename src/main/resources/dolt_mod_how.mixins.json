@@ -5,6 +5,7 @@
   "refmap": "dolt_mod_how.refmap.json",
   "mixins": [
     "FungusColonyMixin",
+    "PurulentTeaItemMixin",
     "RichSoilMixin",
     "TipsyEffectMixin",
     "VanillaGuiOverlayMixin"

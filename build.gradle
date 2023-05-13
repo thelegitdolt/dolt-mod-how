@@ -92,7 +92,8 @@ dependencies {
     implementation fg.deobf("curse.maven:nethersdelight-496394:3971576")
 
     implementation fg.deobf("curse.maven:windswept-636321:4464804")
-    implementation fg.deobf("curse.maven:atmospheric-362393:4415516")
+    implementation fg.deobf("curse.maven:abnormals-delight-362393:4415516")
+    implementation fg.deobf("curse.maven:atmospheric-442719:4415502")
 
 
 

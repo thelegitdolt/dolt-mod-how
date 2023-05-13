@@ -23,9 +23,9 @@ public class PurulentTeaItemMixin {
     @Shadow @Final private int effectBoost;
 
     @Inject(method = "affectConsumer(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;)V",
-    at = @At("HEAD"), remap = false)
+    at = @At("TAIL"), remap = false)
     private void DoltModHow$PurulentGivesRandomEffects(ItemStack stack, Level level, LivingEntity consumer, CallbackInfo ci) {
-        final List<MobEffect> POSSIBLE_EFFECTS = List.of(HUNGER, WEAKNESS, MOVEMENT_SLOWDOWN, DIG_SLOWDOWN, POISON);
+        final List<MobEffect> POSSIBLE_EFFECTS = List.of(HUNGER, WEAKNESS, MOVEMENT_SLOWDOWN);
 
         consumer.addEffect(new MobEffectInstance(POSSIBLE_EFFECTS.get(level.getRandom().nextInt(POSSIBLE_EFFECTS.size())), this.effectBoost, 0));
     }

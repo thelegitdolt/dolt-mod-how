@@ -26,6 +26,8 @@ public class DoltModHow
         bus.addListener(this::dataSetup);
         bus.addListener(this::commonSetup);
 
+        DMHEnchants.ENCHANTMENTS.register(bus);
+
         MinecraftForge.EVENT_BUS.register(this);
     }
 

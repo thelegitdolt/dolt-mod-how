@@ -91,12 +91,17 @@ dependencies {
     implementation fg.deobf("curse.maven:farmersrespite-551453:4081312")
     implementation fg.deobf("curse.maven:nethersdelight-496394:3971576")
 
+    implementation fg.deobf("curse.maven:map-atlas-forge-519759:3949437")
+
     implementation fg.deobf("curse.maven:windswept-636321:4464804")
     implementation fg.deobf("curse.maven:abnormals-delight-362393:4415516")
     implementation fg.deobf("curse.maven:atmospheric-442719:4415502")
 
+    implementation fg.deobf("curse.maven:woodworks-543610:4396958")
+    implementation fg.deobf("curse.maven:clayworks-592162:4396960")
 
-
+    implementation fg.deobf("curse.maven:connected-glass-383129:4293791")
+    implementation fg.deobf("curse.maven:supermartinlib-454372:4484238")
 
 
     implementation fg.deobf("mezz.jei:jei-${project.minecraft}-common-api:${project.jei}")

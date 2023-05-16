@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "supplementaries:quiver"
+    }
+  ],
+  "tool": {
+    "tag": "forge:shears"
+  },
+  "result": [
+    {
+      "item": "minecraft:leather",
+      "count": 2
+    },
+    {
+      "item": "minecraft:string",
+      "count": 2,
+      "chance": 0.5
+    }
+  ]
+}

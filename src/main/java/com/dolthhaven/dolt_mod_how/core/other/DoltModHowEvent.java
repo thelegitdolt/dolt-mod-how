@@ -77,11 +77,6 @@ public class DoltModHowEvent {
 
             List<ItemStack> items = old.getInventory().items;
 
-            for (ItemStack i : items) {
-                DoltModHow.LOGGER.info(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(i.getItem())).getPath() +" is " + i.getEnchantmentLevel(DMHEnchants.BOUNDING.get()));
-            }
-
-
             for (ItemStack stackie : items.stream().filter(i -> i.getEnchantmentLevel(DMHEnchants.BOUNDING.get()) >= 1).toList()) {
                 if (!nw.getInventory().add(stackie)) {
                     nw.drop(stackie, false);

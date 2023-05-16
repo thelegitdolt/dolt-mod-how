@@ -11,7 +11,7 @@ public class CaveSpiderMixin {
 
     @ModifyArg(method = "doHurtTarget(Lnet/minecraft/world/entity/Entity;)Z",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z"))
-    private static MobEffectInstance DoltModHow$NerfCaveSpider(MobEffectInstance effect) {
-        return new MobEffectInstance(effect.getEffect(), effect.getDuration() / 2, effect.getAmplifier());
+    private MobEffectInstance DoltModHow$NerfCaveSpider(MobEffectInstance effect) {
+        return new MobEffectInstance(effect.getEffect(), effect.getDuration() / 3 * 2, effect.getAmplifier());
     }
 }

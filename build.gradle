@@ -85,20 +85,23 @@ dependencies {
     implementation fg.deobf("curse.maven:farmers_delight-398521:${project.farmersDelight}")
     implementation fg.deobf("curse.maven:quark-243121:${project.quark}")
     implementation fg.deobf("curse.maven:autoreglib-250363:${project.autoRegLib}")
-    implementation fg.deobf("curse.maven:environmental-388992:4415514")
+    implementation fg.deobf("curse.maven:environmental-388992:${project.environmental}")
 
-    implementation fg.deobf("curse.maven:brewinandchewin-637808:4468049")
-    implementation fg.deobf("curse.maven:farmersrespite-551453:4081312")
-    implementation fg.deobf("curse.maven:nethersdelight-496394:3971576")
+    implementation fg.deobf("curse.maven:brewinandchewin-637808:${project.brewinAndChewin}")
+    implementation fg.deobf("curse.maven:farmersrespite-551453:${project.farmersRespite}")
+    implementation fg.deobf("curse.maven:nethersdelight-496394:${project.nethersDelight}")
 
-    implementation fg.deobf("curse.maven:map-atlas-forge-519759:3949437")
+    implementation fg.deobf("curse.maven:map-atlas-forge-519759:${project.mapAtlases}")
 
-    implementation fg.deobf("curse.maven:windswept-636321:4464804")
-    implementation fg.deobf("curse.maven:abnormals-delight-362393:4415516")
-    implementation fg.deobf("curse.maven:atmospheric-442719:4415502")
+    implementation fg.deobf("curse.maven:windswept-636321:${project.windswept}")
+    implementation fg.deobf("curse.maven:abnormals-delight-362393:${project.abnormalsDelight}")
+    implementation fg.deobf("curse.maven:atmospheric-442719:${project.atmospheric}")
 
     implementation fg.deobf("curse.maven:woodworks-543610:4396958")
     implementation fg.deobf("curse.maven:clayworks-592162:4396960")
+
+    implementation fg.deobf("curse.maven:supplementaries-412082:4526191")
+    implementation fg.deobf("curse.maven:moonlight-499980:4539734")
 
     implementation fg.deobf("curse.maven:connected-glass-383129:4293791")
     implementation fg.deobf("curse.maven:supermartinlib-454372:4484238")

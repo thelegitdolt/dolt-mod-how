@@ -1,19 +1,14 @@
 package com.dolthhaven.dolt_mod_how.core.mixin;
 
-import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
-import it.unimi.dsi.fastutil.ints.IntLists;
 import net.mehvahdjukaar.supplementaries.common.items.QuiverItem;
 import net.mehvahdjukaar.supplementaries.common.items.forge.QuiverItemImpl;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.IItemHandler;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;

@@ -5,8 +5,6 @@
   "refmap": "dolt_mod_how.refmap.json",
   "mixins": [
     "CaveSpiderMixin",
-    "CGColoredGlassBlockMixin",
-    "CGColorGlassPaneMixin",
     "CuttingBoardBlockEntityMixin",
     "DrinkableItemMixin",
     "FungusColonyMixin",

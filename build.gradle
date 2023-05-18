@@ -96,16 +96,13 @@ dependencies {
     implementation fg.deobf("curse.maven:windswept-636321:${project.windswept}")
     implementation fg.deobf("curse.maven:abnormals-delight-362393:${project.abnormalsDelight}")
     implementation fg.deobf("curse.maven:atmospheric-442719:${project.atmospheric}")
+    implementation fg.deobf("curse.maven:upgrade_aquatic-326895:${project.upgradeAquatic}")
 
     implementation fg.deobf("curse.maven:woodworks-543610:4396958")
     implementation fg.deobf("curse.maven:clayworks-592162:4396960")
 
     implementation fg.deobf("curse.maven:supplementaries-412082:4526191")
     implementation fg.deobf("curse.maven:moonlight-499980:4539734")
-
-    implementation fg.deobf("curse.maven:connected-glass-383129:4293791")
-    implementation fg.deobf("curse.maven:supermartinlib-454372:4484238")
-
 
     implementation fg.deobf("mezz.jei:jei-${project.minecraft}-common-api:${project.jei}")
     implementation fg.deobf("mezz.jei:jei-${project.minecraft}-forge-api:${project.jei}")

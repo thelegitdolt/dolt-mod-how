@@ -1,6 +1,7 @@
-package com.dolthhaven.dolt_mod_how.core;
+package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.enchant.BoundingEnchantment;
+import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import lilypuree.mapatlases.MapAtlasesMod;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;

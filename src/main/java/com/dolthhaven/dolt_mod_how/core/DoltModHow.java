@@ -2,7 +2,9 @@ package com.dolthhaven.dolt_mod_how.core;
 
 import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowCommonSetup;
 import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowBlockTags;
-import com.dolthhaven.dolt_mod_how.core.tweaks.DoltModHowFoodTweaks;
+import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowLootTable;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHRecipeSerializer;
 import com.mojang.logging.LogUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,6 +29,7 @@ public class DoltModHow
         bus.addListener(this::commonSetup);
 
         DMHEnchants.ENCHANTMENTS.register(bus);
+        DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -35,9 +38,9 @@ public class DoltModHow
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper EFH = event.getExistingFileHelper();
         boolean includeServer = event.includeServer();
-
         DoltModHowBlockTags taggies = new DoltModHowBlockTags(generator, EFH);
         generator.addProvider(includeServer, taggies);
+        generator.addProvider(includeServer, new DoltModHowLootTable(generator));
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {

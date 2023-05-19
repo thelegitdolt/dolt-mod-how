@@ -1,6 +1,6 @@
 package com.dolthhaven.dolt_mod_how.common.enchant;
 
-import com.dolthhaven.dolt_mod_how.core.DMHEnchants;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 

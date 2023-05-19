@@ -11,6 +11,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class DMHRecipeSerializer {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, DoltModHow.MOD_ID);
 
-    public static final RegistryObject<SimpleRecipeSerializer<?>> FOOD_SERVING =
+    public static final RegistryObject<SimpleRecipeSerializer<?>> CHEST_FROM_VARIATED_PLANKS =
             RECIPE_SERIALIZERS.register("chest_from_variated_planks", () -> new SimpleRecipeSerializer<>(OriginalChestRecipe::new));
 }

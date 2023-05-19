@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
-import com.dolthhaven.dolt_mod_how.core.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

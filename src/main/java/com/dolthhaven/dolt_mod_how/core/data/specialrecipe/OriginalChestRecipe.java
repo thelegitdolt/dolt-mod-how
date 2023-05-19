@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Optional;
 
 public class OriginalChestRecipe extends CustomRecipe {
+    private boolean locked = false;
     public static final SimpleRecipeSerializer<?> SERIALIZER = new SimpleRecipeSerializer<>(OriginalChestRecipe::new);
 
     public OriginalChestRecipe(ResourceLocation id) {
@@ -21,6 +22,9 @@ public class OriginalChestRecipe extends CustomRecipe {
 
     @Override
     public boolean matches(@NotNull CraftingContainer container, @NotNull Level level) {
+        if (this.locked) {
+            return false;
+        }
         return checkForOtherRecipes(container, level) && checkForThing(container, 0, 1, 2, 3, 5, 6, 7, 8);
     }
 
@@ -49,13 +53,16 @@ public class OriginalChestRecipe extends CustomRecipe {
         return SERIALIZER;
     }
 
-    private static synchronized boolean checkForOtherRecipes(CraftingContainer container, Level level) {
+    private synchronized boolean checkForOtherRecipes(CraftingContainer container, Level level) {
+        this.locked = true;
+        boolean hi = false;
         MinecraftServer server = level.getServer();
         if(server != null) {
             Optional<CraftingRecipe> optional = server.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, container, level);
-            return optional.isEmpty();
+            hi = optional.isEmpty();
         }
-        return false;
+        this.locked = false;
+        return hi;
     }
 
 }

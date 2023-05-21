@@ -7,14 +7,16 @@
     "BlueprintBoatItemMixin",
     "BoatloadBoatItemMixin",
     "CaveSpiderMixin",
+    "CoffeeCakeBlockMixin",
     "CuttingBoardBlockEntityMixin",
     "DispenserMinecartItemMixin",
     "DrinkableItemMixin",
+    "FlavoredCakeBlockMixin",
     "FungusColonyMixin",
     "PurulentTeaItemMixin",
     "RichSoilMixin",
     "TipsyEffectMixin",
-    "VanillaGuiOverlayMixin",
+    "VanillaGuiOverlayMixin"
   ],
   "client": [
     "client.GameRendererMixin",

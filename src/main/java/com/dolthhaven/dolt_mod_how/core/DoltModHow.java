@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core;
 
 import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowCommonSetup;
+import com.dolthhaven.dolt_mod_how.core.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowBlockTags;
 import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowLootTable;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
@@ -45,6 +46,7 @@ public class DoltModHow
         DoltModHowBlockTags taggies = new DoltModHowBlockTags(generator, EFH);
         generator.addProvider(includeServer, taggies);
         generator.addProvider(includeServer, new DoltModHowLootTable(generator));
+        generator.addProvider(includeServer, new DMHRecipes(generator));
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {

@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
 public class DoltModHowLootTable extends LootTableProvider {
     public DoltModHowLootTable(DataGenerator gen) {
@@ -29,23 +32,23 @@ public class DoltModHowLootTable extends LootTableProvider {
 
 
     @Override
-    public List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
+    public @NotNull List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
         return tables;
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext context) {}
+    protected void validate(@NotNull Map<ResourceLocation, LootTable> map, @NotNull ValidationContext context) {}
 
 
     private static class DoltCompatBlockLoot extends BlockLoot {
         @Override
         public void addTables() {
-            
+            this.dropSelf(MUD_LANTERN.get());
         }
 
         @Override
-        public Iterable<Block> getKnownBlocks() {
-             return List.of();
+        public @NotNull Iterable<Block> getKnownBlocks() {
+             return List.of(MUD_LANTERN.get());
         }
 
     }

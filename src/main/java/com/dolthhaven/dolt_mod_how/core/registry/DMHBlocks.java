@@ -19,7 +19,7 @@ public class DMHBlocks {
             new CompatLanternBlock(DoltModHowBlockProps.MUD_LANTERN), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static class DoltModHowBlockProps {
-        public static final BlockBehaviour.Properties MUD_LANTERN = BlockBehaviour.Properties.of(Material.ICE).requiresCorrectToolForDrops().strength(1.0f, 3.0f).sound(SoundType.MUD_BRICKS).lightLevel(state -> 10).noOcclusion();
+        public static final BlockBehaviour.Properties MUD_LANTERN = BlockBehaviour.Properties.of(Material.ICE).requiresCorrectToolForDrops().strength(1.0f, 3.0f).sound(SoundType.MUD_BRICKS).lightLevel(state -> 7).noOcclusion();
 
     }
 

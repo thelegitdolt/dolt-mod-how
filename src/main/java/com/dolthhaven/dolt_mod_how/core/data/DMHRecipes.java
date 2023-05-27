@@ -17,7 +17,7 @@ public class DMHRecipes extends RecipeProvider {
 
     @Override
     public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(MUD_LANTERN.get()).define('1', Items.PACKED_MUD).define('2', Items.TORCH).pattern("1").pattern("2").pattern("1").unlockedBy("has_packed_mud", has(Items.PACKED_MUD)).save(consumer);
+        ShapedRecipeBuilder.shaped(MUD_LANTERN.get()).define('1', Items.PACKED_MUD).define('2', Items.REDSTONE_TORCH).pattern("1").pattern("2").pattern("1").unlockedBy("has_packed_mud", has(Items.PACKED_MUD)).save(consumer);
     }
 
 }

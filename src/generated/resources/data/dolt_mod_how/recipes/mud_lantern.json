@@ -5,7 +5,7 @@
       "item": "minecraft:packed_mud"
     },
     "2": {
-      "item": "minecraft:torch"
+      "item": "minecraft:redstone_torch"
     }
   },
   "pattern": [

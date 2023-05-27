@@ -1,0 +1,56 @@
+{
+  "render_type": "minecraft:cutout",
+  "parent": "block/block",
+  "textures": {
+    "0": "abundant_atmosphere:block/mud_lantern",
+    "1": "abundant_atmosphere:block/mud_lantern_top",
+    "2": "abundant_atmosphere:block/mud_lantern_bottom",
+    "3": "minecraft:block/chain",
+    "particle": "abundant_atmosphere:block/mud_lantern"
+  },
+  "elements": [
+    {
+      "from": [3, 0, 3],
+      "to": [13, 11, 13],
+      "faces": {
+        "north": {"uv": [3, 5, 13, 16], "texture": "#0"},
+        "east": {"uv": [3, 5, 13, 16], "texture": "#0"},
+        "south": {"uv": [3, 5, 13, 16], "texture": "#0"},
+        "west": {"uv": [3, 5, 13, 16], "texture": "#0"},
+        "up": {"uv": [3, 3, 13, 13], "texture": "#1"},
+        "down": {"uv": [3, 3, 13, 13], "texture": "#2"}
+      }
+    },
+    {
+      "from": [5, 11, 5],
+      "to": [11, 13, 11],
+      "faces": {
+        "north": {"uv": [5, 3, 11, 5], "texture": "#0"},
+        "east": {"uv": [5, 3, 11, 5], "texture": "#0"},
+        "south": {"uv": [5, 3, 11, 5], "texture": "#0"},
+        "west": {"uv": [5, 3, 11, 5], "texture": "#0"},
+        "up": {"uv": [5, 5, 11, 11], "texture": "#1"}
+      }
+    },
+    {
+      "from": [6.5, 14, 8],
+      "to": [9.5, 16, 8],
+      "shade": false,
+      "rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+      "faces": {
+        "north": {"uv": [6, 0, 3, 2], "texture": "#3"},
+        "south": {"uv": [6, 0, 3, 2], "texture": "#3"}
+      }
+    },
+    {
+      "from": [8, 13, 6.5],
+      "to": [8, 15, 9.5],
+      "shade": false,
+      "rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+      "faces": {
+        "east": {"uv": [3, 14, 6, 16], "texture": "#3"},
+        "west": {"uv": [3, 14, 6, 16], "texture": "#3"}
+      }
+    }
+  ]
+}

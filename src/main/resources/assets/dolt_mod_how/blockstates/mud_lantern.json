@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "dolt_mod_how:block/mud_lantern"
+    },
+    "hanging=true": {
+      "model": "dolt_mod_how:block/hanging_mud_lantern"
+    }
+  }
+}

@@ -3,5 +3,7 @@
   "farmersdelight.tooltip.purulent_tea": "Extends 1 effect by 15 seconds\nRandom Curse (0:15)",
   "farmersdelight.tooltip.strong_purulent_tea": "Extends 1 effect by 30 seconds\nRandom Curse (0:30)",
 
-  "enchantment.dolt_mod_how.bounding": "Bounding"
+  "enchantment.dolt_mod_how.bounding": "Bounding",
+
+  "block.dolt_mod_how.mud_lantern": "Mud Lantern"
 }

@@ -6,6 +6,7 @@ import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowLootTable;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHRecipeSerializer;
 import com.mojang.logging.LogUtils;
+import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -21,6 +22,8 @@ public class DoltModHow
 {
     public static final String MOD_ID = "dolt_mod_how";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
+
 
     public DoltModHow() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -30,6 +33,7 @@ public class DoltModHow
 
         DMHEnchants.ENCHANTMENTS.register(bus);
         DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
+        REGISTRY_HELPER.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

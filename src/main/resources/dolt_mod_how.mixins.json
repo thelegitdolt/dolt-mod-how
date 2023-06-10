@@ -11,10 +11,13 @@
     "CuttingBoardBlockEntityMixin",
     "DispenserMinecartItemMixin",
     "DrinkableItemMixin",
+    "EffectDrinkItemMixin",
     "FlavoredCakeBlockMixin",
     "FungusColonyMixin",
+    "KnifeItemMixin",
     "PurulentTeaItemMixin",
     "RichSoilMixin",
+    "SwordItemMixin",
     "TipsyEffectMixin",
     "VanillaGuiOverlayMixin"
   ],

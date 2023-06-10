@@ -15,6 +15,7 @@
     "FlavoredCakeBlockMixin",
     "FungusColonyMixin",
     "KnifeItemMixin",
+    "MapAtlasCreateRecipeMixin",
     "PurulentTeaItemMixin",
     "RichSoilMixin",
     "SwordItemMixin",

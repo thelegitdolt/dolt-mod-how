@@ -6,6 +6,7 @@ import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -19,9 +20,12 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,6 +33,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.MissingMappingsEvent;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -89,6 +94,28 @@ public class DoltModHowEvent {
                 if (!nw.getInventory().add(stackie)) {
                     nw.drop(stackie, false);
                 }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerBreakBoringOreEvent(BlockEvent.BreakEvent event) {
+        if (event.getLevel() instanceof ServerLevel level) {
+            List<Block> smallXp = new ArrayList<>(List.of(Blocks.COPPER_ORE, Blocks.IRON_ORE));
+            smallXp.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("sullysmod", "jade_ore")));
+            smallXp.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("sullysmod", "deepslate_jade_ore")));
+
+            List<Block> bigXp = new ArrayList<>(List.of(Blocks.GOLD_ORE, Blocks.DEEPSLATE_GOLD_ORE));
+            bigXp.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("caverns_and_chasms", "silver_ore")));
+            bigXp.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("caverns_and_chasms", "deepslate_silver_ore")));
+
+
+            BlockState state = event.getState();
+            if (smallXp.contains(state.getBlock())) {
+                state.getBlock().popExperience(level, event.getPos(), level.getRandom().nextInt(0, 3));
+            }
+            else if (bigXp.contains(state.getBlock())) {
+                state.getBlock().popExperience(level, event.getPos(), level.getRandom().nextInt(1, 4));
             }
         }
     }

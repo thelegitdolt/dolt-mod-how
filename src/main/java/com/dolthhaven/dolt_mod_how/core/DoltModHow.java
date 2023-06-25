@@ -19,8 +19,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 @Mod(DoltModHow.MOD_ID)
-public class DoltModHow
-{
+public class DoltModHow {
     public static final String MOD_ID = "dolt_mod_how";
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
@@ -38,7 +37,6 @@ public class DoltModHow
 
         MinecraftForge.EVENT_BUS.register(this);
     }
-
     private void dataSetup(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper EFH = event.getExistingFileHelper();

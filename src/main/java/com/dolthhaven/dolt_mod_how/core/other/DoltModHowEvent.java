@@ -9,19 +9,19 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -37,7 +37,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
 public class DoltModHowEvent {
@@ -111,11 +110,21 @@ public class DoltModHowEvent {
 
 
             BlockState state = event.getState();
-            if (smallXp.contains(state.getBlock())) {
-                state.getBlock().popExperience(level, event.getPos(), level.getRandom().nextInt(0, 3));
-            }
-            else if (bigXp.contains(state.getBlock())) {
-                state.getBlock().popExperience(level, event.getPos(), level.getRandom().nextInt(1, 4));
+            if (event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof TieredItem tiered && TierSortingRegistry.isCorrectTierForDrops(tiered.getTier(), state)) {
+                int experience = level.getRandom().nextInt(0, 3);
+                if (smallXp.contains(state.getBlock())) {
+                    if (tiered.getTier().equals(Tiers.GOLD)) {
+                        experience = (int) Math.round(experience * 1.75);
+                    }
+                    state.getBlock().popExperience(level, event.getPos(), experience);
+                }
+                else if (bigXp.contains(state.getBlock())) {
+                    experience++;
+                    if (tiered.getTier().equals(Tiers.GOLD)) {
+                        experience = (int) Math.round(experience * 1.75);
+                    }
+                    state.getBlock().popExperience(level, event.getPos(), experience);
+                }
             }
         }
     }

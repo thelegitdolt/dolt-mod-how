@@ -1,21 +1,25 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
+import com.dolthhaven.dolt_mod_how.core.data.tag.CompatTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -30,13 +34,12 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.MissingMappingsEvent;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
-import java.util.ArrayList;
+import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
 public class DoltModHowEvent {
@@ -100,68 +103,44 @@ public class DoltModHowEvent {
     @SubscribeEvent
     public static void onPlayerBreakBoringOreEvent(BlockEvent.BreakEvent event) {
         if (event.getLevel() instanceof ServerLevel level) {
-            List<Block> smallXp = new ArrayList<>(List.of(Blocks.COPPER_ORE, Blocks.IRON_ORE));
-            smallXp.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("sullysmod", "jade_ore")));
-            smallXp.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("sullysmod", "deepslate_jade_ore")));
-
-            List<Block> bigXp = new ArrayList<>(List.of(Blocks.GOLD_ORE, Blocks.DEEPSLATE_GOLD_ORE));
-            bigXp.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("caverns_and_chasms", "silver_ore")));
-            bigXp.add(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("caverns_and_chasms", "deepslate_silver_ore")));
-
-
             BlockState state = event.getState();
-            if (event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof TieredItem tiered && TierSortingRegistry.isCorrectTierForDrops(tiered.getTier(), state)) {
-                int experience = level.getRandom().nextInt(0, 3);
-                if (smallXp.contains(state.getBlock())) {
-                    if (tiered.getTier().equals(Tiers.GOLD)) {
-                        experience = (int) Math.round(experience * 1.75);
-                    }
-                    state.getBlock().popExperience(level, event.getPos(), experience);
+            ItemStack stack = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
+            if (!(stack.getItem() instanceof PickaxeItem) && TierSortingRegistry.isCorrectTierForDrops(  ((TieredItem) stack.getItem()).getTier(), state )) {
+                return;
+            }
+
+            if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, event.getPlayer()) > 0) {
+                return;
+            }
+
+            final UniformInt COMMON_ORE = UniformInt.of(0, 3);
+            final UniformInt RARE_ORE = UniformInt.of(1, 4);
+
+            Map<Block, UniformInt> XpList = new HashMap<>();
+            XpList.put(Blocks.COPPER_ORE, COMMON_ORE);
+            XpList.put(Blocks.DEEPSLATE_COPPER_ORE, COMMON_ORE);
+            XpList.put(Blocks.IRON_ORE, COMMON_ORE);
+            XpList.put(Blocks.DEEPSLATE_IRON_ORE, COMMON_ORE);
+            XpList.put(getPotentialBlock("sullysmod", "jade_ore"), COMMON_ORE);
+            XpList.put(getPotentialBlock("sullysmod", "deepslate_jade_ore"), COMMON_ORE);
+
+            XpList.put(Blocks.GOLD_ORE, RARE_ORE);
+            XpList.put(Blocks.DEEPSLATE_GOLD_ORE, RARE_ORE);
+            XpList.put(getPotentialBlock("caverns_and_chasms", "silver_ore"), RARE_ORE);
+            XpList.put(getPotentialBlock("caverns_and_chasms", "deepslate_silver_ore"), RARE_ORE);
+
+            if (XpList.containsKey(state.getBlock())) {
+                int exp = XpList.get(state.getBlock()).sample(level.getRandom());
+                if (stack.is(CompatTags.EXPERIENCE_BOOST_ITEMS)) {
+                    exp = (int) Math.round(exp * 1.75);
                 }
-                else if (bigXp.contains(state.getBlock())) {
-                    experience++;
-                    if (tiered.getTier().equals(Tiers.GOLD)) {
-                        experience = (int) Math.round(experience * 1.75);
-                    }
-                    state.getBlock().popExperience(level, event.getPos(), experience);
-                }
+                state.getBlock().popExperience(level, event.getPos(), exp);
             }
         }
     }
 
-    @SubscribeEvent
-    public static void onBlockRemapEvent(MissingMappingsEvent event) {
-        List<MissingMappingsEvent.Mapping<Block>> mappings = event.getMappings(ForgeRegistries.Keys.BLOCKS, "connectedglass");
-        ImmutableMap.Builder<ResourceLocation, Block> building = new ImmutableMap.Builder<>();
-
-        for (DyeColor color : DyeColor.values()) {
-            building.put(res("borderless_glass_" + color.getName()),
-                    Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("minecraft", color.getName() + "_stained_glass"))));
-            building.put(res("borderless_glass_" + color.getName() + "_pane"),
-                    Objects.requireNonNull(ForgeRegistries.BLOCKS.getValue(new ResourceLocation("minecraft", color.getName() + "_stained_glass_pane"))));
-
-        }
-
-        building.put(res("borderless_glass"), Blocks.GLASS);
-        building.put(res("borderless_glass_pane"), Blocks.GLASS_PANE);
-        building.put(res("tinted_borderless_glass"), Blocks.TINTED_GLASS);
-
-        building.put(new ResourceLocation("abundant_atmosphere", "mud_lantern"), DMHBlocks.MUD_LANTERN.get());
-
-        Map<ResourceLocation, Block> blockRemapping = building.build();
-
-        for (MissingMappingsEvent.Mapping<Block> mapping : mappings) {
-            Block block = blockRemapping.get(mapping.getKey());
-            if (block != null) {
-                if (ForgeRegistries.BLOCKS.getKey(block) != null) {
-                    mapping.remap(block);
-                }
-            }
-        }
-
+    private static @Nullable Block getPotentialBlock(String path, String name) {
+        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(path, name));
     }
 
-    public static ResourceLocation res(String hi) {
-        return new ResourceLocation("connectedglass", hi);
-    }
 }

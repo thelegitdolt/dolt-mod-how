@@ -97,7 +97,6 @@ dependencies {
     implementation fg.deobf("curse.maven:abnormals-delight-362393:${project.abnormalsDelight}")
     implementation fg.deobf("curse.maven:atmospheric-442719:${project.atmospheric}")
     implementation fg.deobf("curse.maven:upgrade_aquatic-326895:${project.upgradeAquatic}")
-    implementation fg.deobf("curse.maven:aileron-649925:${project.aileron}")
     implementation fg.deobf("curse.maven:neapolitan-382016:${project.neapolitan}")
 
     implementation fg.deobf("curse.maven:woodworks-543610:${project.woodworks}")

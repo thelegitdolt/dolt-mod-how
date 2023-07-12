@@ -33,15 +33,18 @@ public abstract class MobEntityMixin extends LivingEntity {
 
     @Inject(method = "populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V", at = @At("TAIL"))
     private void DoltModHow$ChanceForWanderingBootsSpawn(RandomSource random, DifficultyInstance difficulty, CallbackInfo info) {
-        int difficultyChance = difficulty.getDifficulty().getId() + 1;
 
         double distance = Math.sqrt((this.getOnPos().getX() * this.getOnPos().getX()) + (this.getOnPos().getZ() * this.getOnPos().getZ()));
-        double chance = difficultyChance * Math.min(Math.sqrt(distance) / 40, Math.log10(distance)) / 200.0;
+        double chance = dubs(distance);
         if (random.nextDouble() < chance) {
-
             this.setItemSlot(EquipmentSlot.FEET, new ItemStack(EnvironmentalItems.WANDERER_BOOTS.get()));
             this.armorDropChances[EquipmentSlot.FEET.getIndex()] = 1.0F;
         }
+    }
+
+    private static double dubs(double distance) {
+        return (Math.pow((distance / 4500.0), 0.333) / 30.0) + (Math.exp(
+                - Math.pow((distance - 24000) / 8000.0, 2)) / 20.0);
     }
 
 }

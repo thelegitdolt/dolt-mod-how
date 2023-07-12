@@ -15,6 +15,6 @@ public class KnifeItemMixin {
     @Inject(method = "canApplyAtEnchantingTable(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/enchantment/Enchantment;)Z",
     at = @At(value = "RETURN"), cancellable = true, remap = false)
     private void DoltModHow$NoEfficiencyOnKnifeEnchantmentTable(ItemStack stack, Enchantment enchantment, CallbackInfoReturnable<Boolean> cir) {
-        if (enchantment.equals(Enchantments.BLOCK_EFFICIENCY) || enchantment.equals(Enchantments.SILK_TOUCH) || enchantment.equals(Enchantments.FIRE_ASPECT)) cir.setReturnValue(false);
+        if (enchantment.equals(Enchantments.SILK_TOUCH) || enchantment.equals(Enchantments.BLOCK_EFFICIENCY) || enchantment.equals(Enchantments.FIRE_ASPECT)) cir.setReturnValue(false);
     }
 }

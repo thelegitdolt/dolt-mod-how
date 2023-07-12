@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "dolt_mod_how:sturdy_deepslate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "minecraft:cobbled_deepslate"
+  }
+}

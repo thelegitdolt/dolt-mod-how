@@ -12,7 +12,6 @@
     "DispenserMinecartItemMixin",
     "DrinkableItemMixin",
     "EffectDrinkItemMixin",
-    "FireAspectEnchantmentMixin",
     "FlavoredCakeBlockMixin",
     "FungusColonyMixin",
     "KnifeItemMixin",

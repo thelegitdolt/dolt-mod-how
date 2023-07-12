@@ -30,6 +30,7 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -43,6 +44,26 @@ import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
 public class DoltModHowEvent {
+    private static final Map<Block, UniformInt> XpList = new HashMap<>();
+
+    static {
+        final UniformInt COMMON_ORE = UniformInt.of(0, 3);
+        final UniformInt RARE_ORE = UniformInt.of(1, 4);
+
+        XpList.put(Blocks.COPPER_ORE, COMMON_ORE);
+        XpList.put(Blocks.DEEPSLATE_COPPER_ORE, COMMON_ORE);
+        XpList.put(Blocks.IRON_ORE, COMMON_ORE);
+        XpList.put(Blocks.DEEPSLATE_IRON_ORE, COMMON_ORE);
+        XpList.put(getPotentialBlock("sullysmod", "jade_ore"), COMMON_ORE);
+        XpList.put(getPotentialBlock("sullysmod", "deepslate_jade_ore"), COMMON_ORE);
+
+        XpList.put(Blocks.GOLD_ORE, RARE_ORE);
+        XpList.put(Blocks.DEEPSLATE_GOLD_ORE, RARE_ORE);
+        XpList.put(getPotentialBlock("caverns_and_chasms", "silver_ore"), RARE_ORE);
+        XpList.put(getPotentialBlock("caverns_and_chasms", "deepslate_silver_ore"), RARE_ORE);
+    }
+
+
 
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
@@ -100,12 +121,14 @@ public class DoltModHowEvent {
         }
     }
 
+
+
     @SubscribeEvent
     public static void onPlayerBreakBoringOreEvent(BlockEvent.BreakEvent event) {
         if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = event.getState();
             ItemStack stack = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
-            if (!(stack.getItem() instanceof PickaxeItem) && TierSortingRegistry.isCorrectTierForDrops(  ((TieredItem) stack.getItem()).getTier(), state )) {
+            if (!event.getPlayer().hasCorrectToolForDrops(state)) {
                 return;
             }
 
@@ -113,28 +136,12 @@ public class DoltModHowEvent {
                 return;
             }
 
-            final UniformInt COMMON_ORE = UniformInt.of(0, 3);
-            final UniformInt RARE_ORE = UniformInt.of(1, 4);
-
-            Map<Block, UniformInt> XpList = new HashMap<>();
-            XpList.put(Blocks.COPPER_ORE, COMMON_ORE);
-            XpList.put(Blocks.DEEPSLATE_COPPER_ORE, COMMON_ORE);
-            XpList.put(Blocks.IRON_ORE, COMMON_ORE);
-            XpList.put(Blocks.DEEPSLATE_IRON_ORE, COMMON_ORE);
-            XpList.put(getPotentialBlock("sullysmod", "jade_ore"), COMMON_ORE);
-            XpList.put(getPotentialBlock("sullysmod", "deepslate_jade_ore"), COMMON_ORE);
-
-            XpList.put(Blocks.GOLD_ORE, RARE_ORE);
-            XpList.put(Blocks.DEEPSLATE_GOLD_ORE, RARE_ORE);
-            XpList.put(getPotentialBlock("caverns_and_chasms", "silver_ore"), RARE_ORE);
-            XpList.put(getPotentialBlock("caverns_and_chasms", "deepslate_silver_ore"), RARE_ORE);
-
             if (XpList.containsKey(state.getBlock())) {
                 int exp = XpList.get(state.getBlock()).sample(level.getRandom());
                 if (stack.is(CompatTags.EXPERIENCE_BOOST_ITEMS)) {
                     exp = (int) Math.round(exp * 1.75);
                 }
-                state.getBlock().popExperience(level, event.getPos(), exp);
+                event.setExpToDrop(exp);
             }
         }
     }

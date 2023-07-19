@@ -16,8 +16,6 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
@@ -25,14 +23,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
@@ -46,21 +43,18 @@ import java.util.Map;
 public class DoltModHowEvent {
     private static final Map<Block, UniformInt> XpList = new HashMap<>();
 
+    private static final UniformInt COMMON_ORE = UniformInt.of(0, 3);
+    private static final UniformInt RARE_ORE = UniformInt.of(1, 4);
+
     static {
-        final UniformInt COMMON_ORE = UniformInt.of(0, 3);
-        final UniformInt RARE_ORE = UniformInt.of(1, 4);
 
         XpList.put(Blocks.COPPER_ORE, COMMON_ORE);
         XpList.put(Blocks.DEEPSLATE_COPPER_ORE, COMMON_ORE);
         XpList.put(Blocks.IRON_ORE, COMMON_ORE);
         XpList.put(Blocks.DEEPSLATE_IRON_ORE, COMMON_ORE);
-        XpList.put(getPotentialBlock("sullysmod", "jade_ore"), COMMON_ORE);
-        XpList.put(getPotentialBlock("sullysmod", "deepslate_jade_ore"), COMMON_ORE);
 
         XpList.put(Blocks.GOLD_ORE, RARE_ORE);
         XpList.put(Blocks.DEEPSLATE_GOLD_ORE, RARE_ORE);
-        XpList.put(getPotentialBlock("caverns_and_chasms", "silver_ore"), RARE_ORE);
-        XpList.put(getPotentialBlock("caverns_and_chasms", "deepslate_silver_ore"), RARE_ORE);
     }
 
 
@@ -127,7 +121,6 @@ public class DoltModHowEvent {
     public static void onPlayerBreakBoringOreEvent(BlockEvent.BreakEvent event) {
         if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = event.getState();
-            ItemStack stack = event.getPlayer().getItemInHand(InteractionHand.MAIN_HAND);
             if (!event.getPlayer().hasCorrectToolForDrops(state)) {
                 return;
             }
@@ -136,11 +129,18 @@ public class DoltModHowEvent {
                 return;
             }
 
+            if (ModList.get().isLoaded("caverns_and_chasms")) {
+                XpList.put(getPotentialBlock("caverns_and_chasms", "silver_ore"), RARE_ORE);
+                XpList.put(getPotentialBlock("caverns_and_chasms", "deepslate_silver_ore"), RARE_ORE);
+            }
+
+            if (ModList.get().isLoaded("sullysmod")) {
+                XpList.put(getPotentialBlock("sullysmod", "jade_ore"), COMMON_ORE);
+                XpList.put(getPotentialBlock("sullysmod", "deepslate_jade_ore"), COMMON_ORE);
+            }
+
             if (XpList.containsKey(state.getBlock())) {
                 int exp = XpList.get(state.getBlock()).sample(level.getRandom());
-                if (stack.is(CompatTags.EXPERIENCE_BOOST_ITEMS)) {
-                    exp = (int) Math.round(exp * 1.75);
-                }
                 event.setExpToDrop(exp);
             }
         }

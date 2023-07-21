@@ -7,7 +7,7 @@ import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataMana
 import net.minecraft.resources.ResourceLocation;
 
 public class DoltModHowTrackedData {
-    public static final TrackedData<Long> LAST_EPILOGUE_DISC = TrackedData.Builder.create(DataProcessors.LONG, () -> 0L).enableSaving().build();
+    public static final TrackedData<Long> LAST_EPILOGUE_DISC = TrackedData.Builder.create(DataProcessors.LONG, () -> -24000L).enableSaving().build();
 
     public static void registerTrackedData() {
         TrackedDataManager.INSTANCE.registerData(new ResourceLocation(DoltModHow.MOD_ID, "last_epilogue_disc"), LAST_EPILOGUE_DISC);

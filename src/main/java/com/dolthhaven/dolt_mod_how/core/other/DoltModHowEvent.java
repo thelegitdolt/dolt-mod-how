@@ -83,7 +83,7 @@ public class DoltModHowEvent {
                         return;
 
                     bolt.moveTo(Vec3.atBottomCenterOf(pos.above()));
-                    bolt.setCause(event.getEntity() instanceof ServerPlayer player ? player : null);
+                    bolt.setCause(event.getProjectile().getOwner() instanceof ServerPlayer player ? player : null);
                     level.addFreshEntity(bolt);
                     level.playSound(null, pos, SoundEvents.TRIDENT_THUNDER, SoundSource.WEATHER, 5.0F, 1.0F);
                 }

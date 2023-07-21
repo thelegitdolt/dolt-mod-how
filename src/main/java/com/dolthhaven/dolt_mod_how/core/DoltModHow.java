@@ -37,6 +37,7 @@ public class DoltModHow {
 
         MinecraftForge.EVENT_BUS.register(this);
     }
+
     private void dataSetup(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper EFH = event.getExistingFileHelper();

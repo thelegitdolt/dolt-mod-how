@@ -64,7 +64,6 @@ public abstract class LightningBoltMixin extends Entity {
             lastDiscTime = manager.getValue(DoltModHowTrackedData.LAST_EPILOGUE_DISC);
         }
 
-        DoltModHow.LOGGER.info(lastDiscTime + " SHUT UP HI HERE NUMBER YAY");
 
         if (level.getGameTime() - lastDiscTime < Level.TICKS_PER_DAY)
             return;
@@ -75,7 +74,6 @@ public abstract class LightningBoltMixin extends Entity {
             level.levelEvent(null, 1010, pos, Item.getId(epilogue));
 
             if (cause != null) {
-                DoltModHow.LOGGER.info(lastDiscTime + " WHATS UP");
                 IDataManager manager = (IDataManager) cause;
                 manager.setValue(DoltModHowTrackedData.LAST_EPILOGUE_DISC, level.getGameTime());
             }

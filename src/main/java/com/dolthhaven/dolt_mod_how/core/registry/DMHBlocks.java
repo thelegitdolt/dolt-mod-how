@@ -29,7 +29,7 @@ public class DMHBlocks {
 
 
     public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", () ->
-            new FishBarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).randomTicks(), SMSounds.LANTERNFISH_FLOP.get(), false), CreativeModeTab.TAB_BUILDING_BLOCKS);
+            new FishBarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).randomTicks().lightLevel(state -> 5), SMSounds.LANTERNFISH_FLOP.get(), false), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static class DoltModHowBlockProps {
         public static final BlockBehaviour.Properties MUD_LANTERN = BlockBehaviour.Properties.of(Material.ICE).requiresCorrectToolForDrops().strength(1.0f, 3.0f).sound(SoundType.MUD_BRICKS).lightLevel(state -> 7).noOcclusion();

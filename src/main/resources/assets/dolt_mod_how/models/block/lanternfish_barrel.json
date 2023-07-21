@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "dolt_mod_how:block/barrel_of_lanternfish_top",
+    "bottom": "dolt_mod_how:block/barrel_of_lanternfish_bottom",
+    "side": "dolt_mod_how:block/barrel_of_lanternfish_side"
+  }
+}

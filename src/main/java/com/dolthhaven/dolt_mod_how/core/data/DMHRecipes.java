@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.data;
 
+import com.uraneptus.sullysmod.core.registry.SMItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -25,6 +26,9 @@ public class DMHRecipes extends RecipeProvider {
         ShapedRecipeBuilder.shaped(STURDY_DEEPSLATE.get()).define('1', Items.COBBLED_DEEPSLATE).pattern("111").pattern("111").pattern("111").unlockedBy("has_cobble_deepslate", has(Items.COBBLED_DEEPSLATE)).save(consumer);
         ShapelessRecipeBuilder.shapeless(Items.COBBLED_DEEPSLATE, 9).requires(STURDY_DEEPSLATE.get()).unlockedBy("has_sturdy_dep", has(STURDY_DEEPSLATE.get())).save(consumer, new ResourceLocation("dolt_mod_how", "cobbled_deepslate_from_unpacking_sturdy_deepslate"));
 
+
+        ShapedRecipeBuilder.shaped(LANTERNFISH_BARREL.get()).define('1', SMItems.LANTERNFISH.get()).pattern("111").pattern("111").pattern("111").unlockedBy("has_lanternfish", has(SMItems.LANTERNFISH.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(LANTERNFISH_BARREL.get(), 9).requires(LANTERNFISH_BARREL.get()).unlockedBy("has_lanternfish_barrel", has(LANTERNFISH_BARREL.get())).save(consumer, "unpack_lanternfish_barrel");
     }
 
 }

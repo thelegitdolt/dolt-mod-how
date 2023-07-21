@@ -2,7 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
-import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
+import com.uraneptus.sullysmod.core.registry.SMBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -16,19 +16,15 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.JukeboxBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -64,6 +60,7 @@ public class DoltModHowEvent {
 
         XpList.put(Blocks.GOLD_ORE, RARE_ORE);
         XpList.put(Blocks.DEEPSLATE_GOLD_ORE, RARE_ORE);
+
     }
 
     @SubscribeEvent
@@ -168,10 +165,9 @@ public class DoltModHowEvent {
                 XpList.put(getPotentialBlock("caverns_and_chasms", "deepslate_silver_ore"), RARE_ORE);
             }
 
-            if (ModList.get().isLoaded("sullysmod")) {
-                XpList.put(getPotentialBlock("sullysmod", "jade_ore"), COMMON_ORE);
-                XpList.put(getPotentialBlock("sullysmod", "deepslate_jade_ore"), COMMON_ORE);
-            }
+
+            XpList.put(SMBlocks.JADE_ORE.get(), COMMON_ORE);
+            XpList.put(SMBlocks.DEEPSLATE_JADE_ORE.get(), COMMON_ORE);
 
             if (XpList.containsKey(state.getBlock())) {
                 int exp = XpList.get(state.getBlock()).sample(level.getRandom());

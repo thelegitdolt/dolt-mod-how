@@ -5,6 +5,7 @@ import com.dolthhaven.dolt_mod_how.core.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowBlockTags;
 import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowLootTable;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHRecipeSerializer;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -33,6 +34,7 @@ public class DoltModHow {
 
         DMHEnchants.ENCHANTMENTS.register(bus);
         DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
+        DMHParticles.PARTICLES.register(bus);
         REGISTRY_HELPER.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);

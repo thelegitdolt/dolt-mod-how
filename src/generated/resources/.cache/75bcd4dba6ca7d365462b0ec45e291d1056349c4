@@ -1,4 +1,5 @@
-// 1.19.2	2023-07-11T23:51:27.772165	Tags for minecraft:block
+// 1.19.2	2023-07-21T13:10:03.743349	Tags for minecraft:block
 119996d7a1dbca8cb945689eda23fdb32046b16f data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
+a26b1a877745d8ab6d60a77bbb362923c156cb1f data/minecraft/tags/blocks/mineable/axe.json
 8dc27cf1ff770afbb200c5575c388a7f623a1f7b data/minecraft/tags/blocks/mineable/pickaxe.json
 d0812613832bbc602d7ff3274c81d5729e91c2ea data/nethersdelight/tags/blocks/fungus_colony_growable_on.json

@@ -2,9 +2,13 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.block.CompatLanternBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.github.ilja615.fish_in_planks.FishBarrelBlock;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import com.uraneptus.sullysmod.core.registry.SMSounds;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -22,6 +26,10 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> STURDY_DEEPSLATE = HELPER.createBlock("sturdy_deepslate", () ->
             new Block(DoltModHowBlockProps.STURDY_DEEPSLATE), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+
+    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", () ->
+            new FishBarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).randomTicks(), SMSounds.LANTERNFISH_FLOP.get(), false), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static class DoltModHowBlockProps {
         public static final BlockBehaviour.Properties MUD_LANTERN = BlockBehaviour.Properties.of(Material.ICE).requiresCorrectToolForDrops().strength(1.0f, 3.0f).sound(SoundType.MUD_BRICKS).lightLevel(state -> 7).noOcclusion();

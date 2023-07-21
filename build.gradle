@@ -105,11 +105,15 @@ dependencies {
     implementation fg.deobf("curse.maven:supplementaries-412082:${project.supplementaries}")
     implementation fg.deobf("curse.maven:moonlight-499980:${project.moonlight}")
 
+    implementation fg.deobf("curse.maven:fish-in-planks-408955:${project.fishInPlanks}")
+    implementation fg.deobf("curse.maven:sullys-mod-386534:${project.sullysMod}")
+
 
 
     implementation fg.deobf("mezz.jei:jei-${project.minecraft}-common-api:${project.jei}")
     implementation fg.deobf("mezz.jei:jei-${project.minecraft}-forge-api:${project.jei}")
     runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge:${project.jei}")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.19:${project.geckoLib}")
 
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
@@ -119,6 +123,10 @@ repositories {
     maven { url "https://dvs1.progwml6.com/files/maven/" }
     maven { url "https://modmaven.k-4u.nl" }
     maven { url "https://www.cursemaven.com" }
+    maven {
+        name = "GeckoLib Maven"
+        url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
+    }
 }
 
 jar {

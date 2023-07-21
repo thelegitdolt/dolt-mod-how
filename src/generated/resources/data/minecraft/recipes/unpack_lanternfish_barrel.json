@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "dolt_mod_how:lanternfish_barrel"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "dolt_mod_how:lanternfish_barrel"
+  }
+}

@@ -23,11 +23,8 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> MUD_LANTERN = HELPER.createBlock("mud_lantern", () ->
             new CompatLanternBlock(DoltModHowBlockProps.MUD_LANTERN), CreativeModeTab.TAB_BUILDING_BLOCKS);
-
     public static final RegistryObject<Block> STURDY_DEEPSLATE = HELPER.createBlock("sturdy_deepslate", () ->
             new Block(DoltModHowBlockProps.STURDY_DEEPSLATE), CreativeModeTab.TAB_BUILDING_BLOCKS);
-
-
     public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", () ->
             new FishBarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).randomTicks().lightLevel(state -> 5), SMSounds.LANTERNFISH_FLOP.get(), false), CreativeModeTab.TAB_BUILDING_BLOCKS);
 

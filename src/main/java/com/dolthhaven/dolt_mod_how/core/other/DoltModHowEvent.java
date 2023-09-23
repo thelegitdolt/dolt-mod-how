@@ -6,20 +6,25 @@ import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.uraneptus.sullysmod.core.registry.SMBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
@@ -38,6 +43,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import org.spongepowered.asm.mixin.Unique;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.HashMap;
@@ -75,6 +81,18 @@ public class DoltModHowEvent {
         }
     }
 
+    private static double dubs(double distance) {
+        return ((cubeRoot(distance / 4500.0)) / 30.0)
+                + (Math.exp(   -square((distance - 24000.0) / 8000.0 )   ) / 20.0);
+    }
+
+    private static double square(double thing) {
+        return thing * thing;
+    }
+
+    private static double cubeRoot(double thing) {
+        return Math.pow(thing, 0.3333);
+    }
 
 
     @SubscribeEvent

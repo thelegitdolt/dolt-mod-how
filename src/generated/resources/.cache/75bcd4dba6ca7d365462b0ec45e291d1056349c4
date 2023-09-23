@@ -1,4 +1,6 @@
-// 1.19.2	2023-07-21T13:10:03.743349	Tags for minecraft:block
+// 1.19.2	2023-09-23T01:29:09.802462	Tags for minecraft:block
+191326632bf1184647000c508c82b90f694b128d data/dolt_mod_how/tags/blocks/common_ores.json
+5198daae267d2260d8ff46ec336e4c5afb619f46 data/dolt_mod_how/tags/blocks/rare_ores.json
 119996d7a1dbca8cb945689eda23fdb32046b16f data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
 a26b1a877745d8ab6d60a77bbb362923c156cb1f data/minecraft/tags/blocks/mineable/axe.json
 8dc27cf1ff770afbb200c5575c388a7f623a1f7b data/minecraft/tags/blocks/mineable/pickaxe.json

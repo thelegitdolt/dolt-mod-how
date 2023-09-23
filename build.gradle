@@ -77,11 +77,11 @@ sourceSets.main.resources {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft}-${project.forge}"
+
     implementation fg.deobf("com.teamabnormals:blueprint:${project.minecraft}-${project.blueprint}")
 
     implementation fg.deobf("com.teamabnormals:boatload:${project.minecraft}-${project.boatload}")
 
-    implementation fg.deobf("curse.maven:goodending-690161:4363719")
     implementation fg.deobf("curse.maven:farmers_delight-398521:${project.farmersDelight}")
     implementation fg.deobf("curse.maven:quark-243121:${project.quark}")
     implementation fg.deobf("curse.maven:autoreglib-250363:${project.autoRegLib}")
@@ -91,10 +91,6 @@ dependencies {
     implementation fg.deobf("curse.maven:farmersrespite-551453:${project.farmersRespite}")
     implementation fg.deobf("curse.maven:nethersdelight-496394:${project.nethersDelight}")
 
-    implementation fg.deobf("curse.maven:map-atlas-forge-519759:${project.mapAtlases}")
-
-    implementation fg.deobf("curse.maven:windswept-636321:${project.windswept}")
-    implementation fg.deobf("curse.maven:atmospheric-442719:${project.atmospheric}")
     implementation fg.deobf("curse.maven:upgrade_aquatic-326895:${project.upgradeAquatic}")
     implementation fg.deobf("curse.maven:neapolitan-382016:${project.neapolitan}")
 
@@ -103,7 +99,6 @@ dependencies {
 
     implementation fg.deobf("curse.maven:fish-in-planks-408955:${project.fishInPlanks}")
     implementation fg.deobf("curse.maven:sullys-mod-386534:${project.sullysMod}")
-
 
 
     implementation fg.deobf("mezz.jei:jei-${project.minecraft}-common-api:${project.jei}")
@@ -122,13 +117,8 @@ repositories {
     maven { url "https://modmaven.k-4u.nl" }
     maven { url "https://www.cursemaven.com" }
     maven {
-        name = "GeckoLib Maven"
-        url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
-    }
-
-    maven {
-        name = "Moonflower Repo"
-        url = "https://repo.moonflower.gg/releases"
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
     }
 }
 

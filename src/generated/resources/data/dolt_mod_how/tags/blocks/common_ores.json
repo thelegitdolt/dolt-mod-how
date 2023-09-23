@@ -1,0 +1,16 @@
+{
+  "values": [
+    "minecraft:copper_ore",
+    "minecraft:deepslate_copper_ore",
+    "minecraft:iron_ore",
+    "minecraft:deepslate_iron_ore",
+    {
+      "id": "sullysmod:jade_ore",
+      "required": false
+    },
+    {
+      "id": "sullysmod:deepslate_jade_ore",
+      "required": false
+    }
+  ]
+}

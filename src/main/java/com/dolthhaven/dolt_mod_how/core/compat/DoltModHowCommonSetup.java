@@ -1,6 +1,5 @@
 package com.dolthhaven.dolt_mod_how.core.compat;
 
-import com.dolthhaven.dolt_mod_how.core.other.DoltModHowTrackedData;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.github.ilja615.fish_in_planks.FishBarrelBlock;
@@ -9,7 +8,6 @@ import com.uraneptus.sullysmod.core.registry.SMItems;
 public class DoltModHowCommonSetup {
 
     public static void commonSetup() {
-        DoltModHowTrackedData.registerTrackedData();
         registerFishBarrels();
     }
 

@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.auditoryboatsounds;
 
 import net.mehvahdjukaar.supplementaries.common.items.DispenserMinecartItem;
 import net.minecraft.sounds.SoundEvents;

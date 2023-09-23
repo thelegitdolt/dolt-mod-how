@@ -1,10 +1,11 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.data.tag.CompatTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
+import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.uraneptus.sullysmod.core.registry.SMBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -37,31 +38,17 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
-import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
 public class DoltModHowEvent {
-    private static final Map<Block, UniformInt> XpList = new HashMap<>();
+    private static final UniformInt COMMON_ORE = UniformInt.of(0, 2);
+    private static final UniformInt RARE_ORE = UniformInt.of(1, 3);
 
-    private static final UniformInt COMMON_ORE = UniformInt.of(0, 3);
-    private static final UniformInt RARE_ORE = UniformInt.of(1, 4);
-
-    static {
-        XpList.put(Blocks.COPPER_ORE, COMMON_ORE);
-        XpList.put(Blocks.DEEPSLATE_COPPER_ORE, COMMON_ORE);
-        XpList.put(Blocks.IRON_ORE, COMMON_ORE);
-        XpList.put(Blocks.DEEPSLATE_IRON_ORE, COMMON_ORE);
-
-        XpList.put(Blocks.GOLD_ORE, RARE_ORE);
-        XpList.put(Blocks.DEEPSLATE_GOLD_ORE, RARE_ORE);
-
-    }
 
     @SubscribeEvent
     public static void projectileImpact(ProjectileImpactEvent event) {
@@ -160,24 +147,16 @@ public class DoltModHowEvent {
                 return;
             }
 
-            if (ModList.get().isLoaded("caverns_and_chasms")) {
-                XpList.put(getPotentialBlock("caverns_and_chasms", "silver_ore"), RARE_ORE);
-                XpList.put(getPotentialBlock("caverns_and_chasms", "deepslate_silver_ore"), RARE_ORE);
-            }
 
 
-            XpList.put(SMBlocks.JADE_ORE.get(), COMMON_ORE);
-            XpList.put(SMBlocks.DEEPSLATE_JADE_ORE.get(), COMMON_ORE);
-
-            if (XpList.containsKey(state.getBlock())) {
-                int exp = XpList.get(state.getBlock()).sample(level.getRandom());
+            if (state.is(CompatTags.COMMON_ORES)) {
+                int exp = COMMON_ORE.sample(level.getRandom());
                 event.setExpToDrop(exp);
             }
+            else if (state.is(CompatTags.RARE_ORES)) {
+                event.setExpToDrop(RARE_ORE.sample(level.getRandom()));
+            }
         }
-    }
-
-    private static @Nullable Block getPotentialBlock(String path, String name) {
-        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(path, name));
     }
 
 }

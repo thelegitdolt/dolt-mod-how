@@ -1,7 +1,6 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.environmental;
 
 import com.teamabnormals.environmental.core.registry.EnvironmentalItems;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -32,6 +31,7 @@ public abstract class MobEntityMixin extends LivingEntity {
     @Inject(method = "populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V", at = @At("TAIL"))
     private void DoltModHow$ChanceForWanderingBootsSpawn(RandomSource random, DifficultyInstance difficulty, CallbackInfo info) {
         double chance = dubs(this.position().distanceToSqr(0, 63, 0));
+
         if (random.nextDouble() < chance) {
             this.setItemSlot(EquipmentSlot.FEET, new ItemStack(EnvironmentalItems.WANDERER_BOOTS.get()));
             this.armorDropChances[EquipmentSlot.FEET.getIndex()] = 1.0F;
@@ -39,8 +39,18 @@ public abstract class MobEntityMixin extends LivingEntity {
     }
 
     private static double dubs(double distance) {
-        return Math.min(1, Math.pow((distance / 4500.0), 0.333) / 30.0 + (Math.exp(
-                - Math.pow((distance - 24000) / 8000.0, 2)) / 20.0));
+        return (cubeRoot(distance / 4500.0) / 30.0) +
+                (Math.exp(
+                        (square(distance - 24000)) / -8000.0
+                ) / 20.0);
+    }
+
+    private static double square(double thing) {
+        return thing * thing;
+    }
+
+    private static double cubeRoot(double thing) {
+        return Math.pow(thing, 0.3333);
     }
 
 }

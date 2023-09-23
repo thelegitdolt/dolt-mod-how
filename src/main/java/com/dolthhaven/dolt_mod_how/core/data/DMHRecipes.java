@@ -27,7 +27,7 @@ public class DMHRecipes extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(Items.COBBLED_DEEPSLATE, 9).requires(STURDY_DEEPSLATE.get()).unlockedBy("has_sturdy_dep", has(STURDY_DEEPSLATE.get())).save(consumer, new ResourceLocation("dolt_mod_how", "cobbled_deepslate_from_unpacking_sturdy_deepslate"));
 
         ShapedRecipeBuilder.shaped(LANTERNFISH_BARREL.get()).define('1', SMItems.LANTERNFISH.get()).pattern("111").pattern("111").pattern("111").unlockedBy("has_lanternfish", has(SMItems.LANTERNFISH.get())).save(consumer);
-        ShapelessRecipeBuilder.shapeless(LANTERNFISH_BARREL.get(), 9).requires(LANTERNFISH_BARREL.get()).unlockedBy("has_lanternfish_barrel", has(LANTERNFISH_BARREL.get())).save(consumer, "unpack_lanternfish_barrel");
+        ShapelessRecipeBuilder.shapeless(SMItems.LANTERNFISH.get(), 9).requires(LANTERNFISH_BARREL.get()).unlockedBy("has_lanternfish_barrel", has(LANTERNFISH_BARREL.get())).save(consumer, "unpack_lanternfish_barrel");
     }
 
 }

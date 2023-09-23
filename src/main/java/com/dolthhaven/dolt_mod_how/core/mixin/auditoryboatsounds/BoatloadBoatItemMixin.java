@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.auditoryboatsounds;
 
 import com.teamabnormals.boatload.common.entity.vehicle.BoatloadBoat;
 import com.teamabnormals.boatload.common.item.BoatloadBoatItem;

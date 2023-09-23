@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;

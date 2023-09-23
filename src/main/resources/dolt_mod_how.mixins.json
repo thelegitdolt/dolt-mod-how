@@ -4,29 +4,31 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "dolt_mod_how.refmap.json",
   "mixins": [
-    "BlueprintBoatItemMixin",
-    "BoatloadBoatItemMixin",
-    "CaveSpiderMixin",
-    "CoffeeCakeBlockMixin",
-    "CuttingBoardBlockEntityMixin",
-    "DispenserMinecartItemMixin",
-    "DrinkableItemMixin",
-    "EffectDrinkItemMixin",
-    "FlavoredCakeBlockMixin",
-    "FungusColonyMixin",
-    "KnifeItemMixin",
-    "LightningBoltMixin",
-    "MapAtlasCreateRecipeMixin",
-    "MobEntityMixin",
-    "PurulentTeaItemMixin",
-    "RichSoilMixin",
-    "SwordItemMixin",
-    "TipsyEffectMixin",
-    "VanillaGuiOverlayMixin"
+    "anchor.LightningBoltMixin",
+
+    "auditoryboatsounds.BlueprintBoatItemMixin",
+    "auditoryboatsounds.BoatloadBoatItemMixin",
+    "auditoryboatsounds.CoffeeCakeBlockMixin",
+    "auditoryboatsounds.DispenserMinecartItemMixin",
+    "auditoryboatsounds.FlavoredCakeBlockMixin",
+
+    "brewin_and_chewin.TipsyEffectMixin",
+    "brewin_and_chewin.VanillaGuiOverlayMixin",
+
+    "environmental.MobEntityMixin",
+
+    "farmersdelight.KnifeItemMixin",
+    "farmers_respite.PurulentTeaItemMixin",
+
+    "nethers_delight.RichSoilMixin",
+    "nethers_delight.FungusColonyMixin",
+    "supplementaries.CuttingBoardBlockEntityMixin",
+
+    "vanilla.SwordItemMixin"
   ],
   "client": [
-    "client.GameRendererMixin",
-    "client.LocalPlayerMixin"
+    "brewin_and_chewin.client.GameRendererMixin",
+    "brewin_and_chewin.client.LocalPlayerMixin"
   ],
   "minVersion": "0.8"
 }

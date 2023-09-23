@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.auditoryboatsounds;
 
 import com.teamabnormals.neapolitan.common.block.FlavoredCakeBlock;
 import net.minecraft.core.BlockPos;

@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin.client;
+package com.dolthhaven.dolt_mod_how.core.mixin.brewin_and_chewin.client;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.multiplayer.ClientLevel;

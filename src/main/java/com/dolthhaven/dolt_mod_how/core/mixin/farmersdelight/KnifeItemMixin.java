@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.farmersdelight;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -12,6 +12,9 @@ import vectorwing.farmersdelight.common.item.KnifeItem;
 @Mixin(KnifeItem.class)
 public class KnifeItemMixin {
 
+    /**
+     * mixins knives so they can no longer recieve the efficiency enchantment.
+     */
     @Inject(method = "canApplyAtEnchantingTable(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/enchantment/Enchantment;)Z",
     at = @At(value = "RETURN"), cancellable = true, remap = false)
     private void DoltModHow$NoEfficiencyOnKnifeEnchantmentTable(ItemStack stack, Enchantment enchantment, CallbackInfoReturnable<Boolean> cir) {

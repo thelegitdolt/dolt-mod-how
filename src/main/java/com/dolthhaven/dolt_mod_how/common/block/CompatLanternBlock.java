@@ -22,7 +22,7 @@ public class CompatLanternBlock extends LanternBlock {
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return state.getValue(HANGING) ? HANGING_AABB : AABB;
     }
 }

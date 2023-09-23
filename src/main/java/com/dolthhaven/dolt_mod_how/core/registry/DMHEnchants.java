@@ -19,7 +19,7 @@ public class DMHEnchants {
         ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
         if (res == null)
             return false;
-        return res.getNamespace().equals("map_atlas") && res.getPath().equals("atlas");
+        return res.getNamespace().equals("map_atlases") && res.getPath().equals("atlas");
     } );
 
     public static final RegistryObject<Enchantment> BOUNDING = ENCHANTMENTS.register("bounding", () -> new BoundingEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));

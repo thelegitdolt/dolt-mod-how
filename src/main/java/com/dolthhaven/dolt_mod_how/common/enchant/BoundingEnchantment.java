@@ -32,12 +32,12 @@ public class BoundingEnchantment extends Enchantment {
 
     @Override
     public boolean isDiscoverable() {
-        return ModList.get().isLoaded("map_atlas");
+        return ModList.get().isLoaded("map_atlases");
     }
 
     @Override
     public boolean isTradeable() {
-        return ModList.get().isLoaded("map_atlas");
+        return ModList.get().isLoaded("map_atlases");
     }
 
 }

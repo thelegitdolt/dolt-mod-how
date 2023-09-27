@@ -18,6 +18,7 @@
     "nethers_delight.FungusColonyMixin",
     "nethers_delight.RichSoilMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
+    "vanilla.DispenserBlockMixin",
     "vanilla.SwordItemMixin"
   ],
   "client": [

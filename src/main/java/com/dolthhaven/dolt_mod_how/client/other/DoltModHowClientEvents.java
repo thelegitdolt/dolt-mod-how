@@ -15,4 +15,6 @@ public class DoltModHowClientEvents {
     public static void registerParticles(RegisterParticleProvidersEvent event) {
         event.register(DMHParticles.LANTERNFISH_PARTICLE.get(), FishParticle.Factory::new);
     }
+
+
 }

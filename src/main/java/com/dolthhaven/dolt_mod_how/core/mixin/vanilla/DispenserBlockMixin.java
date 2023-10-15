@@ -1,6 +1,5 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
-import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.other.FakePlayerCauldronInteract;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSourceImpl;
@@ -9,7 +8,6 @@ import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.AbstractCauldronBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.entity.DispenserBlockEntity;

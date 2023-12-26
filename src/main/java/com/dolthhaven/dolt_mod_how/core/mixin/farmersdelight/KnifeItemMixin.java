@@ -13,7 +13,7 @@ import vectorwing.farmersdelight.common.item.KnifeItem;
 public class KnifeItemMixin {
 
     /**
-     * mixins knives so they can no longer recieve the efficiency enchantment.
+     * mixins knives so they can no longer receive the efficiency enchantment.
      */
     @Inject(method = "canApplyAtEnchantingTable(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/enchantment/Enchantment;)Z",
     at = @At(value = "RETURN"), cancellable = true, remap = false)

@@ -13,7 +13,6 @@
     "brewin_and_chewin.TipsyEffectMixin",
     "brewin_and_chewin.VanillaGuiOverlayMixin",
     "environmental.MobEntityMixin",
-    "farmers_respite.PurulentTeaItemMixin",
     "farmersdelight.KnifeItemMixin",
     "nethers_delight.FungusColonyMixin",
     "nethers_delight.RichSoilMixin",

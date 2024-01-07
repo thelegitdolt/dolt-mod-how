@@ -67,7 +67,7 @@ public class DoltModHowEvent {
                 if (!level.canSeeSky(pos.above()))
                     return;
 
-                if (level.getBlockState(pos).is(Blocks.JUKEBOX)) {
+                if (level.getBlockState(pos).is(CompatTags.CHANNELS_LIGHTNING)) {
                     LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
                     if (bolt == null)
                         return;

@@ -14,6 +14,7 @@ public class CompatTags {
 
     public static final TagKey<Block> COMMON_ORES = blockTag("common_ores");
     public static final TagKey<Block> RARE_ORES = blockTag("rare_ores");
+    public static final TagKey<Block> CHANNELS_LIGHTNING = blockTag("channels_lightning");
 
     private static TagKey<Item> externalItemTag(String modId, String path) {
         return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(modId, path));

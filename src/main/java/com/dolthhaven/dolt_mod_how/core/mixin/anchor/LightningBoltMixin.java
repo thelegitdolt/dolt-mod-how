@@ -48,12 +48,9 @@ public abstract class LightningBoltMixin extends Entity {
         if (struckPos.getY() > 0)
             return;
 
-        BlockPos pos;
-        BlockState struckState = level.getBlockState(struckPos);
-        if (struckState.is(Blocks.LIGHTNING_ROD))
-            pos = struckPos.relative(struckState.getValue(LightningRodBlock.FACING).getOpposite());
-        else
-            pos = struckPos;
+        BlockPos pos = level.getBlockState(struckPos).is(Blocks.LIGHTNING_ROD) ?
+                struckPos.relative(level.getBlockState(struckPos).getValue(LightningRodBlock.FACING).getOpposite()) :
+                struckPos;
 
         Item epilogue = ForgeRegistries.ITEMS.getValue(new ResourceLocation("anchor", "music_disc_epilogue"));
 

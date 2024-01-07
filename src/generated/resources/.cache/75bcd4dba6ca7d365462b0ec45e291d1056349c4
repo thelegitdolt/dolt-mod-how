@@ -1,4 +1,5 @@
-// 1.19.2	2023-09-23T01:29:09.802462	Tags for minecraft:block
+// 1.19.2	2024-01-07T11:27:00.39342	Tags for minecraft:block
+0defb48f4f79d0a8a25a32dd7039e747cea74f57 data/dolt_mod_how/tags/blocks/channels_lightning.json
 191326632bf1184647000c508c82b90f694b128d data/dolt_mod_how/tags/blocks/common_ores.json
 5198daae267d2260d8ff46ec336e4c5afb619f46 data/dolt_mod_how/tags/blocks/rare_ores.json
 119996d7a1dbca8cb945689eda23fdb32046b16f data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json

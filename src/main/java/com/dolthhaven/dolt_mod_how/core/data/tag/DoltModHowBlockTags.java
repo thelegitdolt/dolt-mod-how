@@ -37,5 +37,7 @@ public class DoltModHowBlockTags extends BlockTagsProvider {
         this.tag(CompatTags.COMMON_ORES).add(COPPER_ORE, DEEPSLATE_COPPER_ORE, IRON_ORE, DEEPSLATE_IRON_ORE)
                 .addOptional(new ResourceLocation("sullysmod", "jade_ore"))
                 .addOptional(new ResourceLocation("sullysmod", "deepslate_jade_ore"));
+
+        this.tag(CompatTags.CHANNELS_LIGHTNING).add(JUKEBOX);
     }
 }

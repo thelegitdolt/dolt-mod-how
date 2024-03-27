@@ -4,12 +4,12 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_lanternfish": {
+          "has_lanternfish_barrel": {
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "sullysmod:lanternfish"
+                    "dolt_mod_how:lanternfish_barrel"
                   ]
                 }
               ]
@@ -18,20 +18,20 @@
           },
           "has_the_recipe": {
             "conditions": {
-              "recipe": "dolt_mod_how:lanternfish_barrel"
+              "recipe": "dolt_mod_how:lanternfish_barrel_unpack"
             },
             "trigger": "minecraft:recipe_unlocked"
           }
         },
         "requirements": [
           [
-            "has_lanternfish",
+            "has_lanternfish_barrel",
             "has_the_recipe"
           ]
         ],
         "rewards": {
           "recipes": [
-            "dolt_mod_how:lanternfish_barrel"
+            "dolt_mod_how:lanternfish_barrel_unpack"
           ]
         }
       },

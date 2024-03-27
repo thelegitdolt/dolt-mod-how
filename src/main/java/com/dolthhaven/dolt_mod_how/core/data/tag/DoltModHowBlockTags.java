@@ -26,7 +26,7 @@ public class DoltModHowBlockTags extends BlockTagsProvider {
         this.tag(NDTags.FUNGUS_COLONY_GROWABLE_ON).add(RICH_SOIL.get());
         this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL).add(CRIMSON_FUNGUS_COLONY.get(), WARPED_FUNGUS_COLONY.get());
 
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(MUD_LANTERN.get(), STURDY_DEEPSLATE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
 
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(LANTERNFISH_BARREL.get());
 

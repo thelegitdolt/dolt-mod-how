@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.environmental;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -35,7 +36,7 @@ public abstract class MobEntityMixin extends LivingEntity {
 
     @Inject(method = "populateDefaultEquipmentSlots(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/DifficultyInstance;)V", at = @At("TAIL"))
     private void DoltModHow$ChanceForWanderingBootsSpawn(RandomSource random, DifficultyInstance difficulty, CallbackInfo info) {
-        if (ModList.get().isLoaded("environmental")) {
+        if (ModList.get().isLoaded("environmental") && DoltModHowConfig.COMMON.doDistanceBasedWandererBootSpawning.get()) {
             double chance = dubs(this.position().distanceTo(new Vec3(0, 0, 0)));
 
             Item boots = ForgeRegistries.ITEMS.getValue(new ResourceLocation("environmental", "wanderer_boots"));
@@ -49,7 +50,7 @@ public abstract class MobEntityMixin extends LivingEntity {
     @Unique
     private static double dubs(double distance) {
         return ((cubeRoot(distance / 4500.0)) / 30.0)
-                + (Math.exp(   -square((distance - 24000.0) / 8000.0 )   ) / 20.0);
+                + (Math.exp(   -square((distance - 24000.0) / 8000.0 )   ) / 20.0) / 2d;
     }
 
     @Unique

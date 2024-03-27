@@ -86,15 +86,14 @@ dependencies {
     implementation fg.deobf("curse.maven:environmental-388992:${project.environmental}")
 
     implementation fg.deobf("curse.maven:brewinandchewin-637808:${project.brewinAndChewin}")
-    implementation fg.deobf("curse.maven:farmersrespite-551453:${project.farmersRespite}")
     implementation fg.deobf("curse.maven:nethersdelight-496394:${project.nethersDelight}")
 
     implementation fg.deobf("curse.maven:neapolitan-382016:${project.neapolitan}")
+    implementation fg.deobf("curse.maven:fish-in-planks-408955:${project.fishInPlanks}")
 
     implementation fg.deobf("curse.maven:supplementaries-412082:${project.supplementaries}")
     implementation fg.deobf("curse.maven:moonlight-499980:${project.moonlight}")
 
-    implementation fg.deobf("curse.maven:fish-in-planks-408955:${project.fishInPlanks}")
     implementation fg.deobf("curse.maven:sullys-mod-386534:${project.sullysMod}")
 
 

@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.brewin_and_chewin;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -14,6 +15,11 @@ public class TipsyEffectMixin {
     @Redirect(method = "Lumpaz/brewinandchewin/common/effect/TipsyEffect;applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)V",
     at= @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;forceAddEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)V"))
     private void DoltCompat$NoMoreTipsyGivingNausea(LivingEntity instance, MobEffectInstance superInstance, Entity entity) {
+        if (!DoltModHowConfig.COMMON.overhaulTipsyOverlay.get()) {
+            instance.forceAddEffect(superInstance, entity);
+            return;
+        }
+
         if (!(superInstance.getEffect() == MobEffects.CONFUSION)) {
             instance.forceAddEffect(superInstance, entity);
         }

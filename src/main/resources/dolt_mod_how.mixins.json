@@ -7,7 +7,6 @@
     "anchor.LightningBoltMixin",
     "auditoryboatsounds.BlueprintBoatItemMixin",
     "auditoryboatsounds.BoatloadBoatItemMixin",
-    "auditoryboatsounds.CoffeeCakeBlockMixin",
     "auditoryboatsounds.DispenserMinecartItemMixin",
     "auditoryboatsounds.FlavoredCakeBlockMixin",
     "brewin_and_chewin.TipsyEffectMixin",
@@ -17,8 +16,7 @@
     "nethers_delight.FungusColonyMixin",
     "nethers_delight.RichSoilMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
-    "vanilla.DispenserBlockMixin",
-    "vanilla.SwordItemMixin"
+    "vanilla.DispenserBlockMixin"
   ],
   "client": [
     "brewin_and_chewin.client.GameRendererMixin",

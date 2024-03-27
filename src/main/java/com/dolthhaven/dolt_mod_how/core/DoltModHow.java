@@ -1,6 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core;
 
-import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowCommonSetup;
+import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowFishBarrelSetup;
 import com.dolthhaven.dolt_mod_how.core.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowBlockTags;
 import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowLootTable;
@@ -14,7 +14,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -28,6 +31,7 @@ public class DoltModHow {
 
     public DoltModHow() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModLoadingContext context = ModLoadingContext.get();
 
         bus.addListener(this::dataSetup);
         bus.addListener(this::commonSetup);
@@ -38,6 +42,8 @@ public class DoltModHow {
         REGISTRY_HELPER.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
+        context.registerConfig(ModConfig.Type.COMMON, DoltModHowConfig.COMMON_SPEC);
+        context.registerConfig(ModConfig.Type.CLIENT, DoltModHowConfig.CLIENT_SPEC);
     }
 
     private void dataSetup(GatherDataEvent event) {
@@ -51,6 +57,8 @@ public class DoltModHow {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(DoltModHowCommonSetup::commonSetup);
+        if (ModList.get().isLoaded("fish_in_planks")) {
+            event.enqueueWork(DoltModHowFishBarrelSetup::commonSetup);
+        }
     }
 }

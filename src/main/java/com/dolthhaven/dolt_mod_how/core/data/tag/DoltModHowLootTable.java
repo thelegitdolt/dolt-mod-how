@@ -41,14 +41,13 @@ public class DoltModHowLootTable extends LootTableProvider {
     private static class DoltCompatBlockLoot extends BlockLoot {
         @Override
         public void addTables() {
-            this.dropSelf(MUD_LANTERN.get());
             this.dropSelf(STURDY_DEEPSLATE.get());
             this.dropSelf(LANTERNFISH_BARREL.get());
         }
 
         @Override
         public @NotNull Iterable<Block> getKnownBlocks() {
-             return List.of(MUD_LANTERN.get(), STURDY_DEEPSLATE.get(), LANTERNFISH_BARREL.get());
+             return List.of(STURDY_DEEPSLATE.get(), LANTERNFISH_BARREL.get());
         }
 
     }

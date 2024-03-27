@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.brewin_and_chewin.client;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -32,6 +33,11 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;handleNetherPortalClient()V",
             at = @At(value = "HEAD"), cancellable = true)
     private void DoltModHow$ThrowTipsyOverlayPacket(CallbackInfo ci) {
+        if (!DoltModHowConfig.COMMON.overhaulTipsyOverlay.get()) {
+            return;
+        }
+
+
         if (!this.isInsidePortal && !this.hasEffect(MobEffects.CONFUSION)) {
             if (this.hasEffect(BCEffects.TIPSY.get()) && Objects.requireNonNull(this.getEffect(BCEffects.TIPSY.get())).getDuration() > 60) {
                 this.oPortalTime = this.portalTime;
@@ -49,6 +55,10 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;removeEffectNoUpdate(Lnet/minecraft/world/effect/MobEffect;)Lnet/minecraft/world/effect/MobEffectInstance;",
             at = @At(value = "HEAD"))
     private void DoltModHow$RemoveTipsyNoUpdate(MobEffect p_108720_, CallbackInfoReturnable<MobEffectInstance> cir) {
+        if (!DoltModHowConfig.COMMON.overhaulTipsyOverlay.get()) {
+            return;
+        }
+
         if (p_108720_ == BCEffects.TIPSY.get()) {
             this.oPortalTime = 0.0F;
             this.portalTime = 0.0F;

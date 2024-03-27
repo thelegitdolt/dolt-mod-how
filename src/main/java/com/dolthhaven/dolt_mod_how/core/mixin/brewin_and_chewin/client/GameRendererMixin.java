@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.brewin_and_chewin.client;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.GameRenderer;
@@ -27,6 +28,10 @@ public abstract class GameRendererMixin {
     @Inject(method = "Lnet/minecraft/client/renderer/GameRenderer;render(FJZ)V",
             at = @At(value = "INVOKE_ASSIGN", target = "Ljava/lang/Double;floatValue()F"))
     private void DoltModHow$HandleTipsyOverlay(float partialTicks, long tall, boolean lean, CallbackInfo ci) {
+        if (!DoltModHowConfig.CLIENT.overhaulTipsyOverlay.get()) {
+            return;
+        }
+
         if (this.minecraft.player != null) {
             float f = Mth.lerp(partialTicks, this.minecraft.player.oPortalTime, this.minecraft.player.portalTime);
             float f1 = this.minecraft.options.screenEffectScale().get().floatValue();
@@ -38,6 +43,10 @@ public abstract class GameRendererMixin {
 
     @Redirect(method = "renderLevel(FJLcom/mojang/blaze3d/vertex/PoseStack;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;hasEffect(Lnet/minecraft/world/effect/MobEffect;)Z"))
     public boolean DoltModHow$HasEffectOrTipsy(LocalPlayer instance, MobEffect effect) {
+        if (!DoltModHowConfig.COMMON.overhaulTipsyOverlay.get()) {
+            return instance.hasEffect(effect);
+        }
+
         return instance.hasEffect(effect) || instance.hasEffect(BCEffects.TIPSY.get());
     }
 }

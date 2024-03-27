@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -18,7 +19,7 @@ public class RichSoilMixin {
     @Inject(method = "Lvectorwing/farmersdelight/common/block/RichSoilBlock;randomTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V",
             at = @At("HEAD"))
     private void DoltModHow$GrowNetherShroomColony(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand, CallbackInfo ci) {
-        if (!level.isClientSide && ModList.get().isLoaded("nethersdelight")) {
+        if (!level.isClientSide && ModList.get().isLoaded("nethersdelight") && DoltModHowConfig.COMMON.doRichSoilGrowFungusColony.get()) {
             BlockPos abovePos = pos.above();
             BlockState aboveState = level.getBlockState(abovePos);
 

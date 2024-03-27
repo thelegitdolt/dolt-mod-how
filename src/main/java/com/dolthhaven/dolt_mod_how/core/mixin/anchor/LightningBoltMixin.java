@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.anchor;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -27,9 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  */
 @Mixin(LightningBolt.class)
 public abstract class LightningBoltMixin extends Entity {
-
     @Shadow protected abstract BlockPos getStrikePosition();
-
 
     public LightningBoltMixin(EntityType<?> p_19870_, Level p_19871_) {
         super(p_19870_, p_19871_);
@@ -38,7 +37,7 @@ public abstract class LightningBoltMixin extends Entity {
     @Inject(method = "tick()V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LightningBolt;clearCopperOnLightningStrike(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V"))
     private void DoltModHow$StruckJukeboxPlaysEpilogue(CallbackInfo ci) {
-        if (ModList.get().isLoaded("anchor"))
+        if (ModList.get().isLoaded("anchor") && DoltModHowConfig.COMMON.doLightningEpilogueDisc.get())
             doJukeboxCheck(this.level, this.getStrikePosition());
     }
 

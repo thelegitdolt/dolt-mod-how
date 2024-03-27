@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import com.dolthhaven.dolt_mod_how.core.other.FakePlayerCauldronInteract;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSourceImpl;
@@ -33,6 +34,8 @@ public abstract class DispenserBlockMixin {
             cancellable = true
     )
     public void onCuttingBoardDispenseFromInject(ServerLevel level, BlockPos pos, CallbackInfo ci, BlockSourceImpl source, DispenserBlockEntity dispenser, int slot, ItemStack stack) {
+        if (!DoltModHowConfig.COMMON.doDispenserCauldrons.get()) return;
+
         BlockState facingState = level.getBlockState(pos.relative(source.getBlockState().getValue(DispenserBlock.FACING)));
 
         if (facingState.getBlock() instanceof AbstractCauldronBlock cauldron) {
@@ -50,9 +53,6 @@ public abstract class DispenserBlockMixin {
                 else {
                     dispenser.setItem(slot, stackRemainder);
                 }
-
-
-
 
                 ci.cancel();
             }

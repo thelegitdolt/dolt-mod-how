@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.supplementaries;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import net.mehvahdjukaar.supplementaries.common.items.QuiverItem;
 import net.mehvahdjukaar.supplementaries.common.items.forge.QuiverItemImpl;
 import net.minecraft.core.BlockPos;
@@ -37,6 +38,8 @@ public abstract class CuttingBoardBlockEntityMixin extends SyncedBlockEntity {
     @Inject(method = "lambda$processStoredItemUsingTool$2(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lvectorwing/farmersdelight/common/crafting/CuttingBoardRecipe;)V",
     at = @At("HEAD"), remap = false)
     private void DoltModHow$ProcessQuiver(ItemStack stack, Player player, CuttingBoardRecipe recipe, CallbackInfo ci) {
+        if (!DoltModHowConfig.COMMON.doHackyQuiverRecipe.get()) return;
+
         assert this.level != null;
         ItemStack boardStack = this.getInventory().getStackInSlot(0);
         if (boardStack.getItem() instanceof QuiverItem && QuiverItemImpl.getQuiverData(boardStack) != null) {

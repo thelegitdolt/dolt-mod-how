@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import com.dolthhaven.dolt_mod_how.core.data.tag.CompatTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import net.minecraft.core.BlockPos;
@@ -143,7 +144,7 @@ public class DoltModHowEvent {
 
     @SubscribeEvent
     public static void onPlayerBreakBoringOreEvent(BlockEvent.BreakEvent event) {
-        if (event.getLevel() instanceof ServerLevel level) {
+        if (event.getLevel() instanceof ServerLevel level && DoltModHowConfig.COMMON.doMetalOresDropXP.get()) {
             BlockState state = event.getState();
             if (!event.getPlayer().hasCorrectToolForDrops(state)) {
                 return;

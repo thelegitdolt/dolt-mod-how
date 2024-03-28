@@ -15,6 +15,7 @@
     "farmersdelight.KnifeItemMixin",
     "nethers_delight.FungusColonyMixin",
     "nethers_delight.RichSoilMixin",
+    "sullysmod.SMPlayerEventsMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
     "vanilla.DispenserBlockMixin"
   ],

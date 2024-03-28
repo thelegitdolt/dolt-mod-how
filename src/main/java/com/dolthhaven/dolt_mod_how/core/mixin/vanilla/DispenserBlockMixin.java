@@ -43,16 +43,16 @@ public abstract class DispenserBlockMixin {
             if (interactions.get(stack.getItem()) != null) {
 
                 ItemStack stackRemainder = new FakePlayerCauldronInteract(stack.getItem()).dispense(source, stack);
-                if (!dispenser.getItem(slot).isEmpty()) {
-                    ItemStack remainderStack = dispenser.getItem(slot).copy();
-                    dispenser.setItem(slot, stackRemainder);
-                    if (dispenser.addItem(remainderStack) < 0) {
-                        new DefaultDispenseItemBehavior().dispense(source, stack);
-                    }
-                }
-                else {
-                    dispenser.setItem(slot, stackRemainder);
-                }
+//                if (!dispenser.getItem(slot).isEmpty()) {
+//                    ItemStack remainderStack = dispenser.getItem(slot).copy();
+//                    dispenser.setItem(slot, stackRemainder);
+//                    if (dispenser.addItem(remainderStack) < 0) {
+//                        new DefaultDispenseItemBehavior().dispense(source, stack);
+//                    }
+//                }
+//                else {
+//                    dispenser.setItem(slot, stackRemainder);
+//                }
 
                 ci.cancel();
             }

@@ -15,7 +15,7 @@ import java.util.List;
 public class SMPlayerEventsMixin {
     @Redirect(method = "onItemTooltip", at=@At(value = "INVOKE", target = "Lcom/uraneptus/sullysmod/common/recipes/GrindstonePolishingRecipe;getRecipes(Lnet/minecraft/world/level/Level;)Ljava/util/List;"))
     private static List<GrindstonePolishingRecipe> DoltModHow$GetGrindstoneRecipes(Level level) {
-        if (DoltModHowConfig.CLIENT.removeSullyGrindstoneTooltip.get()) {
+        if (!DoltModHowConfig.CLIENT.removeSullyGrindstoneTooltip.get()) {
             return GrindstonePolishingRecipe.getRecipes(level);
         }
         else {

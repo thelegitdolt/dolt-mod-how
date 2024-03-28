@@ -33,7 +33,7 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;handleNetherPortalClient()V",
             at = @At(value = "HEAD"), cancellable = true)
     private void DoltModHow$ThrowTipsyOverlayPacket(CallbackInfo ci) {
-        if (!DoltModHowConfig.COMMON.overhaulTipsyOverlay.get()) {
+        if (!DoltModHowConfig.CLIENT.overhaulTipsyOverlay.get()) {
             return;
         }
 
@@ -55,7 +55,7 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;removeEffectNoUpdate(Lnet/minecraft/world/effect/MobEffect;)Lnet/minecraft/world/effect/MobEffectInstance;",
             at = @At(value = "HEAD"))
     private void DoltModHow$RemoveTipsyNoUpdate(MobEffect p_108720_, CallbackInfoReturnable<MobEffectInstance> cir) {
-        if (!DoltModHowConfig.COMMON.overhaulTipsyOverlay.get()) {
+        if (!DoltModHowConfig.CLIENT.overhaulTipsyOverlay.get()) {
             return;
         }
 

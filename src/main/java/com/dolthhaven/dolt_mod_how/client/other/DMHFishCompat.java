@@ -8,5 +8,4 @@ public class DMHFishCompat {
     public static void register(RegisterParticleProvidersEvent event) {
         event.register(DMHParticles.LANTERNFISH_PARTICLE.get(), FishParticle.Factory::new);
     }
-
 }

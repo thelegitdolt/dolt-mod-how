@@ -1,9 +1,9 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.github.ilja615.fish_in_planks.FishBarrelBlock;
+import com.dolthhaven.dolt_mod_how.integration.DMHFishBarrels;
+import com.teamabnormals.blueprint.core.util.registry.AbstractSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import com.uraneptus.sullysmod.core.registry.SMSounds;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -21,8 +22,14 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> STURDY_DEEPSLATE = HELPER.createBlock("sturdy_deepslate", () ->
             new Block(DoltModHowBlockProps.STURDY_DEEPSLATE), CreativeModeTab.TAB_BUILDING_BLOCKS);
-    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", () ->
-            new FishBarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).randomTicks().lightLevel(state -> 5), SMSounds.LANTERNFISH_FLOP.get(), false), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+//    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", () -> new Block(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD)),
+//             CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", ModList.get().isLoaded("fish_in_planks") ?
+            DMHFishBarrels.LANTERNFISH_BLOCK : () -> new Block(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD)),
+            AbstractSubRegistryHelper.areModsLoaded("fish_in_planks") ? CreativeModeTab.TAB_BUILDING_BLOCKS : null);
+
 
     public static class DoltModHowBlockProps {
         public static final Material STURDY_DEP_MAT = new Material(MaterialColor.DEEPSLATE, false, true, true, true, false, false, PushReaction.BLOCK);

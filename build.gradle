@@ -89,7 +89,7 @@ dependencies {
     implementation fg.deobf("curse.maven:nethersdelight-496394:${project.nethersDelight}")
 
     implementation fg.deobf("curse.maven:neapolitan-382016:${project.neapolitan}")
-    implementation fg.deobf("curse.maven:fish-in-planks-408955:${project.fishInPlanks}")
+    compileOnly fg.deobf("curse.maven:fish-in-planks-408955:${project.fishInPlanks}")
 
     implementation fg.deobf("curse.maven:supplementaries-412082:${project.supplementaries}")
     implementation fg.deobf("curse.maven:moonlight-499980:${project.moonlight}")

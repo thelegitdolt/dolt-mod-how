@@ -70,22 +70,12 @@ public class DoltModHowEvent {
         }
     }
 
-    private static double dubs(double distance) {
-        return ((cubeRoot(distance / 4500.0)) / 30.0)
-                + (Math.exp(   -square((distance - 24000.0) / 8000.0 )   ) / 20.0);
-    }
-
-    private static double square(double thing) {
-        return thing * thing;
-    }
-
-    private static double cubeRoot(double thing) {
-        return Math.pow(thing, 0.3333);
-    }
-
-
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        if (!DoltModHowConfig.COMMON.doUntillableFarmland.get()) {
+            return;
+        }
+
         ItemStack stack = event.getItemStack();
         Player player = event.getEntity();
         BlockPos pos = event.getPos();

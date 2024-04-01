@@ -13,6 +13,7 @@ public class DoltModHowConfig {
         public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
         public final ConfigValue<Boolean> doDispenserCauldrons;
         public final ConfigValue<Boolean> doLightningEpilogueDisc;
+        public final ConfigValue<Boolean> doUntillableFarmland;
         public final ConfigValue<Boolean> overhaulTipsyOverlay;
 
 
@@ -25,6 +26,10 @@ public class DoltModHowConfig {
 
             builder.push("Dispensers");
             doDispenserCauldrons = builder.comment("If dispensers should be able to dispense into cauldrons").define("Dispenser Cauldrons", true);
+
+
+            builder.push("Farmland");
+            doUntillableFarmland = builder.comment("Whether farmland can be untilled by sneak-right clicking them with a hoe").define("Untillable Farmland", true);
 
             builder.pop();
             builder.pop();

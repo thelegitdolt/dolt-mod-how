@@ -9,11 +9,9 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.JukeboxBlock;
 import net.minecraft.world.level.block.LightningRodBlock;
 import net.minecraft.world.level.block.entity.JukeboxBlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,6 +20,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Objects;
 
 /**
  * Mixins lightning bolts so that when they strike a jukebox filled with a disc, the disc is set to epilogue.
@@ -47,11 +47,15 @@ public abstract class LightningBoltMixin extends Entity {
         if (struckPos.getY() > 0)
             return;
 
-        BlockPos pos = level.getBlockState(struckPos).is(Blocks.LIGHTNING_ROD) ?
+        BlockPos pos = (level.getBlockState(struckPos).getBlock() instanceof LightningRodBlock) ?
                 struckPos.relative(level.getBlockState(struckPos).getValue(LightningRodBlock.FACING).getOpposite()) :
                 struckPos;
 
         Item epilogue = ForgeRegistries.ITEMS.getValue(new ResourceLocation("anchor", "music_disc_epilogue"));
+
+        if (Objects.isNull(epilogue)) {
+            return;
+        }
 
         if (level.getBlockState(pos).getBlock() instanceof JukeboxBlock juke &&
                 (level.getBlockState(pos).getValue(JukeboxBlock.HAS_RECORD))) {

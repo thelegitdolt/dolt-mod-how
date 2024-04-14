@@ -8,12 +8,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public class CompatTags {
-    public static final TagKey<Item> EXPERIENCE_BOOST_ITEMS = externalItemTag("caverns_and_chasms", "experience_boost_items");
-
-
-
     public static final TagKey<Block> COMMON_ORES = blockTag("common_ores");
     public static final TagKey<Block> RARE_ORES = blockTag("rare_ores");
+    public static final TagKey<Block> NO_XP_CROPS = blockTag("no_xp_crops");
     public static final TagKey<Block> CHANNELS_LIGHTNING = blockTag("channels_lightning");
 
     private static TagKey<Item> externalItemTag(String modId, String path) {

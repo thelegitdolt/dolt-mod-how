@@ -82,6 +82,7 @@ dependencies {
 
     implementation fg.deobf("com.teamabnormals:boatload:${project.minecraft}-${project.boatload}")
 
+    implementation fg.deobf("curse.maven:atmospheric-362393:${project.atmospheric}")
     implementation fg.deobf("curse.maven:farmers_delight-398521:${project.farmersDelight}")
     implementation fg.deobf("curse.maven:environmental-388992:${project.environmental}")
 

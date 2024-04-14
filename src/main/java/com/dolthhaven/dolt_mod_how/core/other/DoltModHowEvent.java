@@ -24,6 +24,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -133,8 +134,12 @@ public class DoltModHowEvent {
 
 
     @SubscribeEvent
-    public static void onPlayerBreakBoringOreEvent(BlockEvent.BreakEvent event) {
-        if (event.getLevel() instanceof ServerLevel level && DoltModHowConfig.COMMON.doMetalOresDropXP.get()) {
+    public static void onPlayerBreakOreEvent(BlockEvent.BreakEvent event) {
+        if (!DoltModHowConfig.COMMON.doMetalOresDropXP.get()) {
+            return;
+        }
+
+        if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = event.getState();
             if (!event.getPlayer().hasCorrectToolForDrops(state)) {
                 return;
@@ -143,7 +148,6 @@ public class DoltModHowEvent {
             if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, event.getPlayer()) > 0) {
                 return;
             }
-
 
 
             if (state.is(CompatTags.COMMON_ORES)) {
@@ -156,4 +160,25 @@ public class DoltModHowEvent {
         }
     }
 
+
+    @SubscribeEvent
+    public static void onPlayerBreakCropsEvent(BlockEvent.BreakEvent event) {
+        if (!DoltModHowConfig.COMMON.doCropBlocksDropXP.get()) {
+            return;
+        }
+
+        if (event.getLevel() instanceof ServerLevel level) {
+            BlockState state = event.getState();
+            if (state.getBlock() instanceof CropBlock cropBlock &&
+                !state.is(CompatTags.NO_XP_CROPS) &&
+                cropBlock.isMaxAge(state)) {
+
+                UniformInt crop_sampler = UniformInt.of(
+                        DoltModHowConfig.COMMON.minCropXpDrops.get(),
+                        DoltModHowConfig.COMMON.maxCropXpDrops.get());
+
+                event.setExpToDrop(crop_sampler.sample(level.getRandom()));
+            }
+        }
+    }
 }

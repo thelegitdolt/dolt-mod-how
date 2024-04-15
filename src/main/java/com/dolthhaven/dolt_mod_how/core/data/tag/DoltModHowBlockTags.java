@@ -30,6 +30,9 @@ public class DoltModHowBlockTags extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(LANTERNFISH_BARREL.get());
 
+        this.tag(CompatTags.NO_XP_CROPS)
+                .addOptional(new ResourceLocation("farmersdelight", "tomatoes"));
+
         this.tag(CompatTags.RARE_ORES).add(GOLD_ORE, DEEPSLATE_GOLD_ORE).addOptional(
                 new ResourceLocation("caverns_and_chasms", "silver_ore")
         ).addOptional(new ResourceLocation("caverns_and_chasms", "deepslate_silver_ore"));

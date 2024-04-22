@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "dolt_mod_how:item/leather_scrap"
+  }
+}

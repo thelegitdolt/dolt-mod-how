@@ -19,8 +19,7 @@
     "nethers_delight.RichSoilMixin",
     "sullysmod.SMPlayerEventsMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
-    "vanilla.DispenserBlockMixin",
-    "vanilla.FireMixin"
+    "vanilla.DispenserBlockMixin"
   ],
   "client": [
     "brewin_and_chewin.client.GameRendererMixin",

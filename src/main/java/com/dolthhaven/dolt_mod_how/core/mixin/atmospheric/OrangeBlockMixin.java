@@ -7,6 +7,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,6 +23,13 @@ public class OrangeBlockMixin extends DirectionalBlock {
     private void DoltModHow$OrangeCantBeFallenOn(Level level, BlockState state, BlockPos pos, Entity entity, float distance, CallbackInfo ci) {
         if (DoltModHowConfig.COMMON.removeOrangeVapor.get()) {
             super.fallOn(level, state, pos, entity,distance);
+            ci.cancel();
+        }
+    }
+
+    @Inject(method = "createVaporCloud", at = @At(value = "HEAD"), cancellable = true)
+    private static void DoltModHow$PistonsMateReally(Level level, Vec3 pos, boolean blood, CallbackInfo ci) {
+        if (DoltModHowConfig.COMMON.removeOrangeVapor.get()) {
             ci.cancel();
         }
     }

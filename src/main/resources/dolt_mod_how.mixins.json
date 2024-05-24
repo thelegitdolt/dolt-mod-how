@@ -13,7 +13,6 @@
     "auditoryboatsounds.HangingFlowerPotMixin",
     "brewin_and_chewin.TipsyEffectMixin",
     "brewin_and_chewin.VanillaGuiOverlayMixin",
-    "environmental.MobEntityMixin",
     "farmersdelight.KnifeItemMixin",
     "nethers_delight.FungusColonyMixin",
     "nethers_delight.RichSoilMixin",
@@ -23,7 +22,8 @@
   ],
   "client": [
     "brewin_and_chewin.client.GameRendererMixin",
-    "brewin_and_chewin.client.LocalPlayerMixin"
+    "brewin_and_chewin.client.LocalPlayerMixin",
+    "dolt_mod_how.client.HumanoidArmorLayerMixin"
   ],
   "minVersion": "0.8"
 }

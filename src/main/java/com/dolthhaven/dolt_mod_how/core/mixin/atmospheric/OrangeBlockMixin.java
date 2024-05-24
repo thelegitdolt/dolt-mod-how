@@ -27,7 +27,7 @@ public class OrangeBlockMixin extends DirectionalBlock {
         }
     }
 
-    @Inject(method = "createVaporCloud", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "createVaporCloud", at = @At(value = "HEAD"), cancellable = true, remap = false)
     private static void DoltModHow$PistonsMateReally(Level level, Vec3 pos, boolean blood, CallbackInfo ci) {
         if (DoltModHowConfig.COMMON.removeOrangeVapor.get()) {
             ci.cancel();

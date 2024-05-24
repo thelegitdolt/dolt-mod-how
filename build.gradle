@@ -87,7 +87,6 @@ dependencies {
     implementation fg.deobf("curse.maven:environmental-388992:${project.environmental}")
 
     implementation fg.deobf("curse.maven:brewinandchewin-637808:${project.brewinAndChewin}")
-    implementation fg.deobf("curse.maven:nethersdelight-496394:${project.nethersDelight}")
 
     implementation fg.deobf("curse.maven:neapolitan-382016:${project.neapolitan}")
     compileOnly fg.deobf("curse.maven:fish-in-planks-408955:${project.fishInPlanks}")

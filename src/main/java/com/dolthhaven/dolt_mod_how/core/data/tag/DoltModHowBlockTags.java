@@ -1,19 +1,18 @@
 package com.dolthhaven.dolt_mod_how.core.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.util.Util;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
-import umpaz.nethersdelight.common.tag.NDTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.LANTERNFISH_BARREL;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.STURDY_DEEPSLATE;
 import static net.minecraft.world.level.block.Blocks.*;
-import static umpaz.nethersdelight.common.registry.NDBlocks.*;
-import static vectorwing.farmersdelight.common.registry.ModBlocks.*;
 
 
 public class DoltModHowBlockTags extends BlockTagsProvider {
@@ -23,8 +22,9 @@ public class DoltModHowBlockTags extends BlockTagsProvider {
 
     @Override
     public void addTags() {
-        this.tag(NDTags.FUNGUS_COLONY_GROWABLE_ON).add(RICH_SOIL.get());
-        this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL).add(CRIMSON_FUNGUS_COLONY.get(), WARPED_FUNGUS_COLONY.get());
+        this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL)
+                .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony"))
+                .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
 

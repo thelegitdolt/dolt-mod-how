@@ -11,7 +11,6 @@ public class DoltModHowConfig {
         public final ConfigValue<Integer> minCropXpDrops;
         public final ConfigValue<Integer> maxCropXpDrops;
 
-        public final ConfigValue<Boolean> doDistanceBasedWandererBootSpawning;
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
         public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
@@ -72,15 +71,6 @@ public class DoltModHowConfig {
             builder.push("fungus_colonies");
 
             doRichSoilGrowFungusColony = builder.comment("If fungus colonies should grow on normal rich soil instead of soul rich soil").define("Rich Fungus", true);
-
-            builder.pop();
-            builder.pop();
-
-            builder.push("environmental");
-            builder.push("wanderers_boots");
-
-            doDistanceBasedWandererBootSpawning = builder.comment("If mobs will spawn with wanderer's boots " +
-                    "with some odds proportional to how far they are away from the 0, 0").define("Cool Boots", true);
 
             builder.pop();
             builder.pop();

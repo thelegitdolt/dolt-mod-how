@@ -9,6 +9,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 
 public class Util {
+
+
     public static void printItem(Item item) {
         ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
         if (res == null) {
@@ -27,5 +29,13 @@ public class Util {
 
     public static @Nullable Block getPotentialBlock(String path, String name) {
         return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(path, name));
+    }
+
+
+    public static class Constants {
+        public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
+        public static final String ENVIRONMENTAL = "environmental";
+        public static final String FARMERS_DELIGHT = "farmersdelight";
+
     }
 }

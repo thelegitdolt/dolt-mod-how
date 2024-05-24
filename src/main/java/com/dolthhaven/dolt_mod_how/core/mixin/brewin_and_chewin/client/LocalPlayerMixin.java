@@ -30,25 +30,26 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
         super(p_234112_, p_234113_, p_234114_);
     }
 
-    @Inject(method = "Lnet/minecraft/client/player/LocalPlayer;handleNetherPortalClient()V",
+    @Inject(method = "handleNetherPortalClient",
             at = @At(value = "HEAD"), cancellable = true)
     private void DoltModHow$ThrowTipsyOverlayPacket(CallbackInfo ci) {
         if (!DoltModHowConfig.CLIENT.overhaulTipsyOverlay.get()) {
             return;
         }
 
+        if (this.isInsidePortal || this.hasEffect(MobEffects.CONFUSION)) {
+            return;
+        }
 
-        if (!this.isInsidePortal && !this.hasEffect(MobEffects.CONFUSION)) {
-            if (this.hasEffect(BCEffects.TIPSY.get()) && Objects.requireNonNull(this.getEffect(BCEffects.TIPSY.get())).getDuration() > 60) {
-                this.oPortalTime = this.portalTime;
-                float amp = (float) Objects.requireNonNull(this.getEffect(BCEffects.TIPSY.get())).getAmplifier() + 1;
-                portalTime += 0.005667f;
-                if (portalTime > amp / 11) {
-                    portalTime = amp / 11;
-                }
-                this.processPortalCooldown();
-                ci.cancel();
+        if (this.hasEffect(BCEffects.TIPSY.get()) && Objects.requireNonNull(this.getEffect(BCEffects.TIPSY.get())).getDuration() > 60) {
+            this.oPortalTime = this.portalTime;
+            float amp = (float) Objects.requireNonNull(this.getEffect(BCEffects.TIPSY.get())).getAmplifier() + 1;
+            portalTime += 0.005667f;
+            if (portalTime > amp / 11) {
+                portalTime = amp / 11;
             }
+            this.processPortalCooldown();
+            ci.cancel();
         }
     }
 

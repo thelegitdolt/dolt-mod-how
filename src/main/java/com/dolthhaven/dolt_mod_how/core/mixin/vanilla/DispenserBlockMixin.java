@@ -5,7 +5,6 @@ import com.dolthhaven.dolt_mod_how.core.other.FakePlayerCauldronInteract;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSourceImpl;
 import net.minecraft.core.cauldron.CauldronInteraction;
-import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Map;
+
 
 @Mixin(DispenserBlock.class)
 public abstract class DispenserBlockMixin {

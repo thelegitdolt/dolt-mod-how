@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "dolt_mod_how:item/chorus_soda"
+    }
+}

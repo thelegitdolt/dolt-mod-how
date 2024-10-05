@@ -1,0 +1,29 @@
+{
+  "modifiers": [
+    {
+      "type": "criteria",
+      "config": {
+        "criteria": {
+          "chorussoda": {
+            "conditions": {
+              "item": {
+                "items": [
+                  "dolt_mod_how:chorus_soda"
+                ]
+              }
+            },
+            "trigger": "minecraft:consume_item"
+          }
+        },
+        "requirements": [
+          [
+            "chorussoda"
+          ]
+        ],
+        "should_replace_requirements": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": "minecraft:husbandry/balanced_diet"
+}

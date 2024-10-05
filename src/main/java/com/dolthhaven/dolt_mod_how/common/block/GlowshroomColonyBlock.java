@@ -13,15 +13,14 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
+import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
 
 import javax.annotation.Nonnull;
 
 public class GlowshroomColonyBlock extends MushroomColonyBlock {
     public GlowshroomColonyBlock(Properties properties) {
-        super(properties, () -> ModList.get().isLoaded(Util.Constants.QUARK) ?
-                Util.getPotentialItem(Util.Constants.QUARK, "glow_shroom") :
-                Items.RED_MUSHROOM);
+        super(properties, () -> GlimmeringWealdModule.glow_shroom.asItem());
     }
 
     @Override

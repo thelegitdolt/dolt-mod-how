@@ -4,6 +4,7 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -28,7 +29,8 @@ public class Util {
 
 
     public static @Nullable Block getPotentialBlock(String path, String name) {
-        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(path, name));
+        Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(path, name));
+        return block == Blocks.AIR ? null : block;
     }
 
 

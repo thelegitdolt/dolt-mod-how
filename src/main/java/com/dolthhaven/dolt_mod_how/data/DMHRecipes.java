@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -26,6 +27,14 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                 .pattern("111").pattern("111")
                 .pattern("111")
                 .unlockedBy("has_cobble_deepslate", has(Items.COBBLED_DEEPSLATE)).save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DMHItems.CHORUS_SODA.get(), 2)
+                .requires(Items.GLASS_BOTTLE)
+                .requires(Items.DRAGON_BREATH)
+                .requires(Items.CHORUS_FRUIT)
+                .requires(Items.SUGAR)
+                .unlockedBy("has_chorus_fruit", has(Items.CHORUS_FRUIT))
+                .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.COBBLED_DEEPSLATE, 9)
                 .requires(STURDY_DEEPSLATE.get())

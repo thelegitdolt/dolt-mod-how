@@ -29,6 +29,13 @@ description = '''
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
+    modId = "quark"
+    mandatory = true
+    versionRange = "[4.0,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
     modId = "blueprint"
     mandatory = true
     versionRange = "[7.1.0,)"

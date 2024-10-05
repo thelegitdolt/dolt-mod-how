@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "dolt_compat:block/glowshroom_colony_stage1"
+    "cross": "dolt_mod_how:block/glowshroom_colony_stage1"
   }
 }

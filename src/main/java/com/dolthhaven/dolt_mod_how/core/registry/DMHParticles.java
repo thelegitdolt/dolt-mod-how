@@ -10,6 +10,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class DMHParticles {
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, DoltModHow.MOD_ID);
 
-    public static final RegistryObject<SimpleParticleType> LANTERNFISH_PARTICLE = PARTICLES.register("lanternfish_particle", () -> new SimpleParticleType(false));
+//    public static final RegistryObject<SimpleParticleType> LANTERNFISH_PARTICLE = PARTICLES.register("lanternfish_particle", () -> new SimpleParticleType(false));
 }
 

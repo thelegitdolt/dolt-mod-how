@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.data.tag;
+package com.dolthhaven.dolt_mod_how.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import net.minecraft.core.Registry;

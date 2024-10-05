@@ -7,23 +7,18 @@
     "anchor.LightningBoltMixin",
     "atmospheric.OrangeBlockMixin",
     "auditoryboatsounds.BlueprintBoatItemMixin",
+    "auditoryboatsounds.BoatItemMixin",
     "auditoryboatsounds.BoatloadBoatItemMixin",
     "auditoryboatsounds.DispenserMinecartItemMixin",
     "auditoryboatsounds.FlavoredCakeBlockMixin",
     "auditoryboatsounds.HangingFlowerPotMixin",
-    "brewin_and_chewin.TipsyEffectMixin",
-    "brewin_and_chewin.VanillaGuiOverlayMixin",
+    "auditoryboatsounds.MinecartItemMixin",
     "farmersdelight.KnifeItemMixin",
-    "nethers_delight.FungusColonyMixin",
     "nethers_delight.RichSoilMixin",
     "sullysmod.SMPlayerEventsMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
     "vanilla.DispenserBlockMixin"
   ],
-  "client": [
-    "brewin_and_chewin.client.GameRendererMixin",
-    "brewin_and_chewin.client.LocalPlayerMixin",
-    "dolt_mod_how.client.HumanoidArmorLayerMixin"
-  ],
+  "client": [],
   "minVersion": "0.8"
 }

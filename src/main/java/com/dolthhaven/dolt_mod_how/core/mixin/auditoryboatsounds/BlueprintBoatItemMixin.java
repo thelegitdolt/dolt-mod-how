@@ -22,8 +22,7 @@ public class BlueprintBoatItemMixin extends Item {
     at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z", shift = At.Shift.AFTER
             ))
     private Boat DoltModHow$BluePrintBoatPlaceSound(Boat boat, Level level) {
-        if (ModList.get().isLoaded("auditory"))
-            level.playSound(null, boat, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0f, 0.8f + level.random.nextFloat() * 0.4F);
+        level.playSound(null, boat, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0f, 0.8f + level.random.nextFloat() * 0.4F);
         return boat;
     }
 }

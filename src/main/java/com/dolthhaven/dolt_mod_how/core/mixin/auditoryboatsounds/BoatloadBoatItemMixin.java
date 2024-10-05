@@ -15,8 +15,7 @@ public class BoatloadBoatItemMixin {
     @ModifyVariable(method = "Lcom/teamabnormals/boatload/common/item/BoatloadBoatItem;use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;",
     at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z", shift = At.Shift.AFTER))
     private BoatloadBoat DoltModHow$BoatloadBoatMakeSound(BoatloadBoat boat, Level level) {
-        if (ModList.get().isLoaded("auditory"))
-            level.playSound(null, boat, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0f, 0.8f + level.random.nextFloat() * 0.4F);
+        level.playSound(null, boat, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0f, 0.8f + level.random.nextFloat() * 0.4F);
         return boat;
     }
 }

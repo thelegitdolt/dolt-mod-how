@@ -16,7 +16,7 @@ public class KnifeItemMixin {
     /**
      * mixins knives so they can no longer receive the efficiency enchantment.
      */
-    @Inject(method = "canApplyAtEnchantingTable(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/enchantment/Enchantment;)Z",
+    @Inject(method = "canApplyAtEnchantingTable",
     at = @At(value = "RETURN"), cancellable = true, remap = false)
     private void DoltModHow$NoEfficiencyOnKnifeEnchantmentTable(ItemStack stack, Enchantment enchantment, CallbackInfoReturnable<Boolean> cir) {
         if ((enchantment.equals(Enchantments.SILK_TOUCH) || enchantment.equals(Enchantments.BLOCK_EFFICIENCY)) && DoltModHowConfig.COMMON.doUnbloatKnifeEnchants.get())

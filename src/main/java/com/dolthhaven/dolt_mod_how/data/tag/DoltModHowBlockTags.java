@@ -1,14 +1,15 @@
-package com.dolthhaven.dolt_mod_how.core.data.tag;
+package com.dolthhaven.dolt_mod_how.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
-import vectorwing.farmersdelight.common.tag.ModTags;
+
+import java.util.concurrent.CompletableFuture;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.LANTERNFISH_BARREL;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.STURDY_DEEPSLATE;
@@ -16,15 +17,15 @@ import static net.minecraft.world.level.block.Blocks.*;
 
 
 public class DoltModHowBlockTags extends BlockTagsProvider {
-    public DoltModHowBlockTags(DataGenerator gen, @Nullable ExistingFileHelper efh) {
-        super(gen, DoltModHow.MOD_ID, efh);
+    public DoltModHowBlockTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper efh) {
+        super(output, lookupProvider, DoltModHow.MOD_ID, efh);
     }
 
     @Override
-    public void addTags() {
-        this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL)
-                .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony"))
-                .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
+    public void addTags(HolderLookup.Provider provider) {
+//        this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL)
+//                .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony"))
+//                .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
 
@@ -43,4 +44,5 @@ public class DoltModHowBlockTags extends BlockTagsProvider {
 
         this.tag(CompatTags.CHANNELS_LIGHTNING).add(JUKEBOX);
     }
+
 }

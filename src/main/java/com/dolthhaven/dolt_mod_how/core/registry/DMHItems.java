@@ -10,8 +10,4 @@ import net.minecraftforge.registries.RegistryObject;
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DMHItems {
     public static final ItemSubRegistryHelper HELPER = DoltModHow.REGISTRY_HELPER.getItemSubHelper();
-
-    public static final RegistryObject<Item> LEATHER_SCRAPS = HELPER.createItem("leather_scrap",
-            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
-
 }

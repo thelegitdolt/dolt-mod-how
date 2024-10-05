@@ -2,7 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
-import com.dolthhaven.dolt_mod_how.core.data.tag.CompatTags;
+import com.dolthhaven.dolt_mod_how.data.tag.CompatTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -50,7 +50,7 @@ public class DoltModHowEvent {
     public static void projectileImpact(ProjectileImpactEvent event) {
         if (event.getProjectile() instanceof ThrownTrident trident && trident.isChanneling()) {
             if (event.getRayTraceResult() instanceof BlockHitResult result) {
-                Level level = trident.getLevel();
+                Level level = trident.level();
                 if (!level.isThundering())
                     return;
                 BlockPos pos = result.getBlockPos();
@@ -106,7 +106,7 @@ public class DoltModHowEvent {
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onPlayerDropEvent(LivingDropsEvent event) {
         if (event.getEntity() instanceof Player player) {
-            if (player.level.getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
+            if (player.level().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
                 return;
             }
 
@@ -130,8 +130,6 @@ public class DoltModHowEvent {
             }
         }
     }
-
-
 
     @SubscribeEvent
     public static void onPlayerBreakOreEvent(BlockEvent.BreakEvent event) {

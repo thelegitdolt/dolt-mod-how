@@ -18,7 +18,6 @@ public class DoltModHowConfig {
         public final ConfigValue<Boolean> doLightningEpilogueDisc;
         public final ConfigValue<Boolean> doUntillableFarmland;
         public final ConfigValue<Boolean> removeOrangeVapor;
-        public final ConfigValue<Boolean> overhaulTipsyOverlay;
 
 
         Common(ForgeConfigSpec.Builder builder) {
@@ -58,15 +57,6 @@ public class DoltModHowConfig {
             builder.pop();
             builder.pop();
 
-            builder.push("brewin_and_chewin");
-            builder.push("Tipsy");
-            overhaulTipsyOverlay = builder.comment("If the tipsy effect should, instead of doing whatever it does now, "+
-                    "should act as a progressively worsening nausea effect. TO FULLY DISABLE THIS FEATURE, PLEASE " +
-                    "ALSO TURN OFF \"WEIRD TIPSY\" IN THE COMMON CONFIG").define("Weird Tipsy", true);
-
-            builder.pop();
-            builder.pop();
-
             builder.push("nethersdelight");
             builder.push("fungus_colonies");
 
@@ -97,20 +87,10 @@ public class DoltModHowConfig {
 
     public static class Client {
         public final ConfigValue<Boolean> removeSullyGrindstoneTooltip;
-        public final ConfigValue<Boolean> overhaulTipsyOverlay;
         Client(ForgeConfigSpec.Builder builder) {
             builder.push("Sully's Mod");
             builder.push("Grindstone Tooltip");
             removeSullyGrindstoneTooltip = builder.comment("If the tooltips appended to grindable items in Sully's Mod should be removed").define("No Grindstone Tooltip", true);
-
-            builder.pop();
-            builder.pop();
-
-            builder.push("Brewin' and Chewin'");
-            builder.push("Tipsy");
-            overhaulTipsyOverlay = builder.comment("If the tipsy effect should, instead of doing whatever it does now, "+
-                    "should act as a progressively worsening nausea effect. TO FULLY DISABLE THIS FEATURE, PLEASE " +
-                    "ALSO TURN OFF \"WEIRD TIPSY\" IN THE COMMON CONFIG").define("Weird Tipsy", true);
 
             builder.pop();
             builder.pop();

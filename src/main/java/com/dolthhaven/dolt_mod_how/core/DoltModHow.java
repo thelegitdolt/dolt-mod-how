@@ -1,16 +1,17 @@
 package com.dolthhaven.dolt_mod_how.core;
 
 import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowFishBarrelSetup;
-import com.dolthhaven.dolt_mod_how.core.data.DMHRecipes;
-import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowBlockTags;
-import com.dolthhaven.dolt_mod_how.core.data.tag.DoltModHowLootTable;
+import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
+import com.dolthhaven.dolt_mod_how.data.tag.DoltModHowBlockTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHRecipeSerializer;
+import com.dolthhaven.dolt_mod_how.data.tag.DoltModHowLootTables;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -22,6 +23,8 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+
+import java.util.concurrent.CompletableFuture;
 
 @Mod(DoltModHow.MOD_ID)
 public class DoltModHow {
@@ -48,13 +51,17 @@ public class DoltModHow {
     }
 
     private void dataSetup(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        ExistingFileHelper EFH = event.getExistingFileHelper();
+        DataGenerator dataGen = event.getGenerator();
+        PackOutput packOutput = dataGen.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
+        ExistingFileHelper helper = event.getExistingFileHelper();
+
         boolean includeServer = event.includeServer();
-        DoltModHowBlockTags taggies = new DoltModHowBlockTags(generator, EFH);
-        generator.addProvider(includeServer, taggies);
-        generator.addProvider(includeServer, new DoltModHowLootTable(generator));
-        generator.addProvider(includeServer, new DMHRecipes(generator));
+
+        DoltModHowBlockTags taggies = new DoltModHowBlockTags(packOutput, provider, helper);
+        dataGen.addProvider(includeServer, taggies);
+        dataGen.addProvider(includeServer, new DoltModHowLootTables(packOutput));
+        dataGen.addProvider(includeServer, new DMHRecipes(packOutput));
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {

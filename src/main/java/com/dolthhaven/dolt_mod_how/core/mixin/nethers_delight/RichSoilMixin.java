@@ -17,7 +17,7 @@ import vectorwing.farmersdelight.common.block.RichSoilBlock;
 
 @Mixin(RichSoilBlock.class)
 public class RichSoilMixin {
-    @Inject(method = "Lvectorwing/farmersdelight/common/block/RichSoilBlock;randomTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V",
+    @Inject(method = "randomTick",
             at = @At("HEAD"))
     private void DoltModHow$GrowNetherShroomColony(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand, CallbackInfo ci) {
         if (!level.isClientSide && ModList.get().isLoaded(Util.Constants.MY_NETHERS_DELIGHT) && DoltModHowConfig.COMMON.doRichSoilGrowFungusColony.get()) {

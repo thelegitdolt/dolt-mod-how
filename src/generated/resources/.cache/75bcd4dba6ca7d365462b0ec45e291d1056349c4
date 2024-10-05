@@ -1,8 +1,0 @@
-// 1.19.2	2024-05-24T14:20:15.763293	Tags for minecraft:block
-0defb48f4f79d0a8a25a32dd7039e747cea74f57 data/dolt_mod_how/tags/blocks/channels_lightning.json
-191326632bf1184647000c508c82b90f694b128d data/dolt_mod_how/tags/blocks/common_ores.json
-0998b262bff03c8c017b55f94c3b4fcd9bed171e data/dolt_mod_how/tags/blocks/no_xp_crops.json
-5198daae267d2260d8ff46ec336e4c5afb619f46 data/dolt_mod_how/tags/blocks/rare_ores.json
-aa0a82393850bc3c08e8f58db112de76408c0805 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
-a26b1a877745d8ab6d60a77bbb362923c156cb1f data/minecraft/tags/blocks/mineable/axe.json
-505508fb9f18dcf62185ee57d179b869ba9118d4 data/minecraft/tags/blocks/mineable/pickaxe.json

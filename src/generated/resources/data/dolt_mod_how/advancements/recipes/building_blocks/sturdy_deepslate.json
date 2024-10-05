@@ -30,5 +30,6 @@
     "recipes": [
       "dolt_mod_how:sturdy_deepslate"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

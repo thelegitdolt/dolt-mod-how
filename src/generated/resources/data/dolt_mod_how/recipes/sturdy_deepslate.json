@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "1": {
       "item": "minecraft:cobbled_deepslate"
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "dolt_mod_how:sturdy_deepslate"
-  }
+  },
+  "show_notification": true
 }

@@ -11,7 +11,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.LANTERNFISH_BARREL;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.STURDY_DEEPSLATE;
 import static net.minecraft.world.level.block.Blocks.*;
 
@@ -29,7 +28,7 @@ public class DoltModHowBlockTags extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE).add(LANTERNFISH_BARREL.get());
+//        this.tag(BlockTags.MINEABLE_WITH_AXE).add(LANTERNFISH_BARREL.get());
 
         this.tag(CompatTags.NO_XP_CROPS)
                 .addOptional(new ResourceLocation("farmersdelight", "tomatoes"));

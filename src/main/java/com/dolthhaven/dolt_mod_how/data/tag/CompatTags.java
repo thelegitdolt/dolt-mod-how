@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.teamabnormals.blueprint.core.util.TagUtil;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -14,15 +15,15 @@ public class CompatTags {
     public static final TagKey<Block> CHANNELS_LIGHTNING = blockTag("channels_lightning");
 
     private static TagKey<Item> externalItemTag(String modId, String path) {
-        return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(modId, path));
+        return TagUtil.itemTag(modId, path);
     }
 
 
     private static TagKey<Item> itemTag(String path) {
-        return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(DoltModHow.MOD_ID, path));
+        return externalItemTag(DoltModHow.MOD_ID, path);
     }
 
     private static TagKey<Block> blockTag(String path) {
-        return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(DoltModHow.MOD_ID, path));
+        return TagUtil.blockTag(DoltModHow.MOD_ID, path);
     }
 }

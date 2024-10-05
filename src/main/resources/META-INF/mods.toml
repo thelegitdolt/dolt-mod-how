@@ -12,25 +12,25 @@ credits = "Dolt H. Haven"
 displayName = "Dolt Mod How"
 description = '''
     Hello
-    '''
+'''
 
 [[dependencies.dolt_mod_how]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.19.2,1.20)"
+    versionRange = "[1.20,1.20.2)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
     modId = "forge"
     mandatory = true
-    versionRange = "[43.1.0,)"
+    versionRange = "[47.2.0,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
     modId = "blueprint"
     mandatory = true
-    versionRange = "[6.2.0,)"
+    versionRange = "[7.1.0,)"
     ordering = "AFTER"
     side = "BOTH"

@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core;
 
 import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowFishBarrelSetup;
+import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.tag.DoltModHowBlockTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
@@ -65,6 +66,10 @@ public class DoltModHow {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            DoltModHowDispensers.registerDispenseBehavior();
+        });
+
         if (ModList.get().isLoaded("fish_in_planks")) {
             event.enqueueWork(DoltModHowFishBarrelSetup::commonSetup);
         }

@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
+import com.dolthhaven.dolt_mod_how.core.registry.DoltModHowParticles;
 import com.dolthhaven.dolt_mod_how.data.tag.CompatTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import net.minecraft.core.BlockPos;
@@ -11,9 +12,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
@@ -29,6 +29,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -39,6 +40,8 @@ import net.minecraftforge.fml.common.Mod;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.List;
+
+import static net.minecraft.world.InteractionHand.MAIN_HAND;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
 public class DoltModHowEvent {
@@ -99,6 +102,23 @@ public class DoltModHowEvent {
                 level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
                 event.setCancellationResult(InteractionResult.SUCCESS);
                 event.setCanceled(true);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void removePoisonIfPlayerKillsArthropodWithBOA(LivingDeathEvent event) {
+        Entity enty = event.getEntity();
+        if (enty.level() instanceof ServerLevel SL && event.getSource().getEntity() instanceof LivingEntity attacker) {
+            boolean shouldRemovePoison = attacker.hasEffect(MobEffects.POISON)
+                    && attacker.getItemInHand(MAIN_HAND).getAllEnchantments().containsKey(Enchantments.BANE_OF_ARTHROPODS)
+                    && event.getEntity().getMobType() == MobType.ARTHROPOD;
+            if (shouldRemovePoison) {
+                attacker.removeEffect(MobEffects.POISON);
+                for (int i = 0; i < 7; i++) {
+                    SL.sendParticles(DoltModHowParticles.POISON_HEART.get(), attacker.getRandomX(0.5f), attacker.getRandomY(), attacker.getRandomZ(0.5), 1,
+                            0, 0, 0, 0);
+                }
             }
         }
     }

@@ -1,0 +1,13 @@
+{
+  "values": [
+    "dolt_mod_how:glowshroom_colony",
+    {
+      "id": "mynethersdelight:warped_fungus_colony",
+      "required": false
+    },
+    {
+      "id": "mynethersdelight:crimson_fungus_colony",
+      "required": false
+    }
+  ]
+}

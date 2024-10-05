@@ -111,9 +111,11 @@ public class DoltModHowEvent {
     public static void removePoisonIfPlayerKillsArthropodWithBOA(LivingDeathEvent event) {
         Entity enty = event.getEntity();
         if (enty.level() instanceof ServerLevel SL && event.getSource().getEntity() instanceof LivingEntity attacker) {
+
             boolean shouldRemovePoison = attacker.hasEffect(MobEffects.POISON)
                     && attacker.getItemInHand(MAIN_HAND).getAllEnchantments().containsKey(Enchantments.BANE_OF_ARTHROPODS)
                     && event.getEntity().getMobType() == MobType.ARTHROPOD;
+
             if (shouldRemovePoison) {
                 attacker.removeEffect(MobEffects.POISON);
                 for (int i = 0; i < 7; i++) {

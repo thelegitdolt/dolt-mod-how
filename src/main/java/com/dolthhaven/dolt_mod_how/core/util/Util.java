@@ -35,7 +35,11 @@ public class Util {
     public static class Constants {
         public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
         public static final String ENVIRONMENTAL = "environmental";
+        public static final String QUARK = "quark";
         public static final String FARMERS_DELIGHT = "farmersdelight";
+
+
+        public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
 
     }
 }

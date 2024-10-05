@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "dolt_mod_how:block/glowshroom_colony_stage0"
+  }
+}

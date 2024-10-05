@@ -11,6 +11,14 @@
     {
       "id": "sullysmod:deepslate_jade_ore",
       "required": false
+    },
+    {
+      "id": "oreganized:lead_ore",
+      "required": false
+    },
+    {
+      "id": "oreganized:deepslate_lead_ore",
+      "required": false
     }
   ]
 }

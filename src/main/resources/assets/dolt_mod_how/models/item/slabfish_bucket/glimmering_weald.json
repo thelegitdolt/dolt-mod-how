@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+      "layer0": "dolt_compat:item/slabfish_bucket/glimmering_weald"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "modifiers": [
+    {
+      "type": "criteria",
+      "config": {
+        "criteria": {
+          "dolt_compat:glowshroomies": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "dolt_compat:glowshroom_colony"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          }
+        },
+        "indexed_requirements": [
+          {
+            "index": 0,
+            "replace": false,
+            "requirements": [
+              "dolt_compat:glowshroomies"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": "farmersdelight:main/get_mushroom_colony"
+}

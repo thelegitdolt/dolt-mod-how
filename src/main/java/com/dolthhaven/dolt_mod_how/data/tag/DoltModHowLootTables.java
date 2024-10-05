@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.GLOWSHROOM_COLONY;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.STURDY_DEEPSLATE;
 
 
@@ -51,8 +52,11 @@ public class DoltModHowLootTables extends LootTableProvider {
 
         @Override
         public @NotNull Iterable<Block> getKnownBlocks() {
-            return ForgeRegistries.BLOCKS.getKeys().stream().filter(name -> name.getNamespace()
+            Set<Block> blocks =  ForgeRegistries.BLOCKS.getKeys().stream().filter(name -> name.getNamespace()
                     .equals(DoltModHow.MOD_ID)).map(ForgeRegistries.BLOCKS::getValue).collect(Collectors.toSet());
+
+            blocks.remove(GLOWSHROOM_COLONY.get());
+            return blocks;
         }
     }
 }

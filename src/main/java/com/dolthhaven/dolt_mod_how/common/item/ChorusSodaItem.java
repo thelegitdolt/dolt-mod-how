@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.common.item;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,10 +20,23 @@ public class ChorusSodaItem extends DrinkableItem {
 
     @Override
     public void affectConsumer(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity consumer) {
+        double x = consumer.getX();
+        double y = consumer.getY();
+        double z = consumer.getZ();
+
         consumer.teleportRelative(0, 10, 0);
+        level.broadcastEntityEvent(consumer, (byte) 46);
+
+
+        if (consumer.isPassenger()) {
+            consumer.stopRiding();
+        }
 
         SoundEvent soundevent = consumer instanceof Fox ? SoundEvents.FOX_TELEPORT : SoundEvents.CHORUS_FRUIT_TELEPORT;
-        level.playSound(consumer, consumer.getOnPos(), soundevent, SoundSource.PLAYERS, 1.0f, 1.0f);
+
+        level.playSound(null, x, y, z, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+        consumer.playSound(soundevent, 1.0f, 1.0f);
+
 
         level.gameEvent(GameEvent.TELEPORT, consumer.position(), GameEvent.Context.of(consumer));
         if (consumer instanceof Player player) {

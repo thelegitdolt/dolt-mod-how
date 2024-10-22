@@ -13,6 +13,7 @@
     "farmersdelight.KnifeItemMixin",
     "nethers_delight.RichSoilMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
+    "vanilla.ComposterBlockMixin",
     "vanilla.DispenserBlockMixin",
     "vanilla.PowderSnowBlockMixin",
     "vanilla.ServerPlayerMixin",

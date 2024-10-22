@@ -39,9 +39,12 @@ public class Util {
         public static final String ENVIRONMENTAL = "environmental";
         public static final String QUARK = "quark";
         public static final String FARMERS_DELIGHT = "farmersdelight";
+        public static final String NEAPOLITAN = "neapolitan";
 
 
         public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
+        public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
+
 
     }
 }

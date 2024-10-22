@@ -1,12 +1,9 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
-import it.unimi.dsi.fastutil.objects.Object2FloatMap;
-import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.WorldlyContainerHolder;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -29,10 +26,10 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
     }
 
     @Unique
-    private static BlockState DoltModHow$addEntity(BlockState state, LevelAccessor level, BlockPos pos, Entity entity, int compostLevel) {
+    private static boolean DoltModHow$addEntity(BlockState state, LevelAccessor level, BlockPos pos, Entity entity, int compostLevel) {
         float chance = DoltModHowDataUtil.COMPOSTABLE_ENTITIES.getFloat(entity.getType());
         if ((compostLevel != 0 || !(chance >= 0f)) && level.getRandom().nextDouble() > chance) {
-            return state;
+            return false;
         }
 
         int newLevel = compostLevel + 1;
@@ -44,7 +41,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
             level.scheduleTick(pos, newState.getBlock(), 20);
         }
 
-        return newState;
+        return true;
     }
 
     @Override
@@ -54,7 +51,8 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
         if (!level.isClientSide && compostLevel < 8 && DoltModHow$EntityInsideContent(entity, pos) &&
                 DoltModHowDataUtil.COMPOSTABLE_ENTITIES.containsKey(entity.getType())) {
             if (compostLevel < 7) {
-                DoltModHow$addEntity(state, level, pos, entity, compostLevel);
+                boolean didFill = DoltModHow$addEntity(state, level, pos, entity, compostLevel);
+                level.levelEvent(1500, pos, didFill ? 1 : 0);
             }
             entity.discard();
         }

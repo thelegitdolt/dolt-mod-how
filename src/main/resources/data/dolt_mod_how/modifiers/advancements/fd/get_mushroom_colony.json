@@ -4,12 +4,12 @@
       "type": "criteria",
       "config": {
         "criteria": {
-          "dolt_compat:glowshroomies": {
+          "glowshroomies": {
             "conditions": {
               "items": [
                 {
                   "items": [
-                    "dolt_compat:glowshroom_colony"
+                    "dolt_mod_how:glowshroom_colony"
                   ]
                 }
               ]
@@ -22,7 +22,7 @@
             "index": 0,
             "replace": false,
             "requirements": [
-              "dolt_compat:glowshroomies"
+              "glowshroomies"
             ]
           }
         ]

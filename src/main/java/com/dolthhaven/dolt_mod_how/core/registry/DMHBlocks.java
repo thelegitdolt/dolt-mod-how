@@ -2,12 +2,15 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowPots;
+import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -23,9 +26,19 @@ public class DMHBlocks {
                     .randomTicks()
                     .lightLevel(s -> 10)));
 
+
 //    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", ModList.get().isLoaded("fish_in_planks") ?
 //            DMHFishBarrels.LANTERNFISH_BLOCK : () -> new Block(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD)),
 //            AbstractSubRegistryHelper.areModsLoaded("fish_in_planks") ? CreativeModeTab.TAB_BUILDING_BLOCKS : null);
+
+
+
+
+    public static final RegistryObject<Block> POTTED_BEACHGRASS = HELPER.createBlockNoItem("potted_beachgrass",
+            ModList.get().isLoaded(Util.Constants.UPGRADE_AQUATIC) ? DoltModHowPots.POTTED_BEACHGRASS : () -> new Block(PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_MYCELIUM_SPROUTS = HELPER.createBlockNoItem("potted_mycelium_sprouts",
+            ModList.get().isLoaded(Util.Constants.ENVIRONMENTAL) ? DoltModHowPots.POTTED_MYCELIUM_SPROUTS : () -> new Block(PropertyUtil.flowerPot()));
+
 
 
     public static class DoltModHowBlockProps {

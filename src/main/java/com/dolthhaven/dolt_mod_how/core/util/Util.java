@@ -23,14 +23,22 @@ public class Util {
 
     }
 
+    public static @Nullable Item getPotentialItem(ResourceLocation loc) {
+        return ForgeRegistries.ITEMS.getValue(loc);
+    }
+
     public static @Nullable Item getPotentialItem(String path, String name) {
-        return ForgeRegistries.ITEMS.getValue(new ResourceLocation(path, name));
+        return getPotentialItem(new ResourceLocation(path, name));
     }
 
 
-    public static @Nullable Block getPotentialBlock(String path, String name) {
-        Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(path, name));
+    public static @Nullable Block getPotentialBlock(ResourceLocation loc) {
+        Block block = ForgeRegistries.BLOCKS.getValue(loc);
         return block == Blocks.AIR ? null : block;
+    }
+
+    public static @Nullable Block getPotentialBlock(String path, String name) {
+       return getPotentialBlock(new ResourceLocation(path, name));
     }
 
 
@@ -40,11 +48,13 @@ public class Util {
         public static final String QUARK = "quark";
         public static final String FARMERS_DELIGHT = "farmersdelight";
         public static final String NEAPOLITAN = "neapolitan";
+        public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
 
 
         public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
-
+        public static final ResourceLocation MYCELIUM_SPROUTS = new ResourceLocation(ENVIRONMENTAL, "mycelium_sprouts");
+        public static final ResourceLocation BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "beachgrass");
 
     }
 }

@@ -13,7 +13,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "dolt_compat:glowshroom_colony",
+                  "block": "dolt_mod_how:glowshroom_colony",
                   "properties": {
                     "age": "0"
                   }

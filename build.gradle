@@ -92,6 +92,10 @@ dependencies {
     implementation fg.deobf("curse.maven:zeta-968868:${project.zeta}")
     implementation fg.deobf("curse.maven:quark-243121:${project.quark}")
 
+    implementation fg.deobf("curse.maven:upgrade_aquatic-326895:${project.upgradeAquatic}")
+
+    implementation fg.deobf("com.teamabnormals:environmental:${project.minecraft}-4.0.0")
+
     compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}-common-api:${project.jei}")
     compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge-api:${project.jei}")
     runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge:${project.jei}")
@@ -103,9 +107,13 @@ dependencies {
 }
 
 repositories {
+    mavenLocal()
+
     maven { url "https://maven.jaackson.me" }
     maven { url "https://dvs1.progwml6.com/files/maven/" }
     maven { url "https://modmaven.k-4u.nl" }
+
+
 
     maven {
         url "https://cursemaven.com"
@@ -136,21 +144,16 @@ jar {
     }
 }
 
+
 publishing {
     publications {
-        maven(MavenPublication) {
+        register('mavenJava', MavenPublication) {
             artifact jar
         }
     }
     repositories {
-        if (project.hasProperty("jacksonMavenUser") && project.hasProperty("jacksonMavenPass")) {
-            maven {
-                url "https://maven.jaackson.me"
-                credentials {
-                    username = project.properties.jacksonMavenUser
-                    password = project.properties.jacksonMavenPass
-                }
-            }
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
         }
     }
 }

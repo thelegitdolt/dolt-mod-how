@@ -6,8 +6,11 @@ import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowPots;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import com.teamabnormals.environmental.core.registry.EnvironmentalBlocks;
+import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
@@ -38,7 +41,6 @@ public class DMHBlocks {
             ModList.get().isLoaded(Util.Constants.UPGRADE_AQUATIC) ? DoltModHowPots.POTTED_BEACHGRASS : () -> new Block(PropertyUtil.flowerPot()));
     public static final RegistryObject<Block> POTTED_MYCELIUM_SPROUTS = HELPER.createBlockNoItem("potted_mycelium_sprouts",
             ModList.get().isLoaded(Util.Constants.ENVIRONMENTAL) ? DoltModHowPots.POTTED_MYCELIUM_SPROUTS : () -> new Block(PropertyUtil.flowerPot()));
-
 
 
     public static class DoltModHowBlockProps {

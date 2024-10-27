@@ -41,3 +41,18 @@ description = '''
     versionRange = "[7.1.0,)"
     ordering = "AFTER"
     side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "upgrade_aquatic"
+    mandatory = false
+    versionRange = "[6.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "environmental"
+    mandatory = false
+    versionRange = "[4.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+

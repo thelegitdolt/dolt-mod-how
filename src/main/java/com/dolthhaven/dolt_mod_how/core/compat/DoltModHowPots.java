@@ -1,7 +1,5 @@
 package com.dolthhaven.dolt_mod_how.core.compat;
 
-import com.dolthhaven.dolt_mod_how.common.block.OptionalFlowerPot;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.environmental.core.registry.EnvironmentalBlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;

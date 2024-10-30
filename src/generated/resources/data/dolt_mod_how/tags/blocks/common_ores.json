@@ -19,6 +19,14 @@
     {
       "id": "oreganized:deepslate_lead_ore",
       "required": false
+    },
+    {
+      "id": "create:zinc_ore",
+      "required": false
+    },
+    {
+      "id": "create:deepslate_zinc_ore",
+      "required": false
     }
   ]
 }

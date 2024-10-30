@@ -33,19 +33,21 @@ public class DoltModHowBlockTags extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
 
         this.tag(CompatTags.NO_XP_CROPS)
-                .addOptional(new ResourceLocation("farmersdelight", "tomatoes"));
+                .addOptional(new ResourceLocation(Util.Constants.FARMERS_DELIGHT, "tomatoes"));
 
         this.tag(CompatTags.RARE_ORES).add(GOLD_ORE, DEEPSLATE_GOLD_ORE).addOptional(
-                new ResourceLocation("caverns_and_chasms", "silver_ore")
-        ).addOptional(new ResourceLocation("caverns_and_chasms", "deepslate_silver_ore"));
+                new ResourceLocation(Util.Constants.CAVERNS_AND_CHASMS, "silver_ore")
+        ).addOptional(new ResourceLocation(Util.Constants.CAVERNS_AND_CHASMS, "deepslate_silver_ore"));
 
-        this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get());
+        this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(), POTTED_TALL_BEACHGRASS.get());
 
         this.tag(CompatTags.COMMON_ORES).add(COPPER_ORE, DEEPSLATE_COPPER_ORE, IRON_ORE, DEEPSLATE_IRON_ORE)
-                .addOptional(new ResourceLocation("sullysmod", "jade_ore"))
-                .addOptional(new ResourceLocation("sullysmod", "deepslate_jade_ore"))
-                .addOptional(new ResourceLocation("oreganized", "lead_ore"))
-                .addOptional(new ResourceLocation("oreganized", "deepslate_lead_ore"));
+                .addOptional(new ResourceLocation(Util.Constants.SULLYSMOD, "jade_ore"))
+                .addOptional(new ResourceLocation(Util.Constants.SULLYSMOD, "deepslate_jade_ore"))
+                .addOptional(new ResourceLocation(Util.Constants.OREGANIZED, "lead_ore"))
+                .addOptional(new ResourceLocation(Util.Constants.OREGANIZED, "deepslate_lead_ore"))
+                .addOptional(new ResourceLocation(Util.Constants.CREATE, "zinc_ore"))
+                .addOptional(new ResourceLocation(Util.Constants.CREATE, "deepslate_zinc_ore"));
 
         this.tag(CompatTags.CHANNELS_LIGHTNING).add(JUKEBOX);
     }

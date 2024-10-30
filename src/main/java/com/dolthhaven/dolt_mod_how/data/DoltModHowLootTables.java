@@ -1,11 +1,14 @@
-package com.dolthhaven.dolt_mod_how.data.tag;
+package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -50,19 +53,11 @@ public class DoltModHowLootTables extends LootTableProvider {
         @Override
         protected void generate() {
             this.dropSelf(STURDY_DEEPSLATE.get());
-
         }
 
         @Override
         public @NotNull Iterable<Block> getKnownBlocks() {
-            Set<Block> blocks =  ForgeRegistries.BLOCKS.getKeys().stream().filter(name -> name.getNamespace()
-                    .equals(DoltModHow.MOD_ID)).map(ForgeRegistries.BLOCKS::getValue).collect(Collectors.toSet());
-
-            blocks.remove(GLOWSHROOM_COLONY.get());
-
-            blocks.remove(POTTED_MYCELIUM_SPROUTS.get());
-            blocks.remove(POTTED_BEACHGRASS.get());
-            return blocks;
+            return ImmutableSet.of(STURDY_DEEPSLATE.get());
         }
     }
 }

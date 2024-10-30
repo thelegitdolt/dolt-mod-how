@@ -17,6 +17,8 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Supplier;
+
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DMHBlocks {
     public static final BlockSubRegistryHelper HELPER = DoltModHow.REGISTRY_HELPER.getBlockSubHelper();
@@ -38,10 +40,21 @@ public class DMHBlocks {
 
 
     public static final RegistryObject<Block> POTTED_BEACHGRASS = HELPER.createBlockNoItem("potted_beachgrass",
-            ModList.get().isLoaded(Util.Constants.UPGRADE_AQUATIC) ? DoltModHowPots.POTTED_BEACHGRASS : () -> new Block(PropertyUtil.flowerPot()));
+            getPot(Util.Constants.UPGRADE_AQUATIC, DoltModHowPots.POTTED_BEACHGRASS));
+    public static final RegistryObject<Block> POTTED_TALL_BEACHGRASS = HELPER.createBlockNoItem("potted_tall_beachgrass",
+            getPot(Util.Constants.UPGRADE_AQUATIC, DoltModHowPots.POTTED_TALL_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_MYCELIUM_SPROUTS = HELPER.createBlockNoItem("potted_mycelium_sprouts",
-            ModList.get().isLoaded(Util.Constants.ENVIRONMENTAL) ? DoltModHowPots.POTTED_MYCELIUM_SPROUTS : () -> new Block(PropertyUtil.flowerPot()));
+            getPot(Util.Constants.ENVIRONMENTAL, DoltModHowPots.POTTED_MYCELIUM_SPROUTS));
 
+
+    private static Supplier<Block> getPot(String id, Supplier<Block> pot) {
+        if (ModList.get().isLoaded(id)) {
+            return pot;
+        }
+        else {
+            return () -> new Block(PropertyUtil.flowerPot());
+        }
+    }
 
     public static class DoltModHowBlockProps {
         public static final BlockBehaviour.Properties STURDY_DEEPSLATE = BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(4.5F, 9.0F)

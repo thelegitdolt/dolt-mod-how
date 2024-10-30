@@ -43,11 +43,15 @@ public class Util {
 
 
     public static class Constants {
-        public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
+        public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
+        public static final String CREATE = "create";
         public static final String ENVIRONMENTAL = "environmental";
-        public static final String QUARK = "quark";
         public static final String FARMERS_DELIGHT = "farmersdelight";
+        public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
         public static final String NEAPOLITAN = "neapolitan";
+        public static final String OREGANIZED = "oreganized";
+        public static final String QUARK = "quark";
+        public static final String SULLYSMOD = "sullysmod";
         public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
 
 

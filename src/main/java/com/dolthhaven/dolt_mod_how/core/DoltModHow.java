@@ -3,10 +3,13 @@ package com.dolthhaven.dolt_mod_how.core;
 import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowFishBarrelSetup;
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
-import com.dolthhaven.dolt_mod_how.core.registry.*;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHRecipeSerializer;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.tag.DoltModHowBlockTags;
-import com.dolthhaven.dolt_mod_how.data.tag.DoltModHowLootTables;
+import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
@@ -66,6 +69,8 @@ public class DoltModHow {
         dataGen.addProvider(includeServer, taggies);
         dataGen.addProvider(includeServer, new DoltModHowLootTables(packOutput));
         dataGen.addProvider(includeServer, new DMHRecipes(packOutput));
+
+        boolean includeClient = event.includeClient();
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {

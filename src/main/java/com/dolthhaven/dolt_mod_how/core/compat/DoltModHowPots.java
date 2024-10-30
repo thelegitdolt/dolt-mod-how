@@ -11,7 +11,9 @@ import java.util.function.Supplier;
 public class DoltModHowPots {
     public static final Supplier<Block> POTTED_BEACHGRASS = () ->
             new FlowerPotBlock(UABlocks.BEACHGRASS.get(), PropertyUtil.flowerPot());
-
+    public static final Supplier<Block> POTTED_TALL_BEACHGRASS = () ->
+            new FlowerPotBlock(UABlocks.TALL_BEACHGRASS.get(), PropertyUtil.flowerPot());
     public static final Supplier<Block> POTTED_MYCELIUM_SPROUTS = () ->
             new FlowerPotBlock(EnvironmentalBlocks.MYCELIUM_SPROUTS.get(), PropertyUtil.flowerPot());
+
 }

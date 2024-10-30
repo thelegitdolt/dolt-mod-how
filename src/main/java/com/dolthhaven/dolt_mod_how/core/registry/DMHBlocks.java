@@ -37,8 +37,8 @@ public class DMHBlocks {
 //            AbstractSubRegistryHelper.areModsLoaded("fish_in_planks") ? CreativeModeTab.TAB_BUILDING_BLOCKS : null);
 
 
-
-
+    public static final RegistryObject<Block> POTTED_ARID_SPROUTS = HELPER.createBlockNoItem("potted_arid_sprouts",
+            getPot(Util.Constants.ATMOSPHERIC, DoltModHowPots.POTTED_ARID_SPROUTS));
     public static final RegistryObject<Block> POTTED_BEACHGRASS = HELPER.createBlockNoItem("potted_beachgrass",
             getPot(Util.Constants.UPGRADE_AQUATIC, DoltModHowPots.POTTED_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_TALL_BEACHGRASS = HELPER.createBlockNoItem("potted_tall_beachgrass",

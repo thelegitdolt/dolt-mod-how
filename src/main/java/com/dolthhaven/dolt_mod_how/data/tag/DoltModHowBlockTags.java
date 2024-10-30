@@ -39,7 +39,8 @@ public class DoltModHowBlockTags extends BlockTagsProvider {
                 new ResourceLocation(Util.Constants.CAVERNS_AND_CHASMS, "silver_ore")
         ).addOptional(new ResourceLocation(Util.Constants.CAVERNS_AND_CHASMS, "deepslate_silver_ore"));
 
-        this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(), POTTED_TALL_BEACHGRASS.get());
+        this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(),
+                POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get());
 
         this.tag(CompatTags.COMMON_ORES).add(COPPER_ORE, DEEPSLATE_COPPER_ORE, IRON_ORE, DEEPSLATE_IRON_ORE)
                 .addOptional(new ResourceLocation(Util.Constants.SULLYSMOD, "jade_ore"))

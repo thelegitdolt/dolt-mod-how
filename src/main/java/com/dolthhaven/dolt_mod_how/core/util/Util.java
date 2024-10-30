@@ -43,6 +43,7 @@ public class Util {
 
 
     public static class Constants {
+        public static final String ATMOSPHERIC = "atmospheric";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
         public static final String CREATE = "create";
         public static final String ENVIRONMENTAL = "environmental";

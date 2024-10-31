@@ -1,0 +1,15 @@
+{
+  "molding": "json",
+  "remolder": {
+    "type": "add",
+    "target": "overrides[]",
+    "value": {
+        "predicate": {
+            "dolt_mod_how:torch_arrow": 1, 
+            "charged": 1
+        },
+        "model": "dolt_mod_how:item/crossbow/crossbow_torch_arrow"
+    }
+  },
+  "selector": "minecraft:models/item/crossbow"
+}

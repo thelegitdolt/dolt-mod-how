@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core;
 
+import com.dolthhaven.dolt_mod_how.client.other.DMHClientCompat;
 import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowFishBarrelSetup;
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
@@ -15,16 +16,19 @@ import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -44,12 +48,13 @@ public class DoltModHow {
 
         bus.addListener(this::dataSetup);
         bus.addListener(this::commonSetup);
+        bus.addListener(this::clientSetup);
 
         DMHEnchants.ENCHANTMENTS.register(bus);
         DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
         DMHParticles.PARTICLES.register(bus);
         REGISTRY_HELPER.register(bus);
-
+        
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -82,5 +87,15 @@ public class DoltModHow {
         if (ModList.get().isLoaded("fish_in_planks")) {
             event.enqueueWork(DoltModHowFishBarrelSetup::commonSetup);
         }
+    }
+
+    private void clientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            DMHClientCompat.doCompat();
+        });
+    }
+
+    public static ResourceLocation rl(String path) {
+        return new ResourceLocation(MOD_ID, path);
     }
 }

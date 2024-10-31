@@ -1,0 +1,25 @@
+{
+  "molding": "json",
+  "remolder": {
+    "type": "add",
+    "target": "overrides[]",
+    "value": {
+        "predicate": {
+            "neapolitan:bananarrow": 1
+        },
+        "model": "dolt_mod_how:item/crossbow/crossbow_bananarrow"
+    }
+  },
+  "selector": {
+    "type": "names",
+    "conditions": [
+      {
+        "type": "forge:mod_loaded",
+        "modid": "neapolitan"
+      }
+    ],
+    "config": [
+      "minecraft:models/item/crossbow"
+    ]
+  }
+}

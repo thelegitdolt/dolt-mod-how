@@ -1,0 +1,25 @@
+{
+  "molding": "json",
+  "remolder": {
+    "type": "add",
+    "target": "overrides[]",
+    "value": {
+        "predicate": {
+            "savage_and_ravage:mischief_arrow": 1
+        },
+        "model": "dolt_mod_how:item/crossbow/crossbow_mischief_arrow"
+    }
+  },
+  "selector": {
+    "type": "names",
+    "conditions": [
+      {
+        "type": "forge:mod_loaded",
+        "modid": "savage_and_ravage"
+      }
+    ],
+    "config": [
+      "minecraft:models/item/crossbow"
+    ]
+  }
+}

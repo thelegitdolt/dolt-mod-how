@@ -29,10 +29,17 @@ description = '''
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
+    modId = "farmersdelight"
+    mandatory = true
+    versionRange = "[1.20,1.20.2)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
     modId = "quark"
     mandatory = true
     versionRange = "[4.0,)"
-    ordering = "NONE"
+    ordering = "AFTER"
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]

@@ -34,23 +34,32 @@ public class FakePlayerCauldronInteract extends DispenserHelper.AdditionalDispen
         BlockPos pos = source.getPos().relative(dir);
         Player fp = FakePlayerManager.getDefault(level);
 
-        ItemStack aeadb = stack.copy();
-        aeadb.setCount(1);
-        fp.setItemInHand(InteractionHand.MAIN_HAND, aeadb);
+        ItemStack dispenseStack = stack.copy();
+        dispenseStack.setCount(1);
+        fp.setItemInHand(InteractionHand.MAIN_HAND, dispenseStack);
 
-        InteractionResult v = InteractionResult.PASS;
+        InteractionResult result = InteractionResult.PASS;
 
         BlockState cauldronState = level.getBlockState(pos);
         if (cauldronState.getBlock() instanceof AbstractCauldronBlock cauldron) {
-            stack.shrink(1);
-             v = cauldron.use(cauldronState, level, pos, fp, InteractionHand.MAIN_HAND, new BlockHitResult(Vec3.atCenterOf(pos), dir, pos, false));
+             result = cauldron.use(cauldronState, level, pos, fp, InteractionHand.MAIN_HAND, new BlockHitResult(Vec3.atCenterOf(pos), dir, pos, false));
         }
 
-        ItemStack remainderStack = fp.getItemInHand(InteractionHand.MAIN_HAND);
+        BlockState newState = level.getBlockState(pos);
 
-        if (source.<DispenserBlockEntity>getEntity().addItem(remainderStack) < 0)
-            new DefaultDispenseItemBehavior().dispense(source, remainderStack);
+        if (newState == cauldronState && !result.shouldSwing()) {
+            new DefaultDispenseItemBehavior().dispense(source, stack);
+            return InteractionResultHolder.fail(stack);
+        }
+        else {
+            ItemStack remainderStack = fp.getItemInHand(InteractionHand.MAIN_HAND);
+            stack.shrink(1);
+            if (source.<DispenserBlockEntity>getEntity().addItem(remainderStack) < 0)
+                new DefaultDispenseItemBehavior().dispense(source, remainderStack);
+        }
 
-        return v.consumesAction() ? InteractionResultHolder.sidedSuccess(stack, false) : InteractionResultHolder.fail(stack);
+
+
+        return result.consumesAction() ? InteractionResultHolder.sidedSuccess(stack, false) : InteractionResultHolder.fail(stack);
     }
 }

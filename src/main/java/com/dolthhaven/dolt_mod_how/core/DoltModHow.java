@@ -6,8 +6,9 @@ import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
 import com.dolthhaven.dolt_mod_how.core.registry.*;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
-import com.dolthhaven.dolt_mod_how.data.tag.DoltModHowBlockTags;
+import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
+import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
@@ -18,7 +19,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
@@ -68,8 +68,9 @@ public class DoltModHow {
 
         boolean includeServer = event.includeServer();
 
-        DoltModHowBlockTags taggies = new DoltModHowBlockTags(packOutput, provider, helper);
+        DMHBlockTags taggies = new DMHBlockTags(packOutput, provider, helper);
         dataGen.addProvider(includeServer, taggies);
+        dataGen.addProvider(includeServer, new DMHItemTags(event, taggies));
         dataGen.addProvider(includeServer, new DoltModHowLootTables(packOutput));
         dataGen.addProvider(includeServer, new DMHRecipes(packOutput));
 

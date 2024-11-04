@@ -1,0 +1,9 @@
+{
+  "values": [
+    "dolt_mod_how:golden_acid_bucket",
+    {
+      "id": "alexscaves:acid_bucket",
+      "required": false
+    }
+  ]
+}

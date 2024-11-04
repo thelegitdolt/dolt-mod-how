@@ -48,7 +48,7 @@ public class FakePlayerCauldronInteract extends DispenserHelper.AdditionalDispen
         BlockState newState = level.getBlockState(pos);
 
         if (newState == cauldronState && !result.shouldSwing()) {
-            new DefaultDispenseItemBehavior().dispense(source, stack);
+            DispenserBlock.DISPENSER_REGISTRY.get(stack.getItem()).dispense(source, stack);
             return InteractionResultHolder.fail(stack);
         }
         else {

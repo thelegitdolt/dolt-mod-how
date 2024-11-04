@@ -10,6 +10,7 @@
     "auditoryboatsounds.BoatloadBoatItemMixin",
     "auditoryboatsounds.DispenserMinecartItemMixin",
     "auditoryboatsounds.MinecartItemMixin",
+    "caverns_and_chasms.GoldenBucketMixin",
     "farmersdelight.KnifeItemMixin",
     "nethers_delight.RichSoilMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",

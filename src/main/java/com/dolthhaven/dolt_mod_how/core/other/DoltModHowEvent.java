@@ -3,12 +3,11 @@ package com.dolthhaven.dolt_mod_how.core.other;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
-import com.dolthhaven.dolt_mod_how.data.tag.CompatTags;
+import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -61,7 +60,7 @@ public class DoltModHowEvent {
                 if (!level.canSeeSky(pos.above()))
                     return;
 
-                if (level.getBlockState(pos).is(CompatTags.CHANNELS_LIGHTNING)) {
+                if (level.getBlockState(pos).is(DMHTags.CHANNELS_LIGHTNING)) {
                     LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
                     if (bolt == null)
                         return;
@@ -172,11 +171,11 @@ public class DoltModHowEvent {
             }
 
 
-            if (state.is(CompatTags.COMMON_ORES)) {
+            if (state.is(DMHTags.COMMON_ORES)) {
                 int exp = COMMON_ORE.sample(level.getRandom());
                 event.setExpToDrop(exp);
             }
-            else if (state.is(CompatTags.RARE_ORES)) {
+            else if (state.is(DMHTags.RARE_ORES)) {
                 event.setExpToDrop(RARE_ORE.sample(level.getRandom()));
             }
         }
@@ -192,7 +191,7 @@ public class DoltModHowEvent {
         if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = event.getState();
             if (state.getBlock() instanceof CropBlock cropBlock &&
-                !state.is(CompatTags.NO_XP_CROPS) &&
+                !state.is(DMHTags.NO_XP_CROPS) &&
                 cropBlock.isMaxAge(state)) {
 
                 UniformInt crop_sampler = UniformInt.of(

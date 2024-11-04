@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 
 import java.util.function.Supplier;
 
-public class DoltModHowPots {
+public class DMHOptionalBlocks {
     // ATMOSPHERIC BEGIN
     public static final Supplier<Block> POTTED_ARID_SPROUTS = () ->
             new FlowerPotBlock(AtmosphericBlocks.ARID_SPROUTS.get(), PropertyUtil.flowerPot());
@@ -24,5 +24,6 @@ public class DoltModHowPots {
     // ENVIRONMENTAL BEGIN
     public static final Supplier<Block> POTTED_MYCELIUM_SPROUTS = () ->
             new FlowerPotBlock(EnvironmentalBlocks.MYCELIUM_SPROUTS.get(), PropertyUtil.flowerPot());
+
 
 }

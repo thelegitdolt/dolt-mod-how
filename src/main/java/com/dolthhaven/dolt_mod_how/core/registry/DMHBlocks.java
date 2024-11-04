@@ -2,15 +2,12 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowPots;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHOptionalBlocks;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import com.teamabnormals.environmental.core.registry.EnvironmentalBlocks;
-import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
@@ -38,13 +35,13 @@ public class DMHBlocks {
 
 
     public static final RegistryObject<Block> POTTED_ARID_SPROUTS = HELPER.createBlockNoItem("potted_arid_sprouts",
-            getPot(Util.Constants.ATMOSPHERIC, DoltModHowPots.POTTED_ARID_SPROUTS));
+            getPot(Util.Constants.ATMOSPHERIC, DMHOptionalBlocks.POTTED_ARID_SPROUTS));
     public static final RegistryObject<Block> POTTED_BEACHGRASS = HELPER.createBlockNoItem("potted_beachgrass",
-            getPot(Util.Constants.UPGRADE_AQUATIC, DoltModHowPots.POTTED_BEACHGRASS));
+            getPot(Util.Constants.UPGRADE_AQUATIC, DMHOptionalBlocks.POTTED_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_TALL_BEACHGRASS = HELPER.createBlockNoItem("potted_tall_beachgrass",
-            getPot(Util.Constants.UPGRADE_AQUATIC, DoltModHowPots.POTTED_TALL_BEACHGRASS));
+            getPot(Util.Constants.UPGRADE_AQUATIC, DMHOptionalBlocks.POTTED_TALL_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_MYCELIUM_SPROUTS = HELPER.createBlockNoItem("potted_mycelium_sprouts",
-            getPot(Util.Constants.ENVIRONMENTAL, DoltModHowPots.POTTED_MYCELIUM_SPROUTS));
+            getPot(Util.Constants.ENVIRONMENTAL, DMHOptionalBlocks.POTTED_MYCELIUM_SPROUTS));
 
 
     private static Supplier<Block> getPot(String id, Supplier<Block> pot) {

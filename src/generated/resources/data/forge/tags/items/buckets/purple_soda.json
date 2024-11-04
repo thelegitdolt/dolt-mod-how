@@ -1,0 +1,9 @@
+{
+  "values": [
+    "dolt_mod_how:golden_purple_soda_bucket",
+    {
+      "id": "alexscaves:purple_soda_bucket",
+      "required": false
+    }
+  ]
+}

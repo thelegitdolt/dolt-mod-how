@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHOptionalItems;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -15,12 +16,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.MushroomColonyItem;
 
+import java.util.Arrays;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.STURDY_DEEPSLATE;
 import static net.minecraft.world.item.crafting.Ingredient.of;
@@ -33,6 +37,10 @@ public class DMHItems {
     public static final RegistryObject<Item> CHORUS_SODA = HELPER.createItem("chorus_soda",
             () -> new ChorusSodaItem(new Item.Properties().food(Food.CHORUS_SODA).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
 
+    public static final RegistryObject<Item> GOLDEN_ACID_BUCKET = HELPER.createItem("golden_acid_bucket",
+            getGoldenBucket(DMHOptionalItems.GOLDEN_ACID_BUCKET));
+    public static final RegistryObject<Item> GOLDEN_PURPLE_SODA_BUCKET = HELPER.createItem("golden_purple_soda_bucket",
+            getGoldenBucket(DMHOptionalItems.GOLDEN_PURPLE_SODA_BUCKET));
 
     public static void setUpTabEditors() {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
@@ -46,7 +54,19 @@ public class DMHItems {
         CreativeModeTabContentsPopulator.mod("quark_" + DoltModHow.MOD_ID)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                 .addItemsAfter(ofID(Util.Constants.STURDY_STONE), STURDY_DEEPSLATE);
+    }
 
+    private static Supplier<Item> getGoldenBucket(Supplier<Item> bucket) {
+        if (areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES)) {
+            return bucket;
+        }
+        else {
+            return () -> new Item(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET));
+        }
+    }
+
+    private static boolean areModsLoaded(String... ids) {
+        return Arrays.stream(ids).allMatch(ModList.get()::isLoaded);
     }
 
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {

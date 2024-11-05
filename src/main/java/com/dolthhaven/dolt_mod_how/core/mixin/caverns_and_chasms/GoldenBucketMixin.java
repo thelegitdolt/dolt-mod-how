@@ -2,6 +2,8 @@ package com.dolthhaven.dolt_mod_how.core.mixin.caverns_and_chasms;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.github.alexmodguy.alexscaves.server.block.fluid.ACFluidRegistry;
+import com.github.alexthe666.citadel.repack.jaad.Play;
+import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -98,7 +100,8 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
         }
     }
 
-    @Inject(method = "emptyContents", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;liquid()Z", shift = At.Shift.BEFORE), cancellable = true)
+    @Inject(method = "emptyContents", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;liquid()Z",
+            shift = At.Shift.BY, by = -2), cancellable = true)
     private void DMH$CheckIfCanPlaceInNetherTwo(Player player, Level level, BlockPos pos, BlockHitResult result, CallbackInfoReturnable<Boolean> cir) {
         if (this.getFluid().getFluidType().isVaporizedOnPlacement(level, pos, new FluidStack(this.getFluid(), 0))) {
             this.getFluid().getFluidType().onVaporize(player, level, pos, new FluidStack(this.getFluid(), 0));

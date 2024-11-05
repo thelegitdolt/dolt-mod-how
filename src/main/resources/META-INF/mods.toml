@@ -71,3 +71,9 @@ description = '''
     ordering = "AFTER"
     side = "BOTH"
 
+[[dependencies.dolt_mod_how]]
+    modId = "caverns_and_chasms"
+    mandatory = false
+    versionRange = "[2.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"

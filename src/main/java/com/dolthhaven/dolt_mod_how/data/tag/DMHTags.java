@@ -15,15 +15,21 @@ public class DMHTags {
     public static final TagKey<Item> ACID_BUCKETS = externalItemTag("forge", "buckets/acid");
     public static final TagKey<Item> PURPLE_SODA_BUCKETS = externalItemTag("forge", "buckets/purple_soda");
 
+    public static final TagKey<Block> ORES_SILVER = externalBlockTag("forge", "ores/silver");
 
     private static TagKey<Item> externalItemTag(String modId, String path) {
         return TagUtil.itemTag(modId, path);
+    }
+
+    private static TagKey<Block> externalBlockTag(String modId, String path) {
+        return TagUtil.blockTag(modId, path);
     }
 
 
     private static TagKey<Item> itemTag(String path) {
         return externalItemTag(DoltModHow.MOD_ID, path);
     }
+
 
     private static TagKey<Block> blockTag(String path) {
         return TagUtil.blockTag(DoltModHow.MOD_ID, path);

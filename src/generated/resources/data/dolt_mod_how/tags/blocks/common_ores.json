@@ -1,31 +1,17 @@
 {
   "values": [
-    "minecraft:copper_ore",
-    "minecraft:deepslate_copper_ore",
-    "minecraft:iron_ore",
-    "minecraft:deepslate_iron_ore",
+    "#minecraft:iron_ores",
+    "#minecraft:copper_ores",
     {
-      "id": "sullysmod:jade_ore",
+      "id": "#forge:ores/jade",
       "required": false
     },
     {
-      "id": "sullysmod:deepslate_jade_ore",
+      "id": "#forge:ores/lead",
       "required": false
     },
     {
-      "id": "oreganized:lead_ore",
-      "required": false
-    },
-    {
-      "id": "oreganized:deepslate_lead_ore",
-      "required": false
-    },
-    {
-      "id": "create:zinc_ore",
-      "required": false
-    },
-    {
-      "id": "create:deepslate_zinc_ore",
+      "id": "#forge:ores/zinc",
       "required": false
     }
   ]

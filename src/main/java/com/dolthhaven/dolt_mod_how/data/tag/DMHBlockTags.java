@@ -10,6 +10,7 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -35,20 +36,16 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(DMHTags.NO_XP_CROPS)
                 .addOptional(new ResourceLocation(Util.Constants.FARMERS_DELIGHT, "tomatoes"));
 
-        this.tag(DMHTags.RARE_ORES).add(GOLD_ORE, DEEPSLATE_GOLD_ORE).addOptional(
-                new ResourceLocation(Util.Constants.CAVERNS_AND_CHASMS, "silver_ore")
-        ).addOptional(new ResourceLocation(Util.Constants.CAVERNS_AND_CHASMS, "deepslate_silver_ore"));
-
         this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(),
                 POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get());
 
-        this.tag(DMHTags.COMMON_ORES).add(COPPER_ORE, DEEPSLATE_COPPER_ORE, IRON_ORE, DEEPSLATE_IRON_ORE)
-                .addOptional(new ResourceLocation(Util.Constants.SULLYSMOD, "jade_ore"))
-                .addOptional(new ResourceLocation(Util.Constants.SULLYSMOD, "deepslate_jade_ore"))
-                .addOptional(new ResourceLocation(Util.Constants.OREGANIZED, "lead_ore"))
-                .addOptional(new ResourceLocation(Util.Constants.OREGANIZED, "deepslate_lead_ore"))
-                .addOptional(new ResourceLocation(Util.Constants.CREATE, "zinc_ore"))
-                .addOptional(new ResourceLocation(Util.Constants.CREATE, "deepslate_zinc_ore"));
+        this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)
+                .addOptionalTag(new ResourceLocation("forge", "ores/silver"));
+
+        this.tag(DMHTags.COMMON_ORES).addTags(BlockTags.IRON_ORES, BlockTags.COPPER_ORES)
+                .addOptionalTag(new ResourceLocation("forge", "ores/jade"))
+                .addOptionalTag(new ResourceLocation("forge", "ores/lead"))
+                .addOptionalTag(new ResourceLocation("forge", "ores/zinc"));
 
         this.tag(DMHTags.CHANNELS_LIGHTNING).add(JUKEBOX);
     }

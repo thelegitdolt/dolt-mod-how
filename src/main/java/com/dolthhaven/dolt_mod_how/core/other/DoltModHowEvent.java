@@ -25,6 +25,7 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -170,13 +171,13 @@ public class DoltModHowEvent {
                 return;
             }
 
-
-            if (state.is(DMHTags.COMMON_ORES)) {
-                int exp = COMMON_ORE.sample(level.getRandom());
-                event.setExpToDrop(exp);
-            }
-            else if (state.is(DMHTags.RARE_ORES)) {
-                event.setExpToDrop(RARE_ORE.sample(level.getRandom()));
+            if (event.getExpToDrop() == 0) {
+                if (state.is(DMHTags.COMMON_ORES)) {
+                    int exp = COMMON_ORE.sample(level.getRandom());
+                    event.setExpToDrop(exp);
+                } else if (state.is(DMHTags.RARE_ORES)) {
+                    event.setExpToDrop(RARE_ORE.sample(level.getRandom()));
+                }
             }
         }
     }

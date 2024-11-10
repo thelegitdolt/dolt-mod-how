@@ -1,13 +1,8 @@
 {
   "values": [
-    "minecraft:gold_ore",
-    "minecraft:deepslate_gold_ore",
+    "#minecraft:gold_ores",
     {
-      "id": "caverns_and_chasms:silver_ore",
-      "required": false
-    },
-    {
-      "id": "caverns_and_chasms:deepslate_silver_ore",
+      "id": "#forge:ores/silver",
       "required": false
     }
   ]

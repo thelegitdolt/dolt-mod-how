@@ -1,8 +1,8 @@
-// 1.20.1	2024-10-30T15:43:00.857001	Tags for minecraft:block mod id dolt_mod_how
+// 1.20.1	2024-11-10T10:02:18.341491	Tags for minecraft:block mod id dolt_mod_how
 0defb48f4f79d0a8a25a32dd7039e747cea74f57 data/dolt_mod_how/tags/blocks/channels_lightning.json
-60dd8cd6b3df6a961690201ea50e68d0ad7c2334 data/dolt_mod_how/tags/blocks/common_ores.json
+88d1a102592bc65288780153e393178dfb9c234a data/dolt_mod_how/tags/blocks/common_ores.json
 0998b262bff03c8c017b55f94c3b4fcd9bed171e data/dolt_mod_how/tags/blocks/no_xp_crops.json
-5198daae267d2260d8ff46ec336e4c5afb619f46 data/dolt_mod_how/tags/blocks/rare_ores.json
+797199ebd94f2da00ef4c91b6db583e2cfe7be63 data/dolt_mod_how/tags/blocks/rare_ores.json
 08ffaafb213a31beb0f9a18594287aef60d93225 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
 4ad146867f2ac9e442597b2116282d008a593769 data/minecraft/tags/blocks/flower_pots.json
 505508fb9f18dcf62185ee57d179b869ba9118d4 data/minecraft/tags/blocks/mineable/pickaxe.json

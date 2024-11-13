@@ -10,7 +10,6 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -32,6 +31,8 @@ public class DMHBlockTags extends BlockTagsProvider {
                 .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
+
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(PINE_NUTS_CRATE.get());
 
         this.tag(DMHTags.NO_XP_CROPS)
                 .addOptional(new ResourceLocation(Util.Constants.FARMERS_DELIGHT, "tomatoes"));

@@ -41,6 +41,8 @@ public class DMHItems {
             getGoldenBucket(DMHOptionalItems.GOLDEN_ACID_BUCKET));
     public static final RegistryObject<Item> GOLDEN_PURPLE_SODA_BUCKET = HELPER.createItem("golden_purple_soda_bucket",
             getGoldenBucket(DMHOptionalItems.GOLDEN_PURPLE_SODA_BUCKET));
+    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
+            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
 
     public static void setUpTabEditors() {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)

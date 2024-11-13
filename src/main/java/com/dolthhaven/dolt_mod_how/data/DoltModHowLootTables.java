@@ -1,31 +1,24 @@
 package com.dolthhaven.dolt_mod_how.data;
 
-import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -53,11 +46,12 @@ public class DoltModHowLootTables extends LootTableProvider {
         @Override
         protected void generate() {
             this.dropSelf(STURDY_DEEPSLATE.get());
+            this.dropSelf(PINE_NUTS_CRATE.get());
         }
 
         @Override
         public @NotNull Iterable<Block> getKnownBlocks() {
-            return ImmutableSet.of(STURDY_DEEPSLATE.get());
+            return ImmutableSet.of(STURDY_DEEPSLATE.get(), PINE_NUTS_CRATE.get());
         }
     }
 }

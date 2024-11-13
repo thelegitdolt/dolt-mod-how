@@ -2,8 +2,6 @@ package com.dolthhaven.dolt_mod_how.core.mixin.caverns_and_chasms;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.github.alexmodguy.alexscaves.server.block.fluid.ACFluidRegistry;
-import com.github.alexthe666.citadel.repack.jaad.Play;
-import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -22,8 +20,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BucketPickup;
+import net.minecraft.world.level.block.LiquidBlockContainer;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -53,7 +53,8 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
     private static void DoltModHow$RegisterThisModBuckets(BlockState state, CallbackInfoReturnable<ItemStack> cir) {
         if (state.getFluidState().is(ACFluidRegistry.ACID_FLUID_SOURCE.get())) {
             cir.setReturnValue(new ItemStack(DMHItems.GOLDEN_ACID_BUCKET.get()));
-        } else if (state.getFluidState().is(ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get())) {
+        }
+        else if (state.getFluidState().is(ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get())) {
             cir.setReturnValue(new ItemStack(DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get()));
         }
     }
@@ -92,17 +93,52 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
         }
     }
 
-    @Inject(method = "emptyContents", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/LiquidBlockContainer;placeLiquid(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/material/FluidState;)Z", shift = At.Shift.BEFORE), cancellable = true)
+    @Inject(method = "emptyContents", at = @At(value = "HEAD"), cancellable = true)
     private void DMH$CheckIfCanPlaceInNether(Player player, Level level, BlockPos pos, BlockHitResult result, CallbackInfoReturnable<Boolean> cir) {
-        if (this.getFluid().getFluidType().isVaporizedOnPlacement(level, pos, new FluidStack(this.getFluid(), 0))) {
-            this.getFluid().getFluidType().onVaporize(player, level, pos, new FluidStack(this.getFluid(), 0));
-            cir.setReturnValue(true);
+        if (this.getFluid() != ACFluidRegistry.ACID_FLUID_SOURCE.get() || this.getFluid() != ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get()) {
+            return;
+        }
+        if (!(this.getFluid() instanceof FlowingFluid)) {
+            cir.setReturnValue(false);
+        }
+        else {
+            BlockState state = level.getBlockState(pos);
+            Block block = state.getBlock();
+            boolean replaceable = state.canBeReplaced(this.getFluid());
+
+            if (!state.isAir() && !replaceable && (!(block instanceof LiquidBlockContainer) || !((LiquidBlockContainer)block).canPlaceLiquid(level, pos, state, this.getFluid()))) {
+                cir.setReturnValue(result != null && this.emptyContents(player, level, result.getBlockPos().relative(result.getDirection()), null));
+            }
+            else if (this.getFluid().getFluidType().isVaporizedOnPlacement(level, pos, new FluidStack(this.getFluid(), 0))) {
+
+                this.getFluid().getFluidType().onVaporize(player, level, pos, new FluidStack(this.getFluid(), 0));
+                cir.setReturnValue(true);
+            }
+            else if (block instanceof LiquidBlockContainer && ((LiquidBlockContainer)block).canPlaceLiquid(level, pos, state, this.getFluid())) {
+
+                ((LiquidBlockContainer)block).placeLiquid(level, pos, state, ((FlowingFluid)this.getFluid()).getSource(false));
+                this.playEmptySound(player, level, pos);
+                cir.setReturnValue(true);
+            }
+            else {
+                if (!level.isClientSide && replaceable && !state.liquid()) {
+                    level.destroyBlock(pos, true);
+                }
+
+                if (!level.setBlock(pos, this.getFluid().defaultFluidState().createLegacyBlock(), 11) && !state.getFluidState().isSource()) {
+                    cir.setReturnValue(false);
+                } else {
+                    this.playEmptySound(player, level, pos);
+                    cir.setReturnValue(true);
+                }
+            }
         }
     }
 
     @Inject(method = "emptyContents", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;liquid()Z",
             shift = At.Shift.BY, by = -2), cancellable = true)
     private void DMH$CheckIfCanPlaceInNetherTwo(Player player, Level level, BlockPos pos, BlockHitResult result, CallbackInfoReturnable<Boolean> cir) {
+
         if (this.getFluid().getFluidType().isVaporizedOnPlacement(level, pos, new FluidStack(this.getFluid(), 0))) {
             this.getFluid().getFluidType().onVaporize(player, level, pos, new FluidStack(this.getFluid(), 0));
             cir.setReturnValue(true);

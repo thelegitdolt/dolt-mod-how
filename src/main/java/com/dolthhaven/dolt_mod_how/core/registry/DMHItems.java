@@ -7,25 +7,30 @@ import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 import vectorwing.farmersdelight.common.item.MushroomColonyItem;
+import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Arrays;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.PINE_NUTS_CRATE;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.STURDY_DEEPSLATE;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
@@ -41,21 +46,24 @@ public class DMHItems {
             getGoldenBucket(DMHOptionalItems.GOLDEN_ACID_BUCKET));
     public static final RegistryObject<Item> GOLDEN_PURPLE_SODA_BUCKET = HELPER.createItem("golden_purple_soda_bucket",
             getGoldenBucket(DMHOptionalItems.GOLDEN_PURPLE_SODA_BUCKET));
-    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
-            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
+
+//    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
+//            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
 
     public static void setUpTabEditors() {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
-                .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA);
-
-//        CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
-//                .tab(CreativeModeTabs.NATURAL_BLOCKS)
-//                .addItemsBefore(Ingredient.of(ModItems.RED_MUSHROOM_COLONY.get()), GLOWSHROOM_COLONY);
-
-        CreativeModeTabContentsPopulator.mod("quark_" + DoltModHow.MOD_ID)
+                .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                .addItemsAfter(ofID(Util.Constants.STURDY_STONE), STURDY_DEEPSLATE);
+                .addItemsAfter(ofID(Util.Constants.STURDY_STONE), STURDY_DEEPSLATE)
+                .tab(CreativeModeTabs.NATURAL_BLOCKS)
+                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, Util.Constants.ALEXS_CAVES), PINE_NUTS_CRATE)
+                .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
+                .addItemsAfter(ofID(Util.Constants.GOLDEN_LAVA_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES),
+                        GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET)
+
+                .predicate(DMHItems::fdGroupPredicate)
+                .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY);
     }
 
     private static Supplier<Item> getGoldenBucket(Supplier<Item> bucket) {
@@ -72,7 +80,7 @@ public class DMHItems {
     }
 
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
-        return stack -> of(item).test(stack) && BlockSubRegistryHelper.areModsLoaded(modids);
+        return stack -> BlockSubRegistryHelper.areModsLoaded(modids) && of(item).test(stack);
     }
 
     public static Predicate<ItemStack> ofID(ResourceLocation location, ItemLike fallback, String... modids) {
@@ -81,6 +89,16 @@ public class DMHItems {
 
     public static Predicate<ItemStack> ofID(ResourceLocation location, String... modids) {
         return stack -> (BlockSubRegistryHelper.areModsLoaded(modids) && of(ForgeRegistries.ITEMS.getValue(location)).test(stack));
+    }
+
+    public static boolean fdGroupPredicate(BuildCreativeModeTabContentsEvent event) {
+        // !ADConfig.COMMON.replaceFDItemGroup.get() &&
+        return event.getTabKey() == ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey();
+    }
+
+    public static boolean modPredicate(BuildCreativeModeTabContentsEvent event, ResourceKey<CreativeModeTab> tab) {
+        // ADConfig.COMMON.replaceFDItemGroup.get() &&
+        return event.getTabKey() == tab;
     }
 
     public static class Food {

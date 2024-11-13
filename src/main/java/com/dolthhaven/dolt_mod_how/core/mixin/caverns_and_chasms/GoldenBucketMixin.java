@@ -59,8 +59,18 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
         }
     }
 
+    @Inject(method = "getFilledBucket*", at = @At("HEAD"), cancellable = true, remap = false)
+    private static void DoltModHow$RegisterThisModBucketsTwo(Fluid fluid, CallbackInfoReturnable<ItemStack> cir) {
+        if (fluid == ACFluidRegistry.ACID_FLUID_SOURCE.get()) {
+            cir.setReturnValue(new ItemStack(DMHItems.GOLDEN_ACID_BUCKET.get()));
+        }
+        else if (fluid == ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get()) {
+            cir.setReturnValue(new ItemStack(DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get()));
+        }
+    }
+
     @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/BucketPickup;pickupBlock(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/item/ItemStack;",
-            shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD, remap = false, cancellable = true)
+            shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
     private void DoltModHow$RegisterThings(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir, ItemStack stack, CompoundTag tag, int bucketLevel, BlockHitResult result, InteractionResultHolder ret, BlockPos pos, Direction direction, BlockPos sourcePos, BlockState sourceState, BucketPickup bucketPickup, Block var14) {
         FluidState fluidState = sourceState.getFluidState();
         Fluid fluid;

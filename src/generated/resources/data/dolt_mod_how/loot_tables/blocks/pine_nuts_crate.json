@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dolt_mod_how:pine_nut_crate"
+          "name": "dolt_mod_how:pine_nuts_crate"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "dolt_mod_how:blocks/pine_nut_crate"
+  "random_sequence": "dolt_mod_how:blocks/pine_nuts_crate"
 }

@@ -1,14 +1,18 @@
 package com.dolthhaven.dolt_mod_how.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import org.jetbrains.annotations.NotNull;
+
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.*;
+import static com.dolthhaven.dolt_mod_how.data.tag.DMHTags.*;
 
 public class DMHItemTags extends ItemTagsProvider {
     public DMHItemTags(GatherDataEvent event, BlockTagsProvider blockTags) {
@@ -18,13 +22,16 @@ public class DMHItemTags extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        this.tag(DMHTags.ACID_BUCKETS)
-                .add(DMHItems.GOLDEN_ACID_BUCKET.get())
+        this.tag(ACID_BUCKETS)
+                .add(GOLDEN_ACID_BUCKET.get())
                 .addOptional(new ResourceLocation(Util.Constants.ALEXS_CAVES, "acid_bucket"));
 
         this.tag(DMHTags.PURPLE_SODA_BUCKETS)
-                .add(DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get())
+                .add(GOLDEN_PURPLE_SODA_BUCKET.get())
                 .addOptional(new ResourceLocation(Util.Constants.ALEXS_CAVES, "purple_soda_bucket"));
 
+        this.tag(ItemTags.PIGLIN_LOVED).add(GOLDEN_ACID_BUCKET.get(), GOLDEN_PURPLE_SODA_BUCKET.get());
+        this.tag(BlueprintItemTags.BUCKETS)
+                .addTags(ACID_BUCKETS, PURPLE_SODA_BUCKETS);
     }
 }

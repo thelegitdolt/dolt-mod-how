@@ -5,14 +5,14 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
 
 
 [[mods]]
-modId = "dolt_mod_how"
-version = "${file.jarVersion}"
-authors = "Dolt"
-credits = "Dolt H. Haven"
-displayName = "Dolt Mod How"
-description = '''
-    Hello
-'''
+    modId = "dolt_mod_how"
+    version = "${file.jarVersion}"
+    authors = "Dolt"
+    credits = "Dolt H. Haven"
+    displayName = "Dolt Mod How"
+    description = '''
+        Hello
+    '''
 
 [[dependencies.dolt_mod_how]]
     modId = "minecraft"
@@ -75,5 +75,19 @@ description = '''
     modId = "caverns_and_chasms"
     mandatory = false
     versionRange = "[2.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "alexscaves"
+    mandatory = false
+    versionRange = "[2.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "mynethersdelight"
+    mandatory = false
+    versionRange = "[1.0.0,)"
     ordering = "AFTER"
     side = "BOTH"

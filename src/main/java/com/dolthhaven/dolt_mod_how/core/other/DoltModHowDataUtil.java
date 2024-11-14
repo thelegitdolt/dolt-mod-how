@@ -12,6 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.GLOWSHROOM_COLONY;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
 public class DoltModHowDataUtil {
     public static final Object2FloatMap<EntityType<?>> COMPOSTABLE_ENTITIES = new Object2FloatOpenHashMap<>();
@@ -21,7 +22,8 @@ public class DoltModHowDataUtil {
     }
 
     private static void registerCompostable() {
-        compost100(GLOWSHROOM_COLONY);
+        DataUtil.registerCompostable(GLOWSHROOM_COLONY.get(), 1.0f);
+        DataUtil.registerCompostable(PINE_NUTS_CRATE.get(), 1.0f);
 
         COMPOSTABLE_ENTITIES.defaultReturnValue(-1.0f);
 
@@ -29,14 +31,6 @@ public class DoltModHowDataUtil {
             EntityType<?> bananaPeel = ForgeRegistries.ENTITY_TYPES.getValue(Util.Constants.BANANA_PEEL);
 
             COMPOSTABLE_ENTITIES.put(bananaPeel, 0.5f);
-        }
-    }
-
-
-    @SafeVarargs
-    public static void compost100(RegistryObject<Item>... thing) {
-        for (RegistryObject<Item> hello : thing) {
-            DataUtil.registerCompostable(hello.get(), 1.0f);
         }
     }
 }

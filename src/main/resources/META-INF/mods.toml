@@ -78,6 +78,14 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     ordering = "AFTER"
     side = "BOTH"
 
+
+[[dependencies.dolt_mod_how]]
+    modId = "neapolitan"
+    mandatory = false
+    versionRange = "[5.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
 [[dependencies.dolt_mod_how]]
     modId = "alexscaves"
     mandatory = false

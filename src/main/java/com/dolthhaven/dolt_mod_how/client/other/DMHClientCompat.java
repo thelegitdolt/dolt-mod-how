@@ -24,6 +24,7 @@ public class DMHClientCompat {
     private static void registerItemProperties() {
         registerCrossbowPredicate("large_arrow", CCItems.LARGE_ARROW);
         registerCrossbowPredicate("seeking_arrow", ACItemRegistry.SEEKING_ARROW);
+        registerCrossbowPredicate("burrowing_arrow", ACItemRegistry.BURROWING_ARROW);
         registerCrossbowPredicate("torch_arrow", () -> TorchArrowModule.torch_arrow);
 
         registerGoldenBucket(DMHItems.GOLDEN_ACID_BUCKET);

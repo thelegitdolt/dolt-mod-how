@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.client.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
+import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -10,10 +11,13 @@ import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.tools.module.TorchArrowModule;
 
+import java.util.Arrays;
 import java.util.function.Supplier;
+import java.util.logging.Logger;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, value = Dist.CLIENT)
 public class DMHClientCompat {
@@ -22,13 +26,33 @@ public class DMHClientCompat {
     }
 
     private static void registerItemProperties() {
-        registerCrossbowPredicate("large_arrow", CCItems.LARGE_ARROW);
-        registerCrossbowPredicate("seeking_arrow", ACItemRegistry.SEEKING_ARROW);
-        registerCrossbowPredicate("burrowing_arrow", ACItemRegistry.BURROWING_ARROW);
+        registerCrossbowIfModLoaded("large_arrow", () -> Util.getPotentialItem(Util.Constants.CAVERNS_AND_CHASMS, "large_arrow"), Util.Constants.CAVERNS_AND_CHASMS);
+        registerCrossbowIfModLoaded("seeking_arrow", () -> Util.getPotentialItem(Util.Constants.ALEXS_CAVES, "seeking_arrow"), Util.Constants.ALEXS_CAVES);
+        registerCrossbowIfModLoaded("burrowing_arrow", () -> Util.getPotentialItem(Util.Constants.ALEXS_CAVES, "burrowing_arrow"), Util.Constants.ALEXS_CAVES);
+
         registerCrossbowPredicate("torch_arrow", () -> TorchArrowModule.torch_arrow);
 
-        registerGoldenBucket(DMHItems.GOLDEN_ACID_BUCKET);
-        registerGoldenBucket(DMHItems.GOLDEN_PURPLE_SODA_BUCKET);
+        registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_ACID_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES);
+        registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_PURPLE_SODA_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES);
+    }
+
+    private static void registerGoldenBucketIfModLoaded(Supplier<Item> item, String... modids) {
+        if (item.get() == null) {
+            DoltModHow.LOGGER.info("Failed to register item " + item + " this is bad report to Dolt Mod How");
+            return;
+        }
+        if (Arrays.stream(modids).allMatch(ModList.get()::isLoaded)) {
+            registerGoldenBucket(item);
+        }
+    }
+
+    private static void registerCrossbowIfModLoaded(String name, Supplier<Item> projectile, String... modids) {
+        if (projectile.get() == null) {
+            DoltModHow.LOGGER.info("Failed to register crossbow item property " + name + " with item " + projectile.get() + " this is bad please report to dolt mod how");
+        }
+        if (Arrays.stream(modids).allMatch(ModList.get()::isLoaded)) {
+            registerCrossbowPredicate(name, projectile);
+        }
     }
 
     private static void registerCrossbowPredicate(String name, Supplier<Item> projectile) {

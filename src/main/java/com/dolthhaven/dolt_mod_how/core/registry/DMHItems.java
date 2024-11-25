@@ -2,7 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.compat.DMHOptionalItems;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHGoldenBuckets;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -13,7 +13,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -21,14 +20,12 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 import vectorwing.farmersdelight.common.item.MushroomColonyItem;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Arrays;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.PINE_NUTS_CRATE;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.STURDY_DEEPSLATE;
@@ -43,9 +40,9 @@ public class DMHItems {
             () -> new ChorusSodaItem(new Item.Properties().food(Food.CHORUS_SODA).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
 
     public static final RegistryObject<Item> GOLDEN_ACID_BUCKET = HELPER.createItem("golden_acid_bucket",
-            getGoldenBucket(DMHOptionalItems.GOLDEN_ACID_BUCKET));
+            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES) ? DMHGoldenBuckets.GOLDEN_ACID_BUCKET : () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GOLDEN_PURPLE_SODA_BUCKET = HELPER.createItem("golden_purple_soda_bucket",
-            getGoldenBucket(DMHOptionalItems.GOLDEN_PURPLE_SODA_BUCKET));
+            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES) ? DMHGoldenBuckets.GOLDEN_PURPLE_SODA_BUCKET : () -> new Item(new Item.Properties()));
 
 //    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
 //            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
@@ -66,25 +63,12 @@ public class DMHItems {
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY);
     }
 
-    private static Supplier<Item> getGoldenBucket(Supplier<Item> bucket) {
-        if (areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES)) {
-            return bucket;
-        }
-        else {
-            return () -> new Item(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET));
-        }
-    }
-
     private static boolean areModsLoaded(String... ids) {
         return Arrays.stream(ids).allMatch(ModList.get()::isLoaded);
     }
 
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
         return stack -> BlockSubRegistryHelper.areModsLoaded(modids) && of(item).test(stack);
-    }
-
-    public static Predicate<ItemStack> ofID(ResourceLocation location, ItemLike fallback, String... modids) {
-        return stack -> (BlockSubRegistryHelper.areModsLoaded(modids) ? of(ForgeRegistries.ITEMS.getValue(location)) : of(fallback)).test(stack);
     }
 
     public static Predicate<ItemStack> ofID(ResourceLocation location, String... modids) {

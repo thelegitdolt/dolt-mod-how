@@ -2,7 +2,7 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "item": "dolt_compat:glowshroom_colony"
+      "item": "dolt_mod_how:glowshroom_colony"
     }
   ],
   "tool": {

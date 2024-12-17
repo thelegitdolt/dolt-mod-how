@@ -34,6 +34,8 @@ public class DMHBlockTags extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(PINE_NUTS_CRATE.get());
 
+        this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get());
+
         this.tag(DMHTags.NO_XP_CROPS)
                 .addOptional(new ResourceLocation(Util.Constants.FARMERS_DELIGHT, "tomatoes"));
 

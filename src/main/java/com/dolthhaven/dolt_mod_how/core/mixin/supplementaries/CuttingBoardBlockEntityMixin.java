@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.mixin.supplementaries;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import net.mehvahdjukaar.supplementaries.common.items.QuiverItem;
+import net.mehvahdjukaar.supplementaries.common.items.forge.LunchBoxItemImpl;
 import net.mehvahdjukaar.supplementaries.common.items.forge.QuiverItemImpl;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -43,7 +44,6 @@ public abstract class CuttingBoardBlockEntityMixin extends SyncedBlockEntity {
         assert this.level != null;
         ItemStack boardStack = this.getInventory().getStackInSlot(0);
         if (boardStack.getItem() instanceof QuiverItem && QuiverItemImpl.getQuiverData(boardStack) != null) {
-
             for (ItemStack resultStack : Objects.requireNonNull(QuiverItemImpl.getQuiverData(boardStack)).getContentView()) {
                 Direction direction = this.getBlockState().getValue(CuttingBoardBlock.FACING).getCounterClockWise().getOpposite();
 

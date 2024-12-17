@@ -107,9 +107,6 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge-api:${project.jei}")
     runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge:${project.jei}")
 
-
-
-
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
 
@@ -128,12 +125,6 @@ repositories {
             includeGroup "curse.maven"
         }
     }
-
-    maven {
-        name = "GeckoLib Maven"
-        url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
-    }
-
 }
 
 jar {

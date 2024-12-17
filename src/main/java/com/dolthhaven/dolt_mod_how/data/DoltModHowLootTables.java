@@ -47,11 +47,12 @@ public class DoltModHowLootTables extends LootTableProvider {
         protected void generate() {
             this.dropSelf(STURDY_DEEPSLATE.get());
             this.dropSelf(PINE_NUTS_CRATE.get());
+            this.dropOther(ALPHACENE_PATH.get(), Blocks.DIRT);
         }
 
         @Override
         public @NotNull Iterable<Block> getKnownBlocks() {
-            return ImmutableSet.of(STURDY_DEEPSLATE.get(), PINE_NUTS_CRATE.get());
+            return ImmutableSet.of(STURDY_DEEPSLATE.get(), PINE_NUTS_CRATE.get(), ALPHACENE_PATH.get());
         }
     }
 }

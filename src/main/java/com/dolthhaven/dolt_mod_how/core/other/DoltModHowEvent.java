@@ -2,10 +2,14 @@ package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
+import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
+import com.soytutta.mynethersdelight.common.registry.MNDItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -18,26 +22,32 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.List;
@@ -75,37 +85,7 @@ public class DoltModHowEvent {
         }
     }
 
-    @SubscribeEvent
-    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (!DoltModHowConfig.COMMON.doUntillableFarmland.get()) {
-            return;
-        }
 
-        ItemStack stack = event.getItemStack();
-        Player player = event.getEntity();
-        BlockPos pos = event.getPos();
-        Level level = event.getLevel();
-
-
-        if (stack.getItem() instanceof HoeItem && player.isCrouching()) {
-            if (level.getBlockState(pos).is(Blocks.FARMLAND)) {
-                stack.hurtAndBreak(1, player, onBroken -> onBroken.broadcastBreakEvent(LivingEntity.getEquipmentSlotForItem(stack)));
-                level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
-                player.swing(event.getHand());
-                level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
-                event.setCancellationResult(InteractionResult.SUCCESS);
-                event.setCanceled(true);
-            }
-            else if (level.getBlockState(pos).is(ModBlocks.RICH_SOIL_FARMLAND.get())) {
-                stack.hurtAndBreak(1, player, onBroken -> onBroken.broadcastBreakEvent(LivingEntity.getEquipmentSlotForItem(stack)));
-                level.setBlock(pos, ModBlocks.RICH_SOIL.get().defaultBlockState() , 2);
-                player.swing(event.getHand());
-                level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
-                event.setCancellationResult(InteractionResult.SUCCESS);
-                event.setCanceled(true);
-            }
-        }
-    }
 
     @SubscribeEvent
     public static void removePoisonIfPlayerKillsArthropodWithBOA(LivingDeathEvent event) {
@@ -192,14 +172,89 @@ public class DoltModHowEvent {
         if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = event.getState();
             if (state.getBlock() instanceof CropBlock cropBlock &&
-                !state.is(DMHTags.NO_XP_CROPS) &&
-                cropBlock.isMaxAge(state)) {
+                    !state.is(DMHTags.NO_XP_CROPS) &&
+                    cropBlock.isMaxAge(state)) {
 
                 UniformInt crop_sampler = UniformInt.of(
                         DoltModHowConfig.COMMON.minCropXpDrops.get(),
                         DoltModHowConfig.COMMON.maxCropXpDrops.get());
 
                 event.setExpToDrop(crop_sampler.sample(level.getRandom()));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        // bullet pepper
+        handleBulletPepper(event);
+
+        // alphacene path
+        handleAlphacenePath(event);
+
+        // untill farmland
+        handleUntillFarmland(event);
+    }
+
+    private static void handleBulletPepper(PlayerInteractEvent.RightClickBlock event) {
+        ItemStack stack = event.getItemStack();
+
+        Item bulletPepper = ForgeRegistries.ITEMS.getValue(Util.Constants.BULLET_PEPPER);
+        if (bulletPepper != null && stack.is(bulletPepper)) {
+            event.setUseItem(Event.Result.DENY);
+        }
+    }
+
+    private static void handleAlphacenePath(PlayerInteractEvent.RightClickBlock event) {
+        Block alphaceneGrass = ForgeRegistries.BLOCKS.getValue(Util.Constants.ALPHACENE_GRASS);
+        if (alphaceneGrass == null) {
+            return;
+        }
+
+        ItemStack stack = event.getItemStack();
+        Player player = event.getEntity();
+        Level level = event.getLevel();
+        BlockPos pos = event.getPos();
+        BlockState state = level.getBlockState(pos);
+
+        if (event.getFace() != Direction.DOWN && stack.canPerformAction(ToolActions.SHOVEL_FLATTEN) && !player.isSpectator() && !level.isEmptyBlock(pos.above())) {
+            if (state.is(alphaceneGrass)) {
+                level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1, 1);
+                if (!level.isClientSide) {
+                    stack.hurtAndBreak(1, player, (damage) -> damage.broadcastBreakEvent(event.getHand()));
+                    level.setBlock(pos, DMHBlocks.ALPHACENE_PATH.get().defaultBlockState(), Block.UPDATE_ALL_IMMEDIATE);
+                }
+            }
+        }
+    }
+
+    public static void handleUntillFarmland(PlayerInteractEvent.RightClickBlock event) {
+        if (!DoltModHowConfig.COMMON.doUntillableFarmland.get()) {
+            return;
+        }
+
+        ItemStack stack = event.getItemStack();
+        Player player = event.getEntity();
+        BlockPos pos = event.getPos();
+        Level level = event.getLevel();
+
+
+        if (stack.canPerformAction(ToolActions.HOE_TILL) && player.isCrouching()) {
+            if (level.getBlockState(pos).is(Blocks.FARMLAND)) {
+                stack.hurtAndBreak(1, player, onBroken -> onBroken.broadcastBreakEvent(LivingEntity.getEquipmentSlotForItem(stack)));
+                level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
+                player.swing(event.getHand());
+                level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
+            }
+            else if (level.getBlockState(pos).is(ModBlocks.RICH_SOIL_FARMLAND.get())) {
+                stack.hurtAndBreak(1, player, onBroken -> onBroken.broadcastBreakEvent(LivingEntity.getEquipmentSlotForItem(stack)));
+                level.setBlock(pos, ModBlocks.RICH_SOIL.get().defaultBlockState() , 2);
+                player.swing(event.getHand());
+                level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
             }
         }
     }

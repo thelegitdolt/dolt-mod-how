@@ -1,0 +1,9 @@
+{
+  "parent": "block/dirt_path",
+  "textures": {
+    "particle": "minecraft:block/dirt",
+    "top": "dolt_mod_how:block/alphacene_path_top",
+    "side": "dolt_mod_how:block/alphacene_path_side",
+    "bottom": "minecraft:block/dirt"
+  }
+}

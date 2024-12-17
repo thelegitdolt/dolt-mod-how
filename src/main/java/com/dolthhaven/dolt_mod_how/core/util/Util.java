@@ -55,16 +55,18 @@ public class Util {
         public static final String QUARK = "quark";
         public static final String SULLYSMOD = "sullysmod";
         public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
+        public static final String SPECIES = "species";
 
 
         public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
         public static final ResourceLocation RED_MUSHROOM_COLONIES = new ResourceLocation(FARMERS_DELIGHT, "red_mushroom_colonies");
+        public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
 
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
         public static final ResourceLocation MYCELIUM_SPROUTS = new ResourceLocation(ENVIRONMENTAL, "mycelium_sprouts");
         public static final ResourceLocation BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "beachgrass");
-
+        public static final ResourceLocation ALPHACENE_GRASS = new ResourceLocation(SPECIES, "alphacene_grass");
     }
 }

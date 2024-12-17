@@ -67,6 +67,6 @@ public class Util {
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
         public static final ResourceLocation MYCELIUM_SPROUTS = new ResourceLocation(ENVIRONMENTAL, "mycelium_sprouts");
         public static final ResourceLocation BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "beachgrass");
-        public static final ResourceLocation ALPHACENE_GRASS = new ResourceLocation(SPECIES, "alphacene_grass");
+        public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
     }
 }

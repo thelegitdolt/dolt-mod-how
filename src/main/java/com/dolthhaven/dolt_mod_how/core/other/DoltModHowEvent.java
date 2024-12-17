@@ -3,11 +3,10 @@ package com.dolthhaven.dolt_mod_how.core.other;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
-import com.soytutta.mynethersdelight.common.registry.MNDItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -21,7 +20,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -31,7 +29,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -45,7 +42,6 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
@@ -206,7 +202,7 @@ public class DoltModHowEvent {
     }
 
     private static void handleAlphacenePath(PlayerInteractEvent.RightClickBlock event) {
-        Block alphaceneGrass = ForgeRegistries.BLOCKS.getValue(Util.Constants.ALPHACENE_GRASS);
+        Block alphaceneGrass = ForgeRegistries.BLOCKS.getValue(Util.Constants.ALPHACENE_GRASS_BLOCK);
         if (alphaceneGrass == null) {
             return;
         }
@@ -217,13 +213,15 @@ public class DoltModHowEvent {
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
 
-        if (event.getFace() != Direction.DOWN && stack.canPerformAction(ToolActions.SHOVEL_FLATTEN) && !player.isSpectator() && !level.isEmptyBlock(pos.above())) {
+        if (event.getFace() != Direction.DOWN && stack.canPerformAction(ToolActions.SHOVEL_FLATTEN) && !player.isSpectator() && level.isEmptyBlock(pos.above())) {
             if (state.is(alphaceneGrass)) {
                 level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1, 1);
                 if (!level.isClientSide) {
                     stack.hurtAndBreak(1, player, (damage) -> damage.broadcastBreakEvent(event.getHand()));
                     level.setBlock(pos, DMHBlocks.ALPHACENE_PATH.get().defaultBlockState(), Block.UPDATE_ALL_IMMEDIATE);
                 }
+                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
+                event.setCanceled(true);
             }
         }
     }

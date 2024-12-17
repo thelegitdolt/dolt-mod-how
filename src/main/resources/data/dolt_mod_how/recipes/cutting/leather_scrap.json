@@ -1,17 +1,30 @@
 {
-  "type": "farmersdelight:cutting",
-  "ingredients": [
+  "type": "forge:conditional",
+  "recipes": [
     {
-      "item": "minecraft:leather"
-    }
-  ],
-  "tool": {
-    "tag": "forge:shears"
-  },
-  "result": [
-    {
-      "item": "dolt_mod_how:leather_scraps",
-      "count": 2
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "sneaky_link"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cutting",
+        "ingredients": [
+          {
+            "item": "minecraft:leather"
+          }
+        ],
+        "tool": {
+          "tag": "forge:shears"
+        },
+        "result": [
+          {
+            "item": "dolt_mod_how:leather_scraps",
+            "count": 2
+          }
+        ]
+      }
     }
   ]
 }

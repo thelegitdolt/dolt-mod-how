@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:leather"
+    }
+  ],
+  "tool": {
+    "tag": "forge:shears"
+  },
+  "result": [
+    {
+      "item": "dolt_mod_how:leather_scraps",
+      "count": 2
+    }
+  ]
+}

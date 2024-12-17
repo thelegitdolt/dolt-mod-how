@@ -13,9 +13,10 @@ public class DMHTags {
     public static final TagKey<Block> CHANNELS_LIGHTNING = blockTag("channels_lightning");
 
     public static final TagKey<Item> ACID_BUCKETS = externalItemTag("forge", "buckets/acid");
+    public static final TagKey<Item> LEATHER = itemTag("leather");
+
     public static final TagKey<Item> PURPLE_SODA_BUCKETS = externalItemTag("forge", "buckets/purple_soda");
 
-    public static final TagKey<Block> ORES_SILVER = externalBlockTag("forge", "ores/silver");
 
     private static TagKey<Item> externalItemTag(String modId, String path) {
         return TagUtil.itemTag(modId, path);

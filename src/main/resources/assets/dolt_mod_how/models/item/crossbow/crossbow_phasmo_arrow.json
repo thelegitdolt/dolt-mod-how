@@ -1,0 +1,6 @@
+{
+    "parent": "item/crossbow",
+    "textures": {
+        "layer0": "dolt_mod_how:item/crossbow_phasmo_arrow"
+    }
+}

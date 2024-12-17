@@ -51,6 +51,7 @@ public class Util {
         public static final String FARMERS_DELIGHT = "farmersdelight";
         public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
         public static final String NEAPOLITAN = "neapolitan";
+        public static final String JNE = "netherexp";
         public static final String OREGANIZED = "oreganized";
         public static final String QUARK = "quark";
         public static final String SULLYSMOD = "sullysmod";

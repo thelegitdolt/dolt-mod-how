@@ -29,6 +29,8 @@ public class DMHClientCompat {
         registerCrossbowIfModLoaded("large_arrow", () -> Util.getPotentialItem(Util.Constants.CAVERNS_AND_CHASMS, "large_arrow"), Util.Constants.CAVERNS_AND_CHASMS);
         registerCrossbowIfModLoaded("seeking_arrow", () -> Util.getPotentialItem(Util.Constants.ALEXS_CAVES, "seeking_arrow"), Util.Constants.ALEXS_CAVES);
         registerCrossbowIfModLoaded("burrowing_arrow", () -> Util.getPotentialItem(Util.Constants.ALEXS_CAVES, "burrowing_arrow"), Util.Constants.ALEXS_CAVES);
+        registerCrossbowIfModLoaded("phasmo_arrow", () -> Util.getPotentialItem(Util.Constants.JNE, "phasmo_arrow"), Util.Constants.JNE);
+
 
         registerCrossbowPredicate("torch_arrow", () -> TorchArrowModule.torch_arrow);
         registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_ACID_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES);

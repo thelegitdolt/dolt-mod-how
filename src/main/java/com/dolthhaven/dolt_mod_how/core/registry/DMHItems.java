@@ -38,6 +38,9 @@ public class DMHItems {
     public static final RegistryObject<Item> GLOWSHROOM_COLONY = HELPER.createItem("glowshroom_colony", () -> new MushroomColonyItem(DMHBlocks.GLOWSHROOM_COLONY.get(), new Item.Properties()));
     public static final RegistryObject<Item> CHORUS_SODA = HELPER.createItem("chorus_soda",
             () -> new ChorusSodaItem(new Item.Properties().food(Food.CHORUS_SODA)));
+    public static final RegistryObject<Item> LEATHER_SCRAPS = HELPER.createItem("leather_scraps",
+            () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> ALPHACENE_SALAD = HELPER.createItem("alphacene_salad",
             () -> new ConsumableItem(new Item.Properties().food(Food.ALPHACENE_SALAD).craftRemainder(Items.BOWL).stacksTo(16), true));
 
@@ -51,14 +54,19 @@ public class DMHItems {
 
     public static void setUpTabEditors() {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
+                .tab(CreativeModeTabs.BUILDING_BLOCKS)
+                .addItemsAfter(ofID(Util.Constants.STURDY_STONE), STURDY_DEEPSLATE)
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
                 .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA)
                 .addItemsAfter(of(Items.MUSHROOM_STEW), ALPHACENE_SALAD)
-                .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                .addItemsAfter(ofID(Util.Constants.STURDY_STONE), STURDY_DEEPSLATE)
+
+                .tab(CreativeModeTabs.INGREDIENTS)
+                .addItemsAfter(of(Items.LEATHER), LEATHER_SCRAPS)
+
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                 .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, Util.Constants.ALEXS_CAVES), PINE_NUTS_CRATE)
                 .addItemsAfter(of(Items.DIRT_PATH), ALPHACENE_PATH)
+
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
                 .addItemsAfter(ofID(Util.Constants.GOLDEN_LAVA_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES),
                         GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET)

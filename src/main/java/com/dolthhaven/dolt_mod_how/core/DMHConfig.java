@@ -37,6 +37,7 @@ public class DMHConfig {
 
             builder.push("disc");
             discToSpawnAfterJukeboxStruckWithLightning = builder.comment("The disc that should be spawned when a jukebox is struck with lightning. Disables if string is \"no\"").define("Lightning Disc", "minecraft:music_disc_ward");
+            builder.pop();
 
             builder.push("crops");
             doCropBlocksDropXP = builder.comment("If all blocks that are crops should drop experience.").define("Experienced Crops", true);

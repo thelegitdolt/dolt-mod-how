@@ -4,7 +4,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import org.apache.commons.lang3.tuple.Pair;
 
-public class DoltModHowConfig {
+public class DMHConfig {
     public static class Common {
         public final ConfigValue<Boolean> doMetalOresDropXP;
         public final ConfigValue<Boolean> doCropBlocksDropXP;
@@ -15,9 +15,14 @@ public class DoltModHowConfig {
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
         public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
         public final ConfigValue<Boolean> doDispenserCauldrons;
-        public final ConfigValue<Boolean> doLightningEpilogueDisc;
         public final ConfigValue<Boolean> doUntillableFarmland;
         public final ConfigValue<Boolean> removeOrangeVapor;
+
+        public final ConfigValue<Boolean> killBulletPepperPlacement;
+        public final ConfigValue<Boolean> frogsAreNotStupid;
+
+        public final ConfigValue<? extends String> discToSpawnAfterJukeboxStruckWithLightning;
+
 
 
         Common(ForgeConfigSpec.Builder builder) {
@@ -29,6 +34,9 @@ public class DoltModHowConfig {
             builder.push("farmland");
             doUntillableFarmland = builder.comment("Whether farmland can be untilled by sneak-right clicking them with a hoe").define("Untillable Farmland", true);
             builder.pop();
+
+            builder.push("disc");
+            discToSpawnAfterJukeboxStruckWithLightning = builder.comment("The disc that should be spawned when a jukebox is struck with lightning. Disables if string is \"no\"").define("Lightning Disc", "minecraft:music_disc_ward");
 
             builder.push("crops");
             doCropBlocksDropXP = builder.comment("If all blocks that are crops should drop experience.").define("Experienced Crops", true);
@@ -63,6 +71,13 @@ public class DoltModHowConfig {
             doRichSoilGrowFungusColony = builder.comment("If fungus colonies should grow on normal rich soil instead of soul rich soil").define("Rich Fungus", true);
 
             builder.pop();
+
+            builder.push("bullet_peppers");
+            killBulletPepperPlacement = builder.comment("If bullet peppers should become unplaceable, thus killing letios plants forever").define("Kill letios plants", true);
+            builder.pop();
+
+            builder.push("magma_cakes");
+            frogsAreNotStupid = builder.comment("If frogs should become unable to consume magma cakes").define("Magma Cakes Good", false);
             builder.pop();
 
             builder.push("supplementaries");
@@ -70,15 +85,6 @@ public class DoltModHowConfig {
 
             doHackyQuiverRecipe = builder.comment("If processing a quiver in a cutting board will eject all the arrows in that quiver")
                     .define("Realistic Quivers", true);
-
-            builder.pop();
-            builder.pop();
-
-            builder.push("anchor");
-            builder.push("epilogue Disc");
-
-            doLightningEpilogueDisc = builder.comment("If striking a jukebox with lightning with a filled disc inside will change that disc to Epilogue")
-                    .define("AWESOME epilogue disc", true);
 
             builder.pop();
             builder.pop();

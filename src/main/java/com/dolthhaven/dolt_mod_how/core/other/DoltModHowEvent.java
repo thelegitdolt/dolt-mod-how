@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
@@ -133,7 +133,7 @@ public class DoltModHowEvent {
 
     @SubscribeEvent
     public static void onPlayerBreakOreEvent(BlockEvent.BreakEvent event) {
-        if (!DoltModHowConfig.COMMON.doMetalOresDropXP.get()) {
+        if (!DMHConfig.COMMON.doMetalOresDropXP.get()) {
             return;
         }
 
@@ -161,7 +161,7 @@ public class DoltModHowEvent {
 
     @SubscribeEvent
     public static void onPlayerBreakCropsEvent(BlockEvent.BreakEvent event) {
-        if (!DoltModHowConfig.COMMON.doCropBlocksDropXP.get()) {
+        if (!DMHConfig.COMMON.doCropBlocksDropXP.get()) {
             return;
         }
 
@@ -172,8 +172,8 @@ public class DoltModHowEvent {
                     cropBlock.isMaxAge(state)) {
 
                 UniformInt crop_sampler = UniformInt.of(
-                        DoltModHowConfig.COMMON.minCropXpDrops.get(),
-                        DoltModHowConfig.COMMON.maxCropXpDrops.get());
+                        DMHConfig.COMMON.minCropXpDrops.get(),
+                        DMHConfig.COMMON.maxCropXpDrops.get());
 
                 event.setExpToDrop(crop_sampler.sample(level.getRandom()));
             }
@@ -227,7 +227,7 @@ public class DoltModHowEvent {
     }
 
     public static void handleUntillFarmland(PlayerInteractEvent.RightClickBlock event) {
-        if (!DoltModHowConfig.COMMON.doUntillableFarmland.get()) {
+        if (!DMHConfig.COMMON.doUntillableFarmland.get()) {
             return;
         }
 
@@ -235,7 +235,6 @@ public class DoltModHowEvent {
         Player player = event.getEntity();
         BlockPos pos = event.getPos();
         Level level = event.getLevel();
-
 
         if (stack.canPerformAction(ToolActions.HOE_TILL) && player.isCrouching()) {
             if (level.getBlockState(pos).is(Blocks.FARMLAND)) {

@@ -2,7 +2,9 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.compat.DMHOptionalBlocks;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHAtmosphericCompat;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHEnvironmentalCompat;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHUACompat;
 import com.dolthhaven.dolt_mod_how.core.compat.DMHSpeciesCompat;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
@@ -46,13 +48,13 @@ public class DMHBlocks {
 
 
     public static final RegistryObject<Block> POTTED_ARID_SPROUTS = HELPER.createBlockNoItem("potted_arid_sprouts",
-            getPot(Util.Constants.ATMOSPHERIC, DMHOptionalBlocks.POTTED_ARID_SPROUTS));
+            getPot(Util.Constants.ATMOSPHERIC, DMHAtmosphericCompat.POTTED_ARID_SPROUTS));
     public static final RegistryObject<Block> POTTED_BEACHGRASS = HELPER.createBlockNoItem("potted_beachgrass",
-            getPot(Util.Constants.UPGRADE_AQUATIC, DMHOptionalBlocks.POTTED_BEACHGRASS));
+            getPot(Util.Constants.UPGRADE_AQUATIC, DMHUACompat.POTTED_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_TALL_BEACHGRASS = HELPER.createBlockNoItem("potted_tall_beachgrass",
-            getPot(Util.Constants.UPGRADE_AQUATIC, DMHOptionalBlocks.POTTED_TALL_BEACHGRASS));
+            getPot(Util.Constants.UPGRADE_AQUATIC, DMHUACompat.POTTED_TALL_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_MYCELIUM_SPROUTS = HELPER.createBlockNoItem("potted_mycelium_sprouts",
-            getPot(Util.Constants.ENVIRONMENTAL, DMHOptionalBlocks.POTTED_MYCELIUM_SPROUTS));
+            getPot(Util.Constants.ENVIRONMENTAL, DMHEnvironmentalCompat.POTTED_MYCELIUM_SPROUTS));
 
 
     private static Supplier<Block> getPot(String id, Supplier<Block> pot) {
@@ -68,7 +70,7 @@ public class DMHBlocks {
         public static final BlockBehaviour.Properties STURDY_DEEPSLATE = BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(4.5F, 9.0F)
                 .pushReaction(PushReaction.IGNORE);
         public static final BlockBehaviour.Properties ALPHACENE_PATH = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN)
-                .strength(0.65F).sound(SoundType.GRAVEL).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always);
+                .strength(0.65F).sound(BlockSubRegistryHelper.areModsLoaded(Util.Constants.SPECIES) ? DMHSpeciesCompat.ALPHACENE_GRASS : SoundType.GRAVEL).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always);
         public static final BlockBehaviour.Properties PINE_NUT_CRATE = BlockBehaviour.Properties.of().mapColor(TERRACOTTA_YELLOW)
                 .strength(1.5f).sound(SoundType.WOOD).ignitedByLava();
     }

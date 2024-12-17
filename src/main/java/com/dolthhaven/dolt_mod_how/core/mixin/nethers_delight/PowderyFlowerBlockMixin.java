@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.soytutta.mynethersdelight.common.block.PowderyFlowerBlock;
 import com.soytutta.mynethersdelight.common.registry.MNDItems;
 import net.minecraft.core.BlockPos;
@@ -24,11 +25,12 @@ public class PowderyFlowerBlockMixin extends BambooSaplingBlock {
 
     @Inject(method = "getCloneItemStack", at = @At("HEAD"), cancellable = true, remap = false)
     private void DoltModHow$CopyPowderyCaneLol(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player, CallbackInfoReturnable<ItemStack> cir) {
-        cir.setReturnValue(new ItemStack(MNDItems.POWDER_CANNON.get()));
+        if (DMHConfig.COMMON.killBulletPepperPlacement.get()) cir.setReturnValue(new ItemStack(MNDItems.POWDER_CANNON.get()));
     }
 
     @Override
-    public boolean isValidBonemealTarget(@NotNull LevelReader p_256136_, @NotNull BlockPos p_256527_, @NotNull BlockState p_255620_, boolean p_256316_) {
-        return false;
+    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean bool) {
+        if (DMHConfig.COMMON.killBulletPepperPlacement.get()) return false;
+        else return super.isValidBonemealTarget(level, pos, state, bool);
     }
 }

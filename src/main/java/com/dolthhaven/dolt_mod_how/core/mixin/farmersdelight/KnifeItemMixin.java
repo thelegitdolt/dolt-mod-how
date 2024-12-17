@@ -1,6 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.farmersdelight;
 
-import com.dolthhaven.dolt_mod_how.core.DoltModHowConfig;
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -19,7 +19,7 @@ public class KnifeItemMixin {
     @Inject(method = "canApplyAtEnchantingTable",
     at = @At(value = "RETURN"), cancellable = true, remap = false)
     private void DoltModHow$NoEfficiencyOnKnifeEnchantmentTable(ItemStack stack, Enchantment enchantment, CallbackInfoReturnable<Boolean> cir) {
-        if ((enchantment.equals(Enchantments.SILK_TOUCH) || enchantment.equals(Enchantments.BLOCK_EFFICIENCY)) && DoltModHowConfig.COMMON.doUnbloatKnifeEnchants.get())
+        if ((enchantment.equals(Enchantments.SILK_TOUCH) || enchantment.equals(Enchantments.BLOCK_EFFICIENCY)) && DMHConfig.COMMON.doUnbloatKnifeEnchants.get())
             cir.setReturnValue(false);
     }
 }

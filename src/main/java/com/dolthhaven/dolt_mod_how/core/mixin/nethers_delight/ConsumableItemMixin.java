@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.soytutta.mynethersdelight.common.registry.MNDItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -17,7 +18,7 @@ import java.util.List;
 public class ConsumableItemMixin {
     @Inject(method = "appendHoverText", at = @At("HEAD"), cancellable = true)
     private void DoltModHow$TOOLTIPSDIEDIEIDSNJDJKNEFNEKFNKWJNFKENKWENK(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag isAdvanced, CallbackInfo ci) {
-        if (stack.is(MNDItems.MAGMA_CAKE_SLICE.get())) {
+        if (stack.is(MNDItems.MAGMA_CAKE_SLICE.get()) && DMHConfig.COMMON.frogsAreNotStupid.get()) {
             ci.cancel();
         }
     }

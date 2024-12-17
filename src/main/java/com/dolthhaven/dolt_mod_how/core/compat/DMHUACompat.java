@@ -9,21 +9,12 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 
 import java.util.function.Supplier;
 
-public class DMHOptionalBlocks {
-    // ATMOSPHERIC BEGIN
-    public static final Supplier<Block> POTTED_ARID_SPROUTS = () ->
-            new FlowerPotBlock(AtmosphericBlocks.ARID_SPROUTS.get(), PropertyUtil.flowerPot());
-
+public class DMHUACompat {
     // UPGRADE AQUATIC BEGIN
     public static final Supplier<Block> POTTED_BEACHGRASS = () ->
             new FlowerPotBlock(UABlocks.BEACHGRASS.get(), PropertyUtil.flowerPot());
     public static final Supplier<Block> POTTED_TALL_BEACHGRASS = () ->
             new FlowerPotBlock(UABlocks.TALL_BEACHGRASS.get(), PropertyUtil.flowerPot());
-
-
-    // ENVIRONMENTAL BEGIN
-    public static final Supplier<Block> POTTED_MYCELIUM_SPROUTS = () ->
-            new FlowerPotBlock(EnvironmentalBlocks.MYCELIUM_SPROUTS.get(), PropertyUtil.flowerPot());
 
 
 }

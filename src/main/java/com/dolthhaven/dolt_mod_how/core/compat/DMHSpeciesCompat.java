@@ -1,9 +1,23 @@
 package com.dolthhaven.dolt_mod_how.core.compat;
 
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
+import com.dolthhaven.dolt_mod_how.core.util.Util;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class DMHSpeciesCompat {
-    public static final BlockBehaviour.Properties ALPHACENE_PATH =
-            BlockBehaviour.Properties.of();
+    private static final String GRASS = "block.alphacene_grass.";
+
+    public static final SoundType ALPHACENE_GRASS = new SoundType(0.8F, 1,
+            opSound(GRASS + "break"),
+            opSound(GRASS + "step"),
+            opSound(GRASS + "place"),
+            opSound(GRASS + "hit"),
+            opSound(GRASS + "fall")
+    );
+
+    private static SoundEvent opSound(String namespace) {
+        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(Util.Constants.SPECIES, namespace));
+    }
 }

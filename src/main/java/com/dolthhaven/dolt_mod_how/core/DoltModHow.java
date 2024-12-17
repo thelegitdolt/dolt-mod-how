@@ -35,6 +35,7 @@ import java.util.concurrent.CompletableFuture;
 @Mod(DoltModHow.MOD_ID)
 public class DoltModHow {
     public static final String MOD_ID = "dolt_mod_how";
+    public static final String GIT_URL = "https://github.com/thelegitdolt/dolt-mod-how";
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
 
@@ -56,8 +57,8 @@ public class DoltModHow {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
 
         MinecraftForge.EVENT_BUS.register(this);
-        context.registerConfig(ModConfig.Type.COMMON, DoltModHowConfig.COMMON_SPEC);
-        context.registerConfig(ModConfig.Type.CLIENT, DoltModHowConfig.CLIENT_SPEC);
+        context.registerConfig(ModConfig.Type.COMMON, DMHConfig.COMMON_SPEC);
+        context.registerConfig(ModConfig.Type.CLIENT, DMHConfig.CLIENT_SPEC);
     }
 
     private void dataSetup(GatherDataEvent event) {

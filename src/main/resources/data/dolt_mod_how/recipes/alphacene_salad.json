@@ -1,0 +1,38 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "species"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:bowl"
+          },
+          {
+            "item": "species:alphacene_mushroom"
+          },
+          {
+            "item": "species:alphacene_mushroom"
+          },
+          {
+            "item": "species:alphacene_grass"
+          },
+          {
+            "item": "species:alphacene_moss_block"
+          }
+        ],
+        "result": {
+          "count": 1,
+          "item": "dolt_mod_how:alphacene_salad"
+        }
+      }
+    }
+  ]
+}

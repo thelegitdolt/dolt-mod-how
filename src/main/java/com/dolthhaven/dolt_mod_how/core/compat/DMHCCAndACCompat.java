@@ -7,7 +7,7 @@ import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
 
-public class DMHGoldenBuckets {
+public class DMHCCAndACCompat {
     public static final Supplier<Item> GOLDEN_ACID_BUCKET = () ->
             new GoldenBucketItem(ACFluidRegistry.ACID_FLUID_SOURCE, new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
     public static final Supplier<Item> GOLDEN_PURPLE_SODA_BUCKET = () ->

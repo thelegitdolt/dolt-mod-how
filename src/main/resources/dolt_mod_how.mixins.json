@@ -5,6 +5,7 @@
   "refmap": "dolt_mod_how.refmap.json",
   "mixins": [
     "BiomeTreatItemMixin",
+    "alexscaves.AcidBlockMixin",
     "anchor.LightningBoltMixin",
     "auditoryboatsounds.BlueprintBoatItemMixin",
     "auditoryboatsounds.BoatItemMixin",
@@ -13,6 +14,7 @@
     "auditoryboatsounds.MinecartItemMixin",
     "caverns_and_chasms.GoldenBucketMixin",
     "environmental.LivingEntityMixin",
+    "environmental.SlabfishOverlayMixin",
     "farmersdelight.KnifeItemMixin",
     "nethers_delight.ConsumableItemMixin",
     "nethers_delight.FrogEatMagmaCakeGoalMixin",

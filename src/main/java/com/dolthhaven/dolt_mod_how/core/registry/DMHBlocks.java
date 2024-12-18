@@ -73,6 +73,7 @@ public class DMHBlocks {
                 .strength(0.65F).sound(BlockSubRegistryHelper.areModsLoaded(Util.Constants.SPECIES) ? DMHSpeciesCompat.ALPHACENE_GRASS : SoundType.GRAVEL).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always);
         public static final BlockBehaviour.Properties PINE_NUT_CRATE = BlockBehaviour.Properties.of().mapColor(TERRACOTTA_YELLOW)
                 .strength(1.5f).sound(SoundType.WOOD).ignitedByLava();
+
     }
 
 }

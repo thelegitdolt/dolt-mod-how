@@ -63,7 +63,6 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     ordering = "AFTER"
     side = "BOTH"
 
-
 [[dependencies.dolt_mod_how]]
     modId = "environmental"
     mandatory = false
@@ -78,7 +77,6 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     ordering = "AFTER"
     side = "BOTH"
 
-
 [[dependencies.dolt_mod_how]]
     modId = "neapolitan"
     mandatory = false
@@ -90,6 +88,13 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     modId = "alexscaves"
     mandatory = false
     versionRange = "[2.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "species"
+    mandatory = false
+    versionRange = "[1.20.1-2.2-forge,)"
     ordering = "AFTER"
     side = "BOTH"
 

@@ -1,17 +1,14 @@
 package com.dolthhaven.dolt_mod_how.common.block;
 
-import com.dolthhaven.dolt_mod_how.core.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;

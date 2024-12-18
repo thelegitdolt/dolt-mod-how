@@ -12,6 +12,7 @@
     "auditoryboatsounds.DispenserMinecartItemMixin",
     "auditoryboatsounds.MinecartItemMixin",
     "caverns_and_chasms.GoldenBucketMixin",
+    "environmental.LivingEntityMixin",
     "farmersdelight.KnifeItemMixin",
     "nethers_delight.ConsumableItemMixin",
     "nethers_delight.FrogEatMagmaCakeGoalMixin",

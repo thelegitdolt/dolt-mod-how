@@ -15,5 +15,11 @@
   "item.dolt_mod_how.golden_acid_bucket": "Golden Acid Bucket",
   "item.dolt_mod_how.golden_purple_soda_bucket": "Golden Purple Soda Bucket",
 
-  "entity.dolt_mod_how.slabfish.type.glimmering_weald": "Glimmering Weald"
+  "slabfish.type.dolt_mod_how.glimmering_weald": "Glimmering Weald",
+  "slabfish.type.dolt_mod_how.abyssal_chasm": "Abyssal Chasm",
+  "slabfish.type.dolt_mod_how.forlorn_hollows": "Forlorn Hollows",
+  "slabfish.type.dolt_mod_how.candy_cavity": "Candy Cavity",
+  "slabfish.type.dolt_mod_how.magnetic_caves": "Magnetic Caves",
+  "slabfish.type.dolt_mod_how.primordial_caves": "Primordial Caves",
+  "slabfish.type.dolt_mod_how.toxic_caves": "Toxic Caves"
 }

@@ -1,0 +1,20 @@
+{
+  "conditions": [
+    {
+      "type": "environmental:event",
+      "events": [
+        "spawn",
+        "breed"
+      ]
+    },
+    {
+      "type": "environmental:in_biome_key",
+      "biome": "quark:glimmering_weald"
+    }
+  ],
+  "description": {
+    "translate": "slabfish.type.dolt_mod_how.glimmering_weald"
+  },
+  "priority": 5,
+  "texture": "dolt_mod_how:type/glimmering_weald"
+}

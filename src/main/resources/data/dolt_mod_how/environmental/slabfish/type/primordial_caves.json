@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "type": "environmental:mod_loaded",
+      "modid": "alexscaves"
+    },
+    {
+      "type": "environmental:event",
+      "events": [
+        "spawn",
+        "breed"
+      ]
+    },
+    {
+      "type": "environmental:in_biome_key",
+      "biome": "alexscaves:primordial_caves"
+    }
+  ],
+  "description": {
+    "translate": "slabfish.type.dolt_mod_how.primordial_caves"
+  },
+  "priority": 5,
+  "texture": "dolt_mod_how:type/primordial_caves"
+}

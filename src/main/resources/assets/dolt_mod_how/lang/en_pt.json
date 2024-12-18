@@ -15,5 +15,11 @@
   "item.dolt_mod_how.golden_acid_bucket": "Golden pail o' cursed bilge",
   "item.dolt_mod_how.golden_purple_soda_bucket": "Golden pail o' funny rum",
 
-  "entity.dolt_mod_how.slabfish.type.glimmering_weald": "Fella o' tha glowin' mines"
+  "slabfish.type.dolt_mod_how.glimmering_weald": "Fella o' tha glowin' mines",
+  "slabfish.type.dolt_mod_how.abyssal_chasms": "Deep fella",
+  "slabfish.type.dolt_mod_how.forlorn_hollows": "Fella o' bat dung",
+  "slabfish.type.dolt_mod_how.candy_cavity": "Cracker jenny's fella",
+  "slabfish.type.dolt_mod_how.magnetic_caves": "Pullin' rock fella",
+  "slabfish.type.dolt_mod_how.primordial_caves": "Real old fella",
+  "slabfish.type.dolt_mod_how.toxic_caves": "Cursed fella"
 }

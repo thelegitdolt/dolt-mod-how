@@ -49,11 +49,9 @@ public class DoltModHow {
         bus.addListener(this::clientSetup);
 
         DMHEnchants.ENCHANTMENTS.register(bus);
-        DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
         DMHParticles.PARTICLES.register(bus);
-//        DMHBiomeModifierSerializers.BIOME_MODIFIER_SERIALIZERS.register(bus);
         REGISTRY_HELPER.register(bus);
-        
+
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
 
         MinecraftForge.EVENT_BUS.register(this);

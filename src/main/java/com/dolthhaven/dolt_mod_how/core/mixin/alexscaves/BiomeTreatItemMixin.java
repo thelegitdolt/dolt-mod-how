@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.alexscaves;
 
 import com.github.alexmodguy.alexscaves.server.item.BiomeTreatItem;
 import net.minecraft.world.food.FoodData;

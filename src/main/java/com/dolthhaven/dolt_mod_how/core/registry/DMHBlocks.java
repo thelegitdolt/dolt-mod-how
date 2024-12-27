@@ -2,7 +2,10 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.compat.*;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHAtmosphericCompat;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHEnvironmentalCompat;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHUACompat;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHSpeciesCompat;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
@@ -31,8 +34,10 @@ public class DMHBlocks {
     public static final RegistryObject<Block> ALPHACENE_PATH = HELPER.createBlock("alphacene_path", () ->
             new DirtPathBlock(DoltModHowBlockProps.ALPHACENE_PATH));
 
-    public static final RegistryObject<Block> GLOWSHROOM_COLONY = HELPER.createBlockNoItem("glowshroom_colony",
-            () -> new GlowshroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM).randomTicks().lightLevel(s -> 10)));
+    public static final RegistryObject<Block> GLOWSHROOM_COLONY = HELPER.createBlockNoItem("glowshroom_colony", () ->
+            new GlowshroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM)
+                    .randomTicks()
+                    .lightLevel(s -> 10)));
     public static final RegistryObject<Block> PINE_NUTS_CRATE = HELPER.createBlock("pine_nuts_crate", () ->
             new BlueprintDirectionalBlock(DoltModHowBlockProps.PINE_NUT_CRATE));
 
@@ -68,7 +73,10 @@ public class DMHBlocks {
                 .strength(0.65F).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always)
                 .sound(BlockSubRegistryHelper.areModsLoaded(Util.Constants.SPECIES) && DMHSpeciesCompat.ALPHACENE_GRASS != null
                         ? DMHSpeciesCompat.ALPHACENE_GRASS : SoundType.GRAVEL);
+
         public static final BlockBehaviour.Properties PINE_NUT_CRATE = BlockBehaviour.Properties.of().mapColor(TERRACOTTA_YELLOW)
                 .strength(1.5f).sound(SoundType.WOOD).ignitedByLava();
+
     }
+
 }

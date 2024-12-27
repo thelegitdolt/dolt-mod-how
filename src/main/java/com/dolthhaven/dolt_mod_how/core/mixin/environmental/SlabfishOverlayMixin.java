@@ -1,8 +1,15 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.environmental;
 
 import com.teamabnormals.environmental.common.entity.animal.slabfish.SlabfishOverlay;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.gen.Invoker;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Unique
 @Mixin(SlabfishOverlay.class)

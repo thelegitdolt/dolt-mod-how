@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
-import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;

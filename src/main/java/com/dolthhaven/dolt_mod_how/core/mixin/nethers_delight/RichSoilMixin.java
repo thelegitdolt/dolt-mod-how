@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 import vectorwing.farmersdelight.common.block.RichSoilBlock;
 
 @Mixin(RichSoilBlock.class)
@@ -37,7 +38,7 @@ public class RichSoilMixin {
                     level.setBlockAndUpdate(abovePos, block.defaultBlockState());
                 }
             }
-            else if (Util.getPotentialBlock(Util.Constants.GLOW_SHROOM) != null && aboveState.is(Util.getPotentialBlock(Util.Constants.GLOW_SHROOM))) {
+            else if (aboveState.is(GlimmeringWealdModule.glow_shroom)) {
                 level.setBlockAndUpdate(abovePos, DMHBlocks.GLOWSHROOM_COLONY.get().defaultBlockState());
             }
         }

@@ -36,6 +36,13 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
+    modId = "quark"
+    mandatory = true
+    versionRange = "[4.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
     modId = "blueprint"
     mandatory = true
     versionRange = "[7.1.0,)"
@@ -67,13 +74,6 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     modId = "caverns_and_chasms"
     mandatory = false
     versionRange = "[2.0.0,)"
-    ordering = "AFTER"
-    side = "BOTH"
-
-[[dependencies.dolt_mod_how]]
-    modId = "quark"
-    mandatory = true
-    versionRange = "[4.0,)"
     ordering = "AFTER"
     side = "BOTH"
 

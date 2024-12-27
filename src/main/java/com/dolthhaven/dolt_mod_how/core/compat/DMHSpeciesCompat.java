@@ -3,6 +3,7 @@ package com.dolthhaven.dolt_mod_how.core.compat;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.registries.ForgeRegistries;
 

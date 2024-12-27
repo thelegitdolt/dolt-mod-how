@@ -4,10 +4,12 @@ import com.dolthhaven.dolt_mod_how.client.other.DMHClientCompat;
 import com.dolthhaven.dolt_mod_how.core.compat.DoltModHowFishBarrelSetup;
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
-import com.dolthhaven.dolt_mod_how.core.registry.*;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
-import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
+import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -44,13 +46,13 @@ public class DoltModHow {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext context = ModLoadingContext.get();
 
-        bus.addListener(this::dataSetup);
-        bus.addListener(this::commonSetup);
-        bus.addListener(this::clientSetup);
-
         DMHEnchants.ENCHANTMENTS.register(bus);
         DMHParticles.PARTICLES.register(bus);
         REGISTRY_HELPER.register(bus);
+
+        bus.addListener(this::dataSetup);
+        bus.addListener(this::commonSetup);
+        bus.addListener(this::clientSetup);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
 
@@ -88,9 +90,7 @@ public class DoltModHow {
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            DMHClientCompat.doCompat();
-        });
+        event.enqueueWork(DMHClientCompat::doCompat);
     }
 
     public static ResourceLocation rl(String path) {

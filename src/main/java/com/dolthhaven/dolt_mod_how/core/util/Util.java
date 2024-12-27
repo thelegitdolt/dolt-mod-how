@@ -60,6 +60,7 @@ public class Util {
         public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
         public static final ResourceLocation RED_MUSHROOM_COLONIES = new ResourceLocation(FARMERS_DELIGHT, "red_mushroom_colonies");
         public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
+        public static final ResourceLocation GLOW_SHROOM = new ResourceLocation(QUARK, "glow_shroom");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
 

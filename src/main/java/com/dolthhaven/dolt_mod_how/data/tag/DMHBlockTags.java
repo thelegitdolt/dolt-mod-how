@@ -15,7 +15,7 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 import java.util.concurrent.CompletableFuture;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
-import static net.minecraft.world.level.block.Blocks.*;
+import static net.minecraft.world.level.block.Blocks.JUKEBOX;
 
 
 public class DMHBlockTags extends BlockTagsProvider {

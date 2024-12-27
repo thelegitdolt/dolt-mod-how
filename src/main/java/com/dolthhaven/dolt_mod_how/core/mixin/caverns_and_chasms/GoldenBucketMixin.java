@@ -44,8 +44,7 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
         super(p_41383_);
     }
 
-    @Shadow
-    public abstract Fluid getFluid();
+    @Shadow public abstract Fluid getFluid();
 
     @Shadow protected abstract void playEmptySound(@org.jetbrains.annotations.Nullable Player player, LevelAccessor level, BlockPos pos);
 

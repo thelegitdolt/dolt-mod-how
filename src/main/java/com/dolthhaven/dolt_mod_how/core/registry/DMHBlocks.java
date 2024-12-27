@@ -70,10 +70,7 @@ public class DMHBlocks {
         public static final BlockBehaviour.Properties STURDY_DEEPSLATE = BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(4.5F, 9.0F)
                 .pushReaction(PushReaction.IGNORE);
         public static final BlockBehaviour.Properties ALPHACENE_PATH = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN)
-                .strength(0.65F).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always)
-                .sound(BlockSubRegistryHelper.areModsLoaded(Util.Constants.SPECIES) && DMHSpeciesCompat.ALPHACENE_GRASS != null
-                        ? DMHSpeciesCompat.ALPHACENE_GRASS : SoundType.GRAVEL);
-
+                .strength(0.65F).sound(BlockSubRegistryHelper.areModsLoaded(Util.Constants.SPECIES) ? DMHSpeciesCompat.ALPHACENE_GRASS : SoundType.GRAVEL).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always);
         public static final BlockBehaviour.Properties PINE_NUT_CRATE = BlockBehaviour.Properties.of().mapColor(TERRACOTTA_YELLOW)
                 .strength(1.5f).sound(SoundType.WOOD).ignitedByLava();
 

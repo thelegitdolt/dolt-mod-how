@@ -21,6 +21,10 @@ public class DMHConfig {
         public final ConfigValue<Boolean> killBulletPepperPlacement;
         public final ConfigValue<Boolean> frogsAreNotStupid;
 
+        public final ConfigValue<Boolean> acidCorrodesCopper;
+        public final ConfigValue<Boolean> actuallyGoodBiomeTreats;
+
+
         public final ConfigValue<? extends String> discToSpawnAfterJukeboxStruckWithLightning;
 
 
@@ -67,6 +71,7 @@ public class DMHConfig {
             builder.pop();
 
             builder.push("nethersdelight");
+
             builder.push("fungus_colonies");
 
             doRichSoilGrowFungusColony = builder.comment("If fungus colonies should grow on normal rich soil instead of soul rich soil").define("Rich Fungus", true);
@@ -81,6 +86,8 @@ public class DMHConfig {
             frogsAreNotStupid = builder.comment("If frogs should become unable to consume magma cakes").define("Magma Cakes Good", false);
             builder.pop();
 
+            builder.pop();
+
             builder.push("supplementaries");
             builder.push("quivers");
 
@@ -88,6 +95,20 @@ public class DMHConfig {
                     .define("Realistic Quivers", true);
 
             builder.pop();
+            builder.pop();
+
+            builder.push("Alexander Caverns");
+
+            builder.push("Acid");
+            acidCorrodesCopper = builder.comment("If acid should not corrode copper")
+                    .define("Good Acid", true);
+            builder.pop();
+
+            builder.push("Biome Treats");
+            actuallyGoodBiomeTreats = builder.comment("If biome treats should work regardless of hunger")
+                    .define("Okay Treats", true);
+            builder.pop();
+
             builder.pop();
         }
     }

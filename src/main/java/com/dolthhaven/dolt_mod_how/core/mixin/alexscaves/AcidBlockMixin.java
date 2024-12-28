@@ -1,5 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.alexscaves;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
+import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.github.alexmodguy.alexscaves.server.block.AcidBlock;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -18,6 +20,8 @@ public class AcidBlockMixin {
 
     @Inject(method = "initCorrosion", at = @At("TAIL"), remap = false)
     private static void DoltModHow$NoAutomaticallyOxidatingCopperPlease(CallbackInfo ci) {
+        if (!DMHConfig.COMMON.acidCorrodesCopper.get()) return;
+
         CORRODES_INTERACTIONS.entrySet().removeIf(entry -> {
             ResourceLocation location = ForgeRegistries.BLOCKS.getKey(entry.getKey());
             if (location == null) return false;

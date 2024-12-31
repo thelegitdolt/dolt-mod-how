@@ -22,22 +22,26 @@ public class RichSoilMixin {
     @Inject(method = "randomTick",
             at = @At("HEAD"))
     private void DoltModHow$GrowCustomColonies(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand, CallbackInfo ci) {
-        if (!level.isClientSide && ModList.get().isLoaded(Util.Constants.MY_NETHERS_DELIGHT) && DMHConfig.COMMON.doRichSoilGrowFungusColony.get()) {
+        if (!level.isClientSide &&  DMHConfig.COMMON.doRichSoilGrowFungusColony.get()) {
             BlockPos abovePos = pos.above();
             BlockState aboveState = level.getBlockState(abovePos);
 
-            if (aboveState.is(Blocks.CRIMSON_FUNGUS)) {
-                Block block = Util.getPotentialBlock(Util.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony");
-                if (block != null) {
-                    level.setBlockAndUpdate(abovePos, block.defaultBlockState());
+
+            if (ModList.get().isLoaded(Util.Constants.MY_NETHERS_DELIGHT)) {
+                if (aboveState.is(Blocks.CRIMSON_FUNGUS)) {
+                    Block block = Util.getPotentialBlock(Util.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony");
+                    if (block != null) {
+                        level.setBlockAndUpdate(abovePos, block.defaultBlockState());
+                    }
+                }
+                else if (aboveState.is(Blocks.WARPED_FUNGUS)) {
+                    Block block = Util.getPotentialBlock(Util.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony");
+                    if (block != null) {
+                        level.setBlockAndUpdate(abovePos, block.defaultBlockState());
+                    }
                 }
             }
-            else if (aboveState.is(Blocks.WARPED_FUNGUS)) {
-                Block block = Util.getPotentialBlock(Util.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony");
-                if (block != null) {
-                    level.setBlockAndUpdate(abovePos, block.defaultBlockState());
-                }
-            }
+
             else if (aboveState.is(GlimmeringWealdModule.glow_shroom)) {
                 level.setBlockAndUpdate(abovePos, DMHBlocks.GLOWSHROOM_COLONY.get().defaultBlockState());
             }

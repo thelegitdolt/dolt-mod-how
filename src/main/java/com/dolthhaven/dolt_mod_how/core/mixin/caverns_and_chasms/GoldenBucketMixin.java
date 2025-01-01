@@ -1,12 +1,13 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.caverns_and_chasms;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
-import com.github.alexmodguy.alexscaves.server.block.fluid.ACFluidRegistry;
+import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -29,8 +30,12 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -51,36 +56,26 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
 
     @Inject(method = "getFilledBucket*", at = @At("HEAD"), cancellable = true, remap = false)
     private static void DoltModHow$RegisterThisModBuckets(BlockState state, CallbackInfoReturnable<ItemStack> cir) {
-        if (state.getFluidState().is(ACFluidRegistry.ACID_FLUID_SOURCE.get())) {
-            cir.setReturnValue(new ItemStack(DMHItems.GOLDEN_ACID_BUCKET.get()));
-        }
-        else if (state.getFluidState().is(ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get())) {
-            cir.setReturnValue(new ItemStack(DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get()));
+        Item item = getModdedBuckets(state.getFluidState().getType());
+        if (item != null) {
+            cir.setReturnValue(new ItemStack(item));
         }
     }
 
     @Inject(method = "getFilledBucket*", at = @At("HEAD"), cancellable = true, remap = false)
     private static void DoltModHow$RegisterThisModBucketsTwo(Fluid fluid, CallbackInfoReturnable<ItemStack> cir) {
-        if (fluid == ACFluidRegistry.ACID_FLUID_SOURCE.get()) {
-            cir.setReturnValue(new ItemStack(DMHItems.GOLDEN_ACID_BUCKET.get()));
-        }
-        else if (fluid == ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get()) {
-            cir.setReturnValue(new ItemStack(DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get()));
-        }
+        Item item = getModdedBuckets(fluid);
+        if (item == null) return;
+        cir.setReturnValue(new ItemStack(item));
     }
 
     @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/BucketPickup;pickupBlock(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/item/ItemStack;",
             shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
     private void DoltModHow$RegisterThings(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir, ItemStack stack, CompoundTag tag, int bucketLevel, BlockHitResult result, InteractionResultHolder ret, BlockPos pos, Direction direction, BlockPos sourcePos, BlockState sourceState, BucketPickup bucketPickup, Block var14) {
         FluidState fluidState = sourceState.getFluidState();
-        Fluid fluid;
-        if (fluidState.is(ACFluidRegistry.ACID_FLUID_SOURCE.get())) {
-            fluid = ACFluidRegistry.ACID_FLUID_SOURCE.get();
-        } else if (fluidState.is(ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get())) {
-            fluid = ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get();
-        } else {
-            return;
-        }
+        Fluid fluid = fluidState.getType();
+
+        if (!isDMHBucket(fluid)) return;
 
         ItemStack newBucket = ItemStack.EMPTY;
         if (fluid != Fluids.EMPTY && GoldenBucketItem.getFilledBucket(sourceState) != null) {
@@ -105,7 +100,7 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
 
     @Inject(method = "emptyContents", at = @At(value = "HEAD"), cancellable = true)
     private void DMH$CheckIfCanPlaceInNether(Player player, Level level, BlockPos pos, BlockHitResult result, CallbackInfoReturnable<Boolean> cir) {
-        if (this.getFluid() != ACFluidRegistry.ACID_FLUID_SOURCE.get() || this.getFluid() != ACFluidRegistry.PURPLE_SODA_FLUID_SOURCE.get()) {
+        if (!isDMHBucket(this.getFluid())) {
             return;
         }
         if (!(this.getFluid() instanceof FlowingFluid)) {
@@ -144,4 +139,39 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
             }
         }
     }
+
+    @Unique
+    @Nullable
+    private static Item getModdedBuckets(Fluid fluid) {
+        ResourceLocation fluidLoc = ForgeRegistries.FLUIDS.getKey(fluid);
+        if (fluidLoc == null) return null;
+
+        if (ModList.get().isLoaded(Util.Constants.ALEXS_CAVES)) {
+            if (fluidLoc.equals(Util.Constants.ACID)) {
+                return DMHItems.GOLDEN_ACID_BUCKET.get();
+            }
+            else if (fluidLoc.equals(Util.Constants.PURPLE_SODA)) {
+                return DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get();
+            }
+        }
+        return null;
+    }
+
+    @Unique
+    private static boolean isDMHBucket(Fluid fluid) {
+        ResourceLocation fluidLoc = ForgeRegistries.FLUIDS.getKey(fluid);
+        if (fluidLoc == null) return false;
+
+        if (ModList.get().isLoaded(Util.Constants.ALEXS_CAVES)) {
+            if (fluidLoc.equals(Util.Constants.ACID)) {
+                return true;
+            }
+            else if (fluidLoc.equals(Util.Constants.PURPLE_SODA)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

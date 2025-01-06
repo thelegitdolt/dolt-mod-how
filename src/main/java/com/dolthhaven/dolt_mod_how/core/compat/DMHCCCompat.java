@@ -14,14 +14,14 @@ import java.util.function.Supplier;
 
 public class DMHCCCompat {
     public static final Supplier<Item> GOLDEN_ACID_BUCKET = () ->
-            new GoldenBucketItem(getLiquid(Util.Constants.ACID), new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
+            new GoldenBucketItem(() -> Util.getFluidOrWater(Util.Constants.ACID),
+                    new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
     public static final Supplier<Item> GOLDEN_PURPLE_SODA_BUCKET = () ->
-            new GoldenBucketItem(getLiquid(Util.Constants.PURPLE_SODA), new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
+            new GoldenBucketItem(() -> Util.getFluidOrWater(Util.Constants.PURPLE_SODA),
+                    new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
     public static final Supplier<Item> GOLDEN_MOLTEN_LEAD_BUCKET = () ->
-            new GoldenBucketItem(getLiquid(Util.Constants.MOLTEN_LEAD), new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
+            new GoldenBucketItem(() -> Util.getFluidOrWater(Util.Constants.MOLTEN_LEAD),
+                    new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
 
-    private static Supplier<Fluid> getLiquid(ResourceLocation location) {
-        Fluid fluid = ForgeRegistries.FLUIDS.getValue(location);
-        return fluid != null ? () -> fluid: () -> Fluids.WATER;
-    }
+
 }

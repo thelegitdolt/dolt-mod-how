@@ -32,7 +32,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "dolt_compat:glowshroom_colony",
+                  "block": "dolt_mod_how:glowshroom_colony",
                   "properties": {
                     "age": "1"
                   }
@@ -51,7 +51,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "dolt_compat:glowshroom_colony",
+                  "block": "dolt_mod_how:glowshroom_colony",
                   "properties": {
                     "age": "2"
                   }
@@ -70,7 +70,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "dolt_compat:glowshroom_colony",
+                  "block": "dolt_mod_how:glowshroom_colony",
                   "properties": {
                     "age": "3"
                   }
@@ -98,7 +98,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "dolt_compat:glowshroom_colony",
+                  "block": "dolt_mod_how:glowshroom_colony",
                   "properties": {
                     "age": "3"
                   }
@@ -110,7 +110,7 @@
                   }
                 }
               ],
-              "name": "dolt_compat:glowshroom_colony"
+              "name": "dolt_mod_how:glowshroom_colony"
             }
           ]
         }

@@ -5,12 +5,16 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 
 public class Util {
-
+    public static void ifThen(boolean condition, Runnable then) {
+        if (condition) then.run();
+    }
 
     public static void printItem(Item item) {
         ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
@@ -41,6 +45,14 @@ public class Util {
        return getPotentialBlock(new ResourceLocation(path, name));
     }
 
+    public static @Nullable Fluid getFluidOrWater(String path, String name) {
+        return getFluidOrWater(new ResourceLocation(path, name));
+    }
+
+    public static @Nullable Fluid getFluidOrWater(ResourceLocation location) {
+        Fluid fluid = ForgeRegistries.FLUIDS.getValue(location);
+        return fluid != null ? fluid: Fluids.WATER;
+    }
 
     public static class Constants {
         public static final String ALEXS_CAVES = "alexscaves";
@@ -71,6 +83,10 @@ public class Util {
 
         public static final ResourceLocation TALL_BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "tall_beachgrass");
         public static final ResourceLocation BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "beachgrass");
+
+        public static final ResourceLocation BLACK_ROCK_CANDY = new ResourceLocation(ALEXS_CAVES, "rock_candy_black");
+        public static final ResourceLocation GALENA = new ResourceLocation(ALEXS_CAVES, "galena");
+
 
         public static final ResourceLocation ACID = new ResourceLocation(ALEXS_CAVES, "acid");
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");

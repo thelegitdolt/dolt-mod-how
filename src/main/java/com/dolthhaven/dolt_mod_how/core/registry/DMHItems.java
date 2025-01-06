@@ -2,7 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.compat.DMHCCAndACCompat;
+import com.dolthhaven.dolt_mod_how.core.compat.DMHCCCompat;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -45,9 +45,11 @@ public class DMHItems {
             () -> new ConsumableItem(new Item.Properties().food(Food.ALPHACENE_SALAD).craftRemainder(Items.BOWL).stacksTo(16), true));
 
     public static final RegistryObject<Item> GOLDEN_ACID_BUCKET = HELPER.createItem("golden_acid_bucket",
-            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES) ? DMHCCAndACCompat.GOLDEN_ACID_BUCKET : () -> new Item(new Item.Properties()));
+            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_ACID_BUCKET : () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GOLDEN_PURPLE_SODA_BUCKET = HELPER.createItem("golden_purple_soda_bucket",
-            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES) ? DMHCCAndACCompat.GOLDEN_PURPLE_SODA_BUCKET : () -> new Item(new Item.Properties()));
+            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_PURPLE_SODA_BUCKET : () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
+            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.OREGANIZED) ? DMHCCCompat.GOLDEN_MOLTEN_LEAD_BUCKET : () -> new Item(new Item.Properties()));
 
 //    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
 //            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
@@ -69,7 +71,7 @@ public class DMHItems {
 
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
                 .addItemsAfter(ofID(Util.Constants.GOLDEN_LAVA_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES),
-                        GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET)
+                        GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET, GOLDEN_MOLTEN_LEAD_BUCKET)
 
                 .predicate(DMHItems::fdGroupPredicate)
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY);

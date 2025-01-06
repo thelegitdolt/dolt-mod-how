@@ -67,11 +67,13 @@ public class Util {
 
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
         public static final ResourceLocation MYCELIUM_SPROUTS = new ResourceLocation(ENVIRONMENTAL, "mycelium_sprouts");
-        public static final ResourceLocation BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "beachgrass");
         public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
 
+        public static final ResourceLocation TALL_BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "tall_beachgrass");
+        public static final ResourceLocation BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "beachgrass");
 
         public static final ResourceLocation ACID = new ResourceLocation(ALEXS_CAVES, "acid");
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");
+        public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");
     }
 }

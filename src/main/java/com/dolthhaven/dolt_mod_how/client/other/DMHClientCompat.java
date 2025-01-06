@@ -35,6 +35,7 @@ public class DMHClientCompat {
         registerCrossbowPredicate("torch_arrow", () -> TorchArrowModule.torch_arrow);
         registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_ACID_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES);
         registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_PURPLE_SODA_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES);
+        registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_MOLTEN_LEAD_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.OREGANIZED);
     }
 
     private static void registerGoldenBucketIfModLoaded(Supplier<Item> item, String... modids) {

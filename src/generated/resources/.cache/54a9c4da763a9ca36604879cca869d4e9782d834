@@ -1,6 +1,7 @@
-// 1.20.1	2024-12-16T22:38:29.459727	Tags for minecraft:item mod id dolt_mod_how
+// 1.20.1	2025-01-05T19:50:02.244527	Tags for minecraft:item mod id dolt_mod_how
 33c057152ba1e62c750784669ecceb558816938c data/dolt_mod_how/tags/items/leather.json
-2e2355a2224e3d37f2ab4ce79286b8183a4c5243 data/forge/tags/items/buckets.json
+e6b4e57e155b24ad18d64f433ddd4e2114506c7b data/forge/tags/items/buckets.json
 98599cbe34e11a9c17359df235f45f7df84489a6 data/forge/tags/items/buckets/acid.json
+35687f3b826de42b981e3b7104ead3b15ee07ca1 data/forge/tags/items/buckets/molten_lead.json
 a47e24a72399e26b59f9573cf73217c9d146e002 data/forge/tags/items/buckets/purple_soda.json
-2bfc0adbbb87504b99b1649f47f18e190a674592 data/minecraft/tags/items/piglin_loved.json
+7b9b7a0fc81cbc99c9f019a65a561f7c6180679c data/minecraft/tags/items/piglin_loved.json

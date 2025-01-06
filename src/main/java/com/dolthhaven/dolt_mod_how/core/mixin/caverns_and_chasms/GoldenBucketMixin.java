@@ -120,7 +120,6 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
                 cir.setReturnValue(true);
             }
             else if (block instanceof LiquidBlockContainer && ((LiquidBlockContainer)block).canPlaceLiquid(level, pos, state, this.getFluid())) {
-
                 ((LiquidBlockContainer)block).placeLiquid(level, pos, state, ((FlowingFluid)this.getFluid()).getSource(false));
                 this.playEmptySound(player, level, pos);
                 cir.setReturnValue(true);
@@ -154,6 +153,12 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
                 return DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get();
             }
         }
+
+        if (ModList.get().isLoaded(Util.Constants.OREGANIZED)) {
+            if (fluidLoc.equals(Util.Constants.MOLTEN_LEAD)) {
+                return DMHItems.GOLDEN_MOLTEN_LEAD_BUCKET.get();
+            }
+        }
         return null;
     }
 
@@ -167,6 +172,12 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
                 return true;
             }
             else if (fluidLoc.equals(Util.Constants.PURPLE_SODA)) {
+                return true;
+            }
+        }
+
+        if (ModList.get().isLoaded(Util.Constants.OREGANIZED)) {
+            if (fluidLoc.equals(Util.Constants.MOLTEN_LEAD)) {
                 return true;
             }
         }

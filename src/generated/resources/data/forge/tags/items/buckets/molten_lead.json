@@ -1,0 +1,9 @@
+{
+  "values": [
+    "dolt_mod_how:golden_molten_lead_bucket",
+    {
+      "id": "oreganized:molten_lead_bucket",
+      "required": false
+    }
+  ]
+}

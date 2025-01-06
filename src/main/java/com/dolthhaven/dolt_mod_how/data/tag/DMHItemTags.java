@@ -30,10 +30,15 @@ public class DMHItemTags extends ItemTagsProvider {
                 .add(GOLDEN_PURPLE_SODA_BUCKET.get())
                 .addOptional(new ResourceLocation(Util.Constants.ALEXS_CAVES, "purple_soda_bucket"));
 
+        this.tag(DMHTags.MOLTEN_LEAD_BUCKETS)
+                .add(GOLDEN_MOLTEN_LEAD_BUCKET.get())
+                .addOptional(new ResourceLocation(Util.Constants.OREGANIZED, "molten_lead_bucket"));
+
         this.tag(DMHTags.LEATHER).add(Items.LEATHER, LEATHER_SCRAPS.get());
 
-        this.tag(ItemTags.PIGLIN_LOVED).add(GOLDEN_ACID_BUCKET.get(), GOLDEN_PURPLE_SODA_BUCKET.get());
+        this.tag(ItemTags.PIGLIN_LOVED).add(GOLDEN_ACID_BUCKET.get(), GOLDEN_PURPLE_SODA_BUCKET.get(), GOLDEN_MOLTEN_LEAD_BUCKET.get());
+
         this.tag(BlueprintItemTags.BUCKETS)
-                .addTags(DMHTags.ACID_BUCKETS, DMHTags.PURPLE_SODA_BUCKETS);
+                .addTags(DMHTags.ACID_BUCKETS, DMHTags.PURPLE_SODA_BUCKETS, DMHTags.MOLTEN_LEAD_BUCKETS);
     }
 }

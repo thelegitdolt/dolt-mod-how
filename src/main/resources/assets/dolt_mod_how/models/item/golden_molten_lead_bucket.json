@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "dolt_mod_how:item/golden_molten_lead_bucket0"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "dolt_mod_how:level": 1
+      },
+      "model": "dolt_mod_how:item/golden_molten_lead_bucket1"
+    },
+    {
+      "predicate": {
+        "dolt_mod_how:level": 2
+      },
+      "model": "dolt_mod_how:item/golden_molten_lead_bucket2"
+    }
+  ]
+}

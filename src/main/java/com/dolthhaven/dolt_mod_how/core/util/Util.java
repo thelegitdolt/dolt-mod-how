@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -18,7 +19,7 @@ public class Util {
 
     public static void printItem(Item item) {
         ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
-        if (res == null) {
+        if (res == ForgeRegistries.ITEMS.getDefaultKey()) {
             DoltModHow.LOGGER.info("DoltModHow.Util.printItem used, but no Item was found!!");
         }
         else {
@@ -45,11 +46,11 @@ public class Util {
        return getPotentialBlock(new ResourceLocation(path, name));
     }
 
-    public static @Nullable Fluid getFluidOrWater(String path, String name) {
+    public static @NotNull Fluid getFluidOrWater(String path, String name) {
         return getFluidOrWater(new ResourceLocation(path, name));
     }
 
-    public static @Nullable Fluid getFluidOrWater(ResourceLocation location) {
+    public static @NotNull Fluid getFluidOrWater(ResourceLocation location) {
         Fluid fluid = ForgeRegistries.FLUIDS.getValue(location);
         return fluid != null ? fluid: Fluids.WATER;
     }

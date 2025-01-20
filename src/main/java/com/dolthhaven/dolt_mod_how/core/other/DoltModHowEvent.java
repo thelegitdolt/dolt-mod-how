@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
-import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
+import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
@@ -27,9 +27,9 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ToolActions;
@@ -45,9 +45,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static net.minecraft.world.InteractionHand.MAIN_HAND;
 
@@ -55,6 +56,7 @@ import static net.minecraft.world.InteractionHand.MAIN_HAND;
 public class DoltModHowEvent {
     private static final UniformInt COMMON_ORE = UniformInt.of(0, 2);
     private static final UniformInt RARE_ORE = UniformInt.of(1, 3);
+    public static final Map<Block, Block> TILL_MAP = new HashMap<>();
 
 
     @SubscribeEvent
@@ -151,7 +153,8 @@ public class DoltModHowEvent {
                 if (state.is(DMHTags.COMMON_ORES)) {
                     int exp = COMMON_ORE.sample(level.getRandom());
                     event.setExpToDrop(exp);
-                } else if (state.is(DMHTags.RARE_ORES)) {
+                }
+                else if (state.is(DMHTags.RARE_ORES)) {
                     event.setExpToDrop(RARE_ORE.sample(level.getRandom()));
                 }
             }
@@ -238,23 +241,20 @@ public class DoltModHowEvent {
         BlockPos pos = event.getPos();
         Level level = event.getLevel();
 
-        if (stack.canPerformAction(ToolActions.HOE_TILL) && player.isCrouching()) {
-            if (level.getBlockState(pos).is(Blocks.FARMLAND)) {
+        if (stack.canPerformAction(ToolActions.HOE_TILL) && player.isCrouching() && event.getFace() != Direction.DOWN && !player.isSpectator()) {
+            Block block = TILL_MAP.get(level.getBlockState(pos).getBlock());
+            if (block == null) return;
+            if (level.getEntitiesOfClass(Player.class, new AABB(pos)).contains(player)) return;
+
+            if (!level.isClientSide()) {
                 stack.hurtAndBreak(1, player, onBroken -> onBroken.broadcastBreakEvent(LivingEntity.getEquipmentSlotForItem(stack)));
-                level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
-                player.swing(event.getHand());
-                level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
-                event.setCancellationResult(InteractionResult.SUCCESS);
-                event.setCanceled(true);
+                level.setBlock(pos, block.defaultBlockState(), Block.UPDATE_ALL);
             }
-            else if (level.getBlockState(pos).is(ModBlocks.RICH_SOIL_FARMLAND.get())) {
-                stack.hurtAndBreak(1, player, onBroken -> onBroken.broadcastBreakEvent(LivingEntity.getEquipmentSlotForItem(stack)));
-                level.setBlock(pos, ModBlocks.RICH_SOIL.get().defaultBlockState() , 2);
-                player.swing(event.getHand());
-                level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
-                event.setCancellationResult(InteractionResult.SUCCESS);
-                event.setCanceled(true);
-            }
+
+            level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
+
+            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
+            event.setCanceled(true);
         }
     }
 }

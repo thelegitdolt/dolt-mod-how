@@ -34,6 +34,7 @@ public class FakePlayerCauldronInteract extends DispenserHelper.AdditionalDispen
         BlockPos pos = source.getPos().relative(dir);
         Player fp = FakePlayerManager.getDefault(level);
 
+
         ItemStack dispenseStack = stack.copy();
         dispenseStack.setCount(1);
         fp.setItemInHand(InteractionHand.MAIN_HAND, dispenseStack);

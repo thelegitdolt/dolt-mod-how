@@ -56,7 +56,6 @@ public class DoltModHow {
         REGISTRY_HELPER.register(bus);
         
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
-        DoltModHowTrackedData.registerTrackedData();
 
         MinecraftForge.EVENT_BUS.register(this);
         context.registerConfig(ModConfig.Type.COMMON, DMHConfig.COMMON_SPEC);

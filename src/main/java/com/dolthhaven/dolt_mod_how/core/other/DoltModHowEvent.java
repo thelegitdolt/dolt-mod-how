@@ -243,8 +243,8 @@ public class DoltModHowEvent {
 
         if (stack.canPerformAction(ToolActions.HOE_TILL) && player.isCrouching() && event.getFace() != Direction.DOWN && !player.isSpectator()) {
             Block block = TILL_MAP.get(level.getBlockState(pos).getBlock());
-            if (block == null) return;
-            if (level.getEntitiesOfClass(Player.class, new AABB(pos)).contains(player)) return;
+            if (block == null || level.getEntitiesOfClass(Player.class, new AABB(pos)).contains(player) ||
+                    !level.isEmptyBlock(pos.above())) return;
 
             if (!level.isClientSide()) {
                 stack.hurtAndBreak(1, player, onBroken -> onBroken.broadcastBreakEvent(LivingEntity.getEquipmentSlotForItem(stack)));

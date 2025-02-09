@@ -110,6 +110,9 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge:${project.jei}")
 
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
+
+    implementation fg.deobf("maven.modrinth:etcetera:${project.etcetera}")
+
 }
 
 repositories {
@@ -120,6 +123,18 @@ repositories {
     maven { url "https://modmaven.k-4u.nl" }
 
 
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 
     maven {
         url "https://cursemaven.com"

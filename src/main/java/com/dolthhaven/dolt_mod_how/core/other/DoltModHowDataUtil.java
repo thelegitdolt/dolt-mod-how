@@ -1,7 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.util.Util;
-import com.ninni.etcetera.Etcetera;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;

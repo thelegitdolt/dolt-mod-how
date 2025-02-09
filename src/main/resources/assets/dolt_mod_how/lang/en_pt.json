@@ -1,6 +1,4 @@
 {
-  "enchantment.dolt_mod_how.bounding": "Bind o' Davy Jones",
-
   "item.dolt_mod_how.leather_scraps": "Sliver o' beast hide",
   "item.dolt_mod_how.chorus_soda": "Fizzy liftin' drink",
   "item.dolt_mod_how.alphacene_salad": "Shroomy Grub o' Old Times",
@@ -17,7 +15,7 @@
   "item.dolt_mod_how.golden_molten_lead_bucket": "Treasure pail o' burnin' plumbum",
 
   "slabfish.type.dolt_mod_how.glimmering_weald": "Fella o' tha glowin' mines",
-  "slabfish.type.dolt_mod_how.abyssal_chasms": "Deep fella",
+  "slabfish.type.dolt_mod_how.abyssal_chasm": "Deep fella",
   "slabfish.type.dolt_mod_how.forlorn_hollows": "Fella o' bat dung",
   "slabfish.type.dolt_mod_how.candy_cavity": "Cracker jenny's fella",
   "slabfish.type.dolt_mod_how.magnetic_caves": "Pullin' rock fella",

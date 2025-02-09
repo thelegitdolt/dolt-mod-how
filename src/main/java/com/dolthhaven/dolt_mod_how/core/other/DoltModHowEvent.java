@@ -105,34 +105,6 @@ public class DoltModHowEvent {
         }
     }
 
-    @SubscribeEvent(priority = EventPriority.HIGH)
-    public static void onPlayerDropEvent(LivingDropsEvent event) {
-        if (event.getEntity() instanceof Player player) {
-            if (player.level().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
-                return;
-            }
-
-            event.getDrops().stream().map(ItemEntity::getItem).filter(i -> i.getEnchantmentLevel(DMHEnchants.BOUNDING.get()) > 0).forEach(i -> player.getInventory().add(i));
-        }
-    }
-
-    // Some credit to team Cofh's soulbound effect
-    @SubscribeEvent
-    public static void onPlayerCloneEvent(PlayerEvent.Clone event) {
-        if (event.isWasDeath()) {
-            Player nw = event.getEntity();
-            Player old = event.getOriginal();
-
-            List<ItemStack> items = old.getInventory().items;
-
-            for (ItemStack stackie : items.stream().filter(i -> i.getEnchantmentLevel(DMHEnchants.BOUNDING.get()) >= 1).toList()) {
-                if (!nw.getInventory().add(stackie)) {
-                    nw.drop(stackie, false);
-                }
-            }
-        }
-    }
-
     @SubscribeEvent
     public static void onPlayerBreakOreEvent(BlockEvent.BreakEvent event) {
         if (!DMHConfig.COMMON.doMetalOresDropXP.get()) {

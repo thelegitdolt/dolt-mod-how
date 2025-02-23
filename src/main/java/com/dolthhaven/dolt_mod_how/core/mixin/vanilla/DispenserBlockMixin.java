@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.other.FakePlayerCauldronInteract;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSourceImpl;
 import net.minecraft.core.cauldron.CauldronInteraction;
@@ -30,10 +31,9 @@ public abstract class DispenserBlockMixin {
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/level/block/DispenserBlock;getDispenseMethod(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/core/dispenser/DispenseItemBehavior;"
             ),
-            locals = LocalCapture.CAPTURE_FAILHARD,
             cancellable = true
     )
-    public void onCuttingBoardDispenseFromInject(ServerLevel level, BlockPos pos, CallbackInfo ci, BlockSourceImpl source, DispenserBlockEntity dispenser, int slot, ItemStack stack) {
+    public void onCuttingBoardDispenseFromInject(ServerLevel level, BlockPos pos, CallbackInfo ci, @Local BlockSourceImpl source, @Local ItemStack stack) {
         if (!DMHConfig.COMMON.doDispenserCauldrons.get()) return;
 
         BlockState facingState = level.getBlockState(pos.relative(source.getBlockState().getValue(DispenserBlock.FACING)));

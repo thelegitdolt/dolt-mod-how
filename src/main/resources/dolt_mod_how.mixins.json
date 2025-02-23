@@ -16,6 +16,7 @@
     "environmental.SlabfishOverlayMixin",
     "etcetera.UpdatePricklyCanC2SPacketMixin",
     "farmersdelight.KnifeItemMixin",
+    "farmersdelight.RopeItemMixin",
     "nethers_delight.ConsumableItemMixin",
     "nethers_delight.FrogEatMagmaCakeGoalMixin",
     "nethers_delight.PowderyFlowerBlockMixin",

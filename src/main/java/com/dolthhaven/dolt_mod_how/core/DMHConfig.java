@@ -24,6 +24,8 @@ public class DMHConfig {
         public final ConfigValue<Boolean> acidCorrodesCopper;
         public final ConfigValue<Boolean> actuallyGoodBiomeTreats;
 
+        public final ConfigValue<Boolean> damageReductions;
+
 
         public final ConfigValue<? extends String> discToSpawnAfterJukeboxStruckWithLightning;
 
@@ -51,6 +53,10 @@ public class DMHConfig {
 
             builder.push("dispensers");
             doDispenserCauldrons = builder.comment("If dispensers should be able to dispense into cauldrons").define("Dispenser Cauldrons", true);
+            builder.pop();
+
+            builder.push("enchantments");
+            damageReductions = builder.comment("If enchantments other than protection should be buffed. Experimental!").define("Erm what the sigma", false);
             builder.pop();
 
 

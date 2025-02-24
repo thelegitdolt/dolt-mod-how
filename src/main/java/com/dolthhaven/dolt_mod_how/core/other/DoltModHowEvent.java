@@ -254,7 +254,6 @@ public class DoltModHowEvent {
                 }
             }
 
-
             level.playSound(player, pos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
             BlockState newState = UNRUST_MAP.get(state.getBlock()).defaultBlockState();
 
@@ -293,8 +292,13 @@ public class DoltModHowEvent {
     }
 
     private static <V extends Comparable<V>> BlockState setGenericProperty(BlockState state, Property<?> propName, Object propertyValue) {
-        Property<V> newProp = (Property<V>) propName;
-        V value = (V) propertyValue;
-        return state.setValue(newProp, value);
+        try {
+            Property<V> newProp = (Property<V>) propName;
+            V value = (V) propertyValue;
+            return state.setValue(newProp, value);
+        }
+        catch (ClassCastException | IllegalArgumentException e) {
+            return state;
+        }
     }
 }

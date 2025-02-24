@@ -4,14 +4,10 @@ import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
-import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 
-import static com.dolthhaven.dolt_mod_how.core.other.DoltModHowEvent.TILL_MAP;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.PINE_NUTS_CRATE;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.GLOWSHROOM_COLONY;
 
@@ -20,7 +16,8 @@ public class DoltModHowDataUtil {
 
     public static void registerData() {
         registerCompostable();
-        registerHoeTills();
+        DoltModHowEvent.registerHoeTills();
+        DoltModHowEvent.registerUnRust();
     }
 
     private static void registerCompostable() {
@@ -36,9 +33,7 @@ public class DoltModHowDataUtil {
         }
     }
 
-    private static void registerHoeTills() {
-        TILL_MAP.put(Blocks.FARMLAND, Blocks.DIRT);
-        TILL_MAP.put(ModBlocks.RICH_SOIL_FARMLAND.get(), ModBlocks.RICH_SOIL.get());
-        TILL_MAP.put(ModRegistry.RAKED_GRAVEL.get(), Blocks.GRAVEL);
-    }
+
+
+
 }

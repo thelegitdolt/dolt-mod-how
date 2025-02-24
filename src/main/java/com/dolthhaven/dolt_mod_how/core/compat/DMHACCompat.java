@@ -3,12 +3,14 @@ package com.dolthhaven.dolt_mod_how.core.compat;
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowEvent;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
+import com.github.alexmodguy.alexscaves.server.block.AcidBlock;
 import com.github.alexmodguy.alexscaves.server.item.RadioactiveOnDestroyedBlockItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.ModList;
 
 public class DMHACCompat {
@@ -38,5 +40,9 @@ public class DMHACCompat {
             DoltModHowEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCAFFOLDING.get(), ACBlockRegistry.METAL_SCAFFOLDING.get());
             DoltModHowEvent.UNRUST_MAP.put( ACBlockRegistry.RUSTY_REBAR.get(), ACBlockRegistry.METAL_REBAR.get());
         }
+    }
+
+    public static boolean isAcid(BlockState state) {
+        return state.getBlock() instanceof AcidBlock;
     }
 }

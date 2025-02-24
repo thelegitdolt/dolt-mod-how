@@ -7,7 +7,6 @@ import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.Util;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
-import com.github.alexmodguy.alexscaves.server.block.AcidBlock;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -249,7 +248,7 @@ public class DoltModHowEvent {
 
         if (stack.canPerformAction(ToolActions.AXE_SCRAPE) && UNRUST_MAP.containsKey(state.getBlock())) {
             for (Direction dir : Direction.Plane.HORIZONTAL) {
-                if (level.getBlockState(pos.relative(dir)).getBlock() instanceof AcidBlock) {
+                if (DMHACCompat.isAcid(level.getBlockState(pos.relative(dir)))) {
                     return;
                 }
             }

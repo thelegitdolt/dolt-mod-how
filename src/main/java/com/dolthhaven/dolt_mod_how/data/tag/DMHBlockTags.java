@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
@@ -47,7 +48,7 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)
                 .addOptionalTag(new ResourceLocation("forge", "ores/silver"));
 
-        this.tag(DMHTags.COMMON_ORES).addTags(BlockTags.IRON_ORES, BlockTags.COPPER_ORES)
+        this.tag(DMHTags.COMMON_ORES).add(AMETHYST_CLUSTER).addTags(BlockTags.IRON_ORES, BlockTags.COPPER_ORES)
                 .addOptionalTag(new ResourceLocation("forge", "ores/jade"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/lead"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/tin"))

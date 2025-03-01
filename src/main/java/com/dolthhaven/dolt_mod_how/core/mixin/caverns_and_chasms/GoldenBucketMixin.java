@@ -39,20 +39,20 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
             target = "Lnet/minecraft/world/level/block/BucketPickup;pickupBlock(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/item/ItemStack;",
     shift = At.Shift.AFTER), cancellable = true)
     private void injected(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir,
-                          @Local BlockHitResult result) {
+                          @Local BlockHitResult result, @Local BlockState state) {
         if (getFluid() != Fluids.EMPTY) {
             return;
         }
 
-        BlockState state = level.getBlockState(result.getBlockPos().relative(result.getDirection()));
 
         ItemStack stack = DMHGoldenBucketItem.getFilledRealBucket(state);
 
-        if (stack != null) {
-            ItemStack newBucket = ItemUtils.createFilledResult(stack, player, stack);
+        if (stack != null && state.getBlock() instanceof BucketPickup pickup) {
+            pickup.pickupBlock(level, result.getBlockPos(), state);
+            ItemStack newBucket = ItemUtils.createFilledResult(player.getItemInHand(hand), player, stack);
 
             player.awardStat(Stats.ITEM_USED.get(this));
-            ((BucketPickup) state.getBlock()).getPickupSound(state)
+            pickup.getPickupSound(state)
                     .ifPresent((soundEvent) -> player.playSound(soundEvent, 1.0F, 1.0F));
             level.gameEvent(player, GameEvent.FLUID_PICKUP, result.getBlockPos());
             if (!level.isClientSide) {

@@ -1,7 +1,7 @@
-// 1.20.1	2025-02-23T16:21:04.978647	Tags for minecraft:block mod id dolt_mod_how
+// 1.20.1	2025-02-28T18:57:19.140764	Tags for minecraft:block mod id dolt_mod_how
 0defb48f4f79d0a8a25a32dd7039e747cea74f57 data/dolt_mod_how/tags/blocks/channels_lightning.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/dolt_mod_how/tags/blocks/cocoa_beans_additionally_plantable_on.json
-88d1a102592bc65288780153e393178dfb9c234a data/dolt_mod_how/tags/blocks/common_ores.json
+41a2026ea6d77a61febe8498423e1b06f42de191 data/dolt_mod_how/tags/blocks/common_ores.json
 0998b262bff03c8c017b55f94c3b4fcd9bed171e data/dolt_mod_how/tags/blocks/no_xp_crops.json
 797199ebd94f2da00ef4c91b6db583e2cfe7be63 data/dolt_mod_how/tags/blocks/rare_ores.json
 08ffaafb213a31beb0f9a18594287aef60d93225 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json

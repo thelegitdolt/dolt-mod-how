@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.soytutta.mynethersdelight.common.block.PowderyFlowerBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -26,7 +26,7 @@ public class PowderyFlowerBlockMixin extends BambooSaplingBlock {
 
     @Inject(method = "getCloneItemStack", at = @At("HEAD"), cancellable = true, remap = false)
     private void DoltModHow$CopyPowderyCaneLol(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player, CallbackInfoReturnable<ItemStack> cir) {
-        Item item = Util.getPotentialItem(Util.Constants.MY_NETHERS_DELIGHT, "powder_cannon");
+        Item item = DMHUtils.getPotentialItem(DMHUtils.Constants.MY_NETHERS_DELIGHT, "powder_cannon");
 
         if (item == null) return;
         if (DMHConfig.COMMON.killBulletPepperPlacement.get()) cir.setReturnValue(new ItemStack(item));

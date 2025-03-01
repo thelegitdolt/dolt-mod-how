@@ -3,7 +3,7 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.compat.DMHCCCompat;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
@@ -37,7 +37,7 @@ public class DMHItems {
 
     public static final RegistryObject<Item> GLOWSHROOM_COLONY = HELPER.createItem("glowshroom_colony", () -> new MushroomColonyItem(DMHBlocks.GLOWSHROOM_COLONY.get(), new Item.Properties()));
     public static final RegistryObject<Item> CHORUS_SODA = HELPER.createItem("chorus_soda",
-            () -> new ChorusSodaItem(new Item.Properties().food(Food.CHORUS_SODA)));
+            () -> new ChorusSodaItem(new Item.Properties().food(Food.CHORUS_SODA).craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> LEATHER_SCRAPS = HELPER.createItem("leather_scraps",
             () -> new Item(new Item.Properties()));
 
@@ -45,11 +45,11 @@ public class DMHItems {
             () -> new ConsumableItem(new Item.Properties().food(Food.ALPHACENE_SALAD).craftRemainder(Items.BOWL).stacksTo(16), true));
 
     public static final RegistryObject<Item> GOLDEN_ACID_BUCKET = HELPER.createItem("golden_acid_bucket",
-            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_ACID_BUCKET : () -> new Item(new Item.Properties()));
+            BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_ACID_BUCKET : () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GOLDEN_PURPLE_SODA_BUCKET = HELPER.createItem("golden_purple_soda_bucket",
-            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_PURPLE_SODA_BUCKET : () -> new Item(new Item.Properties()));
+            BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_PURPLE_SODA_BUCKET : () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
-            BlockSubRegistryHelper.areModsLoaded(Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.OREGANIZED) ? DMHCCCompat.GOLDEN_MOLTEN_LEAD_BUCKET : () -> new Item(new Item.Properties()));
+            BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED) ? DMHCCCompat.GOLDEN_MOLTEN_LEAD_BUCKET : () -> new Item(new Item.Properties()));
 
 //    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
 //            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
@@ -57,7 +57,7 @@ public class DMHItems {
     public static void setUpTabEditors() {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                .addItemsAfter(ofID(Util.Constants.STURDY_STONE), STURDY_DEEPSLATE)
+                .addItemsAfter(ofID(DMHUtils.Constants.STURDY_STONE), STURDY_DEEPSLATE)
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
                 .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA)
                 .addItemsAfter(of(Items.MUSHROOM_STEW), ALPHACENE_SALAD)
@@ -66,11 +66,11 @@ public class DMHItems {
                 .addItemsAfter(of(Items.LEATHER), LEATHER_SCRAPS)
 
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
-                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, Util.Constants.ALEXS_CAVES), PINE_NUTS_CRATE)
+                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), PINE_NUTS_CRATE)
                 .addItemsAfter(of(Items.DIRT_PATH), ALPHACENE_PATH)
 
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
-                .addItemsAfter(ofID(Util.Constants.GOLDEN_LAVA_BUCKET, Util.Constants.CAVERNS_AND_CHASMS, Util.Constants.ALEXS_CAVES),
+                .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES),
                         GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET, GOLDEN_MOLTEN_LEAD_BUCKET)
 
                 .predicate(DMHItems::fdGroupPredicate)

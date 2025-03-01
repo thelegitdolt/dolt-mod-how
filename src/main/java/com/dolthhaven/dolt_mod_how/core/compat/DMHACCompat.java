@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.compat;
 
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowEvent;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.github.alexmodguy.alexscaves.server.block.AcidBlock;
 import com.github.alexmodguy.alexscaves.server.item.RadioactiveOnDestroyedBlockItem;
@@ -33,7 +33,7 @@ public class DMHACCompat {
     }
 
     public static void registerUnRust() {
-        if (ModList.get().isLoaded(Util.Constants.ALEXS_CAVES)) {
+        if (ModList.get().isLoaded(DMHUtils.Constants.ALEXS_CAVES)) {
             DoltModHowEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCRAP_METAL.get(), ACBlockRegistry.SCRAP_METAL.get());
             DoltModHowEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCRAP_METAL_PLATE.get(), ACBlockRegistry.SCRAP_METAL_PLATE.get());
             DoltModHowEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_BARREL.get(), ACBlockRegistry.METAL_BARREL.get());

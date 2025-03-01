@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class Util {
+public class DMHUtils {
     public static void ifThen(boolean condition, Runnable then) {
         if (condition) then.run();
     }
@@ -54,6 +54,10 @@ public class Util {
     public static @NotNull Fluid getFluidOrWater(ResourceLocation location) {
         Fluid fluid = ForgeRegistries.FLUIDS.getValue(location);
         return fluid != null ? fluid: Fluids.WATER;
+    }
+
+    public static ResourceLocation getFluidID(Fluid fluid) {
+        return ForgeRegistries.FLUIDS.getKey(fluid);
     }
 
     public static class Constants {

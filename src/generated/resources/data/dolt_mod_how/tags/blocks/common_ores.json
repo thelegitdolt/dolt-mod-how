@@ -11,6 +11,10 @@
       "required": false
     },
     {
+      "id": "#forge:ores/tin",
+      "required": false
+    },
+    {
       "id": "#forge:ores/zinc",
       "required": false
     }

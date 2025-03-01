@@ -2,7 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -27,15 +27,15 @@ public class RichSoilMixin {
             BlockState aboveState = level.getBlockState(abovePos);
 
 
-            if (ModList.get().isLoaded(Util.Constants.MY_NETHERS_DELIGHT)) {
+            if (ModList.get().isLoaded(DMHUtils.Constants.MY_NETHERS_DELIGHT)) {
                 if (aboveState.is(Blocks.CRIMSON_FUNGUS)) {
-                    Block block = Util.getPotentialBlock(Util.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony");
+                    Block block = DMHUtils.getPotentialBlock(DMHUtils.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony");
                     if (block != null) {
                         level.setBlockAndUpdate(abovePos, block.defaultBlockState());
                     }
                 }
                 else if (aboveState.is(Blocks.WARPED_FUNGUS)) {
-                    Block block = Util.getPotentialBlock(Util.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony");
+                    Block block = DMHUtils.getPotentialBlock(DMHUtils.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony");
                     if (block != null) {
                         level.setBlockAndUpdate(abovePos, block.defaultBlockState());
                     }

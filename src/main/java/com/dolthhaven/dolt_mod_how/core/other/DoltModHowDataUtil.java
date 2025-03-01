@@ -1,6 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
@@ -26,8 +26,8 @@ public class DoltModHowDataUtil {
 
         COMPOSTABLE_ENTITIES.defaultReturnValue(-1.0f);
 
-        if (ModList.get().isLoaded(Util.Constants.NEAPOLITAN)) {
-            EntityType<?> bananaPeel = ForgeRegistries.ENTITY_TYPES.getValue(Util.Constants.BANANA_PEEL);
+        if (ModList.get().isLoaded(DMHUtils.Constants.NEAPOLITAN)) {
+            EntityType<?> bananaPeel = ForgeRegistries.ENTITY_TYPES.getValue(DMHUtils.Constants.BANANA_PEEL);
 
             COMPOSTABLE_ENTITIES.put(bananaPeel, 0.5f);
         }

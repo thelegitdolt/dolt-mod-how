@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -27,8 +27,8 @@ public class DMHBlockTags extends BlockTagsProvider {
     public void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL)
                 .add(GLOWSHROOM_COLONY.get())
-                .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony"))
-                .addOptional(new ResourceLocation(Util.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
+                .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony"))
+                .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
 
@@ -37,7 +37,7 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get());
 
         this.tag(DMHTags.NO_XP_CROPS)
-                .addOptional(new ResourceLocation(Util.Constants.FARMERS_DELIGHT, "tomatoes"));
+                .addOptional(new ResourceLocation(DMHUtils.Constants.FARMERS_DELIGHT, "tomatoes"));
 
         this.tag(DMHTags.COCOA_BEANS_ADDITIONALLY_PLANTABLE_ON);
 
@@ -50,6 +50,7 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(DMHTags.COMMON_ORES).addTags(BlockTags.IRON_ORES, BlockTags.COPPER_ORES)
                 .addOptionalTag(new ResourceLocation("forge", "ores/jade"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/lead"))
+                .addOptionalTag(new ResourceLocation("forge", "ores/tin"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/zinc"));
 
         this.tag(DMHTags.CHANNELS_LIGHTNING).add(JUKEBOX);

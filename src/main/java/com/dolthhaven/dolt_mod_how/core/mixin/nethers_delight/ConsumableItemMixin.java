@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -19,7 +19,7 @@ import java.util.List;
 public class ConsumableItemMixin {
     @Inject(method = "appendHoverText", at = @At("HEAD"), cancellable = true)
     private void DoltModHow$TOOLTIPSDIEDIEIDSNJDJKNEFNEKFNKWJNFKENKWENK(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag isAdvanced, CallbackInfo ci) {
-        Item item = Util.getPotentialItem(Util.Constants.MY_NETHERS_DELIGHT, "magma_cake_slice");
+        Item item = DMHUtils.getPotentialItem(DMHUtils.Constants.MY_NETHERS_DELIGHT, "magma_cake_slice");
 
         if (item == null) return;
 

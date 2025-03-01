@@ -1,6 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.compat;
 
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.SoundType;
@@ -18,6 +18,6 @@ public class DMHSpeciesCompat {
     );
 
     private static SoundEvent opSound(String namespace) {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(Util.Constants.SPECIES, namespace));
+        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(DMHUtils.Constants.SPECIES, namespace));
     }
 }

@@ -1,13 +1,10 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.caverns_and_chasms;
 
-import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.common.item.DMHGoldenBucketItem;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -18,171 +15,50 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BucketPickup;
-import net.minecraft.world.level.block.LiquidBlockContainer;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-
-import static com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem.setFluidLevel;
 
 @Mixin(GoldenBucketItem.class)
 public abstract class GoldenBucketMixin extends Item implements DispensibleContainerItem {
+    @Shadow public abstract Fluid getFluid();
+
     public GoldenBucketMixin(Properties p_41383_) {
         super(p_41383_);
     }
 
-    @Shadow
-    public abstract Fluid getFluid();
-
-    @Shadow protected abstract void playEmptySound(@org.jetbrains.annotations.Nullable Player player, LevelAccessor level, BlockPos pos);
-
-    @Inject(method = "getFilledBucket*", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void DoltModHow$RegisterThisModBuckets(BlockState state, CallbackInfoReturnable<ItemStack> cir) {
-        Item item = getModdedBuckets(state.getFluidState().getType());
-        if (item != null) {
-            cir.setReturnValue(new ItemStack(item));
-        }
-    }
-
-    @Inject(method = "getFilledBucket*", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void DoltModHow$RegisterThisModBucketsTwo(Fluid fluid, CallbackInfoReturnable<ItemStack> cir) {
-        Item item = getModdedBuckets(fluid);
-        if (item == null) return;
-        cir.setReturnValue(new ItemStack(item));
-    }
-
-    @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/BucketPickup;pickupBlock(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/item/ItemStack;",
-            shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
-    private void DoltModHow$RegisterThings(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir, ItemStack stack, CompoundTag tag, int bucketLevel, BlockHitResult result, InteractionResultHolder ret, BlockPos pos, Direction direction, BlockPos sourcePos, BlockState sourceState, BucketPickup bucketPickup, Block var14) {
-        FluidState fluidState = sourceState.getFluidState();
-        Fluid fluid = fluidState.getType();
-
-        if (!isDMHBucket(fluid)) return;
-
-        ItemStack newBucket = ItemStack.EMPTY;
-        if (fluid != Fluids.EMPTY && GoldenBucketItem.getFilledBucket(sourceState) != null) {
-            newBucket = ItemUtils.createFilledResult(stack, player, GoldenBucketItem.getFilledBucket(sourceState));
-            if (this.getFluid() != Fluids.EMPTY) {
-                setFluidLevel(newBucket, bucketLevel + 1);
-            }
+    @Inject(method = "use", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/world/level/block/BucketPickup;pickupBlock(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/item/ItemStack;",
+    shift = At.Shift.AFTER), cancellable = true)
+    private void injected(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir,
+                          @Local BlockHitResult result) {
+        if (getFluid() != Fluids.EMPTY) {
+            return;
         }
 
-        if (!newBucket.isEmpty()) {
+        BlockState state = level.getBlockState(result.getBlockPos().relative(result.getDirection()));
+
+        ItemStack stack = DMHGoldenBucketItem.getFilledRealBucket(state);
+
+        if (stack != null) {
+            ItemStack newBucket = ItemUtils.createFilledResult(stack, player, stack);
+
             player.awardStat(Stats.ITEM_USED.get(this));
-            bucketPickup.getPickupSound(sourceState).ifPresent((soundEvent) -> {
-                player.playSound(soundEvent, 1.0F, 1.0F);
-            });
-            level.gameEvent(player, GameEvent.FLUID_PICKUP, pos);
+            ((BucketPickup) state.getBlock()).getPickupSound(state)
+                    .ifPresent((soundEvent) -> player.playSound(soundEvent, 1.0F, 1.0F));
+            level.gameEvent(player, GameEvent.FLUID_PICKUP, result.getBlockPos());
             if (!level.isClientSide) {
-                CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer) player, newBucket);
+                CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer)player, newBucket);
             }
             cir.setReturnValue(InteractionResultHolder.sidedSuccess(newBucket, level.isClientSide()));
         }
     }
-
-    @Inject(method = "emptyContents", at = @At(value = "HEAD"), cancellable = true)
-    private void DMH$CheckIfCanPlaceInNether(Player player, Level level, BlockPos pos, BlockHitResult result, CallbackInfoReturnable<Boolean> cir) {
-        if (!isDMHBucket(this.getFluid())) {
-            return;
-        }
-        if (!(this.getFluid() instanceof FlowingFluid)) {
-            cir.setReturnValue(false);
-        }
-        else {
-            BlockState state = level.getBlockState(pos);
-            Block block = state.getBlock();
-            boolean replaceable = state.canBeReplaced(this.getFluid());
-
-            if (!state.isAir() && !replaceable && (!(block instanceof LiquidBlockContainer) || !((LiquidBlockContainer)block).canPlaceLiquid(level, pos, state, this.getFluid()))) {
-                cir.setReturnValue(result != null && this.emptyContents(player, level, result.getBlockPos().relative(result.getDirection()), null));
-            }
-            else if (this.getFluid().getFluidType().isVaporizedOnPlacement(level, pos, new FluidStack(this.getFluid(), 0))) {
-
-                this.getFluid().getFluidType().onVaporize(player, level, pos, new FluidStack(this.getFluid(), 0));
-                cir.setReturnValue(true);
-            }
-            else if (block instanceof LiquidBlockContainer && ((LiquidBlockContainer)block).canPlaceLiquid(level, pos, state, this.getFluid())) {
-                ((LiquidBlockContainer)block).placeLiquid(level, pos, state, ((FlowingFluid)this.getFluid()).getSource(false));
-                this.playEmptySound(player, level, pos);
-                cir.setReturnValue(true);
-            }
-            else {
-                if (!level.isClientSide && replaceable && !state.liquid()) {
-                    level.destroyBlock(pos, true);
-                }
-
-                if (!level.setBlock(pos, this.getFluid().defaultFluidState().createLegacyBlock(), 11) && !state.getFluidState().isSource()) {
-                    cir.setReturnValue(false);
-                } else {
-                    this.playEmptySound(player, level, pos);
-                    cir.setReturnValue(true);
-                }
-            }
-        }
-    }
-
-    @Unique
-    @Nullable
-    private static Item getModdedBuckets(Fluid fluid) {
-        ResourceLocation fluidLoc = ForgeRegistries.FLUIDS.getKey(fluid);
-        if (fluidLoc == null) return null;
-
-        if (ModList.get().isLoaded(Util.Constants.ALEXS_CAVES)) {
-            if (fluidLoc.equals(Util.Constants.ACID)) {
-                return DMHItems.GOLDEN_ACID_BUCKET.get();
-            }
-            else if (fluidLoc.equals(Util.Constants.PURPLE_SODA)) {
-                return DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get();
-            }
-        }
-
-        if (ModList.get().isLoaded(Util.Constants.OREGANIZED)) {
-            if (fluidLoc.equals(Util.Constants.MOLTEN_LEAD)) {
-                return DMHItems.GOLDEN_MOLTEN_LEAD_BUCKET.get();
-            }
-        }
-        return null;
-    }
-
-    @Unique
-    private static boolean isDMHBucket(Fluid fluid) {
-        ResourceLocation fluidLoc = ForgeRegistries.FLUIDS.getKey(fluid);
-        if (fluidLoc == null) return false;
-
-        if (ModList.get().isLoaded(Util.Constants.ALEXS_CAVES)) {
-            if (fluidLoc.equals(Util.Constants.ACID)) {
-                return true;
-            }
-            else if (fluidLoc.equals(Util.Constants.PURPLE_SODA)) {
-                return true;
-            }
-        }
-
-        if (ModList.get().isLoaded(Util.Constants.OREGANIZED)) {
-            if (fluidLoc.equals(Util.Constants.MOLTEN_LEAD)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
 }

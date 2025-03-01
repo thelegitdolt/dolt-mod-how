@@ -1,7 +1,7 @@
 package com.dolthhaven.dolt_mod_how.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -24,15 +24,15 @@ public class DMHItemTags extends ItemTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(DMHTags.ACID_BUCKETS)
                 .add(GOLDEN_ACID_BUCKET.get())
-                .addOptional(new ResourceLocation(Util.Constants.ALEXS_CAVES, "acid_bucket"));
+                .addOptional(new ResourceLocation(DMHUtils.Constants.ALEXS_CAVES, "acid_bucket"));
 
         this.tag(DMHTags.PURPLE_SODA_BUCKETS)
                 .add(GOLDEN_PURPLE_SODA_BUCKET.get())
-                .addOptional(new ResourceLocation(Util.Constants.ALEXS_CAVES, "purple_soda_bucket"));
+                .addOptional(new ResourceLocation(DMHUtils.Constants.ALEXS_CAVES, "purple_soda_bucket"));
 
         this.tag(DMHTags.MOLTEN_LEAD_BUCKETS)
                 .add(GOLDEN_MOLTEN_LEAD_BUCKET.get())
-                .addOptional(new ResourceLocation(Util.Constants.OREGANIZED, "molten_lead_bucket"));
+                .addOptional(new ResourceLocation(DMHUtils.Constants.OREGANIZED, "molten_lead_bucket"));
 
         this.tag(DMHTags.LEATHER).add(Items.LEATHER, LEATHER_SCRAPS.get());
 

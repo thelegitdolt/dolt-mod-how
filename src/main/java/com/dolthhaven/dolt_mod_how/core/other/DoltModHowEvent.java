@@ -5,7 +5,7 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.compat.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
-import com.dolthhaven.dolt_mod_how.core.util.Util;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -172,18 +172,18 @@ public class DoltModHowEvent {
     }
 
     private static void handleBulletPepper(PlayerInteractEvent.RightClickBlock event) {
-        if (!DMHConfig.COMMON.killBulletPepperPlacement.get() || !ModList.get().isLoaded(Util.Constants.MY_NETHERS_DELIGHT)) return;
+        if (!DMHConfig.COMMON.killBulletPepperPlacement.get() || !ModList.get().isLoaded(DMHUtils.Constants.MY_NETHERS_DELIGHT)) return;
 
         ItemStack stack = event.getItemStack();
 
-        Item bulletPepper = ForgeRegistries.ITEMS.getValue(Util.Constants.BULLET_PEPPER);
+        Item bulletPepper = ForgeRegistries.ITEMS.getValue(DMHUtils.Constants.BULLET_PEPPER);
         if (bulletPepper != null && stack.is(bulletPepper)) {
             event.setUseItem(Event.Result.DENY);
         }
     }
 
     private static void handleAlphacenePath(PlayerInteractEvent.RightClickBlock event) {
-        Block alphaceneGrass = ForgeRegistries.BLOCKS.getValue(Util.Constants.ALPHACENE_GRASS_BLOCK);
+        Block alphaceneGrass = ForgeRegistries.BLOCKS.getValue(DMHUtils.Constants.ALPHACENE_GRASS_BLOCK);
         if (alphaceneGrass == null) {
             return;
         }
@@ -235,7 +235,7 @@ public class DoltModHowEvent {
     }
 
     private static void tryUnrustRustyStuff(PlayerInteractEvent.RightClickBlock event) {
-        if (!Util.alexCavesLoaded()) {
+        if (!DMHUtils.alexCavesLoaded()) {
             return;
         }
 
@@ -266,7 +266,7 @@ public class DoltModHowEvent {
                 CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, pos, stack);
             }
 
-            level.setBlock(pos, newState, 11);
+            level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
             if (player != null) {
                 stack.hurtAndBreak(1, player, (p_150686_) -> p_150686_.broadcastBreakEvent(event.getHand()));
@@ -285,7 +285,7 @@ public class DoltModHowEvent {
     }
 
     public static void registerUnRust() {
-        if (Util.alexCavesLoaded()) {
+        if (DMHUtils.alexCavesLoaded()) {
             DMHACCompat.registerUnRust();
         }
     }

@@ -25,6 +25,7 @@
     "vanilla.CocoaBlockMixin",
     "vanilla.ComposterBlockMixin",
     "vanilla.DispenserBlockMixin",
+    "vanilla.PowderSnowBlockMixin",
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.ServerPlayerMixin",
     "vanilla.SlimeMixin"

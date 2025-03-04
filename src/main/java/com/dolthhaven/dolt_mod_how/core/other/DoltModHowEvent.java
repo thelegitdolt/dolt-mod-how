@@ -23,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -36,8 +37,10 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ToolActions;
+import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.player.AnvilRepairEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -99,7 +102,8 @@ public class DoltModHowEvent {
                 attacker.removeEffect(MobEffects.POISON);
                 for (int i = 0; i < 7; i++) {
                     SL.sendParticles(DMHParticles.POISON_HEART.get(), attacker.getRandomX(0.5f), attacker.getRandomY(), attacker.getRandomZ(0.5), 1,
-                            0, 0, 0, 0);;
+                            0, 0, 0, 0);
+                    ;
                 }
                 SL.playSound(attacker, attacker.getOnPos(), SoundEvents.ALLAY_ITEM_TAKEN, SoundSource.PLAYERS, 1.0f, 1.0f);
             }
@@ -114,11 +118,9 @@ public class DoltModHowEvent {
 
         if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = event.getState();
-            if (!event.getPlayer().hasCorrectToolForDrops(state)) {
-                return;
-            }
 
-            if (EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, event.getPlayer()) > 0) {
+            if (!event.getPlayer().hasCorrectToolForDrops(state) &&
+                    EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, event.getPlayer()) > 0) {
                 return;
             }
 
@@ -126,8 +128,7 @@ public class DoltModHowEvent {
                 if (state.is(DMHTags.COMMON_ORES)) {
                     int exp = COMMON_ORE.sample(level.getRandom());
                     event.setExpToDrop(exp);
-                }
-                else if (state.is(DMHTags.RARE_ORES)) {
+                } else if (state.is(DMHTags.RARE_ORES)) {
                     event.setExpToDrop(RARE_ORE.sample(level.getRandom()));
                 }
             }
@@ -172,13 +173,31 @@ public class DoltModHowEvent {
     }
 
     private static void handleBulletPepper(PlayerInteractEvent.RightClickBlock event) {
-        if (!DMHConfig.COMMON.killBulletPepperPlacement.get() || !ModList.get().isLoaded(DMHUtils.Constants.MY_NETHERS_DELIGHT)) return;
+        if (!DMHConfig.COMMON.killBulletPepperPlacement.get() || !ModList.get().isLoaded(DMHUtils.Constants.MY_NETHERS_DELIGHT))
+            return;
 
         ItemStack stack = event.getItemStack();
 
         Item bulletPepper = ForgeRegistries.ITEMS.getValue(DMHUtils.Constants.BULLET_PEPPER);
         if (bulletPepper != null && stack.is(bulletPepper)) {
             event.setUseItem(Event.Result.DENY);
+        }
+    }
+
+    @SubscribeEvent
+    public static void zirconia(AnvilUpdateEvent event) {
+        if (ModList.get().isLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS)) {
+            ItemStack left = event.getLeft();
+            ItemStack right = event.getRight();
+            Item zirconia = DMHUtils.getPotentialItem(DMHUtils.Constants.CAVERNS_AND_CHASMS, "zirconia");
+
+            if (zirconia != null && left.isDamaged() && right.is(zirconia)) {
+                ItemStack newLeft = left.copy();
+                newLeft.setDamageValue(0);
+                event.setOutput(newLeft);
+                event.setCost(1);
+                event.setResult(Event.Result.ALLOW);
+            }
         }
     }
 
@@ -253,10 +272,10 @@ public class DoltModHowEvent {
                 }
             }
 
-            level.playSound(player, pos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.playSound(player, pos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS, 1.0F, 1.0F);
             BlockState newState = UNRUST_MAP.get(state.getBlock()).defaultBlockState();
 
-            for (Property<?> anyProp: state.getProperties()) {
+            for (Property<?> anyProp : state.getProperties()) {
                 newState = setGenericProperty(newState, anyProp, state.getValue(anyProp));
             }
 
@@ -295,8 +314,7 @@ public class DoltModHowEvent {
             Property<V> newProp = (Property<V>) propName;
             V value = (V) propertyValue;
             return state.setValue(newProp, value);
-        }
-        catch (ClassCastException | IllegalArgumentException e) {
+        } catch (ClassCastException | IllegalArgumentException e) {
             return state;
         }
     }

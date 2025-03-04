@@ -185,18 +185,29 @@ public class DoltModHowEvent {
     }
 
     @SubscribeEvent
-    public static void zirconia(AnvilUpdateEvent event) {
+    public static void onPlayerUseZirconiaToRepairEvent(AnvilUpdateEvent event) {
         if (ModList.get().isLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS)) {
             ItemStack left = event.getLeft();
             ItemStack right = event.getRight();
             Item zirconia = DMHUtils.getPotentialItem(DMHUtils.Constants.CAVERNS_AND_CHASMS, "zirconia");
 
             if (zirconia != null && left.isDamaged() && right.is(zirconia)) {
+                if (!left.is(DMHTags.UNREPAIRABLE_BY_ZIRCONIA)) {
+                    ItemStack newLeft = left.copy();
+                    newLeft.setDamageValue(0);
+                    event.setOutput(newLeft);
+                    event.setCost(1);
+                    event.setResult(Event.Result.ALLOW);
+                }
+            }
+            else if (left.isDamaged() && right.getItem().isValidRepairItem(left, right)) {
                 ItemStack newLeft = left.copy();
-                newLeft.setDamageValue(0);
+                int dur = newLeft.getMaxDamage();
+                int dam = newLeft.getDamageValue();
+                newLeft.setDamageValue(Math.min(
+                        dur, dam + (int) (dur / 0.33)
+                ));
                 event.setOutput(newLeft);
-                event.setCost(1);
-                event.setResult(Event.Result.ALLOW);
             }
         }
     }

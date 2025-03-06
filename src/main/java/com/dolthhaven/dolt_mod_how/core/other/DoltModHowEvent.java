@@ -354,11 +354,10 @@ public class DoltModHowEvent {
         }
     }
 
-    private static <V extends Comparable<V>> BlockState setGenericProperty(BlockState state, Property<?> propName, Object propertyValue) {
+    private static <V extends Comparable<V>> BlockState setGenericProperty(BlockState state, Property<?> propName, V propertyValue) {
         try {
             Property<V> newProp = (Property<V>) propName;
-            V value = (V) propertyValue;
-            return state.setValue(newProp, value);
+            return state.setValue(newProp, propertyValue);
         } catch (ClassCastException | IllegalArgumentException e) {
             return state;
         }

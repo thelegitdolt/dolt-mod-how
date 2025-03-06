@@ -41,9 +41,9 @@ import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.player.AnvilRepairEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.level.NoteBlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -184,6 +184,17 @@ public class DoltModHowEvent {
         Item bulletPepper = ForgeRegistries.ITEMS.getValue(DMHUtils.Constants.BULLET_PEPPER);
         if (bulletPepper != null && stack.is(bulletPepper)) {
             event.setUseItem(Event.Result.DENY);
+        }
+    }
+
+    @SubscribeEvent
+    public static void blockPlacedEvent(BlockEvent.EntityPlaceEvent event) {
+        Entity entity = event.getEntity();
+
+        if (entity instanceof Player player && player.level() instanceof ServerLevel serverLevel) {
+            if (player.getRandom().nextInt(128) == 0) {
+                ExperienceOrb.award(serverLevel, player.position(), 1);
+            }
         }
     }
 

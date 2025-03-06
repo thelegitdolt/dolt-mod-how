@@ -24,6 +24,7 @@ import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -50,7 +51,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static net.minecraft.world.InteractionHand.MAIN_HAND;
@@ -185,30 +188,47 @@ public class DoltModHowEvent {
     }
 
     @SubscribeEvent
-    public static void onPlayerUseZirconiaToRepairEvent(AnvilUpdateEvent event) {
-        if (ModList.get().isLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS)) {
-            ItemStack left = event.getLeft();
-            ItemStack right = event.getRight();
-            Item zirconia = DMHUtils.getPotentialItem(DMHUtils.Constants.CAVERNS_AND_CHASMS, "zirconia");
+    public static void anvilEvent(AnvilUpdateEvent event) {
+        ItemStack left = event.getLeft();
+        ItemStack right = event.getRight();
 
-            if (zirconia != null && left.isDamaged() && right.is(zirconia)) {
-                if (!left.is(DMHTags.UNREPAIRABLE_BY_ZIRCONIA)) {
-                    ItemStack newLeft = left.copy();
-                    newLeft.setDamageValue(0);
-                    event.setOutput(newLeft);
-                    event.setCost(1);
-                    event.setResult(Event.Result.ALLOW);
+        if (left.isDamaged() && right.getItem().isValidRepairItem(left, right)) {
+            ItemStack newLeft = left.copy();
+            int dur = newLeft.getMaxDamage();
+            int dam = newLeft.getDamageValue();
+            newLeft.setDamageValue(Math.min(
+                    dur, dam + (int) (dur / 0.33)
+            ));
+            event.setOutput(newLeft);
+            event.setResult(Event.Result.ALLOW);
+        }
+        else if (right.is(Items.ENCHANTED_BOOK)) {
+            Map<Enchantment, Integer> bookEnchants = EnchantmentHelper.getEnchantments(right);
+            Map<Enchantment, Integer> toolEnchants = EnchantmentHelper.getEnchantments(left);
+
+            ItemStack newLeft = left.copy();
+            List<Enchantment> toRemove = new ArrayList<>();
+            for (Map.Entry<Enchantment, Integer> toolEnchant : toolEnchants.entrySet()) {
+                Enchantment enchant = toolEnchant.getKey();
+                for (Map.Entry<Enchantment, Integer> bookEnchant : bookEnchants.entrySet()) {
+                    Enchantment book = bookEnchant.getKey();
+                    boolean toolHasStrongerEnchant = toolEnchants.containsKey(book) && toolEnchants.get(book) >= bookEnchants.get(book);
+                    if (!book.canEnchant(left) || toolHasStrongerEnchant) {
+                        continue;
+                    }
+
+                    if (!toolEnchant.getKey().isCompatibleWith(enchant)) {
+                        toRemove.add(enchant);
+                    }
+                    toolEnchants.put(bookEnchant.getKey(), bookEnchant.getValue());
                 }
             }
-            else if (left.isDamaged() && right.getItem().isValidRepairItem(left, right)) {
-                ItemStack newLeft = left.copy();
-                int dur = newLeft.getMaxDamage();
-                int dam = newLeft.getDamageValue();
-                newLeft.setDamageValue(Math.min(
-                        dur, dam + (int) (dur / 0.33)
-                ));
-                event.setOutput(newLeft);
-            }
+
+            toolEnchants.entrySet().removeIf((map) -> toRemove.contains(map.getKey()));
+            EnchantmentHelper.setEnchantments(toolEnchants, newLeft);
+            event.setOutput(newLeft);
+            event.setCost(4);
+            event.setResult(Event.Result.ALLOW);
         }
     }
 

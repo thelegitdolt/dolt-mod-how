@@ -10,6 +10,10 @@ public class DMHConfig {
         public final ConfigValue<Boolean> doCropBlocksDropXP;
         public final ConfigValue<Integer> minCropXpDrops;
         public final ConfigValue<Integer> maxCropXpDrops;
+        public final ConfigValue<Boolean> xpUponBlockPlace;
+        public final ConfigValue<Integer> blockPlaceXpChance;
+
+        public final ConfigValue<Boolean> muteExFriendlyAnvils;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
@@ -45,10 +49,16 @@ public class DMHConfig {
             discToSpawnAfterJukeboxStruckWithLightning = builder.comment("The disc that should be spawned when a jukebox is struck with lightning. Disables if string is \"no\"").define("Lightning Disc", "minecraft:music_disc_ward");
             builder.pop();
 
-            builder.push("crops");
+            builder.push("xp");
+            xpUponBlockPlace = builder.comment("If placing a block should have a chance to yield experience.").define("Experienced Building", true);
+            blockPlaceXpChance = builder.comment("Specify n here, where the chance of a block dropping xp is 1/n. Integers only!").define("Building XP chance", 128);
             doCropBlocksDropXP = builder.comment("If all blocks that are crops should drop experience.").define("Experienced Crops", true);
             minCropXpDrops = builder.comment("Minimum XP a crop block will drop when broken.").define("Minimum Crop XP", 0);
             maxCropXpDrops = builder.comment("Maximum XP a crop block will drop when broken.").define("Maximum Crop XP", 1);
+            builder.pop();
+
+            builder.push("anvil");
+            muteExFriendlyAnvils = builder.comment("Allow applying enchantment books to items with incompatible enchants. Voids incompatible enchants from the tool.").define("MutEx Friendly Anvils", true);
             builder.pop();
 
             builder.push("dispensers");

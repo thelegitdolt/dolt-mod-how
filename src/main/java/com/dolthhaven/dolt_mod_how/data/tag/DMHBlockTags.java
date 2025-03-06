@@ -55,6 +55,7 @@ public class DMHBlockTags extends BlockTagsProvider {
                 .addOptionalTag(new ResourceLocation("forge", "ores/zinc"));
 
         this.tag(DMHTags.CHANNELS_LIGHTNING).add(JUKEBOX);
+        this.tag(DMHTags.NO_XP_REWARD_ON_PLACE).add(FROSTED_ICE);
     }
 
 }

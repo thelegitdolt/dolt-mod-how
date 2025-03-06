@@ -43,7 +43,6 @@ import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.event.level.NoteBlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -191,8 +190,12 @@ public class DoltModHowEvent {
     public static void blockPlacedEvent(BlockEvent.EntityPlaceEvent event) {
         Entity entity = event.getEntity();
 
-        if (entity instanceof Player player && player.level() instanceof ServerLevel serverLevel) {
-            if (player.getRandom().nextInt(128) == 0) {
+        if (entity instanceof ServerPlayer player && player.level() instanceof ServerLevel serverLevel) {
+            if (event.getPlacedBlock().is(DMHTags.NO_XP_REWARD_ON_PLACE) || !DMHConfig.COMMON.xpUponBlockPlace.get()) {
+                return;
+            }
+
+            if (player.getRandom().nextInt(DMHConfig.COMMON.blockPlaceXpChance.get()) == 0) {
                 ExperienceOrb.award(serverLevel, player.position(), 1);
             }
         }
@@ -213,7 +216,7 @@ public class DoltModHowEvent {
             event.setOutput(newLeft);
             event.setResult(Event.Result.ALLOW);
         }
-        else if (right.is(Items.ENCHANTED_BOOK)) {
+        else if (right.is(Items.ENCHANTED_BOOK) && DMHConfig.COMMON.muteExFriendlyAnvils.get()) {
             Map<Enchantment, Integer> bookEnchants = EnchantmentHelper.getEnchantments(right);
             Map<Enchantment, Integer> toolEnchants = EnchantmentHelper.getEnchantments(left);
 

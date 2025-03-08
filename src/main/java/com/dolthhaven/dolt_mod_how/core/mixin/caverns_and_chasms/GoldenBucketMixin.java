@@ -59,6 +59,7 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
                 CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer)player, newBucket);
             }
             cir.setReturnValue(InteractionResultHolder.sidedSuccess(newBucket, level.isClientSide()));
+            cir.cancel();
         }
     }
 }

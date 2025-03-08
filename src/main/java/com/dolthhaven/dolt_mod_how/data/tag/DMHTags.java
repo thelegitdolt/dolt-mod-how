@@ -20,7 +20,6 @@ public class DMHTags {
     public static final TagKey<Item> ACID_BUCKETS = externalItemTag("forge", "buckets/acid");
     public static final TagKey<Item> PURPLE_SODA_BUCKETS = externalItemTag("forge", "buckets/purple_soda");
     public static final TagKey<Item> MOLTEN_LEAD_BUCKETS = externalItemTag("forge", "buckets/molten_lead");
-    public static final TagKey<Item> UNREPAIRABLE_BY_ZIRCONIA = externalItemTag(DMHUtils.Constants.CAVERNS_AND_CHASMS, "unrepairable_by_zirconia");
     public static final TagKey<Item> LEATHER = itemTag("leather");
 
 

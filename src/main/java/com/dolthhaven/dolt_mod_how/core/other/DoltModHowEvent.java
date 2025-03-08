@@ -64,16 +64,13 @@ public class DoltModHowEvent {
     public static final Map<Block, Block> TILL_MAP = new HashMap<>();
     public static final Map<Block, Block> UNRUST_MAP = new HashMap<>();
 
-
     @SubscribeEvent
     public static void projectileImpact(ProjectileImpactEvent event) {
         if (event.getProjectile() instanceof ThrownTrident trident && trident.isChanneling()) {
             if (event.getRayTraceResult() instanceof BlockHitResult result) {
                 Level level = trident.level();
-                if (!level.isThundering())
-                    return;
                 BlockPos pos = result.getBlockPos();
-                if (!level.canSeeSky(pos.above()))
+                if (!level.isThundering() || !level.canSeeSky(pos.above()))
                     return;
 
                 if (level.getBlockState(pos).is(DMHTags.CHANNELS_LIGHTNING)) {
@@ -211,7 +208,7 @@ public class DoltModHowEvent {
             int dur = newLeft.getMaxDamage();
             int dam = newLeft.getDamageValue();
             newLeft.setDamageValue(Math.min(
-                    dur, dam + (int) (dur / 0.33)
+                    dur, dam + (int) (dur / DMHConfig.COMMON.valuePerRepair.get())
             ));
             event.setOutput(newLeft);
             event.setResult(Event.Result.ALLOW);
@@ -222,19 +219,19 @@ public class DoltModHowEvent {
 
             ItemStack newLeft = left.copy();
             List<Enchantment> toRemove = new ArrayList<>();
-            for (Map.Entry<Enchantment, Integer> toolEnchant : toolEnchants.entrySet()) {
-                Enchantment enchant = toolEnchant.getKey();
-                for (Map.Entry<Enchantment, Integer> bookEnchant : bookEnchants.entrySet()) {
-                    Enchantment book = bookEnchant.getKey();
-                    boolean toolHasStrongerEnchant = toolEnchants.containsKey(book) && toolEnchants.get(book) >= bookEnchants.get(book);
-                    if (!book.canEnchant(left) || toolHasStrongerEnchant) {
+            for (Map.Entry<Enchantment, Integer> toolEnchantInstance : toolEnchants.entrySet()) {
+                Enchantment enchant = toolEnchantInstance.getKey();
+                for (Map.Entry<Enchantment, Integer> bookEnchantInstance : bookEnchants.entrySet()) {
+                    Enchantment bookEnchant = bookEnchantInstance.getKey();
+                    boolean toolHasStrongerEnchant = toolEnchants.containsKey(bookEnchant) && toolEnchants.get(bookEnchant) >= bookEnchants.get(bookEnchant);
+                    if (!bookEnchant.canEnchant(left) || toolHasStrongerEnchant) {
                         continue;
                     }
 
-                    if (!toolEnchant.getKey().isCompatibleWith(enchant)) {
+                    if (!toolEnchantInstance.getKey().isCompatibleWith(enchant)) {
                         toRemove.add(enchant);
                     }
-                    toolEnchants.put(bookEnchant.getKey(), bookEnchant.getValue());
+                    toolEnchants.put(bookEnchantInstance.getKey(), bookEnchantInstance.getValue());
                 }
             }
 

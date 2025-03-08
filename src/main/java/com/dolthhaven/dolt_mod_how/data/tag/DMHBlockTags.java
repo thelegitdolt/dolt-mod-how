@@ -45,11 +45,11 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(),
                 POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get());
         this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)
-                .addOptionalTag(new ResourceLocation("forge", "ores/silver"));
+                .addOptionalTag(new ResourceLocation("forge", "ores/silver"))
+                .addOptionalTag(new ResourceLocation("forge", "ores/tin"));
         this.tag(DMHTags.COMMON_ORES).add(AMETHYST_CLUSTER).addTags(BlockTags.IRON_ORES, BlockTags.COPPER_ORES)
                 .addOptionalTag(new ResourceLocation("forge", "ores/jade"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/lead"))
-                .addOptionalTag(new ResourceLocation("forge", "ores/tin"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/zinc"));
 
         this.tag(DMHTags.CHANNELS_LIGHTNING).add(JUKEBOX);

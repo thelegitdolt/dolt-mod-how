@@ -89,8 +89,7 @@ public class DMHGoldenBucketItem extends GoldenBucketItem {
                     }
                 } else {
                     Block newPos = sourceState.getBlock();
-                    if (newPos instanceof BucketPickup) {
-                        BucketPickup bucketPickup = (BucketPickup)newPos;
+                    if (newPos instanceof BucketPickup bucketPickup) {
                         bucketPickup.pickupBlock(level, pos, sourceState);
                         Fluid fluid = sourceState.getFluidState().getType();
 

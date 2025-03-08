@@ -14,6 +14,8 @@ public class DMHConfig {
         public final ConfigValue<Integer> blockPlaceXpChance;
 
         public final ConfigValue<Boolean> muteExFriendlyAnvils;
+        public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
+        public final ConfigValue<Double> valuePerRepair;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
@@ -36,6 +38,10 @@ public class DMHConfig {
 
 
         Common(ForgeConfigSpec.Builder builder) {
+            builder.push("misc");
+            lessAnnoyingItemReclaim = builder.comment("If interacting with blocks like Flower Pots and Amendment Placeable Books should put the item they contain into your inventory, thus merging with existing stacks, instead of adding it to your hand, which is EXTREMELY ANNOYING")
+                            .define("Less Annoying Item Reclaim", true);
+
             builder.push("Vanilla");
             builder.push("metal_ores");
             doMetalOresDropXP = builder.comment("If mining ores that normally drop raw ores should grant XP").define("Experienced metal", true);
@@ -59,6 +65,7 @@ public class DMHConfig {
 
             builder.push("anvil");
             muteExFriendlyAnvils = builder.comment("Allow applying enchantment books to items with incompatible enchants. Voids incompatible enchants from the tool.").define("MutEx Friendly Anvils", true);
+            valuePerRepair = builder.comment("The percentage of durability much each material should repair on a tool, in an anvil. 0.25 in vanilla.").define("Repair Item Amount", 0.33);
             builder.pop();
 
             builder.push("dispensers");

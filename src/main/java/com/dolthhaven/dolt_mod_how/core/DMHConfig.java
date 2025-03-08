@@ -137,14 +137,7 @@ public class DMHConfig {
     }
 
     public static class Client {
-        public final ConfigValue<Boolean> removeSullyGrindstoneTooltip;
         Client(ForgeConfigSpec.Builder builder) {
-            builder.push("Sully's Mod");
-            builder.push("Grindstone Tooltip");
-            removeSullyGrindstoneTooltip = builder.comment("If the tooltips appended to grindable items in Sully's Mod should be removed").define("No Grindstone Tooltip", true);
-
-            builder.pop();
-            builder.pop();
         }
     }
 

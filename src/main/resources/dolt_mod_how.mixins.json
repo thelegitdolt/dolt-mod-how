@@ -6,6 +6,7 @@
   "mixins": [
     "alexscaves.AcidBlockMixin",
     "alexscaves.BiomeTreatItemMixin",
+    "auditoryboatsounds.CaveBoatItem",
     "anchor.LightningBoltMixin",
     "auditoryboatsounds.BlueprintBoatItemMixin",
     "auditoryboatsounds.BoatItemMixin",

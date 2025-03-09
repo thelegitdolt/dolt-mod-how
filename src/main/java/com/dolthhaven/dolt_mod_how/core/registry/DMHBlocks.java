@@ -2,18 +2,13 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.compat.DMHAtmosphericCompat;
-import com.dolthhaven.dolt_mod_how.core.compat.DMHEnvironmentalCompat;
-import com.dolthhaven.dolt_mod_how.core.compat.DMHUACompat;
 import com.dolthhaven.dolt_mod_how.core.compat.DMHSpeciesCompat;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DirtPathBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -48,22 +43,22 @@ public class DMHBlocks {
 
 
     public static final RegistryObject<Block> POTTED_ARID_SPROUTS = HELPER.createBlockNoItem("potted_arid_sprouts",
-            getPot(DMHUtils.Constants.ATMOSPHERIC, DMHAtmosphericCompat.POTTED_ARID_SPROUTS));
+            getPot(DMHUtils.Constants.ATMOSPHERIC, DMHUtils.Constants.ARID_SPROUTS));
     public static final RegistryObject<Block> POTTED_BEACHGRASS = HELPER.createBlockNoItem("potted_beachgrass",
-            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUACompat.POTTED_BEACHGRASS));
+            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUtils.Constants.BEACHGRASS));
     public static final RegistryObject<Block> POTTED_TALL_BEACHGRASS = HELPER.createBlockNoItem("potted_tall_beachgrass",
-            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUACompat.POTTED_TALL_BEACHGRASS));
+            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUtils.Constants.TALL_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_MYCELIUM_SPROUTS = HELPER.createBlockNoItem("potted_mycelium_sprouts",
-            getPot(DMHUtils.Constants.ENVIRONMENTAL, DMHEnvironmentalCompat.POTTED_MYCELIUM_SPROUTS));
+            getPot(DMHUtils.Constants.ENVIRONMENTAL, DMHUtils.Constants.MYCELIUM_SPROUTS));
 
+    public static final RegistryObject<Block> POTTED_STRAWBERRIES = HELPER.createBlockNoItem("potted_strawberries",
+            getPot(DMHUtils.Constants.NEAPOLITAN, DMHUtils.Constants.STRAWBERRY_BUSH));
+    public static final RegistryObject<Block> POTTED_WHITE_STRAWBERRIES = HELPER.createBlockNoItem("potted_white_strawberries",
+            getPot(DMHUtils.Constants.NEAPOLITAN, DMHUtils.Constants.STRAWBERRY_BUSH));
 
-    private static Supplier<Block> getPot(String id, Supplier<Block> pot) {
-        if (ModList.get().isLoaded(id)) {
-            return pot;
-        }
-        else {
-            return () -> new Block(PropertyUtil.flowerPot());
-        }
+    private static Supplier<Block> getPot(String id, ResourceLocation potentialPot) {
+        Block block = ModList.get().isLoaded(id) ? DMHUtils.getPotentialBlock(potentialPot) : Blocks.POPPY;
+        return () ->  new FlowerPotBlock(block, PropertyUtil.flowerPot());
     }
 
     public static class DoltModHowBlockProps {

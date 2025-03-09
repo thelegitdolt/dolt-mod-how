@@ -1,14 +1,17 @@
 package com.dolthhaven.dolt_mod_how.core.other.dispensers;
 
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.AABB;
@@ -23,13 +26,13 @@ public class DyeSheepDispenseBehavior {
 
     static {
         for (DyeColor dye : DyeColor.values()) {
-            DYE_MAP.put(dye, DispenserBlock.DISPENSER_REGISTRY.get(ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", dye.getName() + "_dye"))));
+            DYE_MAP.put(dye, DispenserBlock.DISPENSER_REGISTRY.get(getDye(dye.getName())));
         }
     }
 
     public static void registerSheepDispensers() {
         for (DyeColor dye : DyeColor.values()) {
-            Item dyeItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft", dye.getName() + "_dye"));
+            Item dyeItem = getDye(dye.getName());
             if (dyeItem == null) {
                 continue;
             }
@@ -56,5 +59,15 @@ public class DyeSheepDispenseBehavior {
                 return DYE_MAP.get(dye).dispense(source, stack);
             }
         };
+    }
+
+    private static Item getDye(String dye) {
+        Item item = DMHUtils.getPotentialItem("minecraft", dye + "_dye");
+        if (item == Items.AIR || item == null) {
+            item = DMHUtils.getPotentialItem("dye_depot", dye + "_dye");
+            if (item == Items.AIR || item == null) {
+                return null;
+            } else return item;
+        } else return item;
     }
 }

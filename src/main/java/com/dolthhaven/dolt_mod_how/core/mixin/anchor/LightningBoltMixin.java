@@ -77,11 +77,8 @@ public abstract class LightningBoltMixin extends Entity {
         BlockState state = level.getBlockState(pos);
 
         if (state.getBlock() instanceof JukeboxBlock && level.getBlockEntity(pos) instanceof JukeboxBlockEntity jukeEntity) {
-            if (!state.getValue(JukeboxBlock.HAS_RECORD)) {
-                return;
-            }
             ItemStack stack = jukeEntity.getItem(0);
-            if (stack.is(item)) {
+            if (!state.getValue(JukeboxBlock.HAS_RECORD) || stack.is(item)) {
                 return;
             }
 

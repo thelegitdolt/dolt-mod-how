@@ -7,7 +7,9 @@ import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -60,6 +62,7 @@ public class DMHBlocks {
         Block block = ModList.get().isLoaded(id) ? DMHUtils.getPotentialBlock(potentialPot) : Blocks.POPPY;
         return () ->  new FlowerPotBlock(block, PropertyUtil.flowerPot());
     }
+
 
     public static class DoltModHowBlockProps {
         public static final BlockBehaviour.Properties STURDY_DEEPSLATE = BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(4.5F, 9.0F)

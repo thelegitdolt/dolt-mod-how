@@ -30,10 +30,7 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                 .unlockedBy("has_cobble_deepslate", has(Items.COBBLED_DEEPSLATE)).save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DMHItems.CHORUS_SODA.get(), 2)
-                .requires(Items.GLASS_BOTTLE)
-                .requires(Items.DRAGON_BREATH)
-                .requires(Items.CHORUS_FRUIT)
-                .requires(Items.SUGAR)
+                .requires(Items.GLASS_BOTTLE).requires(Items.DRAGON_BREATH).requires(Items.CHORUS_FRUIT).requires(Items.SUGAR)
                 .unlockedBy("has_chorus_fruit", has(Items.CHORUS_FRUIT))
                 .save(consumer);
 

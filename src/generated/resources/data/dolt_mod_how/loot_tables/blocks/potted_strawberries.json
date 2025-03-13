@@ -26,11 +26,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "atmospheric:arid_sprouts"
+          "name": "minecraft:poppy"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "dolt_mod_how:blocks/potted_arid_sprouts"
+  "random_sequence": "dolt_mod_how:blocks/potted_strawberries"
 }

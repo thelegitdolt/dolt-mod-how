@@ -4,6 +4,10 @@
     {
       "id": "#forge:ores/silver",
       "required": false
+    },
+    {
+      "id": "#forge:ores/tin",
+      "required": false
     }
   ]
 }

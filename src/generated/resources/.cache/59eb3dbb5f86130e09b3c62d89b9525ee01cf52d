@@ -1,4 +1,11 @@
-// 1.20.1	2024-12-16T17:44:02.923956	Loot Tables
+// 1.20.1	2025-03-12T20:17:15.70769	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
+dffebd73d5c05fbca55572c5f7dc60cdc2927c3f data/dolt_mod_how/loot_tables/blocks/glowshroom_colony.json
 8a6c30d95508c5f0124c20a2b5aeffb87d3c3b46 data/dolt_mod_how/loot_tables/blocks/pine_nuts_crate.json
+d3d2612912bd472555144982880219a67dc6618c data/dolt_mod_how/loot_tables/blocks/potted_arid_sprouts.json
+abce24987be5a00294571031e72e0b0bf1951b18 data/dolt_mod_how/loot_tables/blocks/potted_beachgrass.json
+931ae131c8b0eb8fd5b818b6dacc901ca3ae8c89 data/dolt_mod_how/loot_tables/blocks/potted_mycelium_sprouts.json
+5092b42433404260c9a6a3220d62f772b3c8f79c data/dolt_mod_how/loot_tables/blocks/potted_strawberries.json
+389db5256c27af29fd0b06b3ec88dab984523c6a data/dolt_mod_how/loot_tables/blocks/potted_tall_beachgrass.json
+ccb3c3fce6019db80c94245aa2c8017b012396e1 data/dolt_mod_how/loot_tables/blocks/potted_white_strawberries.json
 c58f07528505ea56ec0bce2a69afbd09f692070f data/dolt_mod_how/loot_tables/blocks/sturdy_deepslate.json

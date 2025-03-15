@@ -118,7 +118,7 @@ public class DoltModHowEvent {
         if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = event.getState();
 
-            if (!event.getPlayer().hasCorrectToolForDrops(state) &&
+            if (!event.getPlayer().hasCorrectToolForDrops(state) ||
                     EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, event.getPlayer()) > 0) {
                 return;
             }

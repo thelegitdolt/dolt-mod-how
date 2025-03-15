@@ -72,7 +72,6 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropPottedContents(POTTED_MYCELIUM_SPROUTS.get());
             this.dropPottedContents(POTTED_STRAWBERRIES.get());
             this.dropPottedContents(POTTED_WHITE_STRAWBERRIES.get());
-
         }
 
         private void colony(RegistryObject<? extends Block> block) {
@@ -91,7 +90,7 @@ public class DoltModHowLootTables extends LootTableProvider {
             }
         }
 
-        private <V extends Comparable<V>> LootItemCondition.Builder stateCond(RegistryObject<? extends Block> block, Property<V> property, V v) {
+        private static <V extends Comparable<V>> LootItemCondition.Builder stateCond(RegistryObject<? extends Block> block, Property<V> property, V v) {
             return LootItemBlockStatePropertyCondition.hasBlockStateProperties(block.get())
                     .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(property, v.toString()));
         }

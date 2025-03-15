@@ -107,11 +107,11 @@ dependencies {
 
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
-    compileOnly fg.deobf("maven.modrinth:environmental:${project.environmental}")
-    compileOnly fg.deobf("maven.modrinth:upgrade-aquatic:${project.upgradeAquatic}")
+    implementation fg.deobf("maven.modrinth:environmental:${project.environmental}")
+    implementation fg.deobf("maven.modrinth:upgrade-aquatic:${project.upgradeAquatic}")
     compileOnly fg.deobf("maven.modrinth:etcetera:${project.etcetera}")
-    compileOnly fg.deobf("maven.modrinth:neapolitan:${project.neapolitan}")
-    compileOnly fg.deobf("maven.modrinth:atmospheric:${project.atmospheric}")
+    implementation fg.deobf("maven.modrinth:neapolitan:${project.neapolitan}")
+    implementation fg.deobf("maven.modrinth:atmospheric:${project.atmospheric}")
 
 }
 

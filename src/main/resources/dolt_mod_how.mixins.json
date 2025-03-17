@@ -6,11 +6,12 @@
   "mixins": [
     "alexscaves.AcidBlockMixin",
     "alexscaves.BiomeTreatItemMixin",
-    "auditoryboatsounds.CaveBoatItem",
+    "alexscaves.SackOfSatingItemMixin",
     "anchor.LightningBoltMixin",
     "auditoryboatsounds.BlueprintBoatItemMixin",
     "auditoryboatsounds.BoatItemMixin",
     "auditoryboatsounds.BoatloadBoatItemMixin",
+    "auditoryboatsounds.CaveBoatItem",
     "auditoryboatsounds.DispenserMinecartItemMixin",
     "auditoryboatsounds.MinecartItemMixin",
     "caverns_and_chasms.GoldenBucketMixin",

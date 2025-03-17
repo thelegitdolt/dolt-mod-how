@@ -28,6 +28,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> frogsAreNotStupid;
 
         public final ConfigValue<Boolean> acidCorrodesCopper;
+        public final ConfigValue<Boolean> sackOfSatingNoRestoreSat;
         public final ConfigValue<Boolean> actuallyGoodBiomeTreats;
 
         public final ConfigValue<Boolean> damageReductions;
@@ -130,6 +131,11 @@ public class DMHConfig {
             builder.push("Biome Treats");
             actuallyGoodBiomeTreats = builder.comment("If biome treats should work regardless of hunger")
                     .define("Okay Treats", true);
+            builder.pop();
+
+            builder.push("Sack of Sating");
+            sackOfSatingNoRestoreSat = builder.comment("If sacks of sating no longer restore saturation")
+                    .define("Mid sack of sating", false);
             builder.pop();
 
             builder.pop();

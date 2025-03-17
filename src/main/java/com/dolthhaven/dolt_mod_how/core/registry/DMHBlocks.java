@@ -2,15 +2,13 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.compat.DMHSpeciesCompat;
+import com.dolthhaven.dolt_mod_how.integration.*;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
-import com.teamabnormals.upgrade_aquatic.core.UpgradeAquatic;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -47,18 +45,18 @@ public class DMHBlocks {
 
 
     public static final RegistryObject<Block> POTTED_ARID_SPROUTS = HELPER.createBlockNoItem("potted_arid_sprouts",
-            getPot(DMHUtils.Constants.ATMOSPHERIC, DMHUtils.Constants.ARID_SPROUTS));
+            getPot(DMHUtils.Constants.ATMOSPHERIC, DMHAtmosphericCompat.POTTED_ARID_SPROUTS));
     public static final RegistryObject<Block> POTTED_BEACHGRASS = HELPER.createBlockNoItem("potted_beachgrass",
-            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUtils.Constants.BEACHGRASS));
+            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUACompat.POTTED_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_TALL_BEACHGRASS = HELPER.createBlockNoItem("potted_tall_beachgrass",
-            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUtils.Constants.TALL_BEACHGRASS));
+            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUACompat.POTTED_TALL_BEACHGRASS));
     public static final RegistryObject<Block> POTTED_MYCELIUM_SPROUTS = HELPER.createBlockNoItem("potted_mycelium_sprouts",
-            getPot(DMHUtils.Constants.ENVIRONMENTAL, DMHUtils.Constants.MYCELIUM_SPROUTS));
+            getPot(DMHUtils.Constants.ENVIRONMENTAL, DMHEnvironmentalCompat.POTTED_MYCELIUM_SPROUTS));
 
     public static final RegistryObject<Block> POTTED_STRAWBERRIES = HELPER.createBlockNoItem("potted_strawberries",
-            getPot(DMHUtils.Constants.NEAPOLITAN, DMHUtils.Constants.STRAWBERRY_BUSH));
+            getPot(DMHUtils.Constants.NEAPOLITAN, DMHNeapolitanCompat.POTTED_STRAWBERRIES));
     public static final RegistryObject<Block> POTTED_WHITE_STRAWBERRIES = HELPER.createBlockNoItem("potted_white_strawberries",
-            getPot(DMHUtils.Constants.NEAPOLITAN, DMHUtils.Constants.STRAWBERRY_BUSH));
+            getPot(DMHUtils.Constants.NEAPOLITAN, DMHNeapolitanCompat.POTTED_WHITE_STRAWBERRIES));
 
     public static final RegistryObject<Block> POTTED_ONION = HELPER.createBlockNoItem("potted_onion", () ->
             new FlowerPotBlock(ModBlocks.ONION_CROP.get(), PropertyUtil.flowerPot()));
@@ -67,9 +65,8 @@ public class DMHBlocks {
     public static final RegistryObject<Block> POTTED_CABBAGE = HELPER.createBlockNoItem("potted_cabbage", () ->
             new FlowerPotBlock(ModBlocks.CABBAGE_CROP.get(), PropertyUtil.flowerPot()));
 
-    private static Supplier<Block> getPot(String id, ResourceLocation potentialPot) {
-        Block block = ModList.get().isLoaded(id) ? DMHUtils.getPotentialBlock(potentialPot) : Blocks.POPPY;
-        return () ->  new FlowerPotBlock(block, PropertyUtil.flowerPot());
+    private static Supplier<? extends Block> getPot(String id, Supplier<? extends Block> block) {
+        return ModList.get().isLoaded(id) ? block : () -> new Block(PropertyUtil.flowerPot());
     }
 
 

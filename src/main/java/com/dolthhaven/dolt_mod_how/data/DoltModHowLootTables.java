@@ -71,26 +71,16 @@ public class DoltModHowLootTables extends LootTableProvider {
 
             this.colony(GLOWSHROOM_COLONY);
 
-            this.dropPottedContentsModded(POTTED_TALL_BEACHGRASS, UABlocks.TALL_BEACHGRASS.get().asItem());
-            this.dropPottedContentsModded(POTTED_BEACHGRASS, UABlocks.BEACHGRASS.get().asItem());
-            this.dropPottedContentsModded(POTTED_ARID_SPROUTS, AtmosphericBlocks.ARID_SPROUTS.get().asItem());
-            this.dropPottedContentsModded(POTTED_MYCELIUM_SPROUTS, EnvironmentalBlocks.MYCELIUM_SPROUTS.get().asItem());
-            this.dropPottedContentsModded(POTTED_STRAWBERRIES, NeapolitanItems.STRAWBERRY_PIPS.get());
-            this.dropPottedContentsModded(POTTED_WHITE_STRAWBERRIES, NeapolitanItems.STRAWBERRY_PIPS.get());
-            this.dropPottedContentsModded(POTTED_CABBAGE, ModItems.CABBAGE.get());
-            this.dropPottedContentsModded(POTTED_ONION, ModItems.ONION.get());
-            this.dropPottedContentsModded(POTTED_TOMATOES, ModItems.TOMATO_SEEDS.get());
+            this.dropPottedContents(POTTED_TALL_BEACHGRASS.get());
+            this.dropPottedContents(POTTED_BEACHGRASS.get());
+            this.dropPottedContents(POTTED_ARID_SPROUTS.get());
+            this.dropPottedContents(POTTED_MYCELIUM_SPROUTS.get());
+            this.dropPottedContents(POTTED_STRAWBERRIES.get());
+            this.dropPottedContents(POTTED_WHITE_STRAWBERRIES.get());
+            this.dropPottedContents(POTTED_CABBAGE.get());
+            this.dropPottedContents(POTTED_ONION.get());
+            this.dropPottedContents(POTTED_TOMATOES.get());
 
-        }
-
-        private void dropPottedContentsModded(RegistryObject<? extends Block> block, Item item) {
-            this.add(block.get(), LootTable.lootTable()
-                    .withPool(this.applyExplosionCondition(Blocks.FLOWER_POT, LootPool
-                            .lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(Blocks.FLOWER_POT))))
-                    .withPool(this.applyExplosionCondition(item,
-                            LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                                    .add(LootItem.lootTableItem(item)))));
         }
 
         private void colony(RegistryObject<? extends Block> block) {

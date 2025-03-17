@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.compat;
+package com.dolthhaven.dolt_mod_how.integration;
 
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import net.minecraft.resources.ResourceLocation;

@@ -1,8 +1,7 @@
-package com.dolthhaven.dolt_mod_how.core.compat;
+package com.dolthhaven.dolt_mod_how.integration;
 
 import com.dolthhaven.dolt_mod_how.common.item.DMHGoldenBucketItem;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
-import com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import net.minecraft.world.item.Item;
 

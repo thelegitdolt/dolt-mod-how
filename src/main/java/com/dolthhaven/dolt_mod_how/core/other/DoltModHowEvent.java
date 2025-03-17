@@ -2,11 +2,14 @@ package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.compat.DMHACCompat;
+import com.dolthhaven.dolt_mod_how.data.DMHBlockStatesGen;
+import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
+import com.dolthhaven.dolt_mod_how.integration.DMHNeapolitanCompat;
+import com.teamabnormals.neapolitan.core.NeapolitanConfig;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -15,6 +18,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffects;
@@ -169,6 +173,8 @@ public class DoltModHowEvent {
 
         // rust stuff???
         tryUnrustRustyStuff(event);
+
+        potStrawberry(event);
     }
 
     private static void handleBulletPepper(PlayerInteractEvent.RightClickBlock event) {
@@ -180,6 +186,32 @@ public class DoltModHowEvent {
         Item bulletPepper = ForgeRegistries.ITEMS.getValue(DMHUtils.Constants.BULLET_PEPPER);
         if (bulletPepper != null && stack.is(bulletPepper)) {
             event.setUseItem(Event.Result.DENY);
+        }
+    }
+
+    private static void potStrawberry(PlayerInteractEvent.RightClickBlock event) {
+        if (ModList.get().isLoaded("neapolitan")) {
+            ItemStack stack = event.getItemStack();
+            Player player = event.getEntity();
+            Level level = event.getLevel();
+            BlockPos pos = event.getPos();
+            BlockState state = level.getBlockState(pos);
+
+            Item strawberryPip = DMHUtils.getPotentialItem(DMHUtils.Constants.STRAWBERRY_PIPS);
+            if (state.is(Blocks.FLOWER_POT) && stack.is(strawberryPip)) {
+                BlockState newState = (DMHNeapolitanCompat.isWhiteStrawberry(level, pos) ?
+                        DMHBlocks.POTTED_WHITE_STRAWBERRIES : DMHBlocks.POTTED_STRAWBERRIES).get().defaultBlockState();
+
+                level.setBlock(pos, newState, 3);
+                player.awardStat(Stats.POT_FLOWER);
+                if (!player.getAbilities().instabuild) {
+                    stack.shrink(1);
+                }
+                level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+                level.playSound(player, pos, SoundEvents.MOSS_PLACE, SoundSource.BLOCKS);
+                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
+                event.setCanceled(true);
+            }
         }
     }
 

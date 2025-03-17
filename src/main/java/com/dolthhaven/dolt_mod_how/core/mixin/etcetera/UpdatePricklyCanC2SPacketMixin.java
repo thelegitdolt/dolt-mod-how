@@ -1,6 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.etcetera;
 
-import com.dolthhaven.dolt_mod_how.core.compat.DMHACCompat;
+import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;

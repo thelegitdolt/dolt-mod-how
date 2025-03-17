@@ -1,7 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.compat;
-
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
+package com.dolthhaven.dolt_mod_how.integration;
 
 public class DoltModHowFishBarrelSetup {
 

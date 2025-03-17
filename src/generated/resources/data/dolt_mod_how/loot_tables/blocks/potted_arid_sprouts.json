@@ -26,7 +26,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:poppy"
+          "name": "atmospheric:arid_sprouts"
         }
       ],
       "rolls": 1.0

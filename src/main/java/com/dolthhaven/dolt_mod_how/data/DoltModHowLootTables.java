@@ -2,6 +2,10 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.google.common.collect.ImmutableList;
+import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
+import com.teamabnormals.environmental.core.registry.EnvironmentalBlocks;
+import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
+import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -28,6 +32,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.List;
 import java.util.Map;
@@ -66,12 +71,26 @@ public class DoltModHowLootTables extends LootTableProvider {
 
             this.colony(GLOWSHROOM_COLONY);
 
-            this.dropPottedContents(POTTED_TALL_BEACHGRASS.get());
-            this.dropPottedContents(POTTED_BEACHGRASS.get());
-            this.dropPottedContents(POTTED_ARID_SPROUTS.get());
-            this.dropPottedContents(POTTED_MYCELIUM_SPROUTS.get());
-            this.dropPottedContents(POTTED_STRAWBERRIES.get());
-            this.dropPottedContents(POTTED_WHITE_STRAWBERRIES.get());
+            this.dropPottedContentsModded(POTTED_TALL_BEACHGRASS, UABlocks.TALL_BEACHGRASS.get().asItem());
+            this.dropPottedContentsModded(POTTED_BEACHGRASS, UABlocks.BEACHGRASS.get().asItem());
+            this.dropPottedContentsModded(POTTED_ARID_SPROUTS, AtmosphericBlocks.ARID_SPROUTS.get().asItem());
+            this.dropPottedContentsModded(POTTED_MYCELIUM_SPROUTS, EnvironmentalBlocks.MYCELIUM_SPROUTS.get().asItem());
+            this.dropPottedContentsModded(POTTED_STRAWBERRIES, NeapolitanItems.STRAWBERRY_PIPS.get());
+            this.dropPottedContentsModded(POTTED_WHITE_STRAWBERRIES, NeapolitanItems.STRAWBERRY_PIPS.get());
+            this.dropPottedContentsModded(POTTED_CABBAGE, ModItems.CABBAGE.get());
+            this.dropPottedContentsModded(POTTED_ONION, ModItems.ONION.get());
+            this.dropPottedContentsModded(POTTED_TOMATOES, ModItems.TOMATO_SEEDS.get());
+
+        }
+
+        private void dropPottedContentsModded(RegistryObject<? extends Block> block, Item item) {
+            this.add(block.get(), LootTable.lootTable()
+                    .withPool(this.applyExplosionCondition(Blocks.FLOWER_POT, LootPool
+                            .lootPool().setRolls(ConstantValue.exactly(1.0F))
+                            .add(LootItem.lootTableItem(Blocks.FLOWER_POT))))
+                    .withPool(this.applyExplosionCondition(item,
+                            LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                                    .add(LootItem.lootTableItem(item)))));
         }
 
         private void colony(RegistryObject<? extends Block> block) {

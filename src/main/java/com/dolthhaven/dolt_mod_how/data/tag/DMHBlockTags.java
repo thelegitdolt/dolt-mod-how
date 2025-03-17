@@ -43,7 +43,9 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(DMHTags.COCOA_BEANS_ADDITIONALLY_PLANTABLE_ON);
 
         this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(),
-                POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get());
+                POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get(), POTTED_TOMATOES.get(), POTTED_ONION.get(), POTTED_CABBAGE.get(),
+                POTTED_STRAWBERRIES.get(), POTTED_WHITE_STRAWBERRIES.get());
+
         this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)
                 .addOptionalTag(new ResourceLocation("forge", "ores/silver"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/tin"));

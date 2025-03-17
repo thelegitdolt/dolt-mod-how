@@ -26,11 +26,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "upgrade_aquatic:beachgrass"
+          "name": "farmersdelight:tomato_seeds"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "dolt_mod_how:blocks/potted_beachgrass"
+  "random_sequence": "dolt_mod_how:blocks/potted_tomatoes"
 }

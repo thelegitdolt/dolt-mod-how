@@ -8,6 +8,7 @@ import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHRecipeSerializer;
+import com.dolthhaven.dolt_mod_how.data.DMHBlockStatesGen;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
@@ -79,6 +80,7 @@ public class DoltModHow {
         dataGen.addProvider(includeServer, new DMHRecipes(packOutput));
 
         boolean includeClient = event.includeClient();
+        dataGen.addProvider(includeClient, new DMHBlockStatesGen(event));
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {

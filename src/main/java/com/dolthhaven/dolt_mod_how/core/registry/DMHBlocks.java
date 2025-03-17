@@ -8,6 +8,7 @@ import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
+import com.teamabnormals.upgrade_aquatic.core.UpgradeAquatic;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.function.Supplier;
 
@@ -57,6 +59,13 @@ public class DMHBlocks {
             getPot(DMHUtils.Constants.NEAPOLITAN, DMHUtils.Constants.STRAWBERRY_BUSH));
     public static final RegistryObject<Block> POTTED_WHITE_STRAWBERRIES = HELPER.createBlockNoItem("potted_white_strawberries",
             getPot(DMHUtils.Constants.NEAPOLITAN, DMHUtils.Constants.STRAWBERRY_BUSH));
+
+    public static final RegistryObject<Block> POTTED_ONION = HELPER.createBlockNoItem("potted_onion", () ->
+            new FlowerPotBlock(ModBlocks.ONION_CROP.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_TOMATOES = HELPER.createBlockNoItem("potted_tomatoes", () ->
+            new FlowerPotBlock(ModBlocks.BUDDING_TOMATO_CROP.get(), PropertyUtil.flowerPot()));
+    public static final RegistryObject<Block> POTTED_CABBAGE = HELPER.createBlockNoItem("potted_cabbage", () ->
+            new FlowerPotBlock(ModBlocks.CABBAGE_CROP.get(), PropertyUtil.flowerPot()));
 
     private static Supplier<Block> getPot(String id, ResourceLocation potentialPot) {
         Block block = ModList.get().isLoaded(id) ? DMHUtils.getPotentialBlock(potentialPot) : Blocks.POPPY;

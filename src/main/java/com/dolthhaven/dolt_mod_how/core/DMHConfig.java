@@ -33,8 +33,7 @@ public class DMHConfig {
 
         public final ConfigValue<Boolean> damageReductions;
 
-
-        public final ConfigValue<? extends String> discToSpawnAfterJukeboxStruckWithLightning;
+        public final ConfigValue<String> discToSpawnAfterJukeboxStruckWithLightning;
 
 
 

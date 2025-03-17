@@ -2,10 +2,6 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.google.common.collect.ImmutableList;
-import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
-import com.teamabnormals.environmental.core.registry.EnvironmentalBlocks;
-import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
-import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -32,7 +28,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.List;
 import java.util.Map;

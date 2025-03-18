@@ -34,6 +34,7 @@ public abstract class PathfinderItemMixin {
     private static ItemStack makeMapFromString(ResourceLocation loc) {
         ItemStack map = new ItemStack(ACItemRegistry.CAVE_MAP.get());
         CompoundTag tag = new CompoundTag();
+
         tag.putString("BiomeTargetResourceKey", loc.toString());
         map.setTag(tag);
         return map;

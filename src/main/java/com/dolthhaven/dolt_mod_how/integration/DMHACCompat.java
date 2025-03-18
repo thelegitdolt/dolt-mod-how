@@ -4,8 +4,11 @@ import com.dolthhaven.dolt_mod_how.core.other.DoltModHowEvent;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.github.alexmodguy.alexscaves.server.block.AcidBlock;
+import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import com.github.alexmodguy.alexscaves.server.item.RadioactiveOnDestroyedBlockItem;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -40,6 +43,15 @@ public class DMHACCompat {
             DoltModHowEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCAFFOLDING.get(), ACBlockRegistry.METAL_SCAFFOLDING.get());
             DoltModHowEvent.UNRUST_MAP.put( ACBlockRegistry.RUSTY_REBAR.get(), ACBlockRegistry.METAL_REBAR.get());
         }
+    }
+
+
+    public static ItemStack makeMapFromString(ResourceLocation loc) {
+        ItemStack map = new ItemStack(ACItemRegistry.CAVE_MAP.get());
+        CompoundTag tag = new CompoundTag();
+        tag.putString("BiomeTargetResourceKey", loc.toString());
+        map.setTag(tag);
+        return map;
     }
 
     public static boolean isAcid(BlockState state) {

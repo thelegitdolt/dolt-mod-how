@@ -78,17 +78,9 @@ public class DMHUtils {
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
 
-        public static final ResourceLocation STRAWBERRY_BUSH = new ResourceLocation(NEAPOLITAN, "strawberry_bush");
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
-
-        public static final ResourceLocation MYCELIUM_SPROUTS = new ResourceLocation(ENVIRONMENTAL, "mycelium_sprouts");
-
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
 
-
-        public static final ResourceLocation TALL_BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "tall_beachgrass");
-        public static final ResourceLocation BEACHGRASS = new ResourceLocation(UPGRADE_AQUATIC, "beachgrass");
-        public static final ResourceLocation ARID_SPROUTS = new ResourceLocation(ATMOSPHERIC, "arid_sprouts");
 
         public static final ResourceLocation ACID = new ResourceLocation(ALEXS_CAVES, "acid");
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");

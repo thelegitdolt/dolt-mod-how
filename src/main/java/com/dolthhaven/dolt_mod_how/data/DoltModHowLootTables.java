@@ -75,7 +75,6 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropPottedContents(POTTED_CABBAGE.get());
             this.dropPottedContents(POTTED_ONION.get());
             this.dropPottedContents(POTTED_TOMATOES.get());
-
         }
 
         private void colony(RegistryObject<? extends Block> block) {

@@ -64,6 +64,13 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
+    modId = "blasted_barrens"
+    mandatory = false
+    versionRange = "[1.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
     modId = "atmospheric"
     mandatory = false
     versionRange = "[6.0.0,)"

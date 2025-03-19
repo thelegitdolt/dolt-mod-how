@@ -24,7 +24,6 @@
     "nethers_delight.PowderyFlowerBlockMixin",
     "nethers_delight.RichSoilMixin",
     "quark.PathfinderItemMixin",
-    "quark.PathfinderTradeMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
     "supplementaries.ItemDisplayTileMixin",
     "vanilla.CocoaBlockMixin",
@@ -32,10 +31,13 @@
     "vanilla.DispenserBlockMixin",
     "vanilla.FlowerPotMixin",
     "vanilla.PowderSnowBlockMixin",
+    "vanilla.ModelBuilderMixin",
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.ServerPlayerMixin",
     "vanilla.SlimeMixin"
   ],
-  "client": [],
+  "client": [
+    "vanilla.ModelBuilderMixin"
+  ],
   "minVersion": "0.8"
 }

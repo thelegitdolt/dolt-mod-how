@@ -1,18 +1,19 @@
 package com.dolthhaven.dolt_mod_how.core;
 
 import com.dolthhaven.dolt_mod_how.client.other.DMHClientCompat;
-import com.dolthhaven.dolt_mod_how.integration.DoltModHowFishBarrelSetup;
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHRecipeSerializer;
-import com.dolthhaven.dolt_mod_how.data.DMHBlockStatesGen;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
+import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
+import com.dolthhaven.dolt_mod_how.integration.DoltModHowFishBarrelSetup;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
@@ -66,6 +67,10 @@ public class DoltModHow {
     }
 
     private void dataSetup(GatherDataEvent event) {
+        if (!DMHUtils.Constants.runData()) {
+            return;
+        }
+
         DataGenerator dataGen = event.getGenerator();
         PackOutput packOutput = dataGen.getPackOutput();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();

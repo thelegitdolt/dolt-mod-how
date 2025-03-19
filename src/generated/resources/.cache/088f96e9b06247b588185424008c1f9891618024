@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-16T20:45:36.80406	Block States: dolt_mod_how
+// 1.20.1	2025-03-18T23:20:35.668211	Block States: dolt_mod_how
 a7b33faaf9cc2fbcd9c441ff0885b54513e3e275 assets/dolt_mod_how/blockstates/potted_arid_sprouts.json
 307fe333df9698cce095e7587b1e23fbdc092367 assets/dolt_mod_how/blockstates/potted_beachgrass.json
 6b522265a303b0c4a1e7b02183d317930ede52ec assets/dolt_mod_how/blockstates/potted_cabbage.json
@@ -8,6 +8,9 @@ caeb25c7625692e8425bad1f7feddfca6289d383 assets/dolt_mod_how/blockstates/potted_
 6fb84d2ebaa950508be76e7c70c729c8bb428568 assets/dolt_mod_how/blockstates/potted_tall_beachgrass.json
 bd0e719bf06c3d5b714b004b4060b7b21f25894d assets/dolt_mod_how/blockstates/potted_tomatoes.json
 13dd90d9bdc3bf1719fa47c623e1cf42b222668d assets/dolt_mod_how/blockstates/potted_white_strawberries.json
+33a6c8e678586a1746a9e9594109fcf91b956efd assets/dolt_mod_how/blockstates/raked_arid_sand.json
+265b87fa5d2fa736d4118241164a9a3f8e42d7d4 assets/dolt_mod_how/blockstates/raked_ashen_sand.json
+4dda2da0961d55ff636242969471e14b2bd24245 assets/dolt_mod_how/blockstates/raked_red_arid_sand.json
 7e88f1b6a25e93dc3b0ff22e0ac960f2d023c57a assets/dolt_mod_how/models/block/potted_arid_sprouts.json
 6cc4e3b7d46662f3e2ced958537efb56c1e91ddd assets/dolt_mod_how/models/block/potted_beachgrass.json
 ee2f147e8bb42ab7197ad65f6688e114749a27ba assets/dolt_mod_how/models/block/potted_cabbage.json
@@ -17,3 +20,6 @@ a45929f808c4ab48d2f5ad437b1f438ccfc5d451 assets/dolt_mod_how/models/block/potted
 561ec4efb9a99c8d603aab20f41ceb64be4c1221 assets/dolt_mod_how/models/block/potted_tall_beachgrass.json
 ef6843a5a82d625ce747a168759498592b9744db assets/dolt_mod_how/models/block/potted_tomatoes.json
 231e94a2466148e300caf5d9d8dfd6317dba866a assets/dolt_mod_how/models/block/potted_white_strawberries.json
+9635a87220e5611687f440497cd83b1a61c76d32 assets/dolt_mod_how/models/block/raked_arid_sand.json
+471e612b30a745270751d74d976c8aad5606c627 assets/dolt_mod_how/models/block/raked_ashen_sand.json
+875a93e9fda5ebf106b5a51a9ed0bcda82f96bb3 assets/dolt_mod_how/models/block/raked_red_arid_sand.json

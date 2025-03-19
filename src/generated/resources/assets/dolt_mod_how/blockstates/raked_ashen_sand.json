@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "shape=east_west": {
+      "model": "dolt_mod_how:block/raked_ashen_sand",
+      "y": 90
+    },
+    "shape=north_east": {
+      "model": "dolt_mod_how:block/raked_ashen_sand",
+      "y": 270
+    },
+    "shape=north_south": {
+      "model": "dolt_mod_how:block/raked_ashen_sand"
+    },
+    "shape=north_west": {
+      "model": "dolt_mod_how:block/raked_ashen_sand",
+      "y": 180
+    },
+    "shape=south_east": {
+      "model": "dolt_mod_how:block/raked_ashen_sand"
+    },
+    "shape=south_west": {
+      "model": "dolt_mod_how:block/raked_ashen_sand",
+      "y": 90
+    }
+  }
+}

@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.util;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.github.alexmodguy.alexscaves.AlexsCaves;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -58,10 +59,12 @@ public class DMHUtils {
     public static class Constants {
         public static final String ALEXS_CAVES = "alexscaves";
         public static final String ATMOSPHERIC = "atmospheric";
+        public static final String BLASTED_BARRENS = "blasted_barrens";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
         public static final String CREATE = "create";
         public static final String ENVIRONMENTAL = "environmental";
         public static final String FARMERS_DELIGHT = "farmersdelight";
+        public static final String MOWZIES_MOBS = "mowziesmobs";
         public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
         public static final String NEAPOLITAN = "neapolitan";
         public static final String JNE = "netherexp";
@@ -81,11 +84,25 @@ public class DMHUtils {
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
 
+        public static final ResourceLocation ARID_SAND = new ResourceLocation(ATMOSPHERIC, "arid_sand");
+        public static final ResourceLocation RED_ARID_SAND = new ResourceLocation(ATMOSPHERIC, "red_arid_sand");
+        public static final ResourceLocation ASHEN_SAND = new ResourceLocation(BLASTED_BARRENS, "ashen_sand");
 
         public static final ResourceLocation ACID = new ResourceLocation(ALEXS_CAVES, "acid");
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");
         public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");
+
+        public static boolean runData() {
+            for (String str : new String[]{ALEXS_CAVES, ATMOSPHERIC, BLASTED_BARRENS, NEAPOLITAN, UPGRADE_AQUATIC, ENVIRONMENTAL, MOWZIES_MOBS}) {
+                if (!ModList.get().isLoaded(str)) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
+
+
 
     public static boolean alexCavesLoaded() {
         return ModList.get().isLoaded(Constants.ALEXS_CAVES);

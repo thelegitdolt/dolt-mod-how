@@ -2,13 +2,11 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.integration.*;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.dolthhaven.dolt_mod_how.integration.*;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -64,6 +62,13 @@ public class DMHBlocks {
             new FlowerPotBlock(ModBlocks.BUDDING_TOMATO_CROP.get(), PropertyUtil.flowerPot()));
     public static final RegistryObject<Block> POTTED_CABBAGE = HELPER.createBlockNoItem("potted_cabbage", () ->
             new FlowerPotBlock(ModBlocks.CABBAGE_CROP.get(), PropertyUtil.flowerPot()));
+
+    public static final RegistryObject<Block> RAKED_ARID_SAND = HELPER.createBlock("raked_arid_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
+            DMHMowziesMobsCompat.RAKED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
+    public static final RegistryObject<Block> RAKED_RED_ARID_SAND = HELPER.createBlock("raked_red_arid_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
+            DMHMowziesMobsCompat.RAKED_RED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
+    public static final RegistryObject<Block> RAKED_ASHEN_SAND = HELPER.createBlock("raked_ashen_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
+            DMHMowziesMobsCompat.RAKED_ASHEN_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
 
     private static Supplier<? extends Block> getPot(String id, Supplier<? extends Block> block) {
         return ModList.get().isLoaded(id) ? block : () -> new Block(PropertyUtil.flowerPot());

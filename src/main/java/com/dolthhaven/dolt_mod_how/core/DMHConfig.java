@@ -30,6 +30,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> acidCorrodesCopper;
         public final ConfigValue<Boolean> sackOfSatingNoRestoreSat;
         public final ConfigValue<Boolean> actuallyGoodBiomeTreats;
+        public final ConfigValue<Boolean> pathfinderQuillMakesCaveMaps;
 
         public final ConfigValue<Boolean> damageReductions;
 
@@ -126,6 +127,10 @@ public class DMHConfig {
             acidCorrodesCopper = builder.comment("If acid should not corrode copper")
                     .define("Good Acid", true);
             builder.pop();
+
+            builder.push("Cave Maps");
+            pathfinderQuillMakesCaveMaps = builder.comment("If pathfinder quills should make a based sigma cave map instead of a cringe beta vanilla map")
+                            .define("I'm sorry I said all that", false);
 
             builder.push("Biome Treats");
             actuallyGoodBiomeTreats = builder.comment("If biome treats should work regardless of hunger")

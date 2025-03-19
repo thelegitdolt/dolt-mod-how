@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.quark;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import net.minecraft.resources.ResourceLocation;
@@ -22,7 +23,7 @@ public abstract class PathfinderItemMixin {
 
     @Inject(method= "use", at = @At(value = "HEAD"), cancellable = true)
     private void DoltModHow$MakeACCaveMap(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
-        if (DMHUtils.alexCavesLoaded()) {
+        if (DMHUtils.alexCavesLoaded() && DMHConfig.COMMON.pathfinderQuillMakesCaveMaps.get()) {
             ItemStack stack = player.getItemInHand(hand);
             ItemStack mapStack = DMHACCompat.makeMapFromString(getTarget(stack));
             player.setItemInHand(hand, mapStack);

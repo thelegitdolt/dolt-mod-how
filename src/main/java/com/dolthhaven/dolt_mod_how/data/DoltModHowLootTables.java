@@ -1,7 +1,9 @@
 package com.dolthhaven.dolt_mod_how.data;
 
+import com.davigj.blasted_barrens.core.registry.BBBlocks;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.google.common.collect.ImmutableList;
+import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -75,6 +77,10 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropPottedContents(POTTED_CABBAGE.get());
             this.dropPottedContents(POTTED_ONION.get());
             this.dropPottedContents(POTTED_TOMATOES.get());
+
+            this.dropOther(RAKED_ARID_SAND.get(), AtmosphericBlocks.ARID_SAND.get());
+            this.dropOther(RAKED_RED_ARID_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());
+            this.dropOther(RAKED_ASHEN_SAND.get(), BBBlocks.ASHEN_SAND.get());
         }
 
         private void colony(RegistryObject<? extends Block> block) {

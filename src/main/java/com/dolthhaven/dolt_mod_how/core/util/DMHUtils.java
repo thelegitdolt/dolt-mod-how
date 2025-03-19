@@ -4,6 +4,7 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.github.alexmodguy.alexscaves.AlexsCaves;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
@@ -26,7 +27,11 @@ public class DMHUtils {
     }
 
     public static @Nullable Item getPotentialItem(ResourceLocation loc) {
-        return ForgeRegistries.ITEMS.getValue(loc);
+        Item item = ForgeRegistries.ITEMS.getValue(loc);
+        if (item == Items.AIR) {
+            return null;
+        }
+        return item;
     }
 
     public static @Nullable Item getPotentialItem(String path, String name) {
@@ -84,6 +89,7 @@ public class DMHUtils {
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
 
+        public static final ResourceLocation SAND_RAKE = new ResourceLocation(MOWZIES_MOBS, "sand_rake");
         public static final ResourceLocation ARID_SAND = new ResourceLocation(ATMOSPHERIC, "arid_sand");
         public static final ResourceLocation RED_ARID_SAND = new ResourceLocation(ATMOSPHERIC, "red_arid_sand");
         public static final ResourceLocation ASHEN_SAND = new ResourceLocation(BLASTED_BARRENS, "ashen_sand");

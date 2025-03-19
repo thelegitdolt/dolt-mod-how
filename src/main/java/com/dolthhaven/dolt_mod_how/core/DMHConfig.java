@@ -15,6 +15,7 @@ public class DMHConfig {
 
         public final ConfigValue<Boolean> muteExFriendlyAnvils;
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
+        public final ConfigValue<Boolean> hoesRakeSand;
         public final ConfigValue<Double> valuePerRepair;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
@@ -91,6 +92,13 @@ public class DMHConfig {
             builder.push("Knife Enchantments");
             doUnbloatKnifeEnchants = builder.comment("If knives should no longer receive the silk touch and efficiency from the enchanting table").define("Unbloated Knife Enchantments", true);
 
+            builder.pop();
+            builder.pop();
+
+            builder.push("Mowzies Mobs");
+            builder.push("Rakes");
+            hoesRakeSand = builder.comment("If hoes should also be able to rake sand. Disabled by default option for my modpack")
+                            .define("Hoes Rake Sand", false);
             builder.pop();
             builder.pop();
 

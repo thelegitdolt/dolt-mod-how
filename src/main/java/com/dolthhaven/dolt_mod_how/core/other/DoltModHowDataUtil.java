@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
+import com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
@@ -16,8 +17,9 @@ public class DoltModHowDataUtil {
 
     public static void registerData() {
         registerCompostable();
-        DoltModHowEvent.registerHoeTills();
-        DoltModHowEvent.registerUnRust();
+        DMHRightClickEvent.registerHoeTills();
+        DMHRightClickEvent.registerUnRust();
+        DMHRightClickEvent.registerRakeables();
     }
 
     private static void registerCompostable() {

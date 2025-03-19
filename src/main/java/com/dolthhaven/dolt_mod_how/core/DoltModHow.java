@@ -48,6 +48,8 @@ public class DoltModHow {
     public DoltModHow() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext context = ModLoadingContext.get();
+        context.registerConfig(ModConfig.Type.COMMON, DMHConfig.COMMON_SPEC);
+        context.registerConfig(ModConfig.Type.CLIENT, DMHConfig.CLIENT_SPEC);
 
         bus.addListener(this::dataSetup);
         bus.addListener(this::commonSetup);
@@ -56,14 +58,11 @@ public class DoltModHow {
         DMHEnchants.ENCHANTMENTS.register(bus);
         DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
         DMHParticles.PARTICLES.register(bus);
-//        DMHBiomeModifierSerializers.BIOME_MODIFIER_SERIALIZERS.register(bus);
         REGISTRY_HELPER.register(bus);
         
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
 
         MinecraftForge.EVENT_BUS.register(this);
-        context.registerConfig(ModConfig.Type.COMMON, DMHConfig.COMMON_SPEC);
-        context.registerConfig(ModConfig.Type.CLIENT, DMHConfig.CLIENT_SPEC);
     }
 
     private void dataSetup(GatherDataEvent event) {

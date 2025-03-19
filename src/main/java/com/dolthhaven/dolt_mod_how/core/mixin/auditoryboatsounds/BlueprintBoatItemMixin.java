@@ -18,7 +18,7 @@ public class BlueprintBoatItemMixin extends Item {
         super(p_41383_);
     }
 
-    @ModifyVariable(method = "Lcom/teamabnormals/blueprint/common/item/BlueprintBoatItem;use(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;",
+    @ModifyVariable(method = "use",
     at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z", shift = At.Shift.AFTER
             ))
     private Boat DoltModHow$BluePrintBoatPlaceSound(Boat boat, Level level) {

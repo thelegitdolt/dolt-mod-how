@@ -47,8 +47,8 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
     }
 
     private void rakedSand(RegistryObject<? extends Block> sand, RegistryObject<? extends Block> nonRaked) {
+        String cubeTop = "block/cube_top";
         this.getVariantBuilder(sand.get()).forAllStates(state -> {
-            String cubeTop = "block/cube_top";
             Function<String, ConfiguredModel.Builder<?>> sandModelFunction = sandType -> {
                 String name = name(sand.get()) + (sandType.isEmpty() ? "" : "_" + sandType.replace("_", ""));
                 return ConfiguredModel.builder().modelFile(this.models().withExistingParent("block/" + name, cubeTop)
@@ -56,7 +56,6 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
                         .texture("top", mapPath(loc(sand), str -> "block/%s%s".formatted(name(sand.get()),
                                 sandType.isEmpty() ? "" :  "_" + sandType.replace("_", "")))));
             };
-
 
             Function<String, Integer> getFacingValue = str -> switch (str) {
                 case "north_east" ->  270;
@@ -68,6 +67,7 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
 
             String shape = state.getValue(RakedSandBlock.SHAPE).getName();
             String[] shapeName = shape.split("_");
+
             if (Objects.equals(shapeName[0], "north") && Objects.equals(shapeName[1], "south")) {
                 return sandModelFunction.apply("").build();
             }
@@ -79,6 +79,8 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
                 return sandModelFunction.apply(shape).rotationY(rotationAmount).build();
             }
         });
+
+        this.blockItem(sand.get());
     }
 
     private ResourceLocation mapPath(ResourceLocation location, Function<String, String> mapper) {

@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.other;
+package com.dolthhaven.dolt_mod_how.core.other.events;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
@@ -21,7 +21,6 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.Item;
@@ -42,7 +41,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.AnvilUpdateEvent;
-import net.minecraftforge.event.entity.EntityTeleportEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -62,11 +60,9 @@ import java.util.Map;
 import static net.minecraft.world.InteractionHand.MAIN_HAND;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
-public class DoltModHowEvent {
+public class DMHEvent {
     private static final UniformInt COMMON_ORE = UniformInt.of(0, 2);
     private static final UniformInt RARE_ORE = UniformInt.of(1, 3);
-    public static final Map<Block, Block> TILL_MAP = new HashMap<>();
-    public static final Map<Block, Block> UNRUST_MAP = new HashMap<>();
 
     @SubscribeEvent
     public static void projectileImpact(ProjectileImpactEvent event) {
@@ -160,60 +156,9 @@ public class DoltModHowEvent {
         }
     }
 
-    @SubscribeEvent
-    public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        // bullet pepper
-        handleBulletPepper(event);
 
-        // alphacene path
-        handleAlphacenePath(event);
 
-        // untill farmland
-        handleUntillFarmland(event);
 
-        // rust stuff???
-        tryUnrustRustyStuff(event);
-
-        potStrawberry(event);
-    }
-
-    private static void handleBulletPepper(PlayerInteractEvent.RightClickBlock event) {
-        if (!DMHConfig.COMMON.killBulletPepperPlacement.get() || !ModList.get().isLoaded(DMHUtils.Constants.MY_NETHERS_DELIGHT))
-            return;
-
-        ItemStack stack = event.getItemStack();
-
-        Item bulletPepper = ForgeRegistries.ITEMS.getValue(DMHUtils.Constants.BULLET_PEPPER);
-        if (bulletPepper != null && stack.is(bulletPepper)) {
-            event.setUseItem(Event.Result.DENY);
-        }
-    }
-
-    private static void potStrawberry(PlayerInteractEvent.RightClickBlock event) {
-        if (ModList.get().isLoaded("neapolitan")) {
-            ItemStack stack = event.getItemStack();
-            Player player = event.getEntity();
-            Level level = event.getLevel();
-            BlockPos pos = event.getPos();
-            BlockState state = level.getBlockState(pos);
-
-            Item strawberryPip = DMHUtils.getPotentialItem(DMHUtils.Constants.STRAWBERRY_PIPS);
-            if (state.is(Blocks.FLOWER_POT) && stack.is(strawberryPip)) {
-                BlockState newState = (DMHNeapolitanCompat.isWhiteStrawberry(level, pos) ?
-                        DMHBlocks.POTTED_WHITE_STRAWBERRIES : DMHBlocks.POTTED_STRAWBERRIES).get().defaultBlockState();
-
-                level.setBlock(pos, newState, 3);
-                player.awardStat(Stats.POT_FLOWER);
-                if (!player.getAbilities().instabuild) {
-                    stack.shrink(1);
-                }
-                level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
-                level.playSound(player, pos, SoundEvents.MOSS_PLACE, SoundSource.BLOCKS);
-                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
-                event.setCanceled(true);
-            }
-        }
-    }
 
     @SubscribeEvent
     public static void blockPlacedEvent(BlockEvent.EntityPlaceEvent event) {
@@ -275,120 +220,7 @@ public class DoltModHowEvent {
         }
     }
 
-    private static void handleAlphacenePath(PlayerInteractEvent.RightClickBlock event) {
-        Block alphaceneGrass = ForgeRegistries.BLOCKS.getValue(DMHUtils.Constants.ALPHACENE_GRASS_BLOCK);
-        if (alphaceneGrass == null) {
-            return;
-        }
-
-        ItemStack stack = event.getItemStack();
-        Player player = event.getEntity();
-        Level level = event.getLevel();
-        BlockPos pos = event.getPos();
-        BlockState state = level.getBlockState(pos);
-
-        if (event.getFace() != Direction.DOWN && stack.canPerformAction(ToolActions.SHOVEL_FLATTEN) && !player.isSpectator() && level.isEmptyBlock(pos.above())) {
-            if (state.is(alphaceneGrass)) {
-                level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1, 1);
-                if (!level.isClientSide) {
-                    stack.hurtAndBreak(1, player, (damage) -> damage.broadcastBreakEvent(event.getHand()));
-                    level.setBlock(pos, DMHBlocks.ALPHACENE_PATH.get().defaultBlockState(), Block.UPDATE_ALL_IMMEDIATE);
-                }
-                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
-                event.setCanceled(true);
-            }
-        }
-    }
-
-    public static void handleUntillFarmland(PlayerInteractEvent.RightClickBlock event) {
-        if (!DMHConfig.COMMON.doUntillableFarmland.get()) {
-            return;
-        }
-
-        ItemStack stack = event.getItemStack();
-        Player player = event.getEntity();
-        BlockPos pos = event.getPos();
-        Level level = event.getLevel();
-
-        if (stack.canPerformAction(ToolActions.HOE_TILL) && player.isCrouching() && event.getFace() != Direction.DOWN && !player.isSpectator()) {
-            Block block = TILL_MAP.get(level.getBlockState(pos).getBlock());
-            if (block == null || level.getEntitiesOfClass(Player.class, new AABB(pos)).contains(player) ||
-                    !level.isEmptyBlock(pos.above())) return;
-
-            if (!level.isClientSide()) {
-                stack.hurtAndBreak(1, player, onBroken -> onBroken.broadcastBreakEvent(LivingEntity.getEquipmentSlotForItem(stack)));
-                level.setBlock(pos, block.defaultBlockState(), Block.UPDATE_ALL);
-            }
-
-            level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
-
-            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
-            event.setCanceled(true);
-        }
-    }
-
-    private static void tryUnrustRustyStuff(PlayerInteractEvent.RightClickBlock event) {
-        if (!DMHUtils.alexCavesLoaded()) {
-            return;
-        }
-
-        ItemStack stack = event.getItemStack();
-        Player player = event.getEntity();
-        Level level = event.getLevel();
-        BlockPos pos = event.getPos();
-        BlockState state = level.getBlockState(pos);
 
 
-        if (stack.canPerformAction(ToolActions.AXE_SCRAPE) && UNRUST_MAP.containsKey(state.getBlock())) {
-            for (Direction dir : Direction.Plane.HORIZONTAL) {
-                if (DMHACCompat.isAcid(level.getBlockState(pos.relative(dir)))) {
-                    return;
-                }
-            }
 
-            level.playSound(player, pos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS, 1.0F, 1.0F);
-            BlockState newState = UNRUST_MAP.get(state.getBlock()).defaultBlockState();
-
-            for (Property<?> anyProp : state.getProperties()) {
-                newState = setGenericProperty(newState, anyProp, state.getValue(anyProp));
-            }
-
-            level.levelEvent(player, 3004, pos, 0);
-
-            if (player instanceof ServerPlayer serverPlayer) {
-                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, pos, stack);
-            }
-
-            level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
-            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
-            if (player != null) {
-                stack.hurtAndBreak(1, player, (p_150686_) -> p_150686_.broadcastBreakEvent(event.getHand()));
-            }
-
-            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
-            event.setCanceled(true);
-        }
-    }
-
-
-    public static void registerHoeTills() {
-        TILL_MAP.put(Blocks.FARMLAND, Blocks.DIRT);
-        TILL_MAP.put(ModBlocks.RICH_SOIL_FARMLAND.get(), ModBlocks.RICH_SOIL.get());
-        TILL_MAP.put(ModRegistry.RAKED_GRAVEL.get(), Blocks.GRAVEL);
-    }
-
-    public static void registerUnRust() {
-        if (DMHUtils.alexCavesLoaded()) {
-            DMHACCompat.registerUnRust();
-        }
-    }
-
-    private static <V extends Comparable<V>> BlockState setGenericProperty(BlockState state, Property<?> propName, V propertyValue) {
-        try {
-            Property<V> newProp = (Property<V>) propName;
-            return state.setValue(newProp, propertyValue);
-        } catch (ClassCastException | IllegalArgumentException e) {
-            return state;
-        }
-    }
 }

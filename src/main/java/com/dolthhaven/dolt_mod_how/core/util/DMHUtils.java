@@ -90,6 +90,8 @@ public class DMHUtils {
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
 
         public static final ResourceLocation SAND_RAKE = new ResourceLocation(MOWZIES_MOBS, "sand_rake");
+        public static final ResourceLocation RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "raked_sand");
+        public static final ResourceLocation RAKED_RED_SAND = new ResourceLocation(MOWZIES_MOBS, "raked_red_sand");
         public static final ResourceLocation ARID_SAND = new ResourceLocation(ATMOSPHERIC, "arid_sand");
         public static final ResourceLocation RED_ARID_SAND = new ResourceLocation(ATMOSPHERIC, "red_arid_sand");
         public static final ResourceLocation ASHEN_SAND = new ResourceLocation(BLASTED_BARRENS, "ashen_sand");

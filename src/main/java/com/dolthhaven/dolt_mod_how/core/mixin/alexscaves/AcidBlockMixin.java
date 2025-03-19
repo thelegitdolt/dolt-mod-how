@@ -16,7 +16,7 @@ import java.util.Map;
 
 @Mixin(AcidBlock.class)
 public class AcidBlockMixin {
-    @Shadow private static Map<Block, Block> CORRODES_INTERACTIONS;
+    @Shadow(remap = false) private static Map<Block, Block> CORRODES_INTERACTIONS;
 
     @Inject(method = "initCorrosion", at = @At("TAIL"), remap = false)
     private static void DoltModHow$NoAutomaticallyOxidatingCopperPlease(CallbackInfo ci) {

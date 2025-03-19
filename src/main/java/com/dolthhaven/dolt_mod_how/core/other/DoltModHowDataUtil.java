@@ -30,12 +30,7 @@ public class DoltModHowDataUtil {
 
         if (ModList.get().isLoaded(DMHUtils.Constants.NEAPOLITAN)) {
             EntityType<?> bananaPeel = ForgeRegistries.ENTITY_TYPES.getValue(DMHUtils.Constants.BANANA_PEEL);
-
             COMPOSTABLE_ENTITIES.put(bananaPeel, 0.5f);
         }
     }
-
-
-
-
 }

@@ -49,11 +49,14 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
     private void rakedSand(RegistryObject<? extends Block> sand, RegistryObject<? extends Block> nonRaked) {
         this.getVariantBuilder(sand.get()).forAllStates(state -> {
             String cubeTop = "block/cube_top";
-            Function<String, ConfiguredModel.Builder<?>> sandModelFunction = sandType ->
-                    ConfiguredModel.builder().modelFile(this.models().withExistingParent(name(sand.get()), cubeTop)
+            Function<String, ConfiguredModel.Builder<?>> sandModelFunction = sandType -> {
+                String name = name(sand.get()) + (sandType.isEmpty() ? "" : "_" + sandType.replace("_", ""));
+                return ConfiguredModel.builder().modelFile(this.models().withExistingParent("block/" + name, cubeTop)
                         .texture("side", blockTexture(nonRaked.get()))
                         .texture("top", mapPath(loc(sand), str -> "block/%s%s".formatted(name(sand.get()),
                                 sandType.isEmpty() ? "" :  "_" + sandType.replace("_", "")))));
+            };
+
 
             Function<String, Integer> getFacingValue = str -> switch (str) {
                 case "north_east" ->  270;

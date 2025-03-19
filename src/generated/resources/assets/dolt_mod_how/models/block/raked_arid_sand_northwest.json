@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_top",
   "textures": {
     "side": "atmospheric:block/arid_sand",
-    "top": "dolt_mod_how:block/raked_arid_sand"
+    "top": "dolt_mod_how:block/raked_arid_sand_northwest"
   }
 }

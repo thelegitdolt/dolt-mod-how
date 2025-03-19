@@ -31,13 +31,10 @@
     "vanilla.DispenserBlockMixin",
     "vanilla.FlowerPotMixin",
     "vanilla.PowderSnowBlockMixin",
-    "vanilla.ModelBuilderMixin",
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.ServerPlayerMixin",
     "vanilla.SlimeMixin"
   ],
-  "client": [
-    "vanilla.ModelBuilderMixin"
-  ],
+  "client": [],
   "minVersion": "0.8"
 }

@@ -10,6 +10,10 @@
   "block.dolt_mod_how.glowshroom_colony": "Glowshroom Colony",
   "block.dolt_mod_how.alphacene_path": "Alphacene Path",
 
+  "block.dolt_mod_how.raked_arid_sand": "Raked Arid Sand",
+  "block.dolt_mod_how.raked_red_arid_sand": "Raked Red Arid Sand",
+  "block.dolt_mod_how.raked_ashen_sand": "Raked Ashen Sand",
+
   "item.dolt_mod_how.golden_acid_bucket": "Golden Acid Bucket",
   "item.dolt_mod_how.golden_purple_soda_bucket": "Golden Purple Soda Bucket",
   "item.dolt_mod_how.golden_molten_lead_bucket": "Golden Molten Lead Bucket",

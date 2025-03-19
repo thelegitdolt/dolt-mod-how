@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-16T20:49:36.995959	Tags for minecraft:block mod id dolt_mod_how
+// 1.20.1	2025-03-18T23:26:37.084133	Tags for minecraft:block mod id dolt_mod_how
 0defb48f4f79d0a8a25a32dd7039e747cea74f57 data/dolt_mod_how/tags/blocks/channels_lightning.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/dolt_mod_how/tags/blocks/cocoa_beans_additionally_plantable_on.json
 3c00504a8a6cf234022dd4d4f0da49b63e783daa data/dolt_mod_how/tags/blocks/common_ores.json
@@ -9,4 +9,4 @@
 2846354f84a313a99faf2f4987afc24af0d36ea8 data/minecraft/tags/blocks/flower_pots.json
 57ff9164af9ab9ad2ee0e2785f4d3cb3a70b77a9 data/minecraft/tags/blocks/mineable/axe.json
 505508fb9f18dcf62185ee57d179b869ba9118d4 data/minecraft/tags/blocks/mineable/pickaxe.json
-6d6d44314eef7fde6c63a86e4bffa54070759fb9 data/minecraft/tags/blocks/mineable/shovel.json
+e9f39386626b37b8c086b04ec89456d098387a1c data/minecraft/tags/blocks/mineable/shovel.json

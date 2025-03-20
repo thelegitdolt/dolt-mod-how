@@ -2,7 +2,10 @@ package com.dolthhaven.dolt_mod_how.core.other.events;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.network.DMHPacketHandler;
+import com.dolthhaven.dolt_mod_how.core.network.S2CRustScrapePacket;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHMowziesMobsCompat;
@@ -11,10 +14,14 @@ import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.ParticleUtils;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -35,6 +42,7 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
@@ -230,7 +238,10 @@ public class DMHRightClickEvent {
             }
 
             level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
-            level.levelEvent(player, 3004, pos, 0);
+
+            level.playSound(player, pos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS);
+            DMHPacketHandler.CHANNEL.send(PacketDistributor.DIMENSION.with(() -> level.dimension()), new S2CRustScrapePacket(pos));
+
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
             if (player != null) {
                 stack.hurtAndBreak(1, player, (p_150686_) -> p_150686_.broadcastBreakEvent(event.getHand()));

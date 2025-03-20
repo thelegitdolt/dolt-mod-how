@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core;
 
 import com.dolthhaven.dolt_mod_how.client.other.DMHClientCompat;
+import com.dolthhaven.dolt_mod_how.core.network.DMHPacketHandler;
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
@@ -91,6 +92,7 @@ public class DoltModHow {
         event.enqueueWork(() -> {
             DoltModHowDispensers.registerDispenseBehavior();
             DoltModHowDataUtil.registerData();
+            DMHPacketHandler.register();
         });
 
         if (ModList.get().isLoaded("fish_in_planks")) {

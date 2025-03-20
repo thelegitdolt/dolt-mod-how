@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

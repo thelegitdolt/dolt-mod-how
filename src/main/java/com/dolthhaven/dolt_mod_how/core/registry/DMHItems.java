@@ -57,6 +57,7 @@ public class DMHItems {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                 .addItemsAfter(ofID(DMHUtils.Constants.STURDY_STONE), STURDY_DEEPSLATE)
+
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
                 .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA)
                 .addItemsAfter(of(Items.MUSHROOM_STEW), ALPHACENE_SALAD)
@@ -71,22 +72,19 @@ public class DMHItems {
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES),
                         GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET)
-                .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.OREGANIZED, DMHUtils.Constants.ALEXS_CAVES),
+                .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED),
                         GOLDEN_MOLTEN_LEAD_BUCKET)
 
                 .predicate(DMHItems::fdPredicate)
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)
+
                 .predicate(DMHItems::mowziesPredicate)
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.MOWZIES_MOBS, DMHUtils.Constants.ATMOSPHERIC),
                         ARID_RAKED_SAND, RED_ARID_RAKED_SAND)
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.MOWZIES_MOBS, DMHUtils.Constants.BLASTED_BARRENS),
                         ASHEN_RAKED_SAND);
     }
-
-    private static boolean areModsLoaded(String... ids) {
-        return Arrays.stream(ids).allMatch(ModList.get()::isLoaded);
-    }
-
+    
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
         return stack -> BlockSubRegistryHelper.areModsLoaded(modids) && of(item).test(stack);
     }

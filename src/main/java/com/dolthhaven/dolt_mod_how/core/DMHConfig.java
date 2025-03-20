@@ -14,6 +14,7 @@ public class DMHConfig {
         public final ConfigValue<Integer> blockPlaceXpChance;
 
         public final ConfigValue<Boolean> muteExFriendlyAnvils;
+        public final ConfigValue<Boolean> disablePenaltyForDMHAnvilOps;
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
         public final ConfigValue<Boolean> hoesRakeSand;
         public final ConfigValue<Double> valuePerRepair;
@@ -69,6 +70,7 @@ public class DMHConfig {
             builder.push("anvil");
             muteExFriendlyAnvils = builder.comment("Allow applying enchantment books to items with incompatible enchants. Voids incompatible enchants from the tool.").define("MutEx Friendly Anvils", true);
             valuePerRepair = builder.comment("The percentage of durability much each material should repair on a tool, in an anvil. 0.25 in vanilla.").define("Repair Item Amount", 0.33);
+            disablePenaltyForDMHAnvilOps = builder.comment("For THIS MOD ONLY's operations, disable prior work enchantment penalty. ").define("Disable Prior Work For Above Operations", true);
             builder.pop();
 
             builder.push("dispensers");

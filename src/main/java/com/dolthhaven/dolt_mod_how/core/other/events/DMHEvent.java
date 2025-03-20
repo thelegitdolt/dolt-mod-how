@@ -2,58 +2,36 @@ package com.dolthhaven.dolt_mod_how.core.other.events;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
-import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
-import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
-import com.dolthhaven.dolt_mod_how.integration.DMHNeapolitanCompat;
-import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -180,6 +158,8 @@ public class DMHEvent {
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();
 
+        boolean allowPriorWork = !DMHConfig.COMMON.disablePenaltyForDMHAnvilOps.get();
+
         if (left.isDamaged() && right.getItem().isValidRepairItem(left, right)) {
             ItemStack newLeft = left.copy();
             int dur = newLeft.getMaxDamage();
@@ -188,9 +168,16 @@ public class DMHEvent {
                     dur, dam + (int) (dur / DMHConfig.COMMON.valuePerRepair.get())
             ));
             event.setOutput(newLeft);
+            event.setCost(1 + (allowPriorWork ? 0 : left.getBaseRepairCost()));
             event.setResult(Event.Result.ALLOW);
         }
         else if (right.is(Items.ENCHANTED_BOOK) && DMHConfig.COMMON.muteExFriendlyAnvils.get()) {
+            int baseWorkCost, enchantmentCost = 0;
+            if (allowPriorWork)
+                baseWorkCost = left.getBaseRepairCost();
+            else
+                baseWorkCost = 0;
+
             Map<Enchantment, Integer> bookEnchants = EnchantmentHelper.getEnchantments(right);
             Map<Enchantment, Integer> toolEnchants = EnchantmentHelper.getEnchantments(left);
 
@@ -205,7 +192,9 @@ public class DMHEvent {
                         continue;
                     }
 
+                    enchantmentCost += getCostForRarity(bookEnchant);
                     if (!toolEnchantInstance.getKey().isCompatibleWith(enchant)) {
+                        enchantmentCost -= getCostForRarity(enchant);
                         toRemove.add(enchant);
                     }
                     toolEnchants.put(bookEnchantInstance.getKey(), bookEnchantInstance.getValue());
@@ -215,9 +204,18 @@ public class DMHEvent {
             toolEnchants.entrySet().removeIf((map) -> toRemove.contains(map.getKey()));
             EnchantmentHelper.setEnchantments(toolEnchants, newLeft);
             event.setOutput(newLeft);
-            event.setCost(4);
+            event.setCost(Math.max(baseWorkCost + enchantmentCost, 1));
             event.setResult(Event.Result.ALLOW);
         }
+    }
+
+    private static int getCostForRarity(Enchantment enchantment) {
+        return switch (enchantment.getRarity()) {
+            case COMMON -> 1;
+            case UNCOMMON -> 2;
+            case RARE -> 4;
+            case VERY_RARE -> 8;
+        };
     }
 
 

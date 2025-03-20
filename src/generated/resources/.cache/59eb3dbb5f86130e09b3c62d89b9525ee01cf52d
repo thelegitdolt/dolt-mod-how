@@ -1,5 +1,7 @@
-// 1.20.1	2025-03-18T23:20:35.667454	Loot Tables
+// 1.20.1	2025-03-19T18:43:13.477598	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
+69585cd0b2418ee751f5f6355ea336e3e98e2491 data/dolt_mod_how/loot_tables/blocks/arid_raked_sand.json
+65ee58dd75f590efa9e990b11feb03ffe34a4501 data/dolt_mod_how/loot_tables/blocks/ashen_raked_sand.json
 dffebd73d5c05fbca55572c5f7dc60cdc2927c3f data/dolt_mod_how/loot_tables/blocks/glowshroom_colony.json
 8a6c30d95508c5f0124c20a2b5aeffb87d3c3b46 data/dolt_mod_how/loot_tables/blocks/pine_nuts_crate.json
 aa57ee7326de7801dfe029e263fa2547ac05b755 data/dolt_mod_how/loot_tables/blocks/potted_arid_sprouts.json
@@ -11,7 +13,5 @@ f607312ee64ed6a283e299b962a853e1ac74548f data/dolt_mod_how/loot_tables/blocks/po
 051b6ee08435bdcbd17f1c912524cd017eabfce0 data/dolt_mod_how/loot_tables/blocks/potted_tall_beachgrass.json
 b1817c686833ea759a72c4910095ebc9a1c4e13f data/dolt_mod_how/loot_tables/blocks/potted_tomatoes.json
 98fd03813c68a8e006073e9c992d035825e9087a data/dolt_mod_how/loot_tables/blocks/potted_white_strawberries.json
-ddf3e905659590540bca9e6815e0c6c02f24b27d data/dolt_mod_how/loot_tables/blocks/raked_arid_sand.json
-a0ecd939e208173a416f6050cc249970499286db data/dolt_mod_how/loot_tables/blocks/raked_ashen_sand.json
-120690707fcd880835f5de748a01185f4daf6f26 data/dolt_mod_how/loot_tables/blocks/raked_red_arid_sand.json
+14f51fe10844f41e07f2f18e402a6326708db0db data/dolt_mod_how/loot_tables/blocks/red_arid_raked_sand.json
 c58f07528505ea56ec0bce2a69afbd09f692070f data/dolt_mod_how/loot_tables/blocks/sturdy_deepslate.json

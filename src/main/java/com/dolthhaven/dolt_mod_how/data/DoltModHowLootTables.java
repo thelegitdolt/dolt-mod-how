@@ -78,9 +78,9 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropPottedContents(POTTED_ONION.get());
             this.dropPottedContents(POTTED_TOMATOES.get());
 
-            this.dropOther(RAKED_ARID_SAND.get(), AtmosphericBlocks.ARID_SAND.get());
-            this.dropOther(RAKED_RED_ARID_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());
-            this.dropOther(RAKED_ASHEN_SAND.get(), BBBlocks.ASHEN_SAND.get());
+            this.dropOther(ARID_RAKED_SAND.get(), AtmosphericBlocks.ARID_SAND.get());
+            this.dropOther(RED_ARID_RAKED_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());
+            this.dropOther(ASHEN_RAKED_SAND.get(), BBBlocks.ASHEN_SAND.get());
         }
 
         private void colony(RegistryObject<? extends Block> block) {

@@ -3,19 +3,15 @@ package com.dolthhaven.dolt_mod_how.data.client;
 import com.bobmowzie.mowziesmobs.server.block.RakedSandBlock;
 import com.davigj.blasted_barrens.core.registry.BBBlocks;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.mojang.datafixers.types.Func;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import com.teamabnormals.blueprint.core.data.client.BlueprintBlockStateProvider;
-import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Objects;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -31,9 +27,9 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         customPot(POTTED_ARID_SPROUTS, POTTED_MYCELIUM_SPROUTS, POTTED_BEACHGRASS,
                 POTTED_TALL_BEACHGRASS, POTTED_STRAWBERRIES, POTTED_WHITE_STRAWBERRIES, POTTED_ONION, POTTED_TOMATOES, POTTED_CABBAGE);
 
-        rakedSand(RAKED_ASHEN_SAND, BBBlocks.ASHEN_SAND);
-        rakedSand(RAKED_ARID_SAND, AtmosphericBlocks.ARID_SAND);
-        rakedSand(RAKED_RED_ARID_SAND, AtmosphericBlocks.RED_ARID_SAND);
+        rakedSand(ASHEN_RAKED_SAND, BBBlocks.ASHEN_SAND);
+        rakedSand(ARID_RAKED_SAND, AtmosphericBlocks.ARID_SAND);
+        rakedSand(RED_ARID_RAKED_SAND, AtmosphericBlocks.RED_ARID_SAND);
     }
 
 

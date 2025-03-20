@@ -1,8 +1,8 @@
 {
   "values": [
     "dolt_mod_how:alphacene_path",
-    "dolt_mod_how:raked_arid_sand",
-    "dolt_mod_how:raked_ashen_sand",
-    "dolt_mod_how:raked_red_arid_sand"
+    "dolt_mod_how:arid_raked_sand",
+    "dolt_mod_how:ashen_raked_sand",
+    "dolt_mod_how:red_arid_raked_sand"
   ]
 }

@@ -60,7 +60,7 @@ public class DMHConfig {
 
             builder.push("xp");
             xpUponBlockPlace = builder.comment("If placing a block should have a chance to yield experience.").define("Experienced Building", true);
-            blockPlaceXpChance = builder.comment("Specify n here, where the chance of a block dropping xp is 1/n. Integers only!").define("Building XP chance", 128);
+            blockPlaceXpChance = builder.comment("Specify n here, where the chance of a block dropping xp is 1/n. Integers only!").define("Building XP chance", 64);
             doCropBlocksDropXP = builder.comment("If all blocks that are crops should drop experience.").define("Experienced Crops", true);
             minCropXpDrops = builder.comment("Minimum XP a crop block will drop when broken.").define("Minimum Crop XP", 0);
             maxCropXpDrops = builder.comment("Maximum XP a crop block will drop when broken.").define("Maximum Crop XP", 1);

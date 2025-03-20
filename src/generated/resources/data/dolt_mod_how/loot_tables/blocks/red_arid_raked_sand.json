@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "blasted_barrens:ashen_sand"
+          "name": "atmospheric:red_arid_sand"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "dolt_mod_how:blocks/raked_ashen_sand"
+  "random_sequence": "dolt_mod_how:blocks/red_arid_raked_sand"
 }

@@ -2,12 +2,11 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -71,10 +70,17 @@ public class DMHItems {
 
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES),
-                        GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET, GOLDEN_MOLTEN_LEAD_BUCKET)
+                        GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET)
+                .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.OREGANIZED, DMHUtils.Constants.ALEXS_CAVES),
+                        GOLDEN_MOLTEN_LEAD_BUCKET)
 
-                .predicate(DMHItems::fdGroupPredicate)
-                .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY);
+                .predicate(DMHItems::fdPredicate)
+                .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)
+                .predicate(DMHItems::mowziesPredicate)
+                .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.MOWZIES_MOBS, DMHUtils.Constants.ATMOSPHERIC),
+                        ARID_RAKED_SAND, RED_ARID_RAKED_SAND)
+                .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.MOWZIES_MOBS, DMHUtils.Constants.BLASTED_BARRENS),
+                        ASHEN_RAKED_SAND);
     }
 
     private static boolean areModsLoaded(String... ids) {
@@ -89,14 +95,12 @@ public class DMHItems {
         return stack -> (BlockSubRegistryHelper.areModsLoaded(modids) && of(ForgeRegistries.ITEMS.getValue(location)).test(stack));
     }
 
-    public static boolean fdGroupPredicate(BuildCreativeModeTabContentsEvent event) {
-        // !ADConfig.COMMON.replaceFDItemGroup.get() &&
+    public static boolean fdPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey() == ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey();
     }
 
-    public static boolean modPredicate(BuildCreativeModeTabContentsEvent event, ResourceKey<CreativeModeTab> tab) {
-        // ADConfig.COMMON.replaceFDItemGroup.get() &&
-        return event.getTabKey() == tab;
+    public static boolean mowziesPredicate(BuildCreativeModeTabContentsEvent event) {
+        return event.getTabKey().location().equals(DMHUtils.Constants.MOWZIES_MOBS_TAB);
     }
 
     public static class Food {

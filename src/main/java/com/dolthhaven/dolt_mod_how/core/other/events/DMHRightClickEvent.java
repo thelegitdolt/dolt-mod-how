@@ -114,10 +114,10 @@ public class DMHRightClickEvent {
         TILL_MAP.put(ModRegistry.RAKED_GRAVEL.get(), Blocks.GRAVEL);
 
         putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RAKED_SAND), Blocks.SAND);
-        putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RAKED_RED_SAND), Blocks.RED_SAND);
-        putIfNotNull(TILL_MAP, DMHBlocks.RAKED_ARID_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ARID_SAND));
-        putIfNotNull(TILL_MAP, DMHBlocks.RAKED_RED_ARID_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_ARID_SAND));
-        putIfNotNull(TILL_MAP, DMHBlocks.RAKED_ASHEN_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ASHEN_SAND));
+        putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_RAKED_SAND), Blocks.RED_SAND);
+        putIfNotNull(TILL_MAP, DMHBlocks.ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ARID_SAND));
+        putIfNotNull(TILL_MAP, DMHBlocks.RED_ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_ARID_SAND));
+        putIfNotNull(TILL_MAP, DMHBlocks.ASHEN_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ASHEN_SAND));
     }
 
     public static void registerUnRust() {
@@ -131,11 +131,11 @@ public class DMHRightClickEvent {
             Block ashen_sand = DMHUtils.getPotentialBlock(DMHUtils.Constants.ASHEN_SAND);
 
             Block raked_sand = DMHUtils.getPotentialBlock(DMHUtils.Constants.RAKED_SAND);
-            Block raked_red_sand = DMHUtils.getPotentialBlock(DMHUtils.Constants.RAKED_RED_SAND);
+            Block raked_red_sand = DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_RAKED_SAND);
 
-            putIfNotNull(RAKE_MAP, arid_sand, DMHBlocks.RAKED_ARID_SAND.get());
-            putIfNotNull(RAKE_MAP, red_arid_sand, DMHBlocks.RAKED_RED_ARID_SAND.get());
-            putIfNotNull(RAKE_MAP, ashen_sand, DMHBlocks.RAKED_ASHEN_SAND.get());
+            putIfNotNull(RAKE_MAP, arid_sand, DMHBlocks.ARID_RAKED_SAND.get());
+            putIfNotNull(RAKE_MAP, red_arid_sand, DMHBlocks.RED_ARID_RAKED_SAND.get());
+            putIfNotNull(RAKE_MAP, ashen_sand, DMHBlocks.ASHEN_RAKED_SAND.get());
             putIfNotNull(RAKE_MAP, Blocks.SAND, raked_sand);
             putIfNotNull(RAKE_MAP, Blocks.RED_SAND, raked_red_sand);
         }

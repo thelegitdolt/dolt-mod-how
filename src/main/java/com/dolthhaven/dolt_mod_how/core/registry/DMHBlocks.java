@@ -63,11 +63,11 @@ public class DMHBlocks {
     public static final RegistryObject<Block> POTTED_CABBAGE = HELPER.createBlockNoItem("potted_cabbage", () ->
             new FlowerPotBlock(ModBlocks.CABBAGE_CROP.get(), PropertyUtil.flowerPot()));
 
-    public static final RegistryObject<Block> RAKED_ARID_SAND = HELPER.createBlock("raked_arid_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
+    public static final RegistryObject<Block> ARID_RAKED_SAND = HELPER.createBlock("arid_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
             DMHMowziesMobsCompat.RAKED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
-    public static final RegistryObject<Block> RAKED_RED_ARID_SAND = HELPER.createBlock("raked_red_arid_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
+    public static final RegistryObject<Block> RED_ARID_RAKED_SAND = HELPER.createBlock("red_arid_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
             DMHMowziesMobsCompat.RAKED_RED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
-    public static final RegistryObject<Block> RAKED_ASHEN_SAND = HELPER.createBlock("raked_ashen_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
+    public static final RegistryObject<Block> ASHEN_RAKED_SAND = HELPER.createBlock("ashen_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
             DMHMowziesMobsCompat.RAKED_ASHEN_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
 
     private static Supplier<? extends Block> getPot(String id, Supplier<? extends Block> block) {

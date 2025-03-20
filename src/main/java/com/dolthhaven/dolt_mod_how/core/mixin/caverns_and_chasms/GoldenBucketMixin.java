@@ -29,7 +29,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(GoldenBucketItem.class)
 public abstract class GoldenBucketMixin extends Item implements DispensibleContainerItem {
-    @Shadow public abstract Fluid getFluid();
+    @Shadow(remap = false) public abstract Fluid getFluid();
 
     public GoldenBucketMixin(Properties p_41383_) {
         super(p_41383_);

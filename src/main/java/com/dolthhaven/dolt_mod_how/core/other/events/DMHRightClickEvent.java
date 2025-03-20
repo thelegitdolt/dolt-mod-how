@@ -67,19 +67,21 @@ public class DMHRightClickEvent {
             return;
         }
 
-        Item rake = DMHUtils.getPotentialItem(DMHUtils.Constants.SAND_RAKE);
-
         InteractionHand hand = event.getHand();
         Player player = event.getEntity();
         ItemStack stack = player.getItemInHand(hand);
         Level level = event.getLevel();
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
+        Item rake = DMHUtils.getPotentialItem(DMHUtils.Constants.SAND_RAKE);
 
-
-        Block rakedSand = RAKE_MAP.get(state.getBlock());
+        Block rakedSand;
+        if (DMHMowziesMobsCompat.isRakedSand(state.getBlock())) {
+            rakedSand = state.getBlock();
+        } else {
+            rakedSand = RAKE_MAP.get(state.getBlock());
+        }
         if (rakedSand == null) return;
-
         boolean isRake = stack.is(rake);
         boolean isHoe = stack.canPerformAction(ToolActions.HOE_TILL) && DMHConfig.COMMON.hoesRakeSand.get();
 
@@ -89,12 +91,12 @@ public class DMHRightClickEvent {
 
         BlockPlaceContext context = new BlockPlaceContext(player, hand, stack, event.getHitVec());
 
-        if ((isRake || isHoe)) {
+        if (isRake || isHoe) {
             BlockState rakedState = rakedSand.getStateForPlacement(context);
-            if (rakedState != null) {
+            if (rakedState != null && !DMHMowziesMobsCompat.sameRakedState(state, rakedState)) {
                 DMHMowziesMobsCompat.playSandRakeSound(level, player, pos);
                 if (!level.isClientSide) {
-                    level.setBlock(pos, state, Block.UPDATE_ALL_IMMEDIATE);
+                    level.setBlock(pos, rakedState, Block.UPDATE_ALL_IMMEDIATE);
                     rakedSand.onPlace(rakedState, level, pos, rakedState, false);
                     DMHMowziesMobsCompat.updateRakedSand(rakedSand, rakedState, level, pos, false);
                     context.getItemInHand().hurtAndBreak(1, player, (p_43122_) -> p_43122_.broadcastBreakEvent(context.getHand()));

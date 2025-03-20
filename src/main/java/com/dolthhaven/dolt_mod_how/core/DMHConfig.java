@@ -43,6 +43,7 @@ public class DMHConfig {
             builder.push("misc");
             lessAnnoyingItemReclaim = builder.comment("If interacting with blocks like Flower Pots and Amendment Placeable Books should put the item they contain into your inventory, thus merging with existing stacks, instead of adding it to your hand, which is EXTREMELY ANNOYING")
                             .define("Less Annoying Item Reclaim", true);
+            builder.pop();
 
             builder.push("Vanilla");
             builder.push("metal_ores");

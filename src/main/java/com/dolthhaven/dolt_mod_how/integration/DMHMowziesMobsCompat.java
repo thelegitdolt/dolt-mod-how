@@ -3,10 +3,8 @@ package com.dolthhaven.dolt_mod_how.integration;
 import com.bobmowzie.mowziesmobs.server.block.RakedSandBlock;
 import com.bobmowzie.mowziesmobs.server.sound.MMSounds;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
-import com.github.alexthe666.citadel.repack.jaad.Play;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -14,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.accesstransformer.AccessTransformer;
 
 import java.util.function.Supplier;
 
@@ -40,5 +39,15 @@ public class DMHMowziesMobsCompat {
         if (rakedSand instanceof RakedSandBlock rakedSandBlock) {
             rakedSandBlock.updateState(rakedState, level, pos, b);
         }
+    }
+
+    public static boolean isRakedSand(Block block) {
+        return block instanceof RakedSandBlock;
+    }
+
+    public static boolean sameRakedState(BlockState state1, BlockState state2) {
+        if (!(isRakedSand(state1.getBlock())) || !isRakedSand(state2.getBlock())) {
+            return false;
+        } return state1.getValue(RakedSandBlock.SHAPE) == state2.getValue(RakedSandBlock.SHAPE) && state1.getBlock() == state2.getBlock();
     }
 }

@@ -134,10 +134,6 @@ public class DMHEvent {
         }
     }
 
-
-
-
-
     @SubscribeEvent
     public static void blockPlacedEvent(BlockEvent.EntityPlaceEvent event) {
         Entity entity = event.getEntity();

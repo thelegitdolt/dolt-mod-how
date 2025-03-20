@@ -11,11 +11,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -24,7 +26,6 @@ import vectorwing.farmersdelight.common.item.MushroomColonyItem;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
-import java.util.Arrays;
 import java.util.function.Predicate;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
@@ -84,7 +85,7 @@ public class DMHItems {
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.MOWZIES_MOBS, DMHUtils.Constants.BLASTED_BARRENS),
                         ASHEN_RAKED_SAND);
     }
-    
+
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
         return stack -> BlockSubRegistryHelper.areModsLoaded(modids) && of(item).test(stack);
     }

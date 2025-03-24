@@ -32,6 +32,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -176,7 +177,7 @@ public class DMHEvent {
 
             Map<Enchantment, Integer> bookEnchants = EnchantmentHelper.getEnchantments(right);
             Map<Enchantment, Integer> toolEnchants = EnchantmentHelper.getEnchantments(left);
-
+            Map<Enchantment, Integer> newEnchants = new HashMap<>();
             ItemStack newLeft = left.copy();
             List<Enchantment> toRemove = new ArrayList<>();
             for (Map.Entry<Enchantment, Integer> toolEnchantInstance : toolEnchants.entrySet()) {
@@ -193,11 +194,12 @@ public class DMHEvent {
                         enchantmentCost -= getCostForRarity(enchant);
                         toRemove.add(enchant);
                     }
-                    toolEnchants.put(bookEnchantInstance.getKey(), bookEnchantInstance.getValue());
+                    newEnchants.put(bookEnchantInstance.getKey(), bookEnchantInstance.getValue());
                 }
             }
 
             toolEnchants.entrySet().removeIf((map) -> toRemove.contains(map.getKey()));
+            toolEnchants.entrySet().addAll(newEnchants.entrySet());
             EnchantmentHelper.setEnchantments(toolEnchants, newLeft);
             event.setOutput(newLeft);
             event.setCost(Math.max(baseWorkCost + enchantmentCost, 1));

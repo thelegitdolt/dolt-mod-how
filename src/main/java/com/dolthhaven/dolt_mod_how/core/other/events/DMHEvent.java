@@ -4,6 +4,7 @@ import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -177,7 +178,7 @@ public class DMHEvent {
 
             Map<Enchantment, Integer> bookEnchants = EnchantmentHelper.getEnchantments(right);
             Map<Enchantment, Integer> toolEnchants = EnchantmentHelper.getEnchantments(left);
-            Map<Enchantment, Integer> newEnchants = new HashMap<>();
+            List<Pair<Enchantment, Integer>> newEnchants = new ArrayList<>();
             ItemStack newLeft = left.copy();
             List<Enchantment> toRemove = new ArrayList<>();
             for (Map.Entry<Enchantment, Integer> toolEnchantInstance : toolEnchants.entrySet()) {
@@ -194,12 +195,15 @@ public class DMHEvent {
                         enchantmentCost -= getCostForRarity(enchant);
                         toRemove.add(enchant);
                     }
-                    newEnchants.put(bookEnchantInstance.getKey(), bookEnchantInstance.getValue());
+                    newEnchants.add(Pair.of(bookEnchantInstance.getKey(), bookEnchantInstance.getValue()));
                 }
             }
 
             toolEnchants.entrySet().removeIf((map) -> toRemove.contains(map.getKey()));
-            toolEnchants.entrySet().addAll(newEnchants.entrySet());
+            for (Pair<Enchantment, Integer> addEnchant : newEnchants) {
+                toolEnchants.put(addEnchant.getFirst(), addEnchant.getSecond());
+            }
+
             EnchantmentHelper.setEnchantments(toolEnchants, newLeft);
             event.setOutput(newLeft);
             event.setCost(Math.max(baseWorkCost + enchantmentCost, 1));

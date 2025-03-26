@@ -171,16 +171,14 @@ public class DMHEvent {
         }
         else if (right.is(Items.ENCHANTED_BOOK) && DMHConfig.COMMON.muteExFriendlyAnvils.get()) {
             int baseWorkCost, enchantmentCost = 0;
-            if (allowPriorWork)
-                baseWorkCost = left.getBaseRepairCost();
-            else
-                baseWorkCost = 0;
+            baseWorkCost = allowPriorWork ? left.getBaseRepairCost() : 0;
 
             Map<Enchantment, Integer> bookEnchants = EnchantmentHelper.getEnchantments(right);
             Map<Enchantment, Integer> toolEnchants = EnchantmentHelper.getEnchantments(left);
             List<Pair<Enchantment, Integer>> newEnchants = new ArrayList<>();
             ItemStack newLeft = left.copy();
             List<Enchantment> toRemove = new ArrayList<>();
+
             for (Map.Entry<Enchantment, Integer> toolEnchantInstance : toolEnchants.entrySet()) {
                 Enchantment enchant = toolEnchantInstance.getKey();
                 for (Map.Entry<Enchantment, Integer> bookEnchantInstance : bookEnchants.entrySet()) {

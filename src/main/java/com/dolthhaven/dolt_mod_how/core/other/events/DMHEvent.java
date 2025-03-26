@@ -33,7 +33,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -198,9 +197,7 @@ public class DMHEvent {
             }
 
             toolEnchants.entrySet().removeIf((map) -> toRemove.contains(map.getKey()));
-            for (Pair<Enchantment, Integer> addEnchant : newEnchants) {
-                toolEnchants.put(addEnchant.getFirst(), addEnchant.getSecond());
-            }
+            newEnchants.forEach(pair -> toolEnchants.put(pair.getFirst(), pair.getSecond()));
 
             EnchantmentHelper.setEnchantments(toolEnchants, newLeft);
             event.setOutput(newLeft);

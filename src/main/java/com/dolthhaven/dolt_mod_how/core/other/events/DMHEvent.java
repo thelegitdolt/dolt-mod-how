@@ -188,11 +188,11 @@ public class DMHEvent {
                     }
 
                     enchantmentCost += getCostForRarity(bookEnchant);
-                    if (!toolEnchantInstance.getKey().isCompatibleWith(enchant)) {
+                    if (!bookEnchant.isCompatibleWith(enchant)) {
                         enchantmentCost -= getCostForRarity(enchant);
                         toRemove.add(enchant);
                     }
-                    newEnchants.add(Pair.of(bookEnchantInstance.getKey(), bookEnchantInstance.getValue()));
+                    newEnchants.add(Pair.of(bookEnchant, bookEnchantInstance.getValue()));
                 }
             }
 

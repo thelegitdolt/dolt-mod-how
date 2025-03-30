@@ -65,6 +65,7 @@ public class DMHUtils {
         public static final String ATMOSPHERIC = "atmospheric";
         public static final String BLASTED_BARRENS = "blasted_barrens";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
+        public static final String CAVE_DELIGHT = "cavedelight";
         public static final String CREATE = "create";
         public static final String ENVIRONMENTAL = "environmental";
         public static final String FARMERS_DELIGHT = "farmersdelight";

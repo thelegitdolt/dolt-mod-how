@@ -4,11 +4,16 @@ import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.*;
+import com.teamabnormals.blueprint.common.block.BlueprintBeehiveBlock;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
+import com.teamabnormals.blueprint.common.block.LeafPileBlock;
+import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
+import com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
@@ -25,16 +30,29 @@ public class DMHBlocks {
     public static final BlockSubRegistryHelper HELPER = DoltModHow.REGISTRY_HELPER.getBlockSubHelper();
 
     public static final RegistryObject<Block> STURDY_DEEPSLATE = HELPER.createBlock("sturdy_deepslate", () ->
-            new Block(DoltModHowBlockProps.STURDY_DEEPSLATE));
+            new Block(DMHBlockProps.STURDY_DEEPSLATE));
     public static final RegistryObject<Block> ALPHACENE_PATH = HELPER.createBlock("alphacene_path", () ->
-            new DirtPathBlock(DoltModHowBlockProps.ALPHACENE_PATH));
+            new DirtPathBlock(DMHBlockProps.ALPHACENE_PATH));
 
     public static final RegistryObject<Block> GLOWSHROOM_COLONY = HELPER.createBlockNoItem("glowshroom_colony", () ->
             new GlowshroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM)
                     .randomTicks()
                     .lightLevel(s -> 10)));
     public static final RegistryObject<Block> PINE_NUTS_CRATE = HELPER.createBlock("pine_nuts_crate", () ->
-            new BlueprintDirectionalBlock(DoltModHowBlockProps.PINE_NUT_CRATE));
+            new BlueprintDirectionalBlock(DMHBlockProps.PINE_NUT_CRATE));
+
+    public static final RegistryObject<Block> PEWEN_BEEHIVE = HELPER.createFuelBlock("pewen_beehive", () ->
+            new BlueprintBeehiveBlock(DMHBlockProps.PEWEN.beehive()), 300);
+    public static final RegistryObject<BlueprintChestBlock> PEWEN_CHEST = HELPER.createChestBlock("pewen", DMHBlockProps.PEWEN.chest());
+    public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_PEWEN_CHEST = HELPER.createTrappedChestBlockNamed("pewen", DMHBlockProps.PEWEN.chest());
+    public static final RegistryObject<Block> PEWEN_LADDER = HELPER.createFuelBlock("pewen_ladder", () ->
+            new LadderBlock(DMHBlockProps.PEWEN.ladder()), 300);
+    public static final RegistryObject<Block> PEWEN_BOARDS = HELPER.createFuelBlock("pewen_boards", () ->
+            new RotatedPillarBlock(DMHBlockProps.PEWEN.planks()), 300);
+    public static final RegistryObject<Block> PEWEN_BOOKSHELF = HELPER.createFuelBlock("pewen_bookshelf", () ->
+            new Block(DMHBlockProps.PEWEN.bookshelf()), 300);
+    public static final RegistryObject<Block> PEWEN_LEAF_PILE = HELPER.createFuelBlock("pewen_leaf_pile", () ->
+            new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()), 300);
 
 
 //    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", ModList.get().isLoaded("fish_in_planks") ?
@@ -75,13 +93,16 @@ public class DMHBlocks {
     }
 
 
-    public static class DoltModHowBlockProps {
+    public static class DMHBlockProps {
         public static final BlockBehaviour.Properties STURDY_DEEPSLATE = BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(4.5F, 9.0F)
                 .pushReaction(PushReaction.IGNORE);
         public static final BlockBehaviour.Properties ALPHACENE_PATH = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN)
                 .strength(0.65F).sound(BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.SPECIES) ? DMHSpeciesCompat.ALPHACENE_GRASS : SoundType.GRAVEL).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always);
         public static final BlockBehaviour.Properties PINE_NUT_CRATE = BlockBehaviour.Properties.of().mapColor(TERRACOTTA_YELLOW)
                 .strength(1.5f).sound(SoundType.WOOD).ignitedByLava();
+
+        public static final PropertyUtil.WoodSetProperties PEWEN = PropertyUtil
+                .WoodSetProperties.builder(MapColor.WOOD).sound(SoundType.CHERRY_WOOD).instrument(NoteBlockInstrument.BASS).build();
 
     }
 

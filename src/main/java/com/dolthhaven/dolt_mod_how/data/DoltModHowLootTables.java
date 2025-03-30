@@ -4,6 +4,7 @@ import com.davigj.blasted_barrens.core.registry.BBBlocks;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.google.common.collect.ImmutableList;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -11,6 +12,7 @@ import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,7 +27,9 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
@@ -77,6 +81,15 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropPottedContents(POTTED_CABBAGE.get());
             this.dropPottedContents(POTTED_ONION.get());
             this.dropPottedContents(POTTED_TOMATOES.get());
+
+            this.add(PEWEN_CHEST.get(), this::createNameableBlockEntityTable);
+            this.add(TRAPPED_PEWEN_CHEST.get(), this::createNameableBlockEntityTable);
+            this.add(PEWEN_BOOKSHELF.get(), block -> this.createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3)));
+            this.add(PEWEN_BEEHIVE.get(), BlockLootSubProvider::createBeeHiveDrop);
+            this.dropSelf(PEWEN_LADDER.get());
+            this.dropSelf(PEWEN_BOARDS.get());
+            this.add(PEWEN_LEAF_PILE.get(), block -> createMultifaceBlockDrops(block,
+                    MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS))));
 
             this.dropOther(ARID_RAKED_SAND.get(), AtmosphericBlocks.ARID_SAND.get());
             this.dropOther(RED_ARID_RAKED_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());

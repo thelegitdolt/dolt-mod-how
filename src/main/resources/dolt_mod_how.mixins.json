@@ -26,6 +26,7 @@
     "nethers_delight.PowderyFlowerBlockMixin",
     "nethers_delight.RichSoilMixin",
     "quark.PathfinderItemMixin",
+    "supplementaries.BlockColorsInternalMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
     "supplementaries.ItemDisplayTileMixin",
     "vanilla.CocoaBlockMixin",

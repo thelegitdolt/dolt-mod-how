@@ -66,6 +66,7 @@ public class DMHUtils {
         public static final String BLASTED_BARRENS = "blasted_barrens";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
         public static final String CAVE_DELIGHT = "cavedelight";
+        public static final String CLAYWORKS = "clayworks";
         public static final String CREATE = "create";
         public static final String ENVIRONMENTAL = "environmental";
         public static final String FARMERS_DELIGHT = "farmersdelight";
@@ -83,6 +84,7 @@ public class DMHUtils {
         public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
         public static final ResourceLocation RED_MUSHROOM_COLONIES = new ResourceLocation(FARMERS_DELIGHT, "red_mushroom_colonies");
         public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
+        public static final ResourceLocation CONCRETE = new ResourceLocation(CLAYWORKS, "concrete");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
 

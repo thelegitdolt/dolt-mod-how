@@ -34,9 +34,9 @@ public class DinosaurChopMixin {
             ItemStack stack = player.getItemInHand(hand);
             if (stack.is(ModTags.KNIVES) && state.getBlock() instanceof DinosaurChopBlock chopBlock) {
                 Item item = DMHACCompat.getMeatItem(chopBlock);
-                int bites = state.getValue(DinosaurChopBlock.BITES);
 
                 if (item != null) {
+                    int bites = state.getValue(DinosaurChopBlock.BITES);
                     level.setBlock(pos, DMHACCompat.exhaustOneBite(state), Block.UPDATE_ALL_IMMEDIATE);
                     level.playSound(null, pos, SoundEvents.CANDLE_BREAK, SoundSource.PLAYERS, 0.8f, 0.8f);
                     Block.dropResources(state, level, pos);
@@ -47,7 +47,6 @@ public class DinosaurChopMixin {
             }
         }
     }
-
 
     @WrapOperation(method = "eat", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getFoodData()Lnet/minecraft/world/food/FoodData;"))
     private FoodData DoltModHow$MakeSoundWhenEatBlock(Player instance, Operation<FoodData> original) {

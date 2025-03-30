@@ -48,7 +48,7 @@ public class DMHACCompat {
             path = "cooked_dino_cut";
         }
         else if (block == ACBlockRegistry.DINOSAUR_CHOP.get()){
-            path = "dino_cut";
+            path = "raw_dino_cut";
         }
         else {
             return null;

@@ -14,11 +14,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
-@Mixin(AcidBlock.class)
+@Mixin(value = AcidBlock.class, remap = false)
 public class AcidBlockMixin {
-    @Shadow(remap = false) private static Map<Block, Block> CORRODES_INTERACTIONS;
+    @Shadow private static Map<Block, Block> CORRODES_INTERACTIONS;
 
-    @Inject(method = "initCorrosion", at = @At("TAIL"), remap = false)
+    @Inject(method = "initCorrosion", at = @At("TAIL"))
     private static void DoltModHow$NoAutomaticallyOxidatingCopperPlease(CallbackInfo ci) {
         if (!DMHConfig.COMMON.acidCorrodesCopper.get()) return;
 

@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dolt_mod_how:block/pewen_boards_horizontal",
+      "y": 270
+    },
+    "axis=y": {
+      "model": "dolt_mod_how:block/pewen_boards"
+    },
+    "axis=z": {
+      "model": "dolt_mod_how:block/pewen_boards_horizontal"
+    }
+  }
+}

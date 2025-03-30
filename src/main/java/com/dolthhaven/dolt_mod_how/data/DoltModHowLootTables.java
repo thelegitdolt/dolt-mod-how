@@ -88,7 +88,7 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.add(PEWEN_BEEHIVE.get(), BlockLootSubProvider::createBeeHiveDrop);
             this.dropSelf(PEWEN_LADDER.get());
             this.dropSelf(PEWEN_BOARDS.get());
-            this.add(PEWEN_LEAF_PILE.get(), block -> createMultifaceBlockDrops(block,
+            this.add(ANCIENT_LEAF_PILE.get(), block -> createMultifaceBlockDrops(block,
                     MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS))));
 
             this.dropOther(ARID_RAKED_SAND.get(), AtmosphericBlocks.ARID_SAND.get());

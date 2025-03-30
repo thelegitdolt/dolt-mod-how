@@ -1,0 +1,6 @@
+{
+  "parent": "blueprint:block/template_boards",
+  "textures": {
+    "all": "dolt_mod_how:block/pewen_boards"
+  }
+}

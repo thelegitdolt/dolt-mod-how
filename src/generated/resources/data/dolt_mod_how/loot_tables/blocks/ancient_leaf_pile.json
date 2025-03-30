@@ -19,7 +19,7 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "dolt_mod_how:pewen_leaf_pile",
+                  "block": "dolt_mod_how:ancient_leaf_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "down": "true"
@@ -33,7 +33,7 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "dolt_mod_how:pewen_leaf_pile",
+                  "block": "dolt_mod_how:ancient_leaf_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "up": "true"
@@ -47,7 +47,7 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "dolt_mod_how:pewen_leaf_pile",
+                  "block": "dolt_mod_how:ancient_leaf_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "north": "true"
@@ -61,7 +61,7 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "dolt_mod_how:pewen_leaf_pile",
+                  "block": "dolt_mod_how:ancient_leaf_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "south": "true"
@@ -75,7 +75,7 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "dolt_mod_how:pewen_leaf_pile",
+                  "block": "dolt_mod_how:ancient_leaf_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "west": "true"
@@ -89,7 +89,7 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "dolt_mod_how:pewen_leaf_pile",
+                  "block": "dolt_mod_how:ancient_leaf_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "east": "true"
@@ -108,11 +108,11 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "dolt_mod_how:pewen_leaf_pile"
+          "name": "dolt_mod_how:ancient_leaf_pile"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "dolt_mod_how:blocks/pewen_leaf_pile"
+  "random_sequence": "dolt_mod_how:blocks/ancient_leaf_pile"
 }

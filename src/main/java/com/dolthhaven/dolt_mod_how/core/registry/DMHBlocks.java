@@ -51,8 +51,9 @@ public class DMHBlocks {
             new RotatedPillarBlock(DMHBlockProps.PEWEN.planks()), 300);
     public static final RegistryObject<Block> PEWEN_BOOKSHELF = HELPER.createFuelBlock("pewen_bookshelf", () ->
             new Block(DMHBlockProps.PEWEN.bookshelf()), 300);
-    public static final RegistryObject<Block> PEWEN_LEAF_PILE = HELPER.createFuelBlock("pewen_leaf_pile", () ->
-            new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()), 300);
+
+    public static final RegistryObject<Block> ANCIENT_LEAF_PILE = HELPER.createBlock("ancient_leaf_pile", () ->
+            new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()));
 
 
 //    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", ModList.get().isLoaded("fish_in_planks") ?
@@ -103,7 +104,6 @@ public class DMHBlocks {
 
         public static final PropertyUtil.WoodSetProperties PEWEN = PropertyUtil
                 .WoodSetProperties.builder(MapColor.WOOD).sound(SoundType.CHERRY_WOOD).instrument(NoteBlockInstrument.BASS).build();
-
     }
 
 }

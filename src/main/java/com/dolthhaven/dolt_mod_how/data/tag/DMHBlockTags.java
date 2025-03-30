@@ -36,7 +36,7 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(PINE_NUTS_CRATE.get(), PEWEN_BEEHIVE.get(), PEWEN_BOOKSHELF.get(), PEWEN_CHEST.get(), PEWEN_LADDER.get(), TRAPPED_PEWEN_CHEST.get(), PEWEN_BEEHIVE.get(), PEWEN_BOARDS.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get(), ARID_RAKED_SAND.get(), ASHEN_RAKED_SAND.get(), RED_ARID_RAKED_SAND.get());
-        this.tag(BlockTags.MINEABLE_WITH_HOE).add(PEWEN_LEAF_PILE.get());
+        this.tag(BlockTags.MINEABLE_WITH_HOE).add(ANCIENT_LEAF_PILE.get());
 
 
         this.tag(DMHTags.NO_XP_CROPS)
@@ -54,7 +54,7 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlueprintBlockTags.WOODEN_BEEHIVES).add(PEWEN_BEEHIVE.get());
         this.tag(BlueprintBlockTags.WOODEN_BOOKSHELVES).add(PEWEN_BOOKSHELF.get());
         this.tag(BlueprintBlockTags.WOODEN_BOARDS).add(PEWEN_BOARDS.get());
-        this.tag(BlueprintBlockTags.LEAF_PILES).add(PEWEN_LEAF_PILE.get());
+        this.tag(BlueprintBlockTags.LEAF_PILES).add(ANCIENT_LEAF_PILE.get());
 
 
         this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)

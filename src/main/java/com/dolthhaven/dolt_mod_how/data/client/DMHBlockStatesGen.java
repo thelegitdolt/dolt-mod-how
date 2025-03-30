@@ -3,11 +3,13 @@ package com.dolthhaven.dolt_mod_how.data.client;
 import com.bobmowzie.mowziesmobs.server.block.RakedSandBlock;
 import com.davigj.blasted_barrens.core.registry.BBBlocks;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import com.teamabnormals.blueprint.core.data.client.BlueprintBlockStateProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -30,6 +32,8 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         rakedSand(ASHEN_RAKED_SAND, BBBlocks.ASHEN_SAND);
         rakedSand(ARID_RAKED_SAND, AtmosphericBlocks.ARID_SAND);
         rakedSand(RED_ARID_RAKED_SAND, AtmosphericBlocks.RED_ARID_SAND);
+        leafPileBlock(ACBlockRegistry.ANCIENT_LEAVES, ANCIENT_LEAF_PILE);
+        stupidWoodworksBlocks("pewen", ACBlockRegistry.PEWEN_PLANKS, PEWEN_BOARDS, PEWEN_LADDER, PEWEN_BOOKSHELF, PEWEN_BEEHIVE, PEWEN_CHEST, TRAPPED_PEWEN_CHEST);
     }
 
 
@@ -89,5 +93,31 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
 
     private ResourceLocation loc(Supplier<? extends Block> block) {
         return loc(block.get());
+    }
+
+    public void stupidWoodworksBlocks(String type, RegistryObject<Block> planks, RegistryObject<Block> boards, RegistryObject<Block> ladder, RegistryObject<Block> bookshelf, RegistryObject<Block> beehive, RegistryObject<? extends Block> chest, RegistryObject<? extends Block> trappedChest) {
+        this.boardsBlock(boards);
+        this.ladderBlock(ladder);
+        this.beehiveBlock(beehive);
+        this.stupidBookshelf(planks.get(), type, bookshelf);
+        this.stupidChestBlocks("pewen", planks, chest, trappedChest);
+    }
+
+    public void stupidChestBlocks(String type, RegistryObject<Block> planks, RegistryObject<? extends Block> chest, RegistryObject<? extends Block> trappedChest) {
+        this.stupidChestBlocks(type, planks.get(), chest, trappedChest);
+    }
+
+    public void stupidChestBlocks(String type, Block planks, RegistryObject<? extends Block> chest, RegistryObject<? extends Block> trappedChest) {
+        ModelFile model = this.particle(chest, loc(planks).withPath(str -> "block/%s/%s".formatted(type, str)));
+        this.simpleBlock(chest.get(), model);
+        this.simpleBlock(trappedChest.get(), model);
+        this.simpleBlockItem(chest.get(), new ModelFile.UncheckedModelFile(new ResourceLocation("blueprint", "item/template_chest")));
+        this.simpleBlockItem(trappedChest.get(), new ModelFile.UncheckedModelFile(new ResourceLocation("blueprint", "item/template_chest")));
+    }
+
+    public void stupidBookshelf(Block planks, String type, RegistryObject<Block> bookshelf) {
+        this.simpleBlock(bookshelf.get(), this.models().cubeColumn(name(bookshelf.get()),
+                this.blockTexture(bookshelf.get()), loc(planks).withPath(str -> "block/%s/%s".formatted(type, str))));
+        this.blockItem(bookshelf);
     }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "alexscaves:block/pewen/pewen_planks",
+    "side": "dolt_mod_how:block/pewen_bookshelf"
+  }
+}

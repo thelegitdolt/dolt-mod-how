@@ -1,8 +1,9 @@
-// 1.20.1	2025-03-30T13:51:12.258404	Loot Tables
+// 1.20.1	2025-03-30T14:46:36.021534	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
 59a85b165f87c048d1d2c8990c3bbcf648562eca data/dolt_mod_how/loot_tables/blocks/ancient_leaf_pile.json
 69585cd0b2418ee751f5f6355ea336e3e98e2491 data/dolt_mod_how/loot_tables/blocks/arid_raked_sand.json
 65ee58dd75f590efa9e990b11feb03ffe34a4501 data/dolt_mod_how/loot_tables/blocks/ashen_raked_sand.json
+088b2537330caf2a9a1d10aa11a87ea991515854 data/dolt_mod_how/loot_tables/blocks/chiseled_pewen_bookshelf.json
 dffebd73d5c05fbca55572c5f7dc60cdc2927c3f data/dolt_mod_how/loot_tables/blocks/glowshroom_colony.json
 24e9028868a55d31c09319672d209a72488b3f7b data/dolt_mod_how/loot_tables/blocks/pewen_beehive.json
 29dbbca74ea521678b109319ef4b680f51c3814c data/dolt_mod_how/loot_tables/blocks/pewen_boards.json

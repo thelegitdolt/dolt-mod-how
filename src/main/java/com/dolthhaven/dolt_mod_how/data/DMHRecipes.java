@@ -2,24 +2,31 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
+import com.teamabnormals.environmental.core.registry.EnvironmentalBlocks;
+import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Paths;
 import java.util.function.Consumer;
 
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.STURDY_DEEPSLATE;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
 public class DMHRecipes extends BlueprintRecipeProvider {
     public DMHRecipes(PackOutput output) {
         super(DoltModHow.MOD_ID, output);
     }
+    public static final ModLoadedCondition ALEXSCAVES_LOADED = new ModLoadedCondition(DMHUtils.Constants.ALEXS_CAVES);
 
     @Override
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
@@ -38,5 +45,11 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                 .requires(STURDY_DEEPSLATE.get())
                 .unlockedBy("has_sturdy_dep", has(STURDY_DEEPSLATE.get()))
                 .save(consumer, new ResourceLocation("dolt_mod_how", "cobbled_deepslate_from_unpacking_sturdy_deepslate"));
+
+        WoodworksRecipeProvider.baseRecipes(consumer, ACBlockRegistry.PEWEN_PLANKS.get(), ACBlockRegistry.PEWEN_PLANKS_SLAB.get(), PEWEN_BOARDS.get(), PEWEN_BOOKSHELF.get(),
+                CHISELED_PEWEN_BOOKSHELF.get(), PEWEN_LADDER.get(), PEWEN_BEEHIVE.get(), PEWEN_CHEST.get(),
+                TRAPPED_PEWEN_CHEST.get(), DMHUtils.Constants.ALEXS_CAVES);
+        WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_LOG.get(), PEWEN_LADDER.get(), 4);
+        WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_PLANKS.get(), PEWEN_LADDER.get(), 1);
     }
 }

@@ -88,13 +88,14 @@ public class DMHItems {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID + "_alexscaves_woodworks")
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                 .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, DMHUtils.Constants.WOODWORKS), PEWEN_BOARDS)
-                .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_CLOSET, DMHUtils.Constants.ALEXS_CAVES), PEWEN_CHEST)
+                .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                 .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_LADDER, DMHUtils.Constants.ALEXS_CAVES), PEWEN_LADDER)
                 .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_BEEHIVE, DMHUtils.Constants.ALEXS_CAVES), PEWEN_BEEHIVE)
                 .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_BOOKSHELF, DMHUtils.Constants.ALEXS_CAVES), PEWEN_BOOKSHELF)
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, "woodworks"), ANCIENT_LEAF_PILE)
                 .tab(CreativeModeTabs.REDSTONE_BLOCKS)
+                .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_CLOSET, DMHUtils.Constants.ALEXS_CAVES), PEWEN_CHEST)
                 .addItemsAfter(ofID(DMHUtils.Constants.TRAPPED_BAMBOO_CLOSET, DMHUtils.Constants.ALEXS_CAVES), TRAPPED_PEWEN_CHEST);
     }
 

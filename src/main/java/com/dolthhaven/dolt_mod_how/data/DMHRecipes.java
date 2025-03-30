@@ -49,6 +49,7 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         WoodworksRecipeProvider.baseRecipes(consumer, ACBlockRegistry.PEWEN_PLANKS.get(), ACBlockRegistry.PEWEN_PLANKS_SLAB.get(), PEWEN_BOARDS.get(), PEWEN_BOOKSHELF.get(),
                 CHISELED_PEWEN_BOOKSHELF.get(), PEWEN_LADDER.get(), PEWEN_BEEHIVE.get(), PEWEN_CHEST.get(),
                 TRAPPED_PEWEN_CHEST.get(), DMHUtils.Constants.ALEXS_CAVES);
+        WoodworksRecipeProvider.leafPileRecipes(consumer, ACBlockRegistry.ANCIENT_LEAVES.get(), ANCIENT_LEAF_PILE.get());
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_LOG.get(), PEWEN_LADDER.get(), 4);
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_PLANKS.get(), PEWEN_LADDER.get(), 1);
     }

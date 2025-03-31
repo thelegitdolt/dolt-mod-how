@@ -33,6 +33,7 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         rakedSand(ARID_RAKED_SAND, AtmosphericBlocks.ARID_SAND);
         rakedSand(RED_ARID_RAKED_SAND, AtmosphericBlocks.RED_ARID_SAND);
         leafPileBlock(ACBlockRegistry.ANCIENT_LEAVES, ANCIENT_LEAF_PILE);
+        chiseledBookshelfBlock(CHISELED_PEWEN_BOOKSHELF);
         stupidWoodworksBlocks("pewen", ACBlockRegistry.PEWEN_PLANKS, PEWEN_BOARDS, PEWEN_LADDER, PEWEN_BOOKSHELF, PEWEN_BEEHIVE, PEWEN_CHEST, TRAPPED_PEWEN_CHEST);
     }
 

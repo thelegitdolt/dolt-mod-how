@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/chiseled_bookshelf",
+  "textures": {
+    "side": "dolt_mod_how:block/chiseled_pewen_bookshelf_side",
+    "top": "dolt_mod_how:block/chiseled_pewen_bookshelf_top"
+  }
+}

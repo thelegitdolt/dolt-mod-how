@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
+import com.dolthhaven.dolt_mod_how.common.block.ChiseledPewenBookshelfBlock;
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
@@ -52,7 +53,7 @@ public class DMHBlocks {
     public static final RegistryObject<Block> PEWEN_BOOKSHELF = HELPER.createFuelBlock("pewen_bookshelf", () ->
             new Block(DMHBlockProps.PEWEN.bookshelf()), 300);
     public static final RegistryObject<Block> CHISELED_PEWEN_BOOKSHELF = HELPER.createFuelBlock("chiseled_pewen_bookshelf", () ->
-            new Block(DMHBlockProps.PEWEN.chiseledBookshelf()), 300);
+            new ChiseledPewenBookshelfBlock(DMHBlockProps.PEWEN.chiseledBookshelf()), 300);
 
     public static final RegistryObject<Block> ANCIENT_LEAF_PILE = HELPER.createBlock("ancient_leaf_pile", () ->
             new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()));

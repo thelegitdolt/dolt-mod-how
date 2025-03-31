@@ -58,17 +58,28 @@ public class DMHItems {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                 .addItemsAfter(ofID(DMHUtils.Constants.STURDY_STONE), STURDY_DEEPSLATE)
+                .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, DMHUtils.Constants.WOODWORKS), PEWEN_BOARDS)
 
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
                 .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA)
                 .addItemsAfter(of(Items.MUSHROOM_STEW), ALPHACENE_SALAD)
+
+                .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+                .addItemsAfter(modLoaded(Blocks.LADDER, DMHUtils.Constants.ALEXS_CAVES), PEWEN_LADDER)
+                .addItemsAfter(modLoaded(Blocks.BEEHIVE, DMHUtils.Constants.ALEXS_CAVES), PEWEN_BEEHIVE)
+                .addItemsAfter(modLoaded(Blocks.CHISELED_BOOKSHELF, DMHUtils.Constants.ALEXS_CAVES), PEWEN_BOOKSHELF, CHISELED_PEWEN_BOOKSHELF)
+                .addItemsAfter(modLoaded(Blocks.CHEST, DMHUtils.Constants.ALEXS_CAVES), PEWEN_CHEST)
 
                 .tab(CreativeModeTabs.INGREDIENTS)
                 .addItemsAfter(of(Items.LEATHER), LEATHER_SCRAPS)
 
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                 .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), PINE_NUTS_CRATE)
+                .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, DMHUtils.Constants.WOODWORKS), ANCIENT_LEAF_PILE)
                 .addItemsAfter(of(Items.DIRT_PATH), ALPHACENE_PATH)
+
+                .tab(CreativeModeTabs.REDSTONE_BLOCKS)
+                .addItemsBefore(ofID(DMHUtils.Constants.TRAPPED_BAMBOO_CLOSET, DMHUtils.Constants.ALEXS_CAVES), TRAPPED_PEWEN_CHEST)
 
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES),
@@ -78,25 +89,11 @@ public class DMHItems {
 
                 .predicate(DMHItems::fdPredicate)
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)
-
                 .predicate(DMHItems::mowziesPredicate)
-                .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.MOWZIES_MOBS, DMHUtils.Constants.ATMOSPHERIC),
+                .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.ATMOSPHERIC),
                         ARID_RAKED_SAND, RED_ARID_RAKED_SAND)
-                .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.MOWZIES_MOBS, DMHUtils.Constants.BLASTED_BARRENS),
+                .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.BLASTED_BARRENS),
                         ASHEN_RAKED_SAND);
-
-        CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID + "_alexscaves_woodworks")
-                .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, DMHUtils.Constants.WOODWORKS), PEWEN_BOARDS)
-                .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
-                .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_LADDER, DMHUtils.Constants.ALEXS_CAVES), PEWEN_LADDER)
-                .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_BEEHIVE, DMHUtils.Constants.ALEXS_CAVES), PEWEN_BEEHIVE)
-                .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_BOOKSHELF, DMHUtils.Constants.ALEXS_CAVES), PEWEN_BOOKSHELF)
-                .tab(CreativeModeTabs.NATURAL_BLOCKS)
-                .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, "woodworks"), ANCIENT_LEAF_PILE)
-                .tab(CreativeModeTabs.REDSTONE_BLOCKS)
-                .addItemsAfter(ofID(DMHUtils.Constants.BAMBOO_CLOSET, DMHUtils.Constants.ALEXS_CAVES), PEWEN_CHEST)
-                .addItemsAfter(ofID(DMHUtils.Constants.TRAPPED_BAMBOO_CLOSET, DMHUtils.Constants.ALEXS_CAVES), TRAPPED_PEWEN_CHEST);
     }
 
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {

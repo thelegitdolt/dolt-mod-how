@@ -1,7 +1,14 @@
-// 1.20.1	2025-03-30T13:51:12.258212	Tags for minecraft:item mod id dolt_mod_how
+// 1.20.1	2025-03-31T11:26:52.277638	Tags for minecraft:item mod id dolt_mod_how
+44cbf63521ec010707232b5b585de7d34b3bb2f5 data/blueprint/tags/items/wooden_beehives.json
+db30f8cdbca9e569d01c2704be69cdd6005c31f4 data/blueprint/tags/items/wooden_bookshelves.json
+63c962a1b30c0116e09868bda35db595c03bdbe5 data/blueprint/tags/items/wooden_chests.json
+a3abd2f86c3ed897e400e77389949c9b6df93972 data/blueprint/tags/items/wooden_ladders.json
+8e963054da4152fe5ffcdef5c843076d5c9a215f data/blueprint/tags/items/wooden_trapped_chests.json
 33c057152ba1e62c750784669ecceb558816938c data/dolt_mod_how/tags/items/leather.json
 e6b4e57e155b24ad18d64f433ddd4e2114506c7b data/forge/tags/items/buckets.json
 98599cbe34e11a9c17359df235f45f7df84489a6 data/forge/tags/items/buckets/acid.json
 35687f3b826de42b981e3b7104ead3b15ee07ca1 data/forge/tags/items/buckets/molten_lead.json
 a47e24a72399e26b59f9573cf73217c9d146e002 data/forge/tags/items/buckets/purple_soda.json
 7b9b7a0fc81cbc99c9f019a65a561f7c6180679c data/minecraft/tags/items/piglin_loved.json
+2bd7fada58e1c38d32cda136019e7798dc5682c5 data/woodworks/tags/items/leaf_piles.json
+395a10a61e020654984757a1b00b61af8bddf06c data/woodworks/tags/items/wooden_boards.json

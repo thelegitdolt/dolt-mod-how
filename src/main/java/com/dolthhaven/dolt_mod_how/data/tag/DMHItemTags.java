@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.teamabnormals.blueprint.core.other.tags.BlueprintBlockTags;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -40,5 +41,13 @@ public class DMHItemTags extends ItemTagsProvider {
 
         this.tag(BlueprintItemTags.BUCKETS)
                 .addTags(DMHTags.ACID_BUCKETS, DMHTags.PURPLE_SODA_BUCKETS, DMHTags.MOLTEN_LEAD_BUCKETS);
+
+        copy(BlueprintBlockTags.WOODEN_CHESTS, BlueprintItemTags.WOODEN_CHESTS);
+        copy(BlueprintBlockTags.WOODEN_BOARDS, BlueprintItemTags.WOODEN_BOARDS);
+        copy(BlueprintBlockTags.WOODEN_BOOKSHELVES, BlueprintItemTags.WOODEN_BOOKSHELVES);
+        copy(BlueprintBlockTags.WOODEN_TRAPPED_CHESTS, BlueprintItemTags.WOODEN_TRAPPED_CHESTS);
+        copy(BlueprintBlockTags.WOODEN_LADDERS, BlueprintItemTags.WOODEN_LADDERS);
+        copy(BlueprintBlockTags.WOODEN_BEEHIVES, BlueprintItemTags.WOODEN_BEEHIVES);
+        copy(BlueprintBlockTags.LEAF_PILES, BlueprintItemTags.LEAF_PILES);
     }
 }

@@ -58,6 +58,8 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
                     after(block, "_front" + suffix),
                     after(block, "_top"));
         });
+
+        this.blockItem(block);
     }
 
     private void rakedSand(RegistryObject<? extends Block> sand, RegistryObject<? extends Block> nonRaked) {

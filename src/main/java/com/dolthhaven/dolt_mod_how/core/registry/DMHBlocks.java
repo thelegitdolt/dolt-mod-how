@@ -20,8 +20,10 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
+import java.rmi.registry.Registry;
 import java.util.function.Supplier;
 
 import static net.minecraft.world.level.material.MapColor.TERRACOTTA_YELLOW;
@@ -54,6 +56,8 @@ public class DMHBlocks {
             new Block(DMHBlockProps.PEWEN.bookshelf()), 300);
     public static final RegistryObject<Block> CHISELED_PEWEN_BOOKSHELF = HELPER.createFuelBlock("chiseled_pewen_bookshelf", () ->
             new ChiseledPewenBookshelfBlock(DMHBlockProps.PEWEN.chiseledBookshelf()), 300);
+    public static final RegistryObject<Block> PEWEN_CABINET = HELPER.createFuelBlock("pewen_cabinet", () ->
+            new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get())), 300);
 
     public static final RegistryObject<Block> ANCIENT_LEAF_PILE = HELPER.createBlock("ancient_leaf_pile", () ->
             new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()));

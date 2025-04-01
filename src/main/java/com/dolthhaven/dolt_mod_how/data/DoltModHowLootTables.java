@@ -88,6 +88,7 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.add(PEWEN_BEEHIVE.get(), BlockLootSubProvider::createBeeHiveDrop);
             this.dropSelf(PEWEN_LADDER.get());
             this.dropSelf(PEWEN_BOARDS.get());
+            this.dropSelf(PEWEN_CABINET.get());
             this.dropWhenSilkTouch(CHISELED_PEWEN_BOOKSHELF.get());
             this.add(ANCIENT_LEAF_PILE.get(), block -> createMultifaceBlockDrops(block,
                     MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS))));

@@ -12,10 +12,12 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
+import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
@@ -34,6 +36,7 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         rakedSand(RED_ARID_RAKED_SAND, AtmosphericBlocks.RED_ARID_SAND);
         leafPileBlock(ACBlockRegistry.ANCIENT_LEAVES, ANCIENT_LEAF_PILE);
         chiseledBookshelfBlock(CHISELED_PEWEN_BOOKSHELF);
+        cabinetBlock(PEWEN_CABINET.get());
         stupidWoodworksBlocks("pewen", ACBlockRegistry.PEWEN_PLANKS, PEWEN_BOARDS, PEWEN_LADDER, PEWEN_BOOKSHELF, PEWEN_BEEHIVE, PEWEN_CHEST, TRAPPED_PEWEN_CHEST);
     }
 
@@ -47,6 +50,16 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         }
     }
 
+    public void cabinetBlock(Block block) {
+        this.horizontalBlock(block, (state) -> {
+            String suffix = state.getValue(CabinetBlock.OPEN) ? "_open" : "";
+            return this.models().orientable(name(block) + suffix,
+                    after(block,"_side"),
+                    after(block, "_front" + suffix),
+                    after(block, "_top"));
+        });
+    }
+
     private void rakedSand(RegistryObject<? extends Block> sand, RegistryObject<? extends Block> nonRaked) {
         String cubeTop = "block/cube_top";
         this.getVariantBuilder(sand.get()).forAllStates(state -> {
@@ -54,7 +67,7 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
                 String name = name(sand.get()) + (sandType.isEmpty() ? "" : "_" + sandType.replace("_", ""));
                 return ConfiguredModel.builder().modelFile(this.models().withExistingParent("block/" + name, cubeTop)
                         .texture("side", blockTexture(nonRaked.get()))
-                        .texture("top", mapPath(loc(sand), str -> "block/%s%s".formatted(name(sand.get()),
+                        .texture("top", loc(sand).withPath(str -> "block/%s%s".formatted(name(sand.get()),
                                 sandType.isEmpty() ? "" :  "_" + sandType.replace("_", "")))));
             };
 
@@ -84,12 +97,21 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         this.blockItem(sand.get());
     }
 
-    private ResourceLocation mapPath(ResourceLocation location, Function<String, String> mapper) {
-        return new ResourceLocation(location.getNamespace(), mapper.apply(location.getPath()));
-    }
 
     private ResourceLocation loc(Block block) {
         return block.builtInRegistryHolder().key().location();
+    }
+
+    private ResourceLocation blockTexture(Block block, UnaryOperator<String> mapper) {
+        return loc(block).withPath(str -> "block/" + mapper.apply(str));
+    }
+
+    private ResourceLocation blockTexture(RegistryObject<? extends Block> block, UnaryOperator<String> mapper) {
+        return blockTexture(block.get(), mapper);
+    }
+
+    private ResourceLocation after(Block block, String string) {
+        return blockTexture(block, str -> str + string);
     }
 
     private ResourceLocation loc(Supplier<? extends Block> block) {

@@ -33,7 +33,7 @@ public class DMHBlockTags extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE).add(PINE_NUTS_CRATE.get(), PEWEN_BEEHIVE.get(), PEWEN_BOOKSHELF.get(), PEWEN_CHEST.get(), PEWEN_LADDER.get(), TRAPPED_PEWEN_CHEST.get(), PEWEN_BEEHIVE.get(), PEWEN_BOARDS.get(), CHISELED_PEWEN_BOOKSHELF.get());
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(PINE_NUTS_CRATE.get(), PEWEN_BEEHIVE.get(), PEWEN_BOOKSHELF.get(), PEWEN_CHEST.get(), PEWEN_LADDER.get(), TRAPPED_PEWEN_CHEST.get(), PEWEN_BEEHIVE.get(), PEWEN_BOARDS.get(), CHISELED_PEWEN_BOOKSHELF.get(), PEWEN_CABINET.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get(), ARID_RAKED_SAND.get(), ASHEN_RAKED_SAND.get(), RED_ARID_RAKED_SAND.get());
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(ANCIENT_LEAF_PILE.get());
@@ -56,7 +56,6 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlueprintBlockTags.WOODEN_BOARDS).add(PEWEN_BOARDS.get());
         this.tag(BlueprintBlockTags.WOODEN_CHISELED_BOOKSHELVES).add(CHISELED_PEWEN_BOOKSHELF.get());
         this.tag(BlueprintBlockTags.LEAF_PILES).add(ANCIENT_LEAF_PILE.get());
-
 
         this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)
                 .addOptionalTag(new ResourceLocation("forge", "ores/silver"))

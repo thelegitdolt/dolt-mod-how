@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-30T19:53:15.558518	Recipes
+// 1.20.1	2025-03-31T17:42:29.890271	Recipes
 44477590c0a1b4f59a88eccf04c1afce1e029845 data/alexscaves/advancements/recipes/building_blocks/chiseled_pewen_bookshelf.json
 b35dacf80854957c9ea86715ef9832b3d5699135 data/alexscaves/advancements/recipes/building_blocks/pewen_bookshelf.json
 0ba0b9cf33be28bb42046a0146fc8668e9806e0b data/alexscaves/advancements/recipes/decorations/pewen_beehive.json
@@ -8,6 +8,7 @@ ebbc6399896c8d333f5a3ae5d25ae8b90da17ab4 data/alexscaves/recipes/pewen_beehive.j
 b842aa2f0b8c23608d863395e837078d5c74b043 data/alexscaves/recipes/pewen_bookshelf.json
 28638d8c5300139aa2df308cd3197a8138b07a67 data/alexscaves/recipes/pewen_ladder.json
 ea84a7d075e9c5a0e1580c5aa95c721a4b22bd92 data/dolt_mod_how/advancements/recipes/building_blocks/cobbled_deepslate_from_unpacking_sturdy_deepslate.json
+5a565ed063eb7b059e7a058f47dee290a0147084 data/dolt_mod_how/advancements/recipes/building_blocks/pewen_cabinet.json
 4dd367494091c866831c93e8b636eb23c06433a0 data/dolt_mod_how/advancements/recipes/building_blocks/sturdy_deepslate.json
 42f9343554ad05d4873e8037e2ffb04dd8ca960b data/dolt_mod_how/advancements/recipes/decorations/ancient_leaf_pile.json
 02b0b8b1908b3f6763d7c85628c7a22ace5e67a8 data/dolt_mod_how/advancements/recipes/decorations/pewen_boards.json
@@ -18,6 +19,7 @@ ea84a7d075e9c5a0e1580c5aa95c721a4b22bd92 data/dolt_mod_how/advancements/recipes/
 235da1bcb634ac3be0b1bd7e43ec66b8d9264a24 data/dolt_mod_how/recipes/chorus_soda.json
 ce7435392090590e453233b0da053ef05b15a60a data/dolt_mod_how/recipes/cobbled_deepslate_from_unpacking_sturdy_deepslate.json
 ae1b62c670802568b021dde28f7f77e13477b6a3 data/dolt_mod_how/recipes/pewen_boards.json
+3f52f3455812ed358e3b1f0cec3ce97a1f1fc23f data/dolt_mod_how/recipes/pewen_cabinet.json
 2069ff6d25d4bc48f091b644a4d5a2d1a049460b data/dolt_mod_how/recipes/pewen_chest.json
 41f4ac545df9577e009c7efefbe9aff882fc412d data/dolt_mod_how/recipes/sturdy_deepslate.json
 dbf92af20771e82cd3faeac444e55346b6b4db73 data/dolt_mod_how/recipes/trapped_pewen_chest.json

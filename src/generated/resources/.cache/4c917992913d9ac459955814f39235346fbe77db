@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-30T19:53:15.55724	Tags for minecraft:block mod id dolt_mod_how
+// 1.20.1	2025-03-31T17:42:29.887807	Tags for minecraft:block mod id dolt_mod_how
 44cbf63521ec010707232b5b585de7d34b3bb2f5 data/blueprint/tags/blocks/wooden_beehives.json
 db30f8cdbca9e569d01c2704be69cdd6005c31f4 data/blueprint/tags/blocks/wooden_bookshelves.json
 63c962a1b30c0116e09868bda35db595c03bdbe5 data/blueprint/tags/blocks/wooden_chests.json
@@ -13,7 +13,7 @@ a3abd2f86c3ed897e400e77389949c9b6df93972 data/blueprint/tags/blocks/wooden_ladde
 0e8b16648ff5d7fb5190c46e3d2ee7e5d0e5c911 data/dolt_mod_how/tags/blocks/rare_ores.json
 08ffaafb213a31beb0f9a18594287aef60d93225 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
 2846354f84a313a99faf2f4987afc24af0d36ea8 data/minecraft/tags/blocks/flower_pots.json
-8816c4e416a8eb66824ed78811ef8f6a548c6fd1 data/minecraft/tags/blocks/mineable/axe.json
+a575402930018c58179df977ca89193bd6ca52dd data/minecraft/tags/blocks/mineable/axe.json
 2bd7fada58e1c38d32cda136019e7798dc5682c5 data/minecraft/tags/blocks/mineable/hoe.json
 505508fb9f18dcf62185ee57d179b869ba9118d4 data/minecraft/tags/blocks/mineable/pickaxe.json
 94fbf3a679f6e5f371c2ddf648d941c3998beccf data/minecraft/tags/blocks/mineable/shovel.json

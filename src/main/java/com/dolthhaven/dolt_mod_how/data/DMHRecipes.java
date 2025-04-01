@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Paths;
@@ -52,5 +53,14 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         WoodworksRecipeProvider.leafPileRecipes(consumer, ACBlockRegistry.ANCIENT_LEAVES.get(), ANCIENT_LEAF_PILE.get());
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_LOG.get(), PEWEN_LADDER.get(), 4);
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_PLANKS.get(), PEWEN_LADDER.get(), 1);
+        cabinet(consumer, PEWEN_CABINET, ACBlockRegistry.PEWEN_PLANKS_SLAB, ACBlockRegistry.PEWEN_TRAPDOOR);
+    }
+
+    private void cabinet(Consumer<FinishedRecipe> consumer, RegistryObject<Block> cabinet, RegistryObject<Block> slab, RegistryObject<Block> trapdoor) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, cabinet.get())
+                .define('1', slab.get()).define('2', trapdoor.get())
+                .pattern("111").pattern("2 2").pattern("111")
+                .unlockedBy("has_pewen_slab", has(slab.get())).save(consumer);
+
     }
 }

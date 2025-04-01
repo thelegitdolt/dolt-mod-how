@@ -89,6 +89,7 @@ public class DMHItems {
 
                 .predicate(DMHItems::fdPredicate)
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)
+                .addItemsBefore(ofID(ModItems.BAMBOO_CABINET.getId()), PEWEN_CABINET)
                 .predicate(DMHItems::mowziesPredicate)
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.ATMOSPHERIC),
                         ARID_RAKED_SAND, RED_ARID_RAKED_SAND)

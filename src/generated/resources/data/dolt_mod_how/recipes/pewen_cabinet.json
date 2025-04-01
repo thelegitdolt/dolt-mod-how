@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "1": {
+      "item": "alexscaves:pewen_slab"
+    },
+    "2": {
+      "item": "alexscaves:pewen_trapdoor"
+    }
+  },
+  "pattern": [
+    "111",
+    "2 2",
+    "111"
+  ],
+  "result": {
+    "item": "dolt_mod_how:pewen_cabinet"
+  },
+  "show_notification": true
+}

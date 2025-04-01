@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "dolt_mod_how:block/pewen_cabinet_front",
+    "side": "dolt_mod_how:block/pewen_cabinet_side",
+    "top": "dolt_mod_how:block/pewen_cabinet_top"
+  }
+}

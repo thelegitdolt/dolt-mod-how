@@ -9,7 +9,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.List;
 
@@ -45,10 +44,10 @@ public class DMHSupplementariesCompat {
         if (ModList.get().isLoaded(DMHUtils.Constants.DYE_DEPOT)) {
             for (DyeColor color : BlocksColorInternal.MODDED_COLORS) {
                 if (dyeDepot.contains(color.toString())) {
-                    concretes.put(color, DMHUtils.getPotentialBlock(new ResourceLocation("dye_depot", color + "_concrete")));
-                    concretePowders.put(color, DMHUtils.getPotentialBlock(new ResourceLocation("dye_depot", color + "_concrete_powder")));
-                    concretesItems.put(color, DMHUtils.getPotentialItem(new ResourceLocation("dye_depot", color + "_concrete")));
-                    concretesPowderItems.put(color, DMHUtils.getPotentialItem(new ResourceLocation("dye_depot", color + "_concrete_powder")));
+                    concretes.put(color, DMHUtils.getPotentialBlock(new ResourceLocation(DMHUtils.Constants.DYE_DEPOT, color + "_concrete")));
+                    concretePowders.put(color, DMHUtils.getPotentialBlock(new ResourceLocation(DMHUtils.Constants.DYE_DEPOT, color + "_concrete_powder")));
+                    item(concretesItems, color, DMHUtils.Constants.DYE_DEPOT + ":" +  color + "_concrete");
+                    item(concretesPowderItems, color, DMHUtils.Constants.DYE_DEPOT + ":" +  color + "_concrete_powder");
 
                 }
             }

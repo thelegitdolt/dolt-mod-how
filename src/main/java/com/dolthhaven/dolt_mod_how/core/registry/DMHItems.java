@@ -79,7 +79,7 @@ public class DMHItems {
                 .addItemsAfter(of(Items.DIRT_PATH), ALPHACENE_PATH)
 
                 .tab(CreativeModeTabs.REDSTONE_BLOCKS)
-                .addItemsBefore(ofID(DMHUtils.Constants.TRAPPED_BAMBOO_CLOSET, DMHUtils.Constants.ALEXS_CAVES), TRAPPED_PEWEN_CHEST)
+                .addItemsAfter(modLoaded(Blocks.TRAPPED_CHEST, DMHUtils.Constants.ALEXS_CAVES), TRAPPED_PEWEN_CHEST)
 
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES),

@@ -14,6 +14,7 @@ import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
+import com.dolthhaven.dolt_mod_how.integration.DMHSupplementariesCompat;
 import com.dolthhaven.dolt_mod_how.integration.DoltModHowFishBarrelSetup;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -92,6 +93,7 @@ public class DoltModHow {
         event.enqueueWork(() -> {
             DoltModHowDispensers.registerDispenseBehavior();
             DoltModHowDataUtil.registerData();
+            DMHSupplementariesCompat.registerClayworksStuff();
             DMHPacketHandler.register();
         });
 

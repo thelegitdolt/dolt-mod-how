@@ -157,18 +157,7 @@ public class DMHEvent {
 
         boolean allowPriorWork = !DMHConfig.COMMON.disablePenaltyForDMHAnvilOps.get();
 
-        if (left.isDamaged() && right.getItem().isValidRepairItem(left, right)) {
-            ItemStack newLeft = left.copy();
-            int dur = newLeft.getMaxDamage();
-            int dam = newLeft.getDamageValue();
-            newLeft.setDamageValue(Math.min(
-                    dur, dam + (int) (dur / DMHConfig.COMMON.valuePerRepair.get())
-            ));
-            event.setOutput(newLeft);
-            event.setCost(1 + (allowPriorWork ? 0 : left.getBaseRepairCost()));
-            event.setResult(Event.Result.ALLOW);
-        }
-        else if (right.is(Items.ENCHANTED_BOOK) && DMHConfig.COMMON.muteExFriendlyAnvils.get()) {
+        if (right.is(Items.ENCHANTED_BOOK) && DMHConfig.COMMON.muteExFriendlyAnvils.get()) {
             int baseWorkCost, enchantmentCost = 0;
             baseWorkCost = allowPriorWork ? left.getBaseRepairCost() : 0;
 

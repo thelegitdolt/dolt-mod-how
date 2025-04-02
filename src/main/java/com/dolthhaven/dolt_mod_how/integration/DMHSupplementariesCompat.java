@@ -26,13 +26,10 @@ public class DMHSupplementariesCompat {
             return;
         }
 
-
         List<String> dyeDepot = List.of("rose", "maroon", "ginger", "tan", "beige", "coral", "olive", "forest", "verdant", "amber", "teal", "mint", "aqua", "slate", "navy", "indigo");
 
-        EnumMap<DyeColor, Block> concretes = new EnumMap<>(DyeColor.class);
-        EnumMap<DyeColor, Item> concretesItems = new EnumMap<>(DyeColor.class);
-        EnumMap<DyeColor, Item> concretesPowderItems = new EnumMap<>(DyeColor.class);
-        EnumMap<DyeColor, Block> concretePowders = new EnumMap<>(DyeColor.class);
+        EnumMap<DyeColor, Block> concretes = new EnumMap<>(DyeColor.class), concretePowders = new EnumMap<>(DyeColor.class);
+        EnumMap<DyeColor, Item> concretesItems = new EnumMap<>(DyeColor.class), concretesPowderItems = new EnumMap<>(DyeColor.class);
 
         for (DyeColor val : BlocksColorInternal.VANILLA_COLORS) {
             block(concretes, val, val + "_concrete");
@@ -44,11 +41,10 @@ public class DMHSupplementariesCompat {
         if (ModList.get().isLoaded(DMHUtils.Constants.DYE_DEPOT)) {
             for (DyeColor color : BlocksColorInternal.MODDED_COLORS) {
                 if (dyeDepot.contains(color.toString())) {
-                    concretes.put(color, DMHUtils.getPotentialBlock(new ResourceLocation(DMHUtils.Constants.DYE_DEPOT, color + "_concrete")));
-                    concretePowders.put(color, DMHUtils.getPotentialBlock(new ResourceLocation(DMHUtils.Constants.DYE_DEPOT, color + "_concrete_powder")));
+                    block(concretes, color, DMHUtils.Constants.DYE_DEPOT + ":" + color + "_concrete");
+                    block(concretePowders, color, DMHUtils.Constants.DYE_DEPOT + ":" + color + "_concrete_powder");
                     item(concretesItems, color, DMHUtils.Constants.DYE_DEPOT + ":" +  color + "_concrete");
                     item(concretesPowderItems, color, DMHUtils.Constants.DYE_DEPOT + ":" +  color + "_concrete_powder");
-
                 }
             }
         }

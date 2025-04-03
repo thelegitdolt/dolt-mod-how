@@ -13,11 +13,8 @@ public class DMHConfig {
         public final ConfigValue<Boolean> xpUponBlockPlace;
         public final ConfigValue<Integer> blockPlaceXpChance;
 
-        public final ConfigValue<Boolean> muteExFriendlyAnvils;
-        public final ConfigValue<Boolean> disablePenaltyForDMHAnvilOps;
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
         public final ConfigValue<Boolean> hoesRakeSand;
-        public final ConfigValue<Double> valuePerRepair;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
@@ -65,12 +62,6 @@ public class DMHConfig {
             doCropBlocksDropXP = builder.comment("If all blocks that are crops should drop experience.").define("Experienced Crops", true);
             minCropXpDrops = builder.comment("Minimum XP a crop block will drop when broken.").define("Minimum Crop XP", 0);
             maxCropXpDrops = builder.comment("Maximum XP a crop block will drop when broken.").define("Maximum Crop XP", 1);
-            builder.pop();
-
-            builder.push("anvil");
-            muteExFriendlyAnvils = builder.comment("Allow applying enchantment books to items with incompatible enchants. Voids incompatible enchants from the tool.").define("MutEx Friendly Anvils", true);
-            valuePerRepair = builder.comment("The percentage of durability much each material should repair on a tool, in an anvil. 0.25 in vanilla.").define("Repair Item Amount", 0.33);
-            disablePenaltyForDMHAnvilOps = builder.comment("For THIS MOD ONLY's operations, disable prior work enchantment penalty. ").define("Disable Prior Work For Above Operations", true);
             builder.pop();
 
             builder.push("dispensers");

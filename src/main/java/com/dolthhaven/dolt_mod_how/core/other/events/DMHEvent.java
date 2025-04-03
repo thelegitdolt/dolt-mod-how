@@ -150,60 +150,6 @@ public class DMHEvent {
         }
     }
 
-    @SubscribeEvent
-    public static void anvilEvent(AnvilUpdateEvent event) {
-        ItemStack left = event.getLeft();
-        ItemStack right = event.getRight();
-
-        boolean allowPriorWork = !DMHConfig.COMMON.disablePenaltyForDMHAnvilOps.get();
-
-        if (right.is(Items.ENCHANTED_BOOK) && DMHConfig.COMMON.muteExFriendlyAnvils.get()) {
-            int baseWorkCost, enchantmentCost = 0;
-            baseWorkCost = allowPriorWork ? left.getBaseRepairCost() : 0;
-
-            Map<Enchantment, Integer> bookEnchants = EnchantmentHelper.getEnchantments(right);
-            Map<Enchantment, Integer> toolEnchants = EnchantmentHelper.getEnchantments(left);
-            List<Pair<Enchantment, Integer>> newEnchants = new ArrayList<>();
-            ItemStack newLeft = left.copy();
-            List<Enchantment> toRemove = new ArrayList<>();
-
-            for (Map.Entry<Enchantment, Integer> toolEnchantInstance : toolEnchants.entrySet()) {
-                Enchantment enchant = toolEnchantInstance.getKey();
-                for (Map.Entry<Enchantment, Integer> bookEnchantInstance : bookEnchants.entrySet()) {
-                    Enchantment bookEnchant = bookEnchantInstance.getKey();
-                    boolean toolHasStrongerEnchant = toolEnchants.containsKey(bookEnchant) && toolEnchants.get(bookEnchant) >= bookEnchants.get(bookEnchant);
-                    if (!bookEnchant.canEnchant(left) || toolHasStrongerEnchant) {
-                        continue;
-                    }
-
-                    enchantmentCost += getCostForRarity(bookEnchant);
-                    if (!bookEnchant.isCompatibleWith(enchant)) {
-                        enchantmentCost -= getCostForRarity(enchant);
-                        toRemove.add(enchant);
-                    }
-                    newEnchants.add(Pair.of(bookEnchant, bookEnchantInstance.getValue()));
-                }
-            }
-
-            toolEnchants.entrySet().removeIf((map) -> toRemove.contains(map.getKey()));
-            newEnchants.forEach(pair -> toolEnchants.put(pair.getFirst(), pair.getSecond()));
-
-            EnchantmentHelper.setEnchantments(toolEnchants, newLeft);
-            event.setOutput(newLeft);
-            event.setCost(Math.max(baseWorkCost + enchantmentCost, 1));
-            event.setResult(Event.Result.ALLOW);
-        }
-    }
-
-    private static int getCostForRarity(Enchantment enchantment) {
-        return switch (enchantment.getRarity()) {
-            case COMMON -> 1;
-            case UNCOMMON -> 2;
-            case RARE -> 4;
-            case VERY_RARE -> 8;
-        };
-    }
-
 
 
 

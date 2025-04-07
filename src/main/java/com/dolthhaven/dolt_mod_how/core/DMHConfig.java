@@ -1,7 +1,9 @@
 package com.dolthhaven.dolt_mod_how.core;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.minecraftforge.common.Tags;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class DMHConfig {

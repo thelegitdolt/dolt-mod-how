@@ -145,12 +145,11 @@ public class DMHEvent {
     }
 
     @SubscribeEvent
-    public void playerWillDestroy(BlockEvent.BreakEvent event) {
+    public static void spawnCuts(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         ItemStack stack = player.getItemInHand(MAIN_HAND);
         BlockState state = event.getState();
-
-        if (stack.is(ModTags.KNIVES)) {
+        if (ModList.get().isLoaded(DMHUtils.Constants.ALEXS_CAVES) && stack.is(ModTags.KNIVES)) {
             ItemStack dropStack = DMHACCompat.getMeatDropWhenBroken(state);
             if (dropStack == null) {
                 return;

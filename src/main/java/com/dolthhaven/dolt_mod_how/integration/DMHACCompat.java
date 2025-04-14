@@ -23,6 +23,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.fml.ModList;
 
+import java.util.Objects;
+
 public class DMHACCompat {
 
     public static boolean explodePricklyCan(ItemStack stack, int index, RandomizableContainerBlockEntity can) {
@@ -42,7 +44,9 @@ public class DMHACCompat {
         return false;
     }
 
-    public static Item getMeatItem(DinosaurChopBlock block) {
+    public static Item getMeatItem(Block block) {
+        if (!ModList.get().isLoaded(DMHUtils.Constants.CAVE_DELIGHT)) return null;
+
         String path;
         if (block == ACBlockRegistry.COOKED_DINOSAUR_CHOP.get()) {
             path = "cooked_dino_cut";
@@ -54,6 +58,18 @@ public class DMHACCompat {
             return null;
         }
         return DMHUtils.getPotentialItem(new ResourceLocation(DMHUtils.Constants.CAVE_DELIGHT, path));
+    }
+
+    public static ItemStack getMeatDropWhenBroken(BlockState state) {
+        if (state.getBlock() instanceof DinosaurChopBlock block) {
+            int count = 4 - state.getValue(DinosaurChopBlock.BITES);
+            Item item = getMeatItem(block);
+            if (item == null) {
+                return null;
+            }
+            return new ItemStack(item, count);
+        }
+        return null;
     }
 
     public static BlockState exhaustOneBite(BlockState state) {
@@ -72,7 +88,7 @@ public class DMHACCompat {
             DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCRAP_METAL_PLATE.get(), ACBlockRegistry.SCRAP_METAL_PLATE.get());
             DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_BARREL.get(), ACBlockRegistry.METAL_BARREL.get());
             DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCAFFOLDING.get(), ACBlockRegistry.METAL_SCAFFOLDING.get());
-            DMHRightClickEvent.UNRUST_MAP.put( ACBlockRegistry.RUSTY_REBAR.get(), ACBlockRegistry.METAL_REBAR.get());
+            DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_REBAR.get(), ACBlockRegistry.METAL_REBAR.get());
         }
     }
 

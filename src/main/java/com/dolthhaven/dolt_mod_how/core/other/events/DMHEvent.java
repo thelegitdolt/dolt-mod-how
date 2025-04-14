@@ -3,23 +3,30 @@ package com.dolthhaven.dolt_mod_how.core.other.events;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
+import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -30,7 +37,9 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -132,6 +141,22 @@ public class DMHEvent {
 
                 event.setExpToDrop(crop_sampler.sample(level.getRandom()));
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void playerWillDestroy(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        ItemStack stack = player.getItemInHand(MAIN_HAND);
+        BlockState state = event.getState();
+
+        if (stack.is(ModTags.KNIVES)) {
+            ItemStack dropStack = DMHACCompat.getMeatDropWhenBroken(state);
+            if (dropStack == null) {
+                return;
+            }
+
+            Block.popResourceFromFace(player.level(), event.getPos(), Direction.UP, stack);
         }
     }
 

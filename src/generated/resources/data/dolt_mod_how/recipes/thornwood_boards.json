@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "blueprint:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "woodworks"
+            },
+            {
+              "type": "woodworks:config",
+              "value": "wooden_boards"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "group": "wooden_boards",
+        "key": {
+          "#": {
+            "item": "alexscaves:thornwood_slab"
+          }
+        },
+        "pattern": [
+          "#",
+          "#"
+        ],
+        "result": {
+          "item": "dolt_mod_how:thornwood_boards"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

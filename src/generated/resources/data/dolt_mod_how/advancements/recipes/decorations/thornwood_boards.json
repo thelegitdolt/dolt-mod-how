@@ -1,0 +1,56 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "dolt_mod_how:thornwood_boards"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          },
+          "has_thornwood_slab": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "alexscaves:thornwood_slab"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          }
+        },
+        "requirements": [
+          [
+            "has_thornwood_slab",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "dolt_mod_how:thornwood_boards"
+          ]
+        },
+        "sends_telemetry_event": false
+      },
+      "conditions": [
+        {
+          "type": "blueprint:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "woodworks"
+            },
+            {
+              "type": "woodworks:config",
+              "value": "wooden_boards"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

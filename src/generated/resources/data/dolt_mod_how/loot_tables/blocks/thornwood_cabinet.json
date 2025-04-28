@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_name",
+              "source": "block_entity"
+            }
+          ],
+          "name": "dolt_mod_how:thornwood_cabinet"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dolt_mod_how:blocks/thornwood_cabinet"
+}

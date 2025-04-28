@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "1": {
+      "item": "alexscaves:thornwood_slab"
+    },
+    "2": {
+      "item": "alexscaves:thornwood_slab"
+    }
+  },
+  "pattern": [
+    "111",
+    "2 2",
+    "111"
+  ],
+  "result": {
+    "item": "dolt_mod_how:thornwood_cabinet"
+  },
+  "show_notification": true
+}

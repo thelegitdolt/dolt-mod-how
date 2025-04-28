@@ -22,6 +22,7 @@ import java.nio.file.Paths;
 import java.util.function.Consumer;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.THORNWOOD_LADDER;
 
 public class DMHRecipes extends BlueprintRecipeProvider {
     public DMHRecipes(PackOutput output) {
@@ -50,10 +51,19 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         WoodworksRecipeProvider.baseRecipes(consumer, ACBlockRegistry.PEWEN_PLANKS.get(), ACBlockRegistry.PEWEN_PLANKS_SLAB.get(), PEWEN_BOARDS.get(), PEWEN_BOOKSHELF.get(),
                 CHISELED_PEWEN_BOOKSHELF.get(), PEWEN_LADDER.get(), PEWEN_BEEHIVE.get(), PEWEN_CHEST.get(),
                 TRAPPED_PEWEN_CHEST.get(), DMHUtils.Constants.ALEXS_CAVES);
+        WoodworksRecipeProvider.baseRecipes(consumer, ACBlockRegistry.THORNWOOD_PLANKS.get(), ACBlockRegistry.THORNWOOD_PLANKS_SLAB.get(), THORNWOOD_BOARDS.get(), THORNWOOD_BOOKSHELF.get(),
+                CHISELED_THORNWOOD_BOOKSHELF.get(), THORNWOOD_LADDER.get(), THORNWOOD_BEEHIVE.get(), THORNWOOD_CHEST.get(),
+                TRAPPED_THORNWOOD_CHEST.get(), DMHUtils.Constants.ALEXS_CAVES);
+
         WoodworksRecipeProvider.leafPileRecipes(consumer, ACBlockRegistry.ANCIENT_LEAVES.get(), ANCIENT_LEAF_PILE.get());
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_LOG.get(), PEWEN_LADDER.get(), 4);
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_PLANKS.get(), PEWEN_LADDER.get(), 1);
+
+        WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.THORNWOOD_LOG.get(), THORNWOOD_LADDER.get(), 4);
+        WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.THORNWOOD_PLANKS.get(), THORNWOOD_LADDER.get(), 1);
+
         cabinet(consumer, PEWEN_CABINET, ACBlockRegistry.PEWEN_PLANKS_SLAB, ACBlockRegistry.PEWEN_TRAPDOOR);
+        cabinet(consumer, THORNWOOD_CABINET, ACBlockRegistry.THORNWOOD_PLANKS_SLAB, ACBlockRegistry.THORNWOOD_PLANKS_SLAB);
     }
 
     private void cabinet(Consumer<FinishedRecipe> consumer, RegistryObject<Block> cabinet, RegistryObject<Block> slab, RegistryObject<Block> trapdoor) {

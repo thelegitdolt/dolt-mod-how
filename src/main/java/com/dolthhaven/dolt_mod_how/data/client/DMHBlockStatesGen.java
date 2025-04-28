@@ -20,6 +20,7 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.THORNWOOD_LADDER;
 
 public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
     public DMHBlockStatesGen(GatherDataEvent e) {
@@ -35,9 +36,13 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         rakedSand(ARID_RAKED_SAND, AtmosphericBlocks.ARID_SAND);
         rakedSand(RED_ARID_RAKED_SAND, AtmosphericBlocks.RED_ARID_SAND);
         leafPileBlock(ACBlockRegistry.ANCIENT_LEAVES, ANCIENT_LEAF_PILE);
+
         chiseledBookshelfBlock(CHISELED_PEWEN_BOOKSHELF);
+        chiseledBookshelfBlock(CHISELED_THORNWOOD_BOOKSHELF);
         cabinetBlock(PEWEN_CABINET.get());
+        cabinetBlock(THORNWOOD_CABINET.get());
         stupidWoodworksBlocks("pewen", ACBlockRegistry.PEWEN_PLANKS, PEWEN_BOARDS, PEWEN_LADDER, PEWEN_BOOKSHELF, PEWEN_BEEHIVE, PEWEN_CHEST, TRAPPED_PEWEN_CHEST);
+        stupidWoodworksBlocks("thornwood", ACBlockRegistry.THORNWOOD_PLANKS, THORNWOOD_BOARDS, THORNWOOD_LADDER, THORNWOOD_BOOKSHELF, THORNWOOD_BEEHIVE, THORNWOOD_CHEST, TRAPPED_THORNWOOD_CHEST);
     }
 
 
@@ -125,13 +130,14 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         this.ladderBlock(ladder);
         this.beehiveBlock(beehive);
         this.stupidBookshelf(planks.get(), type, bookshelf);
-        this.stupidChestBlocks("pewen", planks, chest, trappedChest);
+        this.stupidChestBlocks(type, planks, chest, trappedChest);
     }
 
     public void stupidChestBlocks(String type, RegistryObject<Block> planks, RegistryObject<? extends Block> chest, RegistryObject<? extends Block> trappedChest) {
         this.stupidChestBlocks(type, planks.get(), chest, trappedChest);
     }
 
+    // this is copied from blueprint because alex's caves is stupid
     public void stupidChestBlocks(String type, Block planks, RegistryObject<? extends Block> chest, RegistryObject<? extends Block> trappedChest) {
         ModelFile model = this.particle(chest, loc(planks).withPath(str -> "block/%s/%s".formatted(type, str)));
         this.simpleBlock(chest.get(), model);

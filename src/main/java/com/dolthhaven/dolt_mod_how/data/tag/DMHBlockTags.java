@@ -33,7 +33,8 @@ public class DMHBlockTags extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE).add(PINE_NUTS_CRATE.get(), PEWEN_BEEHIVE.get(), PEWEN_BOOKSHELF.get(), PEWEN_CHEST.get(), PEWEN_LADDER.get(), TRAPPED_PEWEN_CHEST.get(), PEWEN_BEEHIVE.get(), PEWEN_BOARDS.get(), CHISELED_PEWEN_BOOKSHELF.get(), PEWEN_CABINET.get());
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(PINE_NUTS_CRATE.get(), PEWEN_BEEHIVE.get(), PEWEN_BOOKSHELF.get(), PEWEN_CHEST.get(), PEWEN_LADDER.get(), TRAPPED_PEWEN_CHEST.get(), PEWEN_BEEHIVE.get(), PEWEN_BOARDS.get(), CHISELED_PEWEN_BOOKSHELF.get(), PEWEN_CABINET.get(),
+                THORNWOOD_BEEHIVE.get(), THORNWOOD_LADDER.get(), THORNWOOD_BOOKSHELF.get(), THORNWOOD_BOARDS.get(), CHISELED_THORNWOOD_BOOKSHELF.get(), THORNWOOD_CHEST.get(), TRAPPED_THORNWOOD_CHEST.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get(), ARID_RAKED_SAND.get(), ASHEN_RAKED_SAND.get(), RED_ARID_RAKED_SAND.get());
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(ANCIENT_LEAF_PILE.get());
@@ -48,13 +49,13 @@ public class DMHBlockTags extends BlockTagsProvider {
                 POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get(), POTTED_TOMATOES.get(), POTTED_ONION.get(), POTTED_CABBAGE.get(),
                 POTTED_STRAWBERRIES.get(), POTTED_WHITE_STRAWBERRIES.get());
 
-        this.tag(BlueprintBlockTags.WOODEN_CHESTS).add(PEWEN_CHEST.get());
-        this.tag(BlueprintBlockTags.WOODEN_TRAPPED_CHESTS).add(TRAPPED_PEWEN_CHEST.get());
-        this.tag(BlueprintBlockTags.WOODEN_LADDERS).add(PEWEN_LADDER.get());
-        this.tag(BlueprintBlockTags.WOODEN_BEEHIVES).add(PEWEN_BEEHIVE.get());
-        this.tag(BlueprintBlockTags.WOODEN_BOOKSHELVES).add(PEWEN_BOOKSHELF.get());
-        this.tag(BlueprintBlockTags.WOODEN_BOARDS).add(PEWEN_BOARDS.get());
-        this.tag(BlueprintBlockTags.WOODEN_CHISELED_BOOKSHELVES).add(CHISELED_PEWEN_BOOKSHELF.get());
+        this.tag(BlueprintBlockTags.WOODEN_CHESTS).add(PEWEN_CHEST.get(), THORNWOOD_CHEST.get());
+        this.tag(BlueprintBlockTags.WOODEN_TRAPPED_CHESTS).add(TRAPPED_PEWEN_CHEST.get(), TRAPPED_PEWEN_CHEST.get());
+        this.tag(BlueprintBlockTags.WOODEN_LADDERS).add(PEWEN_LADDER.get(), THORNWOOD_LADDER.get());
+        this.tag(BlueprintBlockTags.WOODEN_BEEHIVES).add(PEWEN_BEEHIVE.get(), THORNWOOD_BEEHIVE.get());
+        this.tag(BlueprintBlockTags.WOODEN_BOOKSHELVES).add(PEWEN_BOOKSHELF.get(), THORNWOOD_BOOKSHELF.get());
+        this.tag(BlueprintBlockTags.WOODEN_BOARDS).add(PEWEN_BOARDS.get(), THORNWOOD_BOARDS.get());
+        this.tag(BlueprintBlockTags.WOODEN_CHISELED_BOOKSHELVES).add(CHISELED_PEWEN_BOOKSHELF.get(), CHISELED_THORNWOOD_BOOKSHELF.get());
         this.tag(BlueprintBlockTags.LEAF_PILES).add(ANCIENT_LEAF_PILE.get());
 
         this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)

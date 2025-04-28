@@ -1,0 +1,44 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "blueprint:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "woodworks"
+            },
+            {
+              "type": "woodworks:config",
+              "value": "wooden_bookshelves"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "building",
+        "group": "chiseled_wooden_bookshelf",
+        "key": {
+          "#": {
+            "item": "alexscaves:thornwood_planks"
+          },
+          "X": {
+            "item": "alexscaves:thornwood_slab"
+          }
+        },
+        "pattern": [
+          "###",
+          "XXX",
+          "###"
+        ],
+        "result": {
+          "item": "dolt_mod_how:chiseled_thornwood_bookshelf"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

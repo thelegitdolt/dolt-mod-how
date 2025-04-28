@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.PEWEN_CABINET;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.THORNWOOD_CABINET;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.*;
 
 public class DMHItemTags extends ItemTagsProvider {
@@ -52,6 +53,6 @@ public class DMHItemTags extends ItemTagsProvider {
         copy(BlueprintBlockTags.WOODEN_BEEHIVES, BlueprintItemTags.WOODEN_BEEHIVES);
         copy(BlueprintBlockTags.LEAF_PILES, BlueprintItemTags.LEAF_PILES);
 
-        this.tag(ModTags.WOODEN_CABINETS).add(PEWEN_CABINET.get().asItem());
+        this.tag(ModTags.WOODEN_CABINETS).add(PEWEN_CABINET.get().asItem(), THORNWOOD_CABINET.get().asItem());
     }
 }

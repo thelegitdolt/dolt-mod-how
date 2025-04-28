@@ -59,6 +59,21 @@ public class DMHBlocks {
     public static final RegistryObject<Block> PEWEN_CABINET = HELPER.createFuelBlock("pewen_cabinet", () ->
             new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get())), 300);
 
+    public static final RegistryObject<Block> THORNWOOD_BEEHIVE = HELPER.createFuelBlock("thornwood_beehive", () ->
+            new BlueprintBeehiveBlock(DMHBlockProps.THORNWOOD.beehive()), 300);
+    public static final RegistryObject<BlueprintChestBlock> THORNWOOD_CHEST = HELPER.createChestBlock("thornwood", DMHBlockProps.PEWEN.chest());
+    public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_THORNWOOD_CHEST = HELPER.createTrappedChestBlockNamed("thornwood", DMHBlockProps.THORNWOOD.chest());
+    public static final RegistryObject<Block> THORNWOOD_LADDER = HELPER.createFuelBlock("thornwood_ladder", () ->
+            new LadderBlock(DMHBlockProps.THORNWOOD.ladder()), 300);
+    public static final RegistryObject<Block> THORNWOOD_BOARDS = HELPER.createFuelBlock("thornwood_boards", () ->
+            new RotatedPillarBlock(DMHBlockProps.THORNWOOD.planks()), 300);
+    public static final RegistryObject<Block> THORNWOOD_BOOKSHELF = HELPER.createFuelBlock("thornwood_bookshelf", () ->
+            new Block(DMHBlockProps.THORNWOOD.bookshelf()), 300);
+    public static final RegistryObject<Block> CHISELED_THORNWOOD_BOOKSHELF = HELPER.createFuelBlock("chiseled_thornwood_bookshelf", () ->
+            new ChiseledPewenBookshelfBlock(DMHBlockProps.THORNWOOD.chiseledBookshelf()), 300);
+    public static final RegistryObject<Block> THORNWOOD_CABINET = HELPER.createFuelBlock("thornwood_cabinet", () ->
+            new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get())), 300);
+
     public static final RegistryObject<Block> ANCIENT_LEAF_PILE = HELPER.createBlock("ancient_leaf_pile", () ->
             new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()));
 
@@ -111,6 +126,8 @@ public class DMHBlocks {
 
         public static final PropertyUtil.WoodSetProperties PEWEN = PropertyUtil
                 .WoodSetProperties.builder(MapColor.WOOD).sound(SoundType.CHERRY_WOOD).instrument(NoteBlockInstrument.BASS).build();
+        public static final PropertyUtil.WoodSetProperties THORNWOOD = PropertyUtil
+                .WoodSetProperties.builder(MapColor.TERRACOTTA_BLACK).instrument(NoteBlockInstrument.BASS).build();
     }
 
 }

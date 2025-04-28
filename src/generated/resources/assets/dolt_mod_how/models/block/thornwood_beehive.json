@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "dolt_mod_how:block/thornwood_beehive_end",
+    "front": "dolt_mod_how:block/thornwood_beehive_front",
+    "particle": "dolt_mod_how:block/thornwood_beehive_side",
+    "side": "dolt_mod_how:block/thornwood_beehive_side",
+    "top": "dolt_mod_how:block/thornwood_beehive_end"
+  }
+}

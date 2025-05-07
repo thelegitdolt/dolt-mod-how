@@ -4,6 +4,10 @@
     "#minecraft:iron_ores",
     "#minecraft:copper_ores",
     {
+      "id": "pigsteel:porkslag",
+      "required": false
+    },
+    {
       "id": "#forge:ores/jade",
       "required": false
     },

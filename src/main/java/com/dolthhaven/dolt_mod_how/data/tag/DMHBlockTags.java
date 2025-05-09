@@ -58,6 +58,10 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlueprintBlockTags.WOODEN_CHISELED_BOOKSHELVES).add(CHISELED_PEWEN_BOOKSHELF.get(), CHISELED_THORNWOOD_BOOKSHELF.get());
         this.tag(BlueprintBlockTags.LEAF_PILES).add(ANCIENT_LEAF_PILE.get());
 
+        this.tag(ModTags.MINEABLE_WITH_KNIFE)
+                .addOptional(DMHUtils.Constants.DINOSAUR_CHOP)
+                .addOptional(DMHUtils.Constants.COOKED_DINOSAUR_CHOPS);
+
         this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)
                 .addOptionalTag(new ResourceLocation("forge", "ores/silver"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/tin"));

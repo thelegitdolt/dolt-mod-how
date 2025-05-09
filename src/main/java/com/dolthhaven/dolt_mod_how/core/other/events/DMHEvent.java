@@ -155,7 +155,7 @@ public class DMHEvent {
                 return;
             }
 
-            Block.popResourceFromFace(player.level(), event.getPos(), Direction.UP, stack);
+            Block.popResourceFromFace(player.level(), event.getPos(), Direction.UP, dropStack);
         }
     }
 

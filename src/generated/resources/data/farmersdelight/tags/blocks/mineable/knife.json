@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "alexscaves:dinosaur_chop",
+      "required": false
+    },
+    {
+      "id": "alexscaves:cooked_dinosaur_chop",
+      "required": false
+    }
+  ]
+}

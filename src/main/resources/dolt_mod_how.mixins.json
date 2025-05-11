@@ -29,6 +29,7 @@
     "quark.PathfinderItemMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
     "supplementaries.ItemDisplayTileMixin",
+    "vanilla.BeaconMixin",
     "vanilla.CakeMixin",
     "vanilla.CocoaBlockMixin",
     "vanilla.ComposterBlockMixin",

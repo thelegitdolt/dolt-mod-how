@@ -32,6 +32,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> sackOfSatingNoRestoreSat;
         public final ConfigValue<Boolean> actuallyGoodBiomeTreats;
         public final ConfigValue<Boolean> pathfinderQuillMakesCaveMaps;
+        public final ConfigValue<Boolean> hideBeaconParticles;
 
         public final ConfigValue<Boolean> damageReductions;
 
@@ -48,6 +49,10 @@ public class DMHConfig {
             builder.push("Vanilla");
             builder.push("metal_ores");
             doMetalOresDropXP = builder.comment("If mining ores that normally drop raw ores should grant XP").define("Experienced metal", true);
+            builder.pop();
+
+            builder.push("beacons");
+            hideBeaconParticles = builder.comment("If status effects given you by beacons should NOT give off potion particles").define("Hidden beacon particles", false);
             builder.pop();
 
             builder.push("farmland");

@@ -8,7 +8,11 @@
       "required": false
     },
     {
-      "id": "#forge:ores/jade",
+      "id": "sullysmod:jade_ore",
+      "required": false
+    },
+    {
+      "id": "sullysmod:deepslate_jade_ore",
       "required": false
     },
     {

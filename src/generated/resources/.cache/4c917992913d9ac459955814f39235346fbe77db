@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-09T15:10:03.257355	Tags for minecraft:block mod id dolt_mod_how
+// 1.20.1	2025-05-15T16:24:58.181014	Tags for minecraft:block mod id dolt_mod_how
 a546b8d6d9ef4880fe9d2f2786cca558b1eca7f8 data/blueprint/tags/blocks/wooden_beehives.json
 f3edab4b40bf9082933b2196e29d5efadbbbae2d data/blueprint/tags/blocks/wooden_bookshelves.json
 be93ccfb6564e382318d4275973099df90d1db6f data/blueprint/tags/blocks/wooden_chests.json
@@ -7,7 +7,7 @@ a59394c5938d8aad68399df31f3f96dd529377b9 data/blueprint/tags/blocks/wooden_chise
 aa5a2b2c2af347a3beb2309fd1eb8961f783506c data/blueprint/tags/blocks/wooden_trapped_chests.json
 0defb48f4f79d0a8a25a32dd7039e747cea74f57 data/dolt_mod_how/tags/blocks/channels_lightning.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/dolt_mod_how/tags/blocks/cocoa_beans_additionally_plantable_on.json
-371603a77af548b0d5789871143796c14da719eb data/dolt_mod_how/tags/blocks/common_ores.json
+c1169b8f19af628ee5d01b0f9145c8b02afaa0a3 data/dolt_mod_how/tags/blocks/common_ores.json
 0998b262bff03c8c017b55f94c3b4fcd9bed171e data/dolt_mod_how/tags/blocks/no_xp_crops.json
 28a395dbbea7d606bdda14cc8bcab6399d173b6b data/dolt_mod_how/tags/blocks/no_xp_reward_on_place.json
 0e8b16648ff5d7fb5190c46e3d2ee7e5d0e5c911 data/dolt_mod_how/tags/blocks/rare_ores.json

@@ -29,7 +29,6 @@ public abstract class PathfinderItemMixin {
             player.setItemInHand(hand, mapStack);
 
             Item item = DMHUtils.getPotentialItem(DMHUtils.Constants.ALEXS_CAVES, "cave_map");
-            assert item != null;
             InteractionResultHolder<ItemStack> useResult = item.use(level, player, hand);
 
             cir.setReturnValue(useResult);

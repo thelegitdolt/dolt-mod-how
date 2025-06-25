@@ -67,7 +67,8 @@ public class DMHBlockTags extends BlockTagsProvider {
                 .addOptionalTag(new ResourceLocation("forge", "ores/tin"));
         this.tag(DMHTags.COMMON_ORES).add(AMETHYST_CLUSTER).addTags(BlockTags.IRON_ORES, BlockTags.COPPER_ORES)
                 .addOptional(new ResourceLocation("pigsteel", "porkslag"))
-                .addOptionalTag(new ResourceLocation("forge", "ores/jade"))
+                .addOptional(new ResourceLocation("sullysmod", "jade_ore"))
+                .addOptional(new ResourceLocation("sullysmod", "deepslate_jade_ore"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/lead"))
                 .addOptionalTag(new ResourceLocation("forge", "ores/zinc"));
 

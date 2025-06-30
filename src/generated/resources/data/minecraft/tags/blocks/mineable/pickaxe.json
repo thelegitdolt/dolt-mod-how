@@ -1,5 +1,10 @@
 {
   "values": [
-    "dolt_mod_how:sturdy_deepslate"
+    "dolt_mod_how:sturdy_deepslate",
+    "dolt_mod_how:zinc_brick_slab",
+    "dolt_mod_how:zinc_bricks",
+    "dolt_mod_how:zinc_brick_wall",
+    "dolt_mod_how:chiseled_zinc_bricks",
+    "dolt_mod_how:zinc_brick_stairs"
   ]
 }

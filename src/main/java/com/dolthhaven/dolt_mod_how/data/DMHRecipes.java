@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHBlockFamilies;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
@@ -10,9 +11,12 @@ import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
+import net.minecraftforge.common.crafting.conditions.AndCondition;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import net.minecraftforge.registries.RegistryObject;
@@ -29,6 +33,9 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         super(DoltModHow.MOD_ID, output);
     }
     public static final ModLoadedCondition ALEXSCAVES_LOADED = new ModLoadedCondition(DMHUtils.Constants.ALEXS_CAVES);
+    public static final ModLoadedCondition CREATE_LOADED = new ModLoadedCondition(DMHUtils.Constants.CREATE);
+    public static final ModLoadedCondition CAVERNS_CHASMS_LOADED = new ModLoadedCondition(DMHUtils.Constants.CAVERNS_AND_CHASMS);
+    public static final AndCondition CCC_LOADED = new AndCondition(CREATE_LOADED, CAVERNS_CHASMS_LOADED);
 
     @Override
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
@@ -64,6 +71,13 @@ public class DMHRecipes extends BlueprintRecipeProvider {
 
         cabinet(consumer, PEWEN_CABINET, ACBlockRegistry.PEWEN_PLANKS_SLAB, ACBlockRegistry.PEWEN_TRAPDOOR);
         cabinet(consumer, THORNWOOD_CABINET, ACBlockRegistry.THORNWOOD_PLANKS_SLAB, ACBlockRegistry.THORNWOOD_PLANKS_SLAB);
+
+        stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_SLAB.get(), ZINC_BRICKS.get(), 2);
+        stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_STAIRS.get(), ZINC_BRICKS.get(), 1);
+        stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, CHISELED_ZINC_BRICKS.get(), ZINC_BRICKS.get(), 1);
+        stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_WALL.get(), ZINC_BRICKS.get(), 1);
+
+        generateRecipes(consumer, DMHBlockFamilies.ZINC_BRICKS_FAMILY);
     }
 
     private void cabinet(Consumer<FinishedRecipe> consumer, RegistryObject<Block> cabinet, RegistryObject<Block> slab, RegistryObject<Block> trapdoor) {
@@ -71,6 +85,5 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                 .define('1', slab.get()).define('2', trapdoor.get())
                 .pattern("111").pattern("2 2").pattern("111")
                 .unlockedBy("has_pewen_slab", has(slab.get())).save(consumer);
-
     }
 }

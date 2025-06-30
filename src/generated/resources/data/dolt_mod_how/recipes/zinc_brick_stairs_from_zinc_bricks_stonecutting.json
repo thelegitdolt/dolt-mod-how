@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "dolt_mod_how:zinc_bricks"
+  },
+  "result": "dolt_mod_how:zinc_brick_stairs"
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dolt_mod_how:block/zinc_brick_slab"
+    },
+    "type=double": {
+      "model": "dolt_mod_how:block/zinc_bricks"
+    },
+    "type=top": {
+      "model": "dolt_mod_how:block/zinc_brick_slab_top"
+    }
+  }
+}

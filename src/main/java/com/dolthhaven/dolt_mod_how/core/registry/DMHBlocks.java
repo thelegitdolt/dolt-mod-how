@@ -26,6 +26,8 @@ import vectorwing.farmersdelight.common.registry.ModBlocks;
 import java.rmi.registry.Registry;
 import java.util.function.Supplier;
 
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.ZINC_PLATED_BRICKS;
+import static net.minecraft.world.level.material.MapColor.GLOW_LICHEN;
 import static net.minecraft.world.level.material.MapColor.TERRACOTTA_YELLOW;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -111,6 +113,15 @@ public class DMHBlocks {
     public static final RegistryObject<Block> ASHEN_RAKED_SAND = HELPER.createBlock("ashen_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
             DMHMowziesMobsCompat.RAKED_ASHEN_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
 
+    public static final RegistryObject<Block> ZINC_BRICKS = HELPER.createBlock("zinc_bricks", () -> new Block(ZINC_PLATED_BRICKS));
+    public static final RegistryObject<Block> ZINC_BRICK_STAIRS = HELPER.createBlock("zinc_brick_stairs", () ->
+            new StairBlock(() -> ZINC_BRICKS.get().defaultBlockState(), ZINC_PLATED_BRICKS));
+    public static final RegistryObject<Block> ZINC_BRICK_SLAB = HELPER.createBlock("zinc_brick_slab", () ->
+            new SlabBlock(ZINC_PLATED_BRICKS));
+    public static final RegistryObject<Block> ZINC_BRICK_WALL = HELPER.createBlock("zinc_brick_wall", () ->
+            new WallBlock(ZINC_PLATED_BRICKS));
+    public static final RegistryObject<Block> CHISELED_ZINC_BRICKS = HELPER.createBlock("chiseled_zinc_bricks", () -> new Block(ZINC_PLATED_BRICKS));
+
     private static Supplier<? extends Block> getPot(String id, Supplier<? extends Block> block) {
         return ModList.get().isLoaded(id) ? block : () -> new Block(PropertyUtil.flowerPot());
     }
@@ -123,6 +134,9 @@ public class DMHBlocks {
                 .strength(0.65F).sound(BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.SPECIES) ? DMHSpeciesCompat.opSound() : SoundType.GRAVEL).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always);
         public static final BlockBehaviour.Properties PINE_NUT_CRATE = BlockBehaviour.Properties.of().mapColor(TERRACOTTA_YELLOW)
                 .strength(1.5f).sound(SoundType.WOOD).ignitedByLava();
+
+        public static final BlockBehaviour.Properties ZINC_PLATED_BRICKS = BlockBehaviour.Properties.of().mapColor(GLOW_LICHEN)
+                .strength(3.0f, 6.0f).sound(SoundType.METAL).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM);
 
         public static final PropertyUtil.WoodSetProperties PEWEN = PropertyUtil
                 .WoodSetProperties.builder(MapColor.WOOD).sound(SoundType.CHERRY_WOOD).instrument(NoteBlockInstrument.BASS).build();

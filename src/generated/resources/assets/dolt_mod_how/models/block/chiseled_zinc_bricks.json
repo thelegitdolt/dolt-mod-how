@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dolt_mod_how:block/chiseled_zinc_bricks"
+  }
+}

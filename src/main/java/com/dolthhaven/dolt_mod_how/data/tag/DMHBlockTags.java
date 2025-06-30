@@ -31,7 +31,8 @@ public class DMHBlockTags extends BlockTagsProvider {
                 .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony"))
                 .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
 
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get(), ZINC_BRICK_SLAB.get(), ZINC_BRICKS.get(), ZINC_BRICK_WALL.get(),
+                CHISELED_ZINC_BRICKS.get(), ZINC_BRICK_STAIRS.get());
 
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(PINE_NUTS_CRATE.get(), PEWEN_BEEHIVE.get(), PEWEN_BOOKSHELF.get(), PEWEN_CHEST.get(), PEWEN_LADDER.get(), TRAPPED_PEWEN_CHEST.get(), PEWEN_BEEHIVE.get(), PEWEN_BOARDS.get(), CHISELED_PEWEN_BOOKSHELF.get(), PEWEN_CABINET.get(),
                 THORNWOOD_BEEHIVE.get(), THORNWOOD_LADDER.get(), THORNWOOD_BOOKSHELF.get(), THORNWOOD_BOARDS.get(), CHISELED_THORNWOOD_BOOKSHELF.get(), THORNWOOD_CHEST.get(), TRAPPED_THORNWOOD_CHEST.get());

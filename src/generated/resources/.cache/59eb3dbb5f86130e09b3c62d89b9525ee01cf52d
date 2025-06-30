@@ -1,10 +1,11 @@
-// 1.20.1	2025-04-28T15:14:20.369288	Loot Tables
+// 1.20.1	2025-06-30T18:46:01.714506	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
 59a85b165f87c048d1d2c8990c3bbcf648562eca data/dolt_mod_how/loot_tables/blocks/ancient_leaf_pile.json
 69585cd0b2418ee751f5f6355ea336e3e98e2491 data/dolt_mod_how/loot_tables/blocks/arid_raked_sand.json
 65ee58dd75f590efa9e990b11feb03ffe34a4501 data/dolt_mod_how/loot_tables/blocks/ashen_raked_sand.json
 088b2537330caf2a9a1d10aa11a87ea991515854 data/dolt_mod_how/loot_tables/blocks/chiseled_pewen_bookshelf.json
 122d61f383ec91725c9051d371ca7a2f2c8af375 data/dolt_mod_how/loot_tables/blocks/chiseled_thornwood_bookshelf.json
+bcae00234b3a3b03707a02914a35529368c97e16 data/dolt_mod_how/loot_tables/blocks/chiseled_zinc_bricks.json
 dffebd73d5c05fbca55572c5f7dc60cdc2927c3f data/dolt_mod_how/loot_tables/blocks/glowshroom_colony.json
 24e9028868a55d31c09319672d209a72488b3f7b data/dolt_mod_how/loot_tables/blocks/pewen_beehive.json
 29dbbca74ea521678b109319ef4b680f51c3814c data/dolt_mod_how/loot_tables/blocks/pewen_boards.json
@@ -32,3 +33,7 @@ d2109a881f98068402924476d65c32fba6baa819 data/dolt_mod_how/loot_tables/blocks/th
 ef8aa5a948e9e4d1d4e5072f7ff30535238c4c27 data/dolt_mod_how/loot_tables/blocks/thornwood_ladder.json
 50fd04d272ba22693e7a08452649f2962c98d888 data/dolt_mod_how/loot_tables/blocks/trapped_pewen_chest.json
 80dcb5c6934c7b5b6a00c98c370aa6151dcce39c data/dolt_mod_how/loot_tables/blocks/trapped_thornwood_chest.json
+aa3697f0f12fabcafefb6971c612e573b0ba293a data/dolt_mod_how/loot_tables/blocks/zinc_brick_slab.json
+c8abbebd5b7f78f4ec3642b71b5634da220e4b97 data/dolt_mod_how/loot_tables/blocks/zinc_brick_stairs.json
+87ac2350a9a81b92949077a023219a7305c13da1 data/dolt_mod_how/loot_tables/blocks/zinc_brick_wall.json
+6c3c4760ee15ae57902599888900658755e11402 data/dolt_mod_how/loot_tables/blocks/zinc_bricks.json

@@ -43,6 +43,13 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         cabinetBlock(THORNWOOD_CABINET.get());
         stupidWoodworksBlocks("pewen", ACBlockRegistry.PEWEN_PLANKS, PEWEN_BOARDS, PEWEN_LADDER, PEWEN_BOOKSHELF, PEWEN_BEEHIVE, PEWEN_CHEST, TRAPPED_PEWEN_CHEST);
         stupidWoodworksBlocks("thornwood", ACBlockRegistry.THORNWOOD_PLANKS, THORNWOOD_BOARDS, THORNWOOD_LADDER, THORNWOOD_BOOKSHELF, THORNWOOD_BEEHIVE, THORNWOOD_CHEST, TRAPPED_THORNWOOD_CHEST);
+
+        block(ZINC_BRICKS);
+        block(CHISELED_ZINC_BRICKS);
+        wallBlock(ZINC_BRICKS.get(), ZINC_BRICK_WALL.get());
+        stairsBlock(ZINC_BRICKS.get(), ZINC_BRICK_WALL.get());
+        slabBlock(ZINC_BRICKS.get(), ZINC_BRICK_SLAB.get());
+
     }
 
 

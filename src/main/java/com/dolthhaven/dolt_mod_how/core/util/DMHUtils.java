@@ -114,8 +114,10 @@ public class DMHUtils {
         public static final ResourceLocation DINOSAUR_CHOP = new ResourceLocation(ALEXS_CAVES, "dinosaur_chop");
         public static final ResourceLocation COOKED_DINOSAUR_CHOPS = new ResourceLocation(ALEXS_CAVES, "cooked_dinosaur_chop");
 
-        public static final ResourceLocation MOWZIES_MOBS_TAB = new ResourceLocation(MOWZIES_MOBS, "mowziesmobs_tab");
+        public static final ResourceLocation ZINC_BLOCK = new ResourceLocation(CREATE, "zinc_block");
 
+        public static final ResourceLocation MOWZIES_MOBS_TAB = new ResourceLocation(MOWZIES_MOBS, "mowziesmobs_tab");
+        public static final ResourceLocation CREATE_BUILDING_TAB = new ResourceLocation(CREATE, "palettes");
 
         public static boolean runData() {
             for (String str : new String[]{ALEXS_CAVES, ATMOSPHERIC, BLASTED_BARRENS, NEAPOLITAN, UPGRADE_AQUATIC, ENVIRONMENTAL, MOWZIES_MOBS, WOODWORKS}) {

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "dolt_mod_how:block/zinc_bricks",
+    "side": "dolt_mod_how:block/zinc_bricks",
+    "top": "dolt_mod_how:block/zinc_bricks"
+  }
+}

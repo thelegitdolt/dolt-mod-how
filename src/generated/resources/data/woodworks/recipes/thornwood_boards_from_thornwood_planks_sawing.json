@@ -1,0 +1,21 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "alexscaves"
+        }
+      ],
+      "recipe": {
+        "type": "woodworks:sawmill",
+        "count": 1,
+        "ingredient": {
+          "item": "alexscaves:thornwood_planks"
+        },
+        "result": "dolt_mod_how:thornwood_boards"
+      }
+    }
+  ]
+}

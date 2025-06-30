@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
+import com.dolthhaven.dolt_mod_how.common.item.ExperienceFoodItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
@@ -29,6 +30,7 @@ import vectorwing.farmersdelight.common.registry.ModItems;
 import java.util.function.Predicate;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.Food.WARDENZOLA;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -50,6 +52,9 @@ public class DMHItems {
             BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_PURPLE_SODA_BUCKET : () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
             BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED) ? DMHCCCompat.GOLDEN_MOLTEN_LEAD_BUCKET : () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> WARDENZOLA_WEDGE = HELPER.createItem("wardenzola_wedge",
+            () -> new ExperienceFoodItem(new Item.Properties().food(WARDENZOLA)));
 
 //    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
 //            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
@@ -97,7 +102,10 @@ public class DMHItems {
                         ASHEN_RAKED_SAND)
 
                 .predicate(DMHItems::createPredicate)
-                .addItemsAfter(ofID(DMHUtils.Constants.ZINC_BLOCK), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS);
+                .addItemsAfter(ofID(DMHUtils.Constants.ZINC_BLOCK), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
+
+                .predicate(DMHItems::bncPredicate)
+                .addItemsAfter(ofID(DMHUtils.Constants.SCARLET_CHEESE_WEDGE));
     }
 
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
@@ -116,6 +124,10 @@ public class DMHItems {
         return event.getTabKey().location().equals(DMHUtils.Constants.MOWZIES_MOBS_TAB);
     }
 
+    public static boolean bncPredicate(BuildCreativeModeTabContentsEvent event) {
+        return event.getTabKey().location().equals(DMHUtils.Constants.BnC_MOD_TAB);
+    }
+
     public static boolean createPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey().location().equals(DMHUtils.Constants.CREATE_BUILDING_TAB);
     }
@@ -127,5 +139,7 @@ public class DMHItems {
         public static final FoodProperties ALPHACENE_SALAD = (new FoodProperties.Builder()).alwaysEat().nutrition(6).saturationMod(0.6F)
                 .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100, 0), 1.0F).build();
 
+        public static final FoodProperties WARDENZOLA = new FoodProperties.Builder()
+                .nutrition(3).saturationMod(0.6f).build();
     }
 }

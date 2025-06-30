@@ -1,0 +1,21 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "alexscaves"
+        }
+      ],
+      "recipe": {
+        "type": "woodworks:sawmill",
+        "count": 4,
+        "ingredient": {
+          "item": "alexscaves:pewen_log"
+        },
+        "result": "dolt_mod_how:pewen_boards"
+      }
+    }
+  ]
+}

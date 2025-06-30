@@ -12,6 +12,7 @@ import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import net.minecraft.Util;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -23,7 +24,6 @@ import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
-import java.rmi.registry.Registry;
 import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.ZINC_PLATED_BRICKS;
@@ -122,9 +122,13 @@ public class DMHBlocks {
             new WallBlock(ZINC_PLATED_BRICKS));
     public static final RegistryObject<Block> CHISELED_ZINC_BRICKS = HELPER.createBlock("chiseled_zinc_bricks", () -> new Block(ZINC_PLATED_BRICKS));
 
+    public static final RegistryObject<Block> WARDENZOLA = HELPER.createBlock("wardenzola", ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) ?
+            DMHBCCompat.WARDENZOLA : () -> new Block(BlockBehaviour.Properties.copy(Blocks.CAKE)));
+
     private static Supplier<? extends Block> getPot(String id, Supplier<? extends Block> block) {
         return ModList.get().isLoaded(id) ? block : () -> new Block(PropertyUtil.flowerPot());
     }
+
 
 
     public static class DMHBlockProps {

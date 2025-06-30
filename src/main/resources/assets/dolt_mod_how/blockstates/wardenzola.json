@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "servings=3": {
+      "model": "dolt_mod_how:block/wardenzola"
+    },
+    "servings=2": {
+      "model": "dolt_mod_how:block/wardenzola1"
+    },
+    "servings=1": {
+      "model": "dolt_mod_how:block/wardenzola2"
+    },
+    "servings=0": {
+      "model": "dolt_mod_how:block/wardenzola3"
+    }
+  }
+}

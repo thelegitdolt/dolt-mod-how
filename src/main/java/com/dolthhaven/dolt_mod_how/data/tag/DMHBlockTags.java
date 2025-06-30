@@ -40,6 +40,8 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get(), ARID_RAKED_SAND.get(), ASHEN_RAKED_SAND.get(), RED_ARID_RAKED_SAND.get());
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(ANCIENT_LEAF_PILE.get());
 
+        this.tag(ModTags.MINEABLE_WITH_KNIFE).add(WARDENZOLA.get());
+
 
         this.tag(DMHTags.NO_XP_CROPS)
                 .addOptional(new ResourceLocation(DMHUtils.Constants.FARMERS_DELIGHT, "tomatoes"));

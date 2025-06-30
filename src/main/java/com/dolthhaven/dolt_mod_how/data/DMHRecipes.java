@@ -67,9 +67,13 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         WoodworksRecipeProvider.leafPileRecipes(consumer, ACBlockRegistry.ANCIENT_LEAVES.get(), ANCIENT_LEAF_PILE.get());
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_LOG.get(), PEWEN_LADDER.get(), 4);
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_PLANKS.get(), PEWEN_LADDER.get(), 1);
+        WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_PLANKS.get(), PEWEN_BOARDS.get(), 1);
+        WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.PEWEN_LOG.get(), PEWEN_BOARDS.get(), 4);
 
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.THORNWOOD_LOG.get(), THORNWOOD_LADDER.get(), 4);
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.THORNWOOD_PLANKS.get(), THORNWOOD_LADDER.get(), 1);
+        WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.THORNWOOD_LOG.get(), THORNWOOD_BOARDS.get(), 4);
+        WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.THORNWOOD_PLANKS.get(), THORNWOOD_BOARDS.get(), 1);
 
         cabinet(consumer, PEWEN_CABINET, ACBlockRegistry.PEWEN_PLANKS_SLAB, ACBlockRegistry.PEWEN_TRAPDOOR);
         cabinet(consumer, THORNWOOD_CABINET, ACBlockRegistry.THORNWOOD_PLANKS_SLAB, ACBlockRegistry.THORNWOOD_PLANKS_SLAB);

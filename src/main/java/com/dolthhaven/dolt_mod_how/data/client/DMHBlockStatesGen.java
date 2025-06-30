@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.THORNWOOD_LADDER;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.WARDENZOLA_WEDGE;
 
 public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
     public DMHBlockStatesGen(GatherDataEvent e) {

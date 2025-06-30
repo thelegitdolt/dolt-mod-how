@@ -64,6 +64,7 @@ public class DMHUtils {
         public static final String ALEXS_CAVES = "alexscaves";
         public static final String ATMOSPHERIC = "atmospheric";
         public static final String BLASTED_BARRENS = "blasted_barrens";
+        public static final String BREWING_AND_CHEWING = "brewinandchewin";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
         public static final String CAVE_DELIGHT = "cavedelight";
         public static final String CLAYWORKS = "clayworks";
@@ -118,9 +119,13 @@ public class DMHUtils {
 
         public static final ResourceLocation MOWZIES_MOBS_TAB = new ResourceLocation(MOWZIES_MOBS, "mowziesmobs_tab");
         public static final ResourceLocation CREATE_BUILDING_TAB = new ResourceLocation(CREATE, "palettes");
+        public static final ResourceLocation BnC_MOD_TAB = new ResourceLocation(BREWING_AND_CHEWING, BREWING_AND_CHEWING);
+        public static final ResourceLocation SCARLET_CHEESE_WEDGE = new ResourceLocation(BREWING_AND_CHEWING, "scarlet_cheese_wedge");
+
+
 
         public static boolean runData() {
-            for (String str : new String[]{ALEXS_CAVES, ATMOSPHERIC, BLASTED_BARRENS, NEAPOLITAN, UPGRADE_AQUATIC, ENVIRONMENTAL, MOWZIES_MOBS, WOODWORKS}) {
+            for (String str : new String[]{ALEXS_CAVES, ATMOSPHERIC, BLASTED_BARRENS, NEAPOLITAN, UPGRADE_AQUATIC, ENVIRONMENTAL, MOWZIES_MOBS, WOODWORKS, BREWING_AND_CHEWING}) {
                 if (!ModList.get().isLoaded(str)) {
                     return false;
                 }
@@ -128,8 +133,6 @@ public class DMHUtils {
             return true;
         }
     }
-
-
 
     public static boolean alexCavesLoaded() {
         return ModList.get().isLoaded(Constants.ALEXS_CAVES);

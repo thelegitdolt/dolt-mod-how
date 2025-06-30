@@ -2,6 +2,9 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.davigj.blasted_barrens.core.registry.BBBlocks;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
+import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.google.common.collect.ImmutableList;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -30,10 +33,18 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
+import net.minecraftforge.common.loot.CanToolPerformAction;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+import umpaz.brewinandchewin.BrewinAndChewin;
+import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
+import vectorwing.farmersdelight.common.item.KnifeItem;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.List;
 import java.util.Map;
@@ -45,6 +56,9 @@ import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
 
 public class DoltModHowLootTables extends LootTableProvider {
+    protected static final LootItemCondition.Builder HAS_SHEARS_TAG = CanToolPerformAction.canToolPerformAction(ToolActions.SHEARS_HARVEST);
+    protected static final LootItemCondition.Builder HAS_KNIFE = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.KNIVES));
+
     public DoltModHowLootTables(PackOutput packOutput) {
         super(packOutput, BuiltInLootTables.all(), ImmutableList.of(
                 new LootTableProvider.SubProviderEntry(DoltModHowBlockLoot::new, LootContextParamSets.BLOCK)
@@ -112,6 +126,8 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.add(ZINC_BRICK_SLAB.get(), this::createSlabItemTable);
             this.dropSelf(ZINC_BRICK_WALL.get());
             this.dropSelf(CHISELED_ZINC_BRICKS.get());
+
+            this.cheese(WARDENZOLA);
         }
 
         private void colony(RegistryObject<? extends Block> block) {
@@ -122,11 +138,28 @@ public class DoltModHowLootTables extends LootTableProvider {
                         .withPool(LootPool.lootPool()
                                 .add(AlternativesEntry.alternatives(LootItem.lootTableItem(colonyItem)
                                                 .when(stateCond(block, MushroomColonyBlock.COLONY_AGE, 3))
-                                                .when(HAS_SHEARS))
+                                                .when(HAS_SHEARS_TAG))
                                         .otherwise(LootItem.lootTableItem(shroomItem)
                                                 .apply(MushroomColonyBlock.COLONY_AGE.getPossibleValues(), value -> SetItemCountFunction
                                                         .setCount(ConstantValue.exactly(2.0f + value), false)
                                                         .when(stateCond(block, MushroomColonyBlock.COLONY_AGE, value)))))));
+            }
+            else {
+                throw new IllegalArgumentException("Not mushroom colony");
+            }
+        }
+
+        private void cheese(RegistryObject<? extends Block> wheel) {
+            if (wheel.get() instanceof CheeseWheelBlock cheese) {
+                Item wedge = cheese.cheeseWedgeType.get();
+                this.add(wheel.get(), LootTable.lootTable()
+                        .withPool(LootPool.lootPool()
+                                .add(LootItem.lootTableItem(wedge).apply(CheeseWheelBlock.SERVINGS.getPossibleValues(), value -> SetItemCountFunction
+                                        .setCount(ConstantValue.exactly(value + 1), false).when(stateCond(wheel, CheeseWheelBlock.SERVINGS, value)))
+                                        .when(HAS_KNIFE))));
+            }
+            else {
+                throw new IllegalArgumentException("Not cheese");
             }
         }
 

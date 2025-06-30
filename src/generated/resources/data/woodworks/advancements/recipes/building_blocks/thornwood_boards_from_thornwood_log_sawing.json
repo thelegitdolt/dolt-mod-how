@@ -1,0 +1,47 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "woodworks:thornwood_boards_from_thornwood_log_sawing"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          },
+          "has_thornwood_log": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "alexscaves:thornwood_log"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          }
+        },
+        "requirements": [
+          [
+            "has_thornwood_log",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "woodworks:thornwood_boards_from_thornwood_log_sawing"
+          ]
+        },
+        "sends_telemetry_event": false
+      },
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "alexscaves"
+        }
+      ]
+    }
+  ]
+}

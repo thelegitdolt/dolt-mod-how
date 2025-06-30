@@ -12,6 +12,7 @@ import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
+import com.dolthhaven.dolt_mod_how.data.client.DMHItemModelsGen;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHSupplementariesCompat;
@@ -87,6 +88,7 @@ public class DoltModHow {
 
         boolean includeClient = event.includeClient();
         dataGen.addProvider(includeClient, new DMHBlockStatesGen(event));
+        dataGen.addProvider(includeClient, new DMHItemModelsGen(event));
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {

@@ -1,0 +1,9 @@
+{
+	"parent": "brewinandchewin:block/cheese_wheel_template",
+	"textures": {
+		"top": "dolt_mod_how:block/wardenzola_top",
+		"side": "dolt_mod_how:block/wardenzola_side",
+		"bottom": "dolt_mod_how:block/wardenzola_bottom",
+		"particle": "dolt_mod_how:block/wardenzola_top"
+	}
+}

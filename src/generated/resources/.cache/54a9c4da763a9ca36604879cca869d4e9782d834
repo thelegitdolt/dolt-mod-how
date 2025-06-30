@@ -1,15 +1,17 @@
-// 1.20.1	2025-04-28T15:14:20.369014	Tags for minecraft:item mod id dolt_mod_how
+// 1.20.1	2025-06-30T21:30:00.517051	Tags for minecraft:item mod id dolt_mod_how
 a546b8d6d9ef4880fe9d2f2786cca558b1eca7f8 data/blueprint/tags/items/wooden_beehives.json
 f3edab4b40bf9082933b2196e29d5efadbbbae2d data/blueprint/tags/items/wooden_bookshelves.json
 be93ccfb6564e382318d4275973099df90d1db6f data/blueprint/tags/items/wooden_chests.json
 4acfff93e7a9738c92eac3e059a213b2306acbfe data/blueprint/tags/items/wooden_ladders.json
 aa5a2b2c2af347a3beb2309fd1eb8961f783506c data/blueprint/tags/items/wooden_trapped_chests.json
+820332f0032e179f9f255c85aa56c3498948a1ce data/brewinandchewin/tags/items/cheese_wedges.json
 33c057152ba1e62c750784669ecceb558816938c data/dolt_mod_how/tags/items/leather.json
 c7c0158e34d13cd455d559fd05e3aebb0dbb35a0 data/farmersdelight/tags/items/cabinets/wooden.json
 e6b4e57e155b24ad18d64f433ddd4e2114506c7b data/forge/tags/items/buckets.json
 98599cbe34e11a9c17359df235f45f7df84489a6 data/forge/tags/items/buckets/acid.json
 35687f3b826de42b981e3b7104ead3b15ee07ca1 data/forge/tags/items/buckets/molten_lead.json
 a47e24a72399e26b59f9573cf73217c9d146e002 data/forge/tags/items/buckets/purple_soda.json
+8fb2c86ef1e8e3e5c111578b51da91908ea5deb9 data/forge/tags/items/shears.json
 7b9b7a0fc81cbc99c9f019a65a561f7c6180679c data/minecraft/tags/items/piglin_loved.json
 2bd7fada58e1c38d32cda136019e7798dc5682c5 data/woodworks/tags/items/leaf_piles.json
 6fe4539c47e15990165ff8d114ebe1e82d197262 data/woodworks/tags/items/wooden_boards.json

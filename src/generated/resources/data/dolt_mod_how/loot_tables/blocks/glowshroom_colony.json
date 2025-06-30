@@ -18,12 +18,8 @@
                   }
                 },
                 {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "items": [
-                      "minecraft:shears"
-                    ]
-                  }
+                  "action": "shears_harvest",
+                  "condition": "forge:can_tool_perform_action"
                 }
               ],
               "name": "dolt_mod_how:glowshroom_colony"

@@ -34,7 +34,7 @@ public class ProtectionEnchantmentMixin {
             return;
         }
         else if (this.type == ProtectionEnchantment.Type.FALL && source.is(DamageTypeTags.IS_FALL)) {
-            cir.setReturnValue(level * 6);
+            cir.setReturnValue(level * 5);
         }
 
         if (level > 2 && this.type != ProtectionEnchantment.Type.FALL) {

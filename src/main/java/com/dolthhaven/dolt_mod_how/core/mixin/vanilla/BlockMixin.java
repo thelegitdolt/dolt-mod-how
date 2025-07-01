@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -13,6 +14,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BlockMixin {
     @Inject(method = "canBeReplaced*", at = @At("HEAD"), cancellable = true)
     private void replaceMossCarpet(BlockState state, BlockPlaceContext context, CallbackInfoReturnable<Boolean> cir) {
+        if (!DMHConfig.COMMON.replaceableMossCarpet.get()) {
+            return;
+        }
+
         if (state.is(Blocks.MOSS_CARPET)) {
             cir.setReturnValue(true);
         }

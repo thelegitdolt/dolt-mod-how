@@ -5,6 +5,7 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.network.DMHPacketHandler;
 import com.dolthhaven.dolt_mod_how.core.network.S2CRustScrapePacket;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
@@ -26,8 +27,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -68,6 +71,8 @@ public class DMHRightClickEvent {
         tryUnrustRustyStuff(event);
         potStrawberry(event);
         rakeSand(event);
+
+        placeWardenZola(event);
     }
 
     public static void rakeSand(PlayerInteractEvent.RightClickBlock event) {
@@ -116,16 +121,35 @@ public class DMHRightClickEvent {
         }
     }
 
+    public static void placeWardenZola(PlayerInteractEvent.RightClickBlock event) {
+        if (ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) && event.getItemStack().getItem().builtInRegistryHolder().is(DMHUtils.Constants.WARDENZOLA) && DMHConfig.COMMON.wheelifiedWardenzola.get()) {
+            BlockPlaceContext context = new BlockPlaceContext(event.getEntity(), event.getHand(), event.getItemStack(), event.getHitVec());
+
+            InteractionResult result = ((BlockItem) DMHBlocks.WARDENZOLA.get().asItem()).place(context);
+
+            if (!event.getEntity().getAbilities().instabuild) {
+                event.getItemStack().shrink(1);
+            }
+
+            if (result.consumesAction()) {
+                event.setCancellationResult(result);
+                event.setCanceled(true);
+            }
+        }
+    }
+
     public static void registerHoeTills() {
         TILL_MAP.put(Blocks.FARMLAND, Blocks.DIRT);
         TILL_MAP.put(ModBlocks.RICH_SOIL_FARMLAND.get(), ModBlocks.RICH_SOIL.get());
         TILL_MAP.put(ModRegistry.RAKED_GRAVEL.get(), Blocks.GRAVEL);
 
-        putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RAKED_SAND), Blocks.SAND);
-        putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_RAKED_SAND), Blocks.RED_SAND);
-        putIfNotNull(TILL_MAP, DMHBlocks.ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ARID_SAND));
-        putIfNotNull(TILL_MAP, DMHBlocks.RED_ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_ARID_SAND));
-        putIfNotNull(TILL_MAP, DMHBlocks.ASHEN_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ASHEN_SAND));
+        if (DMHConfig.COMMON.hoesRakeSand.get()) {
+            putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RAKED_SAND), Blocks.SAND);
+            putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_RAKED_SAND), Blocks.RED_SAND);
+            putIfNotNull(TILL_MAP, DMHBlocks.ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ARID_SAND));
+            putIfNotNull(TILL_MAP, DMHBlocks.RED_ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_ARID_SAND));
+            putIfNotNull(TILL_MAP, DMHBlocks.ASHEN_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ASHEN_SAND));
+        }
     }
 
     public static void registerUnRust() {

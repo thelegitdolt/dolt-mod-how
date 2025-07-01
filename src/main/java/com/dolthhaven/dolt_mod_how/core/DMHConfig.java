@@ -13,6 +13,7 @@ public class DMHConfig {
         public final ConfigValue<Integer> minCropXpDrops;
         public final ConfigValue<Integer> maxCropXpDrops;
         public final ConfigValue<Boolean> xpUponBlockPlace;
+        public final ConfigValue<Boolean> replaceableMossCarpet;
         public final ConfigValue<Integer> blockPlaceXpChance;
 
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
@@ -33,6 +34,8 @@ public class DMHConfig {
         public final ConfigValue<Boolean> actuallyGoodBiomeTreats;
         public final ConfigValue<Boolean> pathfinderQuillMakesCaveMaps;
         public final ConfigValue<Boolean> hideBeaconParticles;
+
+        public final ConfigValue<Boolean> wheelifiedWardenzola;
 
         public final ConfigValue<Boolean> damageReductions;
 
@@ -57,6 +60,10 @@ public class DMHConfig {
 
             builder.push("farmland");
             doUntillableFarmland = builder.comment("Whether farmland can be untilled by sneak-right clicking them with a hoe").define("Untillable Farmland", true);
+            builder.pop();
+
+            builder.push("Moss carpet");
+            replaceableMossCarpet = builder.comment("Whether Moss Carpets should become replaceable, like tall grass or something idk.").define("Replaceable Moss Carpet", true);
             builder.pop();
 
             builder.push("disc");
@@ -106,9 +113,7 @@ public class DMHConfig {
             builder.push("nethersdelight");
 
             builder.push("fungus_colonies");
-
             doRichSoilGrowFungusColony = builder.comment("If fungus colonies should grow on normal rich soil instead of soul rich soil").define("Rich Fungus", true);
-
             builder.pop();
 
             builder.push("bullet_peppers");
@@ -140,6 +145,7 @@ public class DMHConfig {
             builder.push("Cave Maps");
             pathfinderQuillMakesCaveMaps = builder.comment("If pathfinder quills should make a based sigma cave map instead of a cringe beta vanilla map")
                             .define("I'm sorry I said all that", false);
+            builder.pop();
 
             builder.push("Biome Treats");
             actuallyGoodBiomeTreats = builder.comment("If biome treats should work regardless of hunger")
@@ -149,6 +155,15 @@ public class DMHConfig {
             builder.push("Sack of Sating");
             sackOfSatingNoRestoreSat = builder.comment("If sacks of sating no longer restore saturation")
                     .define("Mid sack of sating", false);
+            builder.pop();
+
+            builder.pop();
+
+            builder.push("Dungeon's Delight");
+
+            builder.push("Brewing and Chewing Wardenzola");
+            wheelifiedWardenzola = builder.comment("If Wardenzola Dungeons Delight Should be Brewing and Chewingified; this means that they are placeable and have a keg recipe, as well as wedges.")
+                    .define("Wardenzola Wheel", false);
             builder.pop();
 
             builder.pop();

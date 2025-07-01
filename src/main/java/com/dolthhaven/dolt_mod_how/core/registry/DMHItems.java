@@ -104,8 +104,8 @@ public class DMHItems {
                 .predicate(DMHItems::createPredicate)
                 .addItemsAfter(ofID(DMHUtils.Constants.ZINC_BLOCK), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
 
-                .predicate(DMHItems::bncPredicate)
-                .addItemsAfter(ofID(DMHUtils.Constants.SCARLET_CHEESE_WEDGE));
+                .predicate(DMHItems::dungeonsDelightPredicate)
+                .addItemsAfter(ofID(DMHUtils.Constants.WARDENZOLA), WARDENZOLA_WEDGE);
     }
 
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
@@ -126,6 +126,10 @@ public class DMHItems {
 
     public static boolean bncPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey().location().equals(DMHUtils.Constants.BnC_MOD_TAB);
+    }
+
+    public static boolean dungeonsDelightPredicate(BuildCreativeModeTabContentsEvent event) {
+        return event.getTabKey().location().equals(DMHUtils.Constants.DUNGEONS_DELIGHT_TAB);
     }
 
     public static boolean createPredicate(BuildCreativeModeTabContentsEvent event) {

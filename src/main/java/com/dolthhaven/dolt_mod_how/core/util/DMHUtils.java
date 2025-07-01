@@ -69,6 +69,7 @@ public class DMHUtils {
         public static final String CAVE_DELIGHT = "cavedelight";
         public static final String CLAYWORKS = "clayworks";
         public static final String CREATE = "create";
+        public static final String DUNGEONS_DELIGHT = "dungeonsdelight";
         public static final String DYE_DEPOT = "dye_depot";
         public static final String ENVIRONMENTAL = "environmental";
         public static final String FARMERS_DELIGHT = "farmersdelight";
@@ -120,7 +121,9 @@ public class DMHUtils {
         public static final ResourceLocation MOWZIES_MOBS_TAB = new ResourceLocation(MOWZIES_MOBS, "mowziesmobs_tab");
         public static final ResourceLocation CREATE_BUILDING_TAB = new ResourceLocation(CREATE, "palettes");
         public static final ResourceLocation BnC_MOD_TAB = new ResourceLocation(BREWING_AND_CHEWING, BREWING_AND_CHEWING);
-        public static final ResourceLocation SCARLET_CHEESE_WEDGE = new ResourceLocation(BREWING_AND_CHEWING, "scarlet_cheese_wedge");
+
+        public static final ResourceLocation DUNGEONS_DELIGHT_TAB = new ResourceLocation(DUNGEONS_DELIGHT,"dungeonsdelight_tab");
+        public static final ResourceLocation WARDENZOLA = new ResourceLocation(DUNGEONS_DELIGHT,"wardenzola");
 
 
 

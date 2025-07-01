@@ -9,6 +9,7 @@
     "alexscaves.DinosaurChopMixin",
     "alexscaves.SackOfSatingItemMixin",
     "alexscaves.SubmarineMixin",
+    "alexscaves.TremorzillaMixin",
     "anchor.LightningBoltMixin",
     "auditoryboatsounds.BlueprintBoatItemMixin",
     "auditoryboatsounds.BoatItemMixin",

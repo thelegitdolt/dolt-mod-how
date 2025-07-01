@@ -125,6 +125,8 @@ public class DMHUtils {
         public static final ResourceLocation DUNGEONS_DELIGHT_TAB = new ResourceLocation(DUNGEONS_DELIGHT,"dungeonsdelight_tab");
         public static final ResourceLocation WARDENZOLA = new ResourceLocation(DUNGEONS_DELIGHT,"wardenzola");
 
+        public static final ResourceLocation ALPHACENE_MOSS_CARPET = new ResourceLocation(SPECIES,"alphacene_moss_carpet");
+
 
 
         public static boolean runData() {

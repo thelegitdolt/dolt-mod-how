@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -18,7 +19,7 @@ public class BlockMixin {
             return;
         }
 
-        if (state.is(Blocks.MOSS_CARPET)) {
+        if (state.is(Blocks.MOSS_CARPET) || state.getBlock().builtInRegistryHolder().is(DMHUtils.Constants.ALPHACENE_MOSS_CARPET)) {
             cir.setReturnValue(true);
         }
     }

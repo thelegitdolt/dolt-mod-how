@@ -28,6 +28,7 @@ public class DMHConfig {
 
         public final ConfigValue<Boolean> killBulletPepperPlacement;
         public final ConfigValue<Boolean> frogsAreNotStupid;
+        public final ConfigValue<Boolean> removeTremorzillaGrief;
 
         public final ConfigValue<Boolean> acidCorrodesCopper;
         public final ConfigValue<Boolean> sackOfSatingNoRestoreSat;
@@ -156,6 +157,11 @@ public class DMHConfig {
             builder.push("Sack of Sating");
             sackOfSatingNoRestoreSat = builder.comment("If sacks of sating no longer restore saturation")
                     .define("Mid sack of sating", false);
+            builder.pop();
+
+            builder.push("Tremorzilla");
+            removeTremorzillaGrief = builder.comment("If tremorzillas should no longer passively break all blocks in its hitbox. Blocks are still broken when the tremorzilla attacks, or with its beam attack.")
+                        .define("Marginally Less Griefy Tremorzillas", false);
             builder.pop();
 
             builder.pop();

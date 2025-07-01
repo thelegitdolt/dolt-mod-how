@@ -3,7 +3,6 @@ loaderVersion = "[32,)"
 issueTrackerURL = "https://github.com/thelegitdolt/dolt-mod-how/issues"
 license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
 
-
 [[mods]]
     modId = "dolt_mod_how"
     version = "${file.jarVersion}"
@@ -109,6 +108,20 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     modId = "alexscaves"
     mandatory = false
     versionRange = "[2.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "dungeonsdelight"
+    mandatory = false
+    versionRange = "[1.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
+    modId = "brewinandchewin"
+    mandatory = false
+    versionRange = "[1.0.0,)"
     ordering = "AFTER"
     side = "BOTH"
 

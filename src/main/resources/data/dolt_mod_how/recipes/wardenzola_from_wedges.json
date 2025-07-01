@@ -1,17 +1,35 @@
+
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "p": {
-      "item": "dolt_mod_how:wardenzola_wedge"
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "dungeonsdelight"
+        },
+        {
+          "type": "dolt_mod_how:config",
+          "value": "placeable_wardenzola"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "p": {
+            "item": "dolt_mod_how:wardenzola_wedge"
+          }
+        },
+        "pattern": [
+          "pp",
+          "pp"
+        ],
+        "result": {
+          "item": "dungeonsdelight:wardenzola"
+        },
+        "show_notification": true
+      }
     }
-  },
-  "pattern": [
-    "pp",
-    "pp"
-  ],
-  "result": {
-    "item": "dungeonsdelight:wardenzola"
-  },
-  "show_notification": true
+  ]
 }

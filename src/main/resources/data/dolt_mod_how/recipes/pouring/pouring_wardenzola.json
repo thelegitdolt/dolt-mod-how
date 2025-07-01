@@ -1,13 +1,30 @@
 {
-  "type": "brewinandchewin:keg_pouring",
-  "amount": 1000,
-  "container": {
-    "item": "minecraft:honeycomb"
-  },
-  "filling": false,
-  "fluid": "dolt_mod_how:wardenzola",
-  "output": {
-    "item": "dungeonsdelight:wardenzola"
-  },
-  "strict": false
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "dungeonsdelight"
+        },
+        {
+          "type": "dolt_mod_how:config",
+          "value": "placeable_wardenzola"
+        }
+      ],
+      "recipe": {
+        "type": "brewinandchewin:keg_pouring",
+        "amount": 1000,
+        "container": {
+          "item": "minecraft:honeycomb"
+        },
+        "filling": false,
+        "fluid": "dolt_mod_how:wardenzola",
+        "output": {
+          "item": "dungeonsdelight:wardenzola"
+        },
+        "strict": false
+      }
+    }
+  ]
 }

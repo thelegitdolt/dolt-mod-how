@@ -1,0 +1,34 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+           "type": "dolt_mod_how:config",
+           "value": "placeable_wardenzola"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "dungeonsdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cutting",
+        "ingredients": [
+          {
+            "item": "dungeonsdelight:wardenzola"
+          }
+        ],
+        "result": [
+          {
+            "count": 4,
+            "item": "dolt_mod_how:wardenzola_wedge"
+          }
+        ],
+        "tool": {
+          "tag": "forge:tools/knives"
+        }
+      }
+    }
+  ]
+}

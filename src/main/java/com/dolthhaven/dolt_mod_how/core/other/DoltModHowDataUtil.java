@@ -1,5 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
+import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.util.DataUtil;
@@ -17,6 +19,7 @@ public class DoltModHowDataUtil {
 
     public static void registerData() {
         registerCompostable();
+        registerConfigs();
         DMHRightClickEvent.registerHoeTills();
         DMHRightClickEvent.registerUnRust();
         DMHRightClickEvent.registerRakeables();
@@ -32,5 +35,9 @@ public class DoltModHowDataUtil {
             EntityType<?> bananaPeel = ForgeRegistries.ENTITY_TYPES.getValue(DMHUtils.Constants.BANANA_PEEL);
             COMPOSTABLE_ENTITIES.put(bananaPeel, 0.5f);
         }
+    }
+
+    public static void registerConfigs() {
+        DataUtil.registerConfigCondition(DoltModHow.MOD_ID, DMHConfig.Common.class);
     }
 }

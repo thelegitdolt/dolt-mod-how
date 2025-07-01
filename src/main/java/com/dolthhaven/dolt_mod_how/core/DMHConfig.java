@@ -1,9 +1,8 @@
 package com.dolthhaven.dolt_mod_how.core;
 
-import net.minecraft.world.level.block.Blocks;
+import com.teamabnormals.blueprint.core.annotations.ConfigKey;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
-import net.minecraftforge.common.Tags;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class DMHConfig {
@@ -20,6 +19,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> hoesRakeSand;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
+        @ConfigKey("quiver_recipe")
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
         public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
         public final ConfigValue<Boolean> doDispenserCauldrons;
@@ -35,6 +35,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> pathfinderQuillMakesCaveMaps;
         public final ConfigValue<Boolean> hideBeaconParticles;
 
+        @ConfigKey("placeable_wardenzola")
         public final ConfigValue<Boolean> wheelifiedWardenzola;
 
         public final ConfigValue<Boolean> damageReductions;

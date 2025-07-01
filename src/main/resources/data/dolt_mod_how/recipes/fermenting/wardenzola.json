@@ -1,31 +1,42 @@
 {
-  "type": "brewinandchewin:fermenting",
-  "conditions": [
+  "type": "forge:conditional",
+  "recipes": [
     {
-      "type": "forge:mod_loaded",
-      "modid": "dungeonsdelight"
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "dungeonsdelight"
+        },
+        {
+          "type": "dolt_mod_how:config",
+          "value": "placeable_wardenzola"
+        }
+      ],
+      "recipe": {
+        "type": "brewinandchewin:fermenting",
+        "basefluid": {
+          "count": 1000,
+          "fluid": "minecraft:milk"
+        },
+        "fermentingtime": 9600,
+        "experience": 1.0,
+        "ingredients": [
+          {
+            "item": "dungeonsdelight:sculk_polyp"
+          },
+          {
+            "item": "dungeonsdelight:sculk_polyp"
+          },
+          {
+            "item": "dungeonsdelight:rotbulb"
+          }
+        ],
+        "result": {
+          "count": 1000,
+          "fluid": "dolt_mod_how:wardenzola"
+        },
+        "temperature": 1
+      }
     }
-  ],
-  "basefluid": {
-    "count": 1000,
-    "fluid": "minecraft:milk"
-  },
-  "fermentingtime": 9600,
-  "experience": 1.0,
-  "ingredients": [
-    {
-      "item": "dungeonsdelight:sculk_polyp"
-    },
-    {
-      "item": "dungeonsdelight:sculk_polyp"
-    },
-    {
-      "item": "dungeonsdelight:rotbulb"
-    }
-  ],
-  "result": {
-    "count": 1000,
-    "fluid": "dolt_mod_how:wardenzola"
-  },
-  "temperature": 1
+  ]
 }

@@ -1,0 +1,31 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "dungeonsdelight"
+    }
+  ],
+  "basefluid": {
+    "count": 1000,
+    "fluid": "minecraft:milk"
+  },
+  "fermentingtime": 9600,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "dungeonsdelight:sculk_polyp"
+    },
+    {
+      "item": "dungeonsdelight:sculk_polyp"
+    },
+    {
+      "item": "dungeonsdelight:rotbulb"
+    }
+  ],
+  "result": {
+    "count": 1000,
+    "fluid": "dolt_mod_how:wardenzola"
+  },
+  "temperature": 1
+}

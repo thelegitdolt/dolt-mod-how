@@ -1,0 +1,13 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "amount": 1000,
+  "container": {
+    "item": "minecraft:honeycomb"
+  },
+  "filling": false,
+  "fluid": "dolt_mod_how:wardenzola",
+  "output": {
+    "item": "dungeonsdelight:wardenzola"
+  },
+  "strict": false
+}

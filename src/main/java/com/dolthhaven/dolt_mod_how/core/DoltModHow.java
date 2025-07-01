@@ -4,10 +4,7 @@ import com.dolthhaven.dolt_mod_how.client.other.DMHClientCompat;
 import com.dolthhaven.dolt_mod_how.core.network.DMHPacketHandler;
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHRecipeSerializer;
+import com.dolthhaven.dolt_mod_how.core.registry.*;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
@@ -61,6 +58,8 @@ public class DoltModHow {
         DMHEnchants.ENCHANTMENTS.register(bus);
         DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
         DMHParticles.PARTICLES.register(bus);
+        DMHFluids.FLUID_TYPES.register(bus);
+        DMHFluids.FLUIDS.register(bus);
         REGISTRY_HELPER.register(bus);
         
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
@@ -105,9 +104,7 @@ public class DoltModHow {
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            DMHClientCompat.doCompat();
-        });
+        event.enqueueWork(DMHClientCompat::doCompat);
     }
 
     public static ResourceLocation rl(String path) {

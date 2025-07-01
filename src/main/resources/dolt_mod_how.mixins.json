@@ -31,7 +31,6 @@
     "supplementaries.ItemDisplayTileMixin",
     "vanilla.BeaconMixin",
     "vanilla.BlockMixin",
-    "vanilla.BlocksMixin",
     "vanilla.CakeMixin",
     "vanilla.CocoaBlockMixin",
     "vanilla.ComposterBlockMixin",

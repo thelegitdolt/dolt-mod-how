@@ -96,11 +96,6 @@ public class DMHEvent {
         if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = event.getState();
 
-            if (state.is(DMHBlocks.WARDENZOLA.get())) {
-                event.setExpToDrop(COMMON_ORE.sample(level.random));
-                return;
-            }
-
             if (!event.getPlayer().hasCorrectToolForDrops(state) ||
                     EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, event.getPlayer()) > 0) {
                 return;

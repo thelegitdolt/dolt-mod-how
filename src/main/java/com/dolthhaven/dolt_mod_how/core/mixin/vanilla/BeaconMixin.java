@@ -11,6 +11,6 @@ public class BeaconMixin {
     @ModifyArg(method = "applyEffects", at = @At(value = "INVOKE", target =
             "Lnet/minecraft/world/effect/MobEffectInstance;<init>(Lnet/minecraft/world/effect/MobEffect;IIZZ)V"), index = 4)
     private static boolean DoltModHow$HideBeaconParticles(boolean isVisible) {
-        return DMHConfig.COMMON.hideBeaconParticles.get();
+        return !DMHConfig.COMMON.hideBeaconParticles.get();
     }
 }

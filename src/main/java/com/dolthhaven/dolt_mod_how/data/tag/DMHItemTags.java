@@ -43,6 +43,7 @@ public class DMHItemTags extends ItemTagsProvider {
         this.tag(DMHTags.LEATHER).add(Items.LEATHER, LEATHER_SCRAPS.get());
         this.tag(DMHTags.SHEARS).add(Items.SHEARS);
         this.tag(BnCTags.CHEESE_WEDGES).add(WARDENZOLA_WEDGE.get());
+        this.tag(DMHTags.SCULK_CHEESE).add(WARDENZOLA_WEDGE.get());
 
         this.tag(ItemTags.PIGLIN_LOVED).add(GOLDEN_ACID_BUCKET.get(), GOLDEN_PURPLE_SODA_BUCKET.get(), GOLDEN_MOLTEN_LEAD_BUCKET.get());
 

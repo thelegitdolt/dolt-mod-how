@@ -22,6 +22,7 @@ public class DMHTags {
     public static final TagKey<Item> MOLTEN_LEAD_BUCKETS = externalItemTag("forge", "buckets/molten_lead");
     public static final TagKey<Item> LEATHER = itemTag("leather");
     public static final TagKey<Item> SHEARS = externalItemTag("forge", "shears");
+    public static final TagKey<Item> SCULK_CHEESE = externalItemTag(DMHUtils.Constants.DUNGEONS_DELIGHT, "sculk_cheese");
 
 
     private static TagKey<Item> externalItemTag(String modId, String path) {

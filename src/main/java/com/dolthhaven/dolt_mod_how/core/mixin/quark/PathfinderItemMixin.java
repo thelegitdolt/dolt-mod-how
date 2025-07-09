@@ -19,12 +19,15 @@ import org.violetmoon.quark.content.tools.item.PathfindersQuillItem;
 
 @Mixin(PathfindersQuillItem.class)
 public abstract class PathfinderItemMixin {
-    @Shadow public abstract ResourceLocation getTarget(ItemStack stack);
+    @Shadow(remap = false) public abstract ResourceLocation getTarget(ItemStack stack);
 
     @Inject(method= "use", at = @At(value = "HEAD"), cancellable = true)
     private void DoltModHow$MakeACCaveMap(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         if (DMHUtils.alexCavesLoaded() && DMHConfig.COMMON.pathfinderQuillMakesCaveMaps.get()) {
             ItemStack stack = player.getItemInHand(hand);
+
+            if (!stack.getItem().builtInRegistryHolder().is(DMHUtils.Constants.PATHFINDER_QUILL)) return;
+
             ItemStack mapStack = DMHACCompat.makeMapFromString(getTarget(stack));
             player.setItemInHand(hand, mapStack);
 

@@ -16,6 +16,7 @@ public class DMHConfig {
         public final ConfigValue<Integer> blockPlaceXpChance;
 
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
+        public final ConfigValue<Boolean> replaceSawmillWithStonecutter;
         public final ConfigValue<Boolean> hoesRakeSand;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
@@ -67,6 +68,12 @@ public class DMHConfig {
             builder.push("Moss carpet");
             replaceableMossCarpet = builder.comment("Whether Moss Carpets should become replaceable, like tall grass or something idk.").define("Replaceable Moss Carpet", true);
             builder.pop();
+
+            builder.push("Stonecutter");
+            replaceSawmillWithStonecutter = builder.comment("If Woodworks is loaded, whether all sawmill " +
+                    "recipes should becomes stonecutter recipes instead.").define("Stonecutter more like woodcutter am I right", false);
+            builder.pop();
+
 
             builder.push("disc");
             discToSpawnAfterJukeboxStruckWithLightning = builder.comment("The disc that should be spawned when a jukebox is struck with lightning. Disables if string is \"no\"").define("Lightning Disc", "minecraft:music_disc_ward");

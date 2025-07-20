@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.species;
 
 import com.ninni.species.server.events.ModEvents;
 import net.minecraft.world.level.Level;

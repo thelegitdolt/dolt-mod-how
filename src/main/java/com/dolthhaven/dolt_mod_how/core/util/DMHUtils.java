@@ -86,7 +86,6 @@ public class DMHUtils {
         public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
 
         public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
-        public static final ResourceLocation RED_MUSHROOM_COLONIES = new ResourceLocation(FARMERS_DELIGHT, "red_mushroom_colonies");
         public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
         public static final ResourceLocation CONCRETE = new ResourceLocation(CLAYWORKS, "concrete");
         public static final ResourceLocation CONCRETE_POWDER = new ResourceLocation(CLAYWORKS, "concrete_powder");

@@ -1,6 +1,8 @@
 package com.dolthhaven.dolt_mod_how.core;
 
 import com.teamabnormals.blueprint.core.annotations.ConfigKey;
+import net.minecraft.world.entity.player.Abilities;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import org.apache.commons.lang3.tuple.Pair;
@@ -22,6 +24,8 @@ public class DMHConfig {
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         @ConfigKey("quiver_recipe")
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
+        public final ConfigValue<Integer> stackSizeForSpeciesCrankbow;
+        public final ConfigValue<Boolean> shouldCombustionGriefBlocks;
         public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
         public final ConfigValue<Boolean> doDispenserCauldrons;
         public final ConfigValue<Boolean> doUntillableFarmland;
@@ -178,6 +182,22 @@ public class DMHConfig {
             builder.push("Brewing and Chewing Wardenzola");
             wheelifiedWardenzola = builder.comment("If Wardenzola Dungeons Delight Should be Brewing and Chewingified; this means that they are placeable and have a keg recipe, as well as wedges.")
                     .define("Wardenzola Wheel", false);
+            builder.pop();
+
+            builder.pop();
+
+
+            builder.push("John Species");
+
+            builder.push("Crankbow");
+            stackSizeForSpeciesCrankbow = builder.comment("The stack size crankbows should have. The formula for the capacity of crankbows is stack size * 2 + capacity enchantment level * stack size.")
+                    .comment("This is for if you use a mod like Bigger Stacks to change the stack size")
+                    .define("Crankbow stack size ", 64);
+            builder.pop();
+
+            builder.push("Combustion Effect");
+            shouldCombustionGriefBlocks = builder.comment("If explosions caused by mobs that die with the Species Combustion effect should not any blcks")
+                    .define("Less combusty combustion", false);
             builder.pop();
 
             builder.pop();

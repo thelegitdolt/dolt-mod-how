@@ -124,10 +124,6 @@ public class DMHItems {
         return event.getTabKey().location().equals(DMHUtils.Constants.MOWZIES_MOBS_TAB);
     }
 
-    public static boolean bncPredicate(BuildCreativeModeTabContentsEvent event) {
-        return event.getTabKey().location().equals(DMHUtils.Constants.BnC_MOD_TAB);
-    }
-
     public static boolean dungeonsDelightPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey().location().equals(DMHUtils.Constants.DUNGEONS_DELIGHT_TAB);
     }

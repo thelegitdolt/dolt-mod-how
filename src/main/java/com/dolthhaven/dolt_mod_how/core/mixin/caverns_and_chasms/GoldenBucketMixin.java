@@ -4,7 +4,6 @@ import com.dolthhaven.dolt_mod_how.common.item.DMHGoldenBucketItem;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -29,7 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(GoldenBucketItem.class)
 public abstract class GoldenBucketMixin extends Item implements DispensibleContainerItem {
-    @Shadow(remap = false) public abstract Fluid getFluid();
+    @Shadow(remap = false) public abstract Fluid getFluidState();
 
     public GoldenBucketMixin(Properties p_41383_) {
         super(p_41383_);
@@ -40,7 +39,7 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
     shift = At.Shift.AFTER), cancellable = true)
     private void injected(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir,
                           @Local BlockHitResult result, @Local BlockState state) {
-        if (getFluid() != Fluids.EMPTY) {
+        if (getFluidState() != Fluids.EMPTY) {
             return;
         }
 

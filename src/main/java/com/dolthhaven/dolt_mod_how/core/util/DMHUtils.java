@@ -120,7 +120,6 @@ public class DMHUtils {
 
         public static final ResourceLocation MOWZIES_MOBS_TAB = new ResourceLocation(MOWZIES_MOBS, "mowziesmobs_tab");
         public static final ResourceLocation CREATE_BUILDING_TAB = new ResourceLocation(CREATE, "palettes");
-        public static final ResourceLocation BnC_MOD_TAB = new ResourceLocation(BREWING_AND_CHEWING, BREWING_AND_CHEWING);
 
         public static final ResourceLocation DUNGEONS_DELIGHT_TAB = new ResourceLocation(DUNGEONS_DELIGHT,"dungeonsdelight_tab");
         public static final ResourceLocation WARDENZOLA = new ResourceLocation(DUNGEONS_DELIGHT,"wardenzola");

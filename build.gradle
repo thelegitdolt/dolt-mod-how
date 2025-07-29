@@ -131,9 +131,6 @@ dependencies {
     implementation fg.deobf("maven.modrinth:atmospheric:${project.atmospheric}")
     implementation fg.deobf("maven.modrinth:brewin-and-chewin:${project.brewinAndChewin}")
 
-    compileOnly fg.deobf("dev.emi:emi-forge:${project.emi}:api")
-    runtimeOnly fg.deobf("dev.emi:emi-forge:${project.emi}")
-
     implementation fg.deobf("curse.maven:geckolib-388172:5675221")
 }
 

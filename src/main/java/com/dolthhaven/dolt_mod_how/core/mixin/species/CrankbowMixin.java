@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CrankbowItem.class)
 public class CrankbowMixin {
-    @Inject(method = "getMaxWeight", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getMaxWeight", at = @At("HEAD"), cancellable = true, remap = false)
     private static void stackers(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
         int stackSize = DMHConfig.COMMON.stackSizeForSpeciesCrankbow.get();
         if (stackSize == DMHConfig.COMMON.stackSizeForSpeciesCrankbow.getDefault()) {

@@ -102,12 +102,6 @@ public class DMHUtils {
         public static final ResourceLocation RED_ARID_SAND = new ResourceLocation(ATMOSPHERIC, "red_arid_sand");
         public static final ResourceLocation ASHEN_SAND = new ResourceLocation(BLASTED_BARRENS, "ashen_sand");
 
-        public static final ResourceLocation BAMBOO_LADDER = new ResourceLocation("woodworks", "bamboo_ladder");
-        public static final ResourceLocation BAMBOO_BEEHIVE = new ResourceLocation("woodworks", "bamboo_beehive");
-        public static final ResourceLocation BAMBOO_BOOKSHELF = new ResourceLocation("woodworks", "bamboo_bookshelf");
-        public static final ResourceLocation BAMBOO_CLOSET = new ResourceLocation("woodworks", "bamboo_closet");
-        public static final ResourceLocation TRAPPED_BAMBOO_CLOSET = new ResourceLocation("woodworks", "trapped_bamboo_closet");
-
         public static final ResourceLocation ACID = new ResourceLocation(ALEXS_CAVES, "acid");
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");
         public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");

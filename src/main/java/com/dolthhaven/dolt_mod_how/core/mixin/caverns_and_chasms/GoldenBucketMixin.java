@@ -28,7 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(GoldenBucketItem.class)
 public abstract class GoldenBucketMixin extends Item implements DispensibleContainerItem {
-    @Shadow(remap = false) public abstract Fluid getFluidState();
+    @Shadow(remap = false) public abstract Fluid getFluid();
 
     public GoldenBucketMixin(Properties p_41383_) {
         super(p_41383_);
@@ -39,7 +39,7 @@ public abstract class GoldenBucketMixin extends Item implements DispensibleConta
     shift = At.Shift.AFTER), cancellable = true)
     private void injected(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir,
                           @Local BlockHitResult result, @Local BlockState state) {
-        if (getFluidState() != Fluids.EMPTY) {
+        if (getFluid() != Fluids.EMPTY) {
             return;
         }
 

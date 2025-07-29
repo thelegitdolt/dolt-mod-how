@@ -46,6 +46,7 @@
     "vanilla.ServerPlayerMixin",
     "vanilla.SlimeMixin"
   ],
-  "client": [],
+  "client": [
+  ],
   "minVersion": "0.8"
 }

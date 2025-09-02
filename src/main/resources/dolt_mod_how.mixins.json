@@ -38,6 +38,7 @@
     "vanilla.CakeMixin",
     "vanilla.CocoaBlockMixin",
     "vanilla.ComposterBlockMixin",
+    "vanilla.CreeperMixin",
     "vanilla.DispenserBlockMixin",
     "vanilla.FlowerPotMixin",
     "vanilla.PowderSnowBlockMixin",

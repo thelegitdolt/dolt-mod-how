@@ -45,6 +45,7 @@
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.RecipeManagerMixin",
     "vanilla.ServerPlayerMixin",
+    "vanilla.ShulkerColoringRecipeMixin",
     "vanilla.SlimeMixin"
   ],
   "client": [

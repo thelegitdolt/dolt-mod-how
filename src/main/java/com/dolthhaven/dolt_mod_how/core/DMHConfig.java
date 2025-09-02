@@ -15,6 +15,7 @@ public class DMHConfig {
         public final ConfigValue<Integer> maxCropXpDrops;
         public final ConfigValue<Boolean> xpUponBlockPlace;
         public final ConfigValue<Boolean> replaceableMossCarpet;
+        public final ConfigValue<Boolean> lessAnnoyingSleep;
         public final ConfigValue<Integer> blockPlaceXpChance;
 
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
@@ -59,6 +60,10 @@ public class DMHConfig {
             builder.push("Vanilla");
             builder.push("metal_ores");
             doMetalOresDropXP = builder.comment("If mining ores that normally drop raw ores should grant XP").define("Experienced metal", true);
+            builder.pop();
+
+            builder.push("bed");
+            lessAnnoyingSleep = builder.comment("If having monsters next to you or being too far from bed should no longer prevent you from sleeping").define("Good ahh sleep", true);
             builder.pop();
 
             builder.push("beacons");

@@ -11,6 +11,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
+import org.violetmoon.zeta.client.event.play.ZRenderContainerScreen;
 
 import javax.annotation.Nullable;
 
@@ -58,6 +59,10 @@ public class DMHUtils {
 
     public static ResourceLocation getFluidID(Fluid fluid) {
         return ForgeRegistries.FLUIDS.getKey(fluid);
+    }
+
+    public static ResourceLocation getItemId(Item item) {
+        return ForgeRegistries.ITEMS.getKey(item);
     }
 
     public static class Constants {

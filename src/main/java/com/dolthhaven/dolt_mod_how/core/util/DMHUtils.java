@@ -68,6 +68,7 @@ public class DMHUtils {
     public static class Constants {
         public static final String ALEXS_CAVES = "alexscaves";
         public static final String ATMOSPHERIC = "atmospheric";
+        public static final String BOP = "biomesoplenty";
         public static final String BLASTED_BARRENS = "blasted_barrens";
         public static final String BREWING_AND_CHEWING = "brewinandchewin";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";

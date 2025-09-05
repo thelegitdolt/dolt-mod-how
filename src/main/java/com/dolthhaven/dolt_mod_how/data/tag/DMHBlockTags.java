@@ -28,6 +28,8 @@ public class DMHBlockTags extends BlockTagsProvider {
     public void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL)
                 .add(GLOWSHROOM_COLONY.get())
+                .add(TOADSTOOL_COLONY.get())
+                .add(BOP_GLOW_SHROOM_COLONY.get())
                 .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony"))
                 .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
 

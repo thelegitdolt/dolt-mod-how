@@ -125,6 +125,11 @@ dependencies {
 
     implementation fg.deobf("maven.modrinth:environmental:${project.environmental}")
     implementation fg.deobf("maven.modrinth:upgrade-aquatic:${project.upgradeAquatic}")
+
+    implementation fg.deobf("maven.modrinth:biomes-o-plenty:jxUqRzSD")
+    implementation fg.deobf("maven.modrinth:terrablender:zGconCHG")
+    implementation fg.deobf("maven.modrinth:glitchcore:pYPZ5MNI")
+
     compileOnly fg.deobf("maven.modrinth:etcetera:${project.etcetera}")
 
     implementation fg.deobf("maven.modrinth:neapolitan:${project.neapolitan}")

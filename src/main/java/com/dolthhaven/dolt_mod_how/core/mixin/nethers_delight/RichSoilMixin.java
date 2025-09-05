@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
+import biomesoplenty.api.block.BOPBlocks;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
@@ -26,7 +27,6 @@ public class RichSoilMixin {
             BlockPos abovePos = pos.above();
             BlockState aboveState = level.getBlockState(abovePos);
 
-
             if (ModList.get().isLoaded(DMHUtils.Constants.MY_NETHERS_DELIGHT)) {
                 if (aboveState.is(Blocks.CRIMSON_FUNGUS)) {
                     Block block = DMHUtils.getPotentialBlock(DMHUtils.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony");
@@ -44,6 +44,17 @@ public class RichSoilMixin {
 
             else if (aboveState.is(GlimmeringWealdModule.glow_shroom)) {
                 level.setBlockAndUpdate(abovePos, DMHBlocks.GLOWSHROOM_COLONY.get().defaultBlockState());
+            }
+            else if (ModList.get().isLoaded(DMHUtils.Constants.BOP)) {
+                Block bopGlowshroom = DMHUtils.getPotentialBlock(DMHUtils.Constants.BOP, "glowshroom");
+                Block toadStool = DMHUtils.getPotentialBlock(DMHUtils.Constants.BOP, "toadstool");
+
+                if (aboveState.is(bopGlowshroom)) {
+                    level.setBlockAndUpdate(abovePos, DMHBlocks.BOP_GLOW_SHROOM_COLONY.get().defaultBlockState());
+                }
+                else if (aboveState.is(toadStool)) {
+                    level.setBlockAndUpdate(abovePos, DMHBlocks.TOADSTOOL_COLONY.get().defaultBlockState());
+                }
             }
         }
     }

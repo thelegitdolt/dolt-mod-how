@@ -11,7 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.PINE_NUTS_CRATE;
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.GLOWSHROOM_COLONY;
 
 public class DoltModHowDataUtil {
@@ -26,6 +26,8 @@ public class DoltModHowDataUtil {
 
     private static void registerCompostable() {
         DataUtil.registerCompostable(GLOWSHROOM_COLONY.get(), 1.0f);
+        DataUtil.registerCompostable(TOADSTOOL_COLONY.get(), 1.0f);
+        DataUtil.registerCompostable(BOP_GLOW_SHROOM_COLONY.get(), 1.0f);
         DataUtil.registerCompostable(PINE_NUTS_CRATE.get(), 1.0f);
 
         COMPOSTABLE_ENTITIES.defaultReturnValue(-1.0f);

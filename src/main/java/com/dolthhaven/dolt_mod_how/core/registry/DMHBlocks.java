@@ -43,6 +43,12 @@ public class DMHBlocks {
             new GlowshroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM)
                     .randomTicks()
                     .lightLevel(s -> 10)));
+    public static final RegistryObject<Block> BOP_GLOW_SHROOM_COLONY = HELPER.createBlockNoItem("bop_glowshroom_colony", () ->
+            new GlowshroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM).mapColor(GLOW_LICHEN)));
+    public static final RegistryObject<Block> TOADSTOOL_COLONY = HELPER.createBlockNoItem("toadstool_colony", () ->
+            new GlowshroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM)));
+
+
     public static final RegistryObject<Block> PINE_NUTS_CRATE = HELPER.createBlock("pine_nuts_crate", () ->
             new BlueprintDirectionalBlock(DMHBlockProps.PINE_NUT_CRATE));
 

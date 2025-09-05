@@ -19,6 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -94,6 +95,8 @@ public class DMHItems {
 
                 .predicate(DMHItems::fdPredicate)
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)
+                .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId(), DMHUtils.Constants.BOP), TOADSTOOL_COLONY, BOP_GLOW_SHROOM_COLONY)
+
                 .addItemsBefore(ofID(ModItems.BAMBOO_CABINET.getId()), PEWEN_CABINET, THORNWOOD_CABINET)
                 .predicate(DMHItems::mowziesPredicate)
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.ATMOSPHERIC),

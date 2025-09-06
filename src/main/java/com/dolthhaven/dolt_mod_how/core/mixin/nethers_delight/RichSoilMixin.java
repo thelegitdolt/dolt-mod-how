@@ -1,6 +1,5 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.nethers_delight;
 
-import biomesoplenty.api.block.BOPBlocks;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;

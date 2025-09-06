@@ -73,6 +73,7 @@ public class DMHRightClickEvent {
         rakeSand(event);
 
         placeWardenZola(event);
+        placeBoneRod(event);
     }
 
     public static void rakeSand(PlayerInteractEvent.RightClickBlock event) {
@@ -123,20 +124,37 @@ public class DMHRightClickEvent {
 
     public static void placeWardenZola(PlayerInteractEvent.RightClickBlock event) {
         if (ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) && event.getItemStack().getItem().builtInRegistryHolder().is(DMHUtils.Constants.WARDENZOLA) && DMHConfig.COMMON.wheelifiedWardenzola.get()) {
-            BlockPlaceContext context = new BlockPlaceContext(event.getEntity(), event.getHand(), event.getItemStack(), event.getHitVec());
+            BlockPlaceContext context = fromEvent(event);
 
             InteractionResult result = ((BlockItem) DMHBlocks.WARDENZOLA.get().asItem()).place(context);
 
-            if (!event.getEntity().getAbilities().instabuild) {
-                event.getItemStack().shrink(1);
-            }
-
             if (result.consumesAction()) {
+                if (!event.getEntity().getAbilities().instabuild) {
+                    event.getItemStack().shrink(1);
+                }
                 event.setCancellationResult(result);
                 event.setCanceled(true);
             }
         }
     }
+
+    public static void placeBoneRod(PlayerInteractEvent.RightClickBlock event) {
+        if (ModList.get().isLoaded(DMHUtils.Constants.JNE) && DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones.get() && event.getItemStack().is(Items.BONE)) {
+            BlockPlaceContext context = fromEvent(event);
+            BlockItem item = (BlockItem)  DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "bone_rod");
+            InteractionResult result = item.place(context);
+
+            if (result.consumesAction()) {
+                if (!event.getEntity().getAbilities().instabuild) {
+                    event.getItemStack().shrink(1);
+                }
+                event.setCancellationResult(result);
+                event.setCanceled(true);
+            }
+        }
+    }
+
+
 
     public static void registerHoeTills() {
         TILL_MAP.put(Blocks.FARMLAND, Blocks.DIRT);
@@ -310,5 +328,9 @@ public class DMHRightClickEvent {
                 event.setCanceled(true);
             }
         }
+    }
+
+    private static BlockPlaceContext fromEvent(PlayerInteractEvent.RightClickBlock event) {
+        return new BlockPlaceContext(event.getEntity(), event.getHand(), event.getItemStack(), event.getHitVec());
     }
 }

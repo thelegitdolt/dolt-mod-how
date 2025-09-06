@@ -23,6 +23,7 @@
     "farmersdelight.KnifeItemMixin",
     "farmersdelight.ModEnchantmentMixin",
     "farmersdelight.RopeItemMixin",
+    "jne.BoneRodsMixin",
     "nethers_delight.ConsumableItemMixin",
     "nethers_delight.FrogEatMagmaCakeGoalMixin",
     "nethers_delight.PowderyFlowerBlockMixin",

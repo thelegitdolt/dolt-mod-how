@@ -28,6 +28,7 @@ public class DMHConfig {
         public final ConfigValue<Integer> stackSizeForSpeciesCrankbow;
         public final ConfigValue<Boolean> shouldCombustionGriefBlocks;
         public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
+        public final ConfigValue<Boolean> shouldPlaceBonePilesWithNormalBones;
         public final ConfigValue<Boolean> doDispenserCauldrons;
         public final ConfigValue<Boolean> doUntillableFarmland;
         public final ConfigValue<Boolean> removeOrangeVapor;
@@ -107,6 +108,16 @@ public class DMHConfig {
 
             builder.pop();
 
+
+            builder.push("jaden nether expansion");
+            builder.push("Bone Rods");
+            shouldPlaceBonePilesWithNormalBones = builder
+                    .comment("If bone rods should be placed by right clicking vanilla bones, instead of having a new bone rod item")
+                    .comment("This will not change the loot table or recipe for bone rods. Modpack devs are expected to change those themselves")
+                    .define("Bone ahh bone", false);
+            builder.pop();
+            builder.pop();
+
             builder.push("atmospheric");
             builder.push("Oranges");
             removeOrangeVapor = builder.comment("If oranges can no longer be jumped on to be broken and to create a vapor cloud").define("Normal Oranges", true);
@@ -181,6 +192,7 @@ public class DMHConfig {
             builder.pop();
 
             builder.pop();
+
 
             builder.push("Dungeon's Delight");
 

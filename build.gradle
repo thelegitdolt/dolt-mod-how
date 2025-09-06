@@ -122,13 +122,12 @@ dependencies {
     implementation fg.deobf("maven.modrinth:gallery:${project.gallery}")
     implementation fg.deobf("maven.modrinth:atmospheric:${project.atmospheric}")
 
+    implementation fg.deobf("maven.modrinth:jadens-nether-expansion:${project.jne}")
+    implementation fg.deobf("maven.modrinth:elysium-api:${project.elysium}")
+
 
     implementation fg.deobf("maven.modrinth:environmental:${project.environmental}")
     implementation fg.deobf("maven.modrinth:upgrade-aquatic:${project.upgradeAquatic}")
-
-    implementation fg.deobf("maven.modrinth:biomes-o-plenty:jxUqRzSD")
-    implementation fg.deobf("maven.modrinth:terrablender:zGconCHG")
-    implementation fg.deobf("maven.modrinth:glitchcore:pYPZ5MNI")
 
     compileOnly fg.deobf("maven.modrinth:etcetera:${project.etcetera}")
 

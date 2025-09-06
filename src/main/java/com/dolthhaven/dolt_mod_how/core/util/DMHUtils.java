@@ -65,6 +65,10 @@ public class DMHUtils {
         return ForgeRegistries.ITEMS.getKey(item);
     }
 
+    public static ResourceLocation getBlockId(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
+    }
+
     public static class Constants {
         public static final String ALEXS_CAVES = "alexscaves";
         public static final String ATMOSPHERIC = "atmospheric";

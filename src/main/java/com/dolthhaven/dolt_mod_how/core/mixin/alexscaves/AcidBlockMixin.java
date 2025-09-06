@@ -1,32 +1,18 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.alexscaves;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
-import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.github.alexmodguy.alexscaves.server.block.AcidBlock;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.ForgeRegistries;
+import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
+import net.minecraft.world.level.block.WeatheringCopper;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Map;
+import java.util.HashMap;
 
 @Mixin(value = AcidBlock.class, remap = false)
 public class AcidBlockMixin {
-    @Shadow private static Map<Block, Block> CORRODES_INTERACTIONS;
-
-    @Inject(method = "initCorrosion", at = @At("TAIL"))
-    private static void DoltModHow$NoAutomaticallyOxidatingCopperPlease(CallbackInfo ci) {
-        if (!DMHConfig.COMMON.acidCorrodesCopper.get()) return;
-
-        CORRODES_INTERACTIONS.entrySet().removeIf(entry -> {
-            ResourceLocation location = ForgeRegistries.BLOCKS.getKey(entry.getKey());
-            if (location == null) return false;
-
-            return location.getPath().contains("copper");
-        });
+    @WrapWithCondition(method = "lambda$initCorrosion$1(Ljava/util/HashMap;)V", at = @At(value = "INVOKE", target = "Ljava/util/HashMap;put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"))
+    private static <K, V> boolean DoltModHow$NoAutomaticallyOxidatingCopperPlease(HashMap<K, V> instance, K key, V value) {
+        return DMHConfig.COMMON.acidCorrodesCopper.get() && !(key instanceof WeatheringCopper);
     }
 }

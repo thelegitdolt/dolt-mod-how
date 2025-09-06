@@ -20,6 +20,7 @@ public class BoneRodsMixin {
     @Inject(method = "canBeReplaced", at = @At("HEAD"), cancellable = true)
     private void hi(BlockState state, BlockPlaceContext context, CallbackInfoReturnable<Boolean> cir){
         if (DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones.get()) {
+
             if (!context.isSecondaryUseActive() && context.getItemInHand().getItem() == Items.BONE && state.getValue(BONES) < 4) {
                 cir.setReturnValue(true);
             }

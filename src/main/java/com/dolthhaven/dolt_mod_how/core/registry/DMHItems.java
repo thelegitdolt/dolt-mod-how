@@ -39,6 +39,10 @@ public class DMHItems {
     public static final ItemSubRegistryHelper HELPER = DoltModHow.REGISTRY_HELPER.getItemSubHelper();
 
     public static final RegistryObject<Item> GLOWSHROOM_COLONY = HELPER.createItem("glowshroom_colony", () -> new MushroomColonyItem(DMHBlocks.GLOWSHROOM_COLONY.get(), new Item.Properties()));
+    public static final RegistryObject<Item> BOP_GLOWSHROOM_COLONY = HELPER.createItem("bop_glowshroom_colony", () -> new MushroomColonyItem(BOP_GLOW_SHROOM_COLONY.get(), new Item.Properties()));
+    public static final RegistryObject<Item> TOADSTOOL_COLONY = HELPER.createItem("toadstool_colony", () -> new MushroomColonyItem(DMHBlocks.TOADSTOOL_COLONY.get(), new Item.Properties()));
+
+
     public static final RegistryObject<Item> CHORUS_SODA = HELPER.createItem("chorus_soda",
             () -> new ChorusSodaItem(new Item.Properties().food(Food.CHORUS_SODA).craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> LEATHER_SCRAPS = HELPER.createItem("leather_scraps",
@@ -95,7 +99,7 @@ public class DMHItems {
 
                 .predicate(DMHItems::fdPredicate)
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)
-                .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId(), DMHUtils.Constants.BOP), TOADSTOOL_COLONY, BOP_GLOW_SHROOM_COLONY)
+                .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId(), DMHUtils.Constants.BOP), TOADSTOOL_COLONY, BOP_GLOWSHROOM_COLONY)
 
                 .addItemsBefore(ofID(ModItems.BAMBOO_CABINET.getId()), PEWEN_CABINET, THORNWOOD_CABINET)
                 .predicate(DMHItems::mowziesPredicate)

@@ -23,39 +23,46 @@ public class RichSoilMixin {
     @Inject(method = "randomTick",
             at = @At("HEAD"))
     private void DoltModHow$GrowCustomColonies(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand, CallbackInfo ci) {
-        if (!level.isClientSide &&  DMHConfig.COMMON.doRichSoilGrowFungusColony.get()) {
-            BlockPos abovePos = pos.above();
-            BlockState aboveState = level.getBlockState(abovePos);
+        BlockPos abovePos = pos.above();
+        BlockState aboveState = level.getBlockState(abovePos);
 
+        if (level.isClientSide) return;
+
+        if (DMHConfig.COMMON.doRichSoilGrowFungusColony.get()) {
             if (ModList.get().isLoaded(DMHUtils.Constants.MY_NETHERS_DELIGHT)) {
                 if (aboveState.is(Blocks.CRIMSON_FUNGUS)) {
                     Block block = DMHUtils.getPotentialBlock(DMHUtils.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony");
                     if (block != null) {
                         level.setBlockAndUpdate(abovePos, block.defaultBlockState());
+                        return;
                     }
                 }
                 else if (aboveState.is(Blocks.WARPED_FUNGUS)) {
                     Block block = DMHUtils.getPotentialBlock(DMHUtils.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony");
                     if (block != null) {
                         level.setBlockAndUpdate(abovePos, block.defaultBlockState());
+                        return;
                     }
                 }
             }
+        }
 
-            else if (aboveState.is(GlimmeringWealdModule.glow_shroom)) {
-                level.setBlockAndUpdate(abovePos, DMHBlocks.GLOWSHROOM_COLONY.get().defaultBlockState());
+        if (aboveState.is(GlimmeringWealdModule.glow_shroom)) {
+            level.setBlockAndUpdate(abovePos, DMHBlocks.GLOWSHROOM_COLONY.get().defaultBlockState());
+            return;
+        }
+
+        if (ModList.get().isLoaded(DMHUtils.Constants.BOP)) {
+            Block bopGlowshroom = DMHUtils.getPotentialBlock(DMHUtils.Constants.BOP, "glowshroom");
+            Block toadStool = DMHUtils.getPotentialBlock(DMHUtils.Constants.BOP, "toadstool");
+
+            if (aboveState.is(bopGlowshroom)) {
+                level.setBlockAndUpdate(abovePos, DMHBlocks.BOP_GLOW_SHROOM_COLONY.get().defaultBlockState());
             }
-            else if (ModList.get().isLoaded(DMHUtils.Constants.BOP)) {
-                Block bopGlowshroom = DMHUtils.getPotentialBlock(DMHUtils.Constants.BOP, "glowshroom");
-                Block toadStool = DMHUtils.getPotentialBlock(DMHUtils.Constants.BOP, "toadstool");
-
-                if (aboveState.is(bopGlowshroom)) {
-                    level.setBlockAndUpdate(abovePos, DMHBlocks.BOP_GLOW_SHROOM_COLONY.get().defaultBlockState());
-                }
-                else if (aboveState.is(toadStool)) {
-                    level.setBlockAndUpdate(abovePos, DMHBlocks.TOADSTOOL_COLONY.get().defaultBlockState());
-                }
+            else if (aboveState.is(toadStool)) {
+                level.setBlockAndUpdate(abovePos, DMHBlocks.TOADSTOOL_COLONY.get().defaultBlockState());
             }
         }
+
     }
 }

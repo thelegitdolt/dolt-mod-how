@@ -70,13 +70,9 @@ public class DMHEvent {
 
     @SubscribeEvent
     public static void removePoisonIfPlayerKillsArthropodWithBOA(LivingDeathEvent event) {
-        Entity enty = event.getEntity();
+        Entity entity = event.getEntity();
 
-        if (enty instanceof ServerPlayer player) {
-            CriteriaTriggers.CONSUME_ITEM.trigger(player, new ItemStack(Items.PUMPKIN_PIE));
-
-        }
-        if (enty.level() instanceof ServerLevel SL && event.getSource().getEntity() instanceof LivingEntity attacker) {
+        if (entity.level() instanceof ServerLevel SL && event.getSource().getEntity() instanceof LivingEntity attacker) {
 
             boolean shouldRemovePoison = attacker.hasEffect(MobEffects.POISON)
                     && attacker.getItemInHand(MAIN_HAND).getAllEnchantments().containsKey(Enchantments.BANE_OF_ARTHROPODS)

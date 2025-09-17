@@ -21,6 +21,8 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
+import org.violetmoon.quark.addons.oddities.block.pipe.EncasedPipeBlock;
+import org.violetmoon.zeta.module.ZetaModule;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
@@ -131,6 +133,10 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> WARDENZOLA = HELPER.createBlock("wardenzola", ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) ?
             DMHBCCompat.WARDENZOLA : () -> new Block(BlockBehaviour.Properties.copy(Blocks.CAKE)));
+
+
+    public static final RegistryObject<Block> WHITE_ENCASED_PIPE = HELPER.createBlock("white_encased_pipe", () ->
+            new EncasedPipeBlock(null));
 
     private static Supplier<? extends Block> getPot(String id, Supplier<? extends Block> block) {
         return ModList.get().isLoaded(id) ? block : () -> new Block(PropertyUtil.flowerPot());

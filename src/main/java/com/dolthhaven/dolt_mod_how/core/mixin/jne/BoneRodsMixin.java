@@ -1,29 +1,21 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.jne;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.jadenxgamer.netherexp.registry.block.custom.BoneRodBlock;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BoneRodBlock.class)
 public class BoneRodsMixin {
-    @Shadow @Final public static IntegerProperty BONES;
-
-    @Inject(method = "canBeReplaced", at = @At("HEAD"), cancellable = true)
-    private void hi(BlockState state, BlockPlaceContext context, CallbackInfoReturnable<Boolean> cir){
-        if (DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones.get()) {
-
-            if (!context.isSecondaryUseActive() && context.getItemInHand().getItem() == Items.BONE && state.getValue(BONES) < 4) {
-                cir.setReturnValue(true);
-            }
-        }
+    @Definition(id = "asItem", method = "Lnet/jadenxgamer/netherexp/registry/block/custom/BoneRodBlock;asItem()Lnet/minecraft/world/item/Item;")
+    @Expression("this.asItem()")
+    @ModifyExpressionValue(method = "canBeReplaced", at = @At("MIXINEXTRAS:EXPRESSION"))
+    private Item hi(Item original){
+        return DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones.get() ? Items.BONE : original;
     }
 }

@@ -6,6 +6,7 @@
   "mixins": [
     "alexscaves.AcidBlockMixin",
     "alexscaves.BiomeTreatItemMixin",
+    "alexscaves.CycadMixin",
     "alexscaves.DinosaurChopMixin",
     "alexscaves.SackOfSatingItemMixin",
     "alexscaves.SubmarineMixin",

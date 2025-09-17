@@ -7,6 +7,7 @@ import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -19,6 +20,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -69,6 +71,11 @@ public class DMHEvent {
     @SubscribeEvent
     public static void removePoisonIfPlayerKillsArthropodWithBOA(LivingDeathEvent event) {
         Entity enty = event.getEntity();
+
+        if (enty instanceof ServerPlayer player) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(player, new ItemStack(Items.PUMPKIN_PIE));
+
+        }
         if (enty.level() instanceof ServerLevel SL && event.getSource().getEntity() instanceof LivingEntity attacker) {
 
             boolean shouldRemovePoison = attacker.hasEffect(MobEffects.POISON)

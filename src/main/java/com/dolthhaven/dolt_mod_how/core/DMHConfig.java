@@ -173,7 +173,7 @@ public class DMHConfig {
 
             builder.push("Cave Maps");
             pathfinderQuillMakesCaveMaps = builder.comment("If pathfinder quills should make a based sigma cave map instead of a cringe beta vanilla map")
-                            .define("I'm sorry I said all that", false);
+                            .define("I'm sorry I said all that", true);
             builder.pop();
 
             builder.push("Biome Treats");

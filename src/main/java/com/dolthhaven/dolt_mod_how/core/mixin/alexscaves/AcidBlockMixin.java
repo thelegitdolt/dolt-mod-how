@@ -13,6 +13,6 @@ import java.util.HashMap;
 public class AcidBlockMixin {
     @WrapWithCondition(method = "lambda$initCorrosion$1(Ljava/util/HashMap;)V", at = @At(value = "INVOKE", target = "Ljava/util/HashMap;put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"))
     private static <K, V> boolean DoltModHow$NoAutomaticallyOxidatingCopperPlease(HashMap<K, V> instance, K key, V value) {
-        return DMHConfig.COMMON.acidCorrodesCopper.get() && !(key instanceof WeatheringCopper);
+        return !DMHConfig.COMMON.acidCorrodesCopper.get() || !(key instanceof WeatheringCopper);
     }
 }

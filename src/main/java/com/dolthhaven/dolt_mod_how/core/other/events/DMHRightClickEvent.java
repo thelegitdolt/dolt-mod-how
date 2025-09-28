@@ -123,9 +123,6 @@ public class DMHRightClickEvent {
             InteractionResult result = ((BlockItem) DMHBlocks.WARDENZOLA.get().asItem()).place(context);
 
             if (result.consumesAction()) {
-                if (!event.getEntity().getAbilities().instabuild) {
-                    event.getItemStack().shrink(1);
-                }
                 event.setCancellationResult(result);
                 event.setCanceled(true);
             }
@@ -135,13 +132,11 @@ public class DMHRightClickEvent {
     public static void placeBoneRod(PlayerInteractEvent.RightClickBlock event) {
         if (ModList.get().isLoaded(DMHUtils.Constants.JNE) && DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones.get() && event.getItemStack().is(Items.BONE)) {
             BlockPlaceContext context = fromEvent(event);
+
             BlockItem item = (BlockItem)  DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "bone_rod");
             InteractionResult result = item.place(context);
 
             if (result.consumesAction()) {
-                if (!event.getEntity().getAbilities().instabuild) {
-                    event.getItemStack().shrink(1);
-                }
                 event.setCancellationResult(result);
                 event.setCanceled(true);
             }

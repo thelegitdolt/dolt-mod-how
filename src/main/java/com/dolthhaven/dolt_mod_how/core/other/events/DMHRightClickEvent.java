@@ -5,8 +5,6 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.network.DMHPacketHandler;
 import com.dolthhaven.dolt_mod_how.core.network.S2CRustScrapePacket;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHMowziesMobsCompat;
@@ -15,14 +13,10 @@ import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.ParticleUtils;
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -196,13 +190,11 @@ public class DMHRightClickEvent {
     }
 
 
-    private static <V extends Comparable<V>> BlockState setGenericProperty(BlockState state, Property<?> propName, V propertyValue) {
-        try {
-            Property<V> newProp = (Property<V>) propName;
-            return state.setValue(newProp, propertyValue);
-        } catch (ClassCastException | IllegalArgumentException e) {
-            return state;
+    public static BlockState copyStates(BlockState first, BlockState template) {
+        for (Property prop : template.getProperties()) {
+            first = first.hasProperty(prop) ? first.setValue(prop, template.getValue(prop)) : first;
         }
+        return first;
     }
 
     private static void handleAlphacenePath(PlayerInteractEvent.RightClickBlock event) {
@@ -271,9 +263,7 @@ public class DMHRightClickEvent {
             level.playSound(player, pos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS, 1.0F, 1.0F);
             BlockState newState = UNRUST_MAP.get(state.getBlock()).defaultBlockState();
 
-            for (Property<?> anyProp : state.getProperties()) {
-                newState = setGenericProperty(newState, anyProp, state.getValue(anyProp));
-            }
+            newState = copyStates(newState, state);
 
             if (player instanceof ServerPlayer serverPlayer) {
                 CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, pos, stack);

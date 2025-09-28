@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import org.apache.commons.lang3.tuple.Pair;
+import org.violetmoon.quark.addons.oddities.module.PipesModule;
 
 public class DMHConfig {
     public static class Common {
@@ -154,7 +155,6 @@ public class DMHConfig {
             builder.pop();
 
             builder.pop();
-
             builder.push("supplementaries");
             builder.push("quivers");
 

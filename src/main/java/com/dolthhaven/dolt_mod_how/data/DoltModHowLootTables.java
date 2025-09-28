@@ -128,6 +128,9 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropSelf(CHISELED_ZINC_BRICKS.get());
 
             this.cheese(WARDENZOLA);
+            this.pipes();
+
+
         }
 
         private void colony(RegistryObject<? extends Block> block) {
@@ -161,6 +164,41 @@ public class DoltModHowLootTables extends LootTableProvider {
             else {
                 throw new IllegalArgumentException("Not cheese");
             }
+        }
+
+        private void pipes() {
+            this.dropSelf(WHITE_ENCASED_PIPE.get());
+            this.dropSelf(BROWN_ENCASED_PIPE.get());
+            this.dropSelf(GRAY_ENCASED_PIPE.get());
+            this.dropSelf(LIGHT_GRAY_ENCASED_PIPE.get());
+            this.dropSelf(RED_ENCASED_PIPE.get());
+            this.dropSelf(ORANGE_ENCASED_PIPE.get());
+            this.dropSelf(YELLOW_ENCASED_PIPE.get());
+            this.dropSelf(LIME_ENCASED_PIPE.get());
+            this.dropSelf(GREEN_ENCASED_PIPE.get());
+            this.dropSelf(BLUE_ENCASED_PIPE.get());
+            this.dropSelf(LIGHT_BLUE_ENCASED_PIPE.get());
+            this.dropSelf(CYAN_ENCASED_PIPE.get());
+            this.dropSelf(PURPLE_ENCASED_PIPE.get());
+            this.dropSelf(MAGENTA_ENCASED_PIPE.get());
+            this.dropSelf(PINK_ENCASED_PIPE.get());
+            this.dropSelf(BLACK_ENCASED_PIPE.get());
+            this.dropSelf(ROSE_ENCASED_PIPE.get());
+            this.dropSelf(MAROON_ENCASED_PIPE.get());
+            this.dropSelf(GINGER_ENCASED_PIPE.get());
+            this.dropSelf(TAN_ENCASED_PIPE.get());
+            this.dropSelf(BEIGE_ENCASED_PIPE.get());
+            this.dropSelf(CORAL_ENCASED_PIPE.get());
+            this.dropSelf(OLIVE_ENCASED_PIPE.get());
+            this.dropSelf(FOREST_ENCASED_PIPE.get());
+            this.dropSelf(VERDANT_ENCASED_PIPE.get());
+            this.dropSelf(AMBER_ENCASED_PIPE.get());
+            this.dropSelf(TEAL_ENCASED_PIPE.get());
+            this.dropSelf(MINT_ENCASED_PIPE.get());
+            this.dropSelf(AQUA_ENCASED_PIPE.get());
+            this.dropSelf(SLATE_ENCASED_PIPE.get());
+            this.dropSelf(NAVY_ENCASED_PIPE.get());
+            this.dropSelf(INDIGO_ENCASED_PIPE.get());
         }
 
         private static <V extends Comparable<V>> LootItemCondition.Builder stateCond(RegistryObject<? extends Block> block, Property<V> property, V v) {

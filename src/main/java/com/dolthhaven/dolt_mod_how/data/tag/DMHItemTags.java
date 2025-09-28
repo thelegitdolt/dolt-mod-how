@@ -57,6 +57,8 @@ public class DMHItemTags extends ItemTagsProvider {
         copy(BlueprintBlockTags.WOODEN_LADDERS, BlueprintItemTags.WOODEN_LADDERS);
         copy(BlueprintBlockTags.WOODEN_BEEHIVES, BlueprintItemTags.WOODEN_BEEHIVES);
         copy(BlueprintBlockTags.LEAF_PILES, BlueprintItemTags.LEAF_PILES);
+        copy(DMHTags.PIPE_BLOCKS, DMHTags.PIPES);
+        copy(DMHTags.ENCASED_PIPES_BLOCKS, DMHTags.ENCASED_PIPES);
 
         this.tag(ModTags.WOODEN_CABINETS).add(PEWEN_CABINET.get().asItem(), THORNWOOD_CABINET.get().asItem());
     }

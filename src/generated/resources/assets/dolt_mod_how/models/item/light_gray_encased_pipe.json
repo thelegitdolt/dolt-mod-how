@@ -1,0 +1,6 @@
+{
+  "parent": "quark:item/encased_pipe",
+  "textures": {
+    "glass": "minecraft:block/light_gray_stained_glass"
+  }
+}

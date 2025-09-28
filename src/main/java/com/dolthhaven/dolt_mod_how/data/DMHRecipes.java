@@ -4,10 +4,9 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlockFamilies;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.dolthhaven.dolt_mod_how.integration.DyeDepotCompat;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
-import com.teamabnormals.blueprint.core.api.conditions.ConfigValueCondition;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
-import com.teamabnormals.environmental.core.registry.EnvironmentalBlocks;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -15,18 +14,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.AndCondition;
-import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import net.minecraftforge.common.crafting.conditions.NotCondition;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+import org.violetmoon.quark.addons.oddities.module.PipesModule;
 
-import java.nio.file.Paths;
 import java.util.function.Consumer;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
@@ -86,6 +82,8 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_WALL.get(), ZINC_BRICKS.get(), 1);
 
         generateRecipes(consumer, DMHBlockFamilies.ZINC_BRICKS_FAMILY);
+
+        pipes(consumer);
     }
 
     private void cabinet(Consumer<FinishedRecipe> consumer, RegistryObject<Block> cabinet, RegistryObject<Block> slab, RegistryObject<Block> trapdoor) {
@@ -93,6 +91,27 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                 .define('1', slab.get()).define('2', trapdoor.get())
                 .pattern("111").pattern("2 2").pattern("111")
                 .unlockedBy("has_pewen_slab", has(slab.get())).save(consumer);
+    }
+
+    private void pipes(Consumer<FinishedRecipe> consumer) {
+        for (RegistryObject<?> blocks : new RegistryObject<?>[]{
+                WHITE_ENCASED_PIPE, BROWN_ENCASED_PIPE, GRAY_ENCASED_PIPE, LIGHT_GRAY_ENCASED_PIPE, RED_ENCASED_PIPE, ORANGE_ENCASED_PIPE,
+                YELLOW_ENCASED_PIPE, LIME_ENCASED_PIPE, GREEN_ENCASED_PIPE, BLUE_ENCASED_PIPE, LIGHT_BLUE_ENCASED_PIPE, CYAN_ENCASED_PIPE, PURPLE_ENCASED_PIPE,
+                MAGENTA_ENCASED_PIPE, PINK_ENCASED_PIPE, BLACK_ENCASED_PIPE, ROSE_ENCASED_PIPE, MAROON_ENCASED_PIPE, GINGER_ENCASED_PIPE, TAN_ENCASED_PIPE,
+                BEIGE_ENCASED_PIPE, CORAL_ENCASED_PIPE, OLIVE_ENCASED_PIPE, FOREST_ENCASED_PIPE, VERDANT_ENCASED_PIPE, AMBER_ENCASED_PIPE,
+                TEAL_ENCASED_PIPE, MINT_ENCASED_PIPE, AQUA_ENCASED_PIPE, SLATE_ENCASED_PIPE, NAVY_ENCASED_PIPE, INDIGO_ENCASED_PIPE
+        }) {
+            if (blocks.get() instanceof Block block) {
+                String color = blocks.getId().getPath().replace("_encased_pipe", "");
+                boolean dyeDepot = DyeDepotCompat.getDyeDepotDye(color) != null;
+                Item glass = ForgeRegistries.ITEMS.getValue(new ResourceLocation(dyeDepot ? DMHUtils.Constants.DYE_DEPOT : ResourceLocation.DEFAULT_NAMESPACE,
+                        color + "_stained_glass"));
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, block)
+                        .requires(PipesModule.pipe).requires(glass)
+                        .unlockedBy("has_pipe", has(PipesModule.pipe))
+                        .save(consumer);
+            }
+        }
     }
 
     public void stonecutterRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike output, ItemLike input, int count) {

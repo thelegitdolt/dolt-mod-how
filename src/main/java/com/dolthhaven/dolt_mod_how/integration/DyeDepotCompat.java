@@ -10,25 +10,45 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DyeDepotCompat {
+    private static final Pattern DYE_PATTERN = Pattern.compile("([a-z]+)_dye$");
+
     public static String getDyeDepotDyeColor(Item item) {
         ResourceLocation loc = DMHUtils.getItemId(item);
-        Pattern pattern = Pattern.compile("([a-z]+)_dye$");
         if (loc.getNamespace().equals("dye_depot")) {
-            Matcher matcher = pattern.matcher(loc.getPath());
+            Matcher matcher = DYE_PATTERN.matcher(loc.getPath());
             if (matcher.matches()) {
                 String dye = matcher.group(1);
-
-                try {
-                    DyeDepotDyes.valueOf(dye.toUpperCase(Locale.ROOT));
-                    return dye;
-                } catch (IllegalArgumentException e) {
-                    return null;
-                }
+                return getDyeDepotDye(dye);
             }
         }
         return null;
     }
 
+    public static String getDyeDepotDye(String dye) {
+        try {
+            DyeDepotDyes.valueOf(dye.toUpperCase(Locale.ROOT));
+            return dye;
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
+
+    public static String getVanillaDye(String dye) {
+        try {
+            VanillaDyes.valueOf(dye.toUpperCase(Locale.ROOT));
+            return dye;
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
+
+    public static String getAny(String dye) {
+        if (getVanillaDye(dye) == null) {
+            if (getDyeDepotDye(dye) == null) {
+                return null;
+            }
+        }  return dye;
+    }
 
     public enum DyeDepotDyes implements StringRepresentable {
         ROSE("rose"),
@@ -50,6 +70,39 @@ public class DyeDepotCompat {
 
         final String name;
         DyeDepotDyes(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public String getSerializedName() {
+            return name;
+        }
+    }
+
+    public enum VanillaDyes implements StringRepresentable {
+        WHITE("white"),
+        ORANGE("orange"),
+        MAGENTA("magenta"),
+        LIGHT_BLUE("light_blue"),
+        YELLOW("yellow"),
+        LIME("lime"),
+        PINK("pink"),
+        GRAY("gray"),
+        LIGHT_GRAY("light_gray"),
+        CYAN("cyan"),
+        PURPLE("purple"),
+        BLUE("blue"),
+        BROWN("brown"),
+        GREEN("green"),
+        RED("red"),
+        BLACK("black");
+
+        final String name;
+        VanillaDyes(String name) {
             this.name = name;
         }
 

@@ -17,5 +17,4 @@ public class CycadMixin {
         boolean result = cir.getReturnValue();
         cir.setReturnValue(result || state.is(Tags.Blocks.SAND));
     }
-
 }

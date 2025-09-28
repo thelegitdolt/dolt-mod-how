@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "quark:pipe"
+    },
+    {
+      "item": "dye_depot:rose_stained_glass"
+    }
+  ],
+  "result": {
+    "item": "dolt_mod_how:rose_encased_pipe"
+  }
+}

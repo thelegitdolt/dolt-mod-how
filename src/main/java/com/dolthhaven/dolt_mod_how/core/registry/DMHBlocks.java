@@ -57,8 +57,10 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> PEWEN_BEEHIVE = HELPER.createFuelBlock("pewen_beehive", () ->
             new BlueprintBeehiveBlock(DMHBlockProps.PEWEN.beehive()), 300);
-    public static final RegistryObject<BlueprintChestBlock> PEWEN_CHEST = HELPER.createChestBlock("pewen", DMHBlockProps.PEWEN.chest());
-    public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_PEWEN_CHEST = HELPER.createTrappedChestBlockNamed("pewen", DMHBlockProps.PEWEN.chest());
+    public static final RegistryObject<BlueprintChestBlock> PEWEN_CHEST = HELPER
+            .createChestBlock("pewen", DMHBlockProps.PEWEN.chest());
+    public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_PEWEN_CHEST = HELPER
+            .createTrappedChestBlockNamed("pewen", DMHBlockProps.PEWEN.chest());
     public static final RegistryObject<Block> PEWEN_LADDER = HELPER.createFuelBlock("pewen_ladder", () ->
             new LadderBlock(DMHBlockProps.PEWEN.ladder()), 300);
     public static final RegistryObject<Block> PEWEN_BOARDS = HELPER.createFuelBlock("pewen_boards", () ->
@@ -72,8 +74,10 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> THORNWOOD_BEEHIVE = HELPER.createFuelBlock("thornwood_beehive", () ->
             new BlueprintBeehiveBlock(DMHBlockProps.THORNWOOD.beehive()), 300);
-    public static final RegistryObject<BlueprintChestBlock> THORNWOOD_CHEST = HELPER.createChestBlock("thornwood", DMHBlockProps.PEWEN.chest());
-    public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_THORNWOOD_CHEST = HELPER.createTrappedChestBlockNamed("thornwood", DMHBlockProps.THORNWOOD.chest());
+    public static final RegistryObject<BlueprintChestBlock> THORNWOOD_CHEST = HELPER
+            .createChestBlock("thornwood", DMHBlockProps.PEWEN.chest());
+    public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_THORNWOOD_CHEST = HELPER
+            .createTrappedChestBlockNamed("thornwood", DMHBlockProps.THORNWOOD.chest());
     public static final RegistryObject<Block> THORNWOOD_LADDER = HELPER.createFuelBlock("thornwood_ladder", () ->
             new LadderBlock(DMHBlockProps.THORNWOOD.ladder()), 300);
     public static final RegistryObject<Block> THORNWOOD_BOARDS = HELPER.createFuelBlock("thornwood_boards", () ->
@@ -137,6 +141,69 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> WHITE_ENCASED_PIPE = HELPER.createBlock("white_encased_pipe", () ->
             new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> BROWN_ENCASED_PIPE = HELPER.createBlock("brown_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> GRAY_ENCASED_PIPE = HELPER.createBlock("gray_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> LIGHT_GRAY_ENCASED_PIPE = HELPER.createBlock("light_gray_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> RED_ENCASED_PIPE = HELPER.createBlock("red_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> ORANGE_ENCASED_PIPE = HELPER.createBlock("orange_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> YELLOW_ENCASED_PIPE = HELPER.createBlock("yellow_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> LIME_ENCASED_PIPE = HELPER.createBlock("lime_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> GREEN_ENCASED_PIPE = HELPER.createBlock("green_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> BLUE_ENCASED_PIPE = HELPER.createBlock("blue_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> LIGHT_BLUE_ENCASED_PIPE = HELPER.createBlock("light_blue_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> CYAN_ENCASED_PIPE = HELPER.createBlock("cyan_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> PURPLE_ENCASED_PIPE = HELPER.createBlock("purple_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> MAGENTA_ENCASED_PIPE = HELPER.createBlock("magenta_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> PINK_ENCASED_PIPE = HELPER.createBlock("pink_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> BLACK_ENCASED_PIPE = HELPER.createBlock("black_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> ROSE_ENCASED_PIPE = HELPER.createBlock("rose_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> MAROON_ENCASED_PIPE = HELPER.createBlock("maroon_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> GINGER_ENCASED_PIPE = HELPER.createBlock("ginger_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> TAN_ENCASED_PIPE = HELPER.createBlock("tan_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> BEIGE_ENCASED_PIPE = HELPER.createBlock("beige_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> CORAL_ENCASED_PIPE = HELPER.createBlock("coral_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> OLIVE_ENCASED_PIPE = HELPER.createBlock("olive_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> FOREST_ENCASED_PIPE = HELPER.createBlock("forest_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> VERDANT_ENCASED_PIPE = HELPER.createBlock("verdant_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> AMBER_ENCASED_PIPE = HELPER.createBlock("amber_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> TEAL_ENCASED_PIPE = HELPER.createBlock("teal_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> MINT_ENCASED_PIPE = HELPER.createBlock("mint_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> AQUA_ENCASED_PIPE = HELPER.createBlock("aqua_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> SLATE_ENCASED_PIPE = HELPER.createBlock("slate_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> NAVY_ENCASED_PIPE = HELPER.createBlock("navy_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+    public static final RegistryObject<Block> INDIGO_ENCASED_PIPE = HELPER.createBlock("indigo_encased_pipe", () ->
+            new EncasedPipeBlock(null));
+
 
     private static Supplier<? extends Block> getPot(String id, Supplier<? extends Block> block) {
         return ModList.get().isLoaded(id) ? block : () -> new Block(PropertyUtil.flowerPot());

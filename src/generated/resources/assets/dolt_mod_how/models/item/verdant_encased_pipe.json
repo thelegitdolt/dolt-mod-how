@@ -1,0 +1,6 @@
+{
+  "parent": "quark:item/encased_pipe",
+  "textures": {
+    "glass": "dye_depot:block/verdant_stained_glass"
+  }
+}

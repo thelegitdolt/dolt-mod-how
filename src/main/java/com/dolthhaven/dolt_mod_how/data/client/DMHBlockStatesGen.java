@@ -3,6 +3,7 @@ package com.dolthhaven.dolt_mod_how.data.client;
 import com.bobmowzie.mowziesmobs.server.block.RakedSandBlock;
 import com.davigj.blasted_barrens.core.registry.BBBlocks;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.integration.DyeDepotCompat;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import com.teamabnormals.blueprint.core.data.client.BlueprintBlockStateProvider;
@@ -12,6 +13,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.registries.RegistryObject;
+import org.violetmoon.quark.addons.oddities.block.pipe.EncasedPipeBlock;
 import vectorwing.farmersdelight.common.block.CabinetBlock;
 
 import java.util.Objects;

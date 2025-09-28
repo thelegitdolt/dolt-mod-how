@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "quark:pipe"
+    },
+    {
+      "item": "minecraft:lime_stained_glass"
+    }
+  ],
+  "result": {
+    "item": "dolt_mod_how:lime_encased_pipe"
+  }
+}

@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-27T15:28:12.958962	Tags for minecraft:block mod id dolt_mod_how
+// 1.20.1	2025-09-28T13:07:40.608745	Tags for minecraft:block mod id dolt_mod_how
 a546b8d6d9ef4880fe9d2f2786cca558b1eca7f8 data/blueprint/tags/blocks/wooden_beehives.json
 f3edab4b40bf9082933b2196e29d5efadbbbae2d data/blueprint/tags/blocks/wooden_bookshelves.json
 be93ccfb6564e382318d4275973099df90d1db6f data/blueprint/tags/blocks/wooden_chests.json
@@ -17,6 +17,7 @@ e4256af683f5921828605a6704e62be4c9c8e264 data/farmersdelight/tags/blocks/unaffec
 f6bf9e4d92e2212478f470997b4590334bad4be7 data/minecraft/tags/blocks/mineable/axe.json
 2bd7fada58e1c38d32cda136019e7798dc5682c5 data/minecraft/tags/blocks/mineable/hoe.json
 2ee1312b592d4d9e0567a8d1c5471ad203a53264 data/minecraft/tags/blocks/mineable/pickaxe.json
+8df9ed57490afcf2fada128fdba2c29fd770b013 data/minecraft/tags/blocks/mineable/shear.json
 94fbf3a679f6e5f371c2ddf648d941c3998beccf data/minecraft/tags/blocks/mineable/shovel.json
 7b603314ded41a5faad4f93c0c0da009aebbe33b data/quark/tags/blocks/encased_pipes.json
 c0677a396e2d9bb38e63bb8ab4116f23ad06dac9 data/quark/tags/blocks/pipes.json

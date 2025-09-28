@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
@@ -66,6 +67,7 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(ModTags.MINEABLE_WITH_KNIFE)
                 .addOptional(DMHUtils.Constants.DINOSAUR_CHOP)
                 .addOptional(DMHUtils.Constants.COOKED_DINOSAUR_CHOPS);
+        this.tag(DMHTags.MINEABLE_SHEARS).add(HONEYCOMB_BLOCK, WAX_BLOCK.get());
 
         this.tag(DMHTags.RARE_ORES).addTags(BlockTags.GOLD_ORES)
                 .addOptionalTag(new ResourceLocation("forge", "ores/silver"))

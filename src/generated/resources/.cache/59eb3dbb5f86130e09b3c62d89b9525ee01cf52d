@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-27T15:05:48.035199	Loot Tables
+// 1.20.1	2025-09-28T13:07:40.60994	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
 7ee65a426beb9ecae98c65d2684b60feeb5b446e data/dolt_mod_how/loot_tables/blocks/amber_encased_pipe.json
 59a85b165f87c048d1d2c8990c3bbcf648562eca data/dolt_mod_how/loot_tables/blocks/ancient_leaf_pile.json
@@ -64,6 +64,7 @@ ef8aa5a948e9e4d1d4e5072f7ff30535238c4c27 data/dolt_mod_how/loot_tables/blocks/th
 80dcb5c6934c7b5b6a00c98c370aa6151dcce39c data/dolt_mod_how/loot_tables/blocks/trapped_thornwood_chest.json
 d1ba40a933d8009d8767da52c603d4470cf6c66d data/dolt_mod_how/loot_tables/blocks/verdant_encased_pipe.json
 bb87135afd0b9b33041ebbce2f7556b50eb6176d data/dolt_mod_how/loot_tables/blocks/wardenzola.json
+0f1fa8aa1dbb970494768dc2a9aa4b1cfe254aef data/dolt_mod_how/loot_tables/blocks/wax_block.json
 49f48b3b45a850afa7eb130820745bbd3a196faf data/dolt_mod_how/loot_tables/blocks/white_encased_pipe.json
 64efba9ab7d2ad6fc2ed1620d65c40426236c1a1 data/dolt_mod_how/loot_tables/blocks/yellow_encased_pipe.json
 aa3697f0f12fabcafefb6971c612e573b0ba293a data/dolt_mod_how/loot_tables/blocks/zinc_brick_slab.json

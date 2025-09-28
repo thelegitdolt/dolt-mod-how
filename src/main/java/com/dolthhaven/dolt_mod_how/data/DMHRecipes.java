@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlockFamilies;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DyeDepotCompat;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.AndCondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -44,6 +46,7 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                 .pattern("111").pattern("111")
                 .pattern("111")
                 .unlockedBy("has_cobble_deepslate", has(Items.COBBLED_DEEPSLATE)).save(consumer);
+        this.storageRecipes(consumer, RecipeCategory.MISC, Items.HONEYCOMB, RecipeCategory.BUILDING_BLOCKS, WAX_BLOCK.get());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DMHItems.CHORUS_SODA.get(), 2)
                 .requires(Items.GLASS_BOTTLE).requires(Items.DRAGON_BREATH).requires(Items.CHORUS_FRUIT).requires(Items.SUGAR)

@@ -138,6 +138,8 @@ public class DMHBlocks {
     public static final RegistryObject<Block> WARDENZOLA = HELPER.createBlock("wardenzola", ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) ?
             DMHBCCompat.WARDENZOLA : () -> new Block(BlockBehaviour.Properties.copy(Blocks.CAKE)));
 
+    public static final RegistryObject<Block> WAX_BLOCK = HELPER.createBlock("wax_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.HONEYCOMB_BLOCK)));
 
     public static final RegistryObject<Block> WHITE_ENCASED_PIPE = HELPER.createBlock("white_encased_pipe", () ->
             new EncasedPipeBlock(null));

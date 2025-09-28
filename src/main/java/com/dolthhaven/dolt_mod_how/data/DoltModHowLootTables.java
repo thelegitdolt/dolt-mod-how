@@ -112,6 +112,7 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.add(THORNWOOD_CABINET.get(), this::createNameableBlockEntityTable);
             this.add(THORNWOOD_BEEHIVE.get(), BlockLootSubProvider::createBeeHiveDrop);
             this.dropSelf(THORNWOOD_LADDER.get());
+            this.dropSelf(WAX_BLOCK.get());
             this.dropSelf(THORNWOOD_BOARDS.get());
             this.add(THORNWOOD_CABINET.get(), this::createNameableBlockEntityTable);
             this.add(THORNWOOD_BOOKSHELF.get(), block -> this.createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3)));

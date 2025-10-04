@@ -213,7 +213,7 @@ public class DMHConfig {
             builder.pop();
 
             builder.push("Combustion Effect");
-            shouldCombustionGriefBlocks = builder.comment("If explosions caused by mobs that die with the Species Combustion effect should not any blcks")
+            shouldCombustionGriefBlocks = builder.comment("If explosions caused by mobs that die with the Species Combustion effect should not any blocks")
                     .define("Less combusty combustion", false);
             builder.pop();
 

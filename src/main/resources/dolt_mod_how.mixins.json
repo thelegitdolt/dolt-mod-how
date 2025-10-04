@@ -49,6 +49,7 @@
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.RecipeManagerMixin",
     "vanilla.ServerLevelMixin",
+    "vanilla.ItemStackMixin",
     "vanilla.ServerPlayerMixin",
     "vanilla.ShulkerColoringRecipeMixin",
     "vanilla.SlimeMixin"

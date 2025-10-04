@@ -28,6 +28,7 @@ public class DoltModHowDataUtil {
         registerCompostable();
         DMHRightClickEvent.registerHoeTills();
         DMHRightClickEvent.registerUnRust();
+        DMHRightClickEvent.registerBlockPlacing();
         DMHRightClickEvent.registerRakeables();
         registerPipes();
     }

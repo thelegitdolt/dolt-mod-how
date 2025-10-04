@@ -9,6 +9,7 @@ import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHMowziesMobsCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHNeapolitanCompat;
+import com.mojang.datafixers.util.Pair;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -33,6 +34,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -45,41 +47,37 @@ import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
 public class DMHRightClickEvent {
     public static final Map<Block, Block> RAKE_MAP = new HashMap<>();
     public static final Map<Block, Block> TILL_MAP = new HashMap<>();
     public static final Map<Block, Block> UNRUST_MAP = new HashMap<>();
+    public static final Map<Item, Pair<Supplier<Boolean>, BlockItem>> ITEM_PLACE_MAP = new HashMap<>();
 
     @SubscribeEvent
     public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        // bullet pepper
+        InteractionHand hand = event.getHand();
+        Player player = event.getEntity();
+        Level level = event.getLevel();
+        BlockPos pos = event.getPos();
+        BlockHitResult result = event.getHitVec();
+        ItemStack stack = event.getItemStack();
+
         handleBulletPepper(event);
-        // alphacene path
         handleAlphacenePath(event);
-        // untill farmland
         handleUntillFarmland(event);
-        // rust stuff???
         tryUnrustRustyStuff(event);
         potStrawberry(event);
-        rakeSand(event);
-
-        placeWardenZola(event);
-        placeBoneRod(event);
+        rakeSand(event, level, player, hand, stack, pos, result);
     }
 
-    public static void rakeSand(PlayerInteractEvent.RightClickBlock event) {
+    public static void rakeSand(PlayerInteractEvent.RightClickBlock event, Level level, Player player, InteractionHand hand, ItemStack stack, BlockPos pos, BlockHitResult result) {
         if (!ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS)) {
             return;
         }
 
-        InteractionHand hand = event.getHand();
-        Player player = event.getEntity();
-        ItemStack stack = player.getItemInHand(hand);
-        Level level = event.getLevel();
-        BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
         Item rake = DMHUtils.getPotentialItem(DMHUtils.Constants.SAND_RAKE);
 
@@ -97,7 +95,7 @@ public class DMHRightClickEvent {
             return;
         }
 
-        BlockPlaceContext context = new BlockPlaceContext(player, hand, stack, event.getHitVec());
+        BlockPlaceContext context = fromEvent(event);
 
         if (isRake || isHoe) {
             BlockState rakedState = rakedSand.getStateForPlacement(context);
@@ -116,34 +114,13 @@ public class DMHRightClickEvent {
         }
     }
 
-    public static void placeWardenZola(PlayerInteractEvent.RightClickBlock event) {
-        if (ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) && event.getItemStack().getItem().builtInRegistryHolder().is(DMHUtils.Constants.WARDENZOLA) && DMHConfig.COMMON.wheelifiedWardenzola.get()) {
-            BlockPlaceContext context = fromEvent(event);
-
-            InteractionResult result = ((BlockItem) DMHBlocks.WARDENZOLA.get().asItem()).place(context);
-
-            if (result.consumesAction()) {
-                event.setCancellationResult(result);
-                event.setCanceled(true);
-            }
-        }
+    public static void registerBlockPlacing() {
+        putIfNotNull(ITEM_PLACE_MAP, DMHUtils.getPotentialItem(DMHUtils.Constants.WARDENZOLA),
+                DMHConfig.COMMON.wheelifiedWardenzola,
+                (BlockItem) DMHBlocks.WARDENZOLA.get().asItem());
+        putIfNotNull(ITEM_PLACE_MAP, Items.BONE, DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones,
+                (BlockItem) DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "bone_rod"));
     }
-
-    public static void placeBoneRod(PlayerInteractEvent.RightClickBlock event) {
-        if (ModList.get().isLoaded(DMHUtils.Constants.JNE) && DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones.get() && event.getItemStack().is(Items.BONE)) {
-            BlockPlaceContext context = fromEvent(event);
-
-            BlockItem item = (BlockItem)  DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "bone_rod");
-            InteractionResult result = item.place(context);
-
-            if (result.consumesAction()) {
-                event.setCancellationResult(result);
-                event.setCanceled(true);
-            }
-        }
-    }
-
-
 
     public static void registerHoeTills() {
         TILL_MAP.put(Blocks.FARMLAND, Blocks.DIRT);
@@ -182,6 +159,10 @@ public class DMHRightClickEvent {
 
     private static <A, B> void putIfNotNull(Map<A, B> map, A key, B val) {
         if (key != null && val != null) map.put(key, val);
+    }
+
+    private static <A, B, C> void putIfNotNull(Map<A, Pair<B, C>> map, A key, B val, C thing) {
+        if (key != null && val != null && thing != null) map.put(key, Pair.of(val, thing));
     }
 
 

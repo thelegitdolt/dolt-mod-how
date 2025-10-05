@@ -6,6 +6,7 @@ import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.github.alexmodguy.alexscaves.server.block.AcidBlock;
 import com.github.alexmodguy.alexscaves.server.block.DinosaurChopBlock;
 import com.github.alexmodguy.alexscaves.server.block.ThinBoneBlock;
+import com.github.alexmodguy.alexscaves.server.block.blockentity.MetalBarrelBlockEntity;
 import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import com.github.alexmodguy.alexscaves.server.item.RadioactiveOnDestroyedBlockItem;
 import net.minecraft.core.BlockPos;
@@ -42,6 +43,10 @@ public class DMHACCompat {
         }
 
         return false;
+    }
+
+    public static boolean isMetalBarrel(Level level, BlockPos pos) {
+        return level.getBlockEntity(pos) instanceof MetalBarrelBlockEntity;
     }
 
     public static Item getMeatItem(Block block) {

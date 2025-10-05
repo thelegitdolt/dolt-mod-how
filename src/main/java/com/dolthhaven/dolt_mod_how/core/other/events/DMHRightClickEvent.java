@@ -14,6 +14,7 @@ import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -236,24 +237,29 @@ public class DMHRightClickEvent {
                 if (DMHACCompat.isAcid(level.getBlockState(pos.relative(dir)))) return;
 
 
-            level.playSound(player, pos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS, 1.0F, 1.0F);
             BlockState newState = UNRUST_MAP.get(state.getBlock()).defaultBlockState();
-
             newState = copyStates(newState, state);
 
-            if (player instanceof ServerPlayer serverPlayer) {
-                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, pos, stack);
-            }
+            if (DMHACCompat.isMetalBarrel(level, pos)) {
+                CompoundTag tag = level.getBlockEntity(pos).serializeNBT();
+                level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
+                level.getBlockEntity(pos).deserializeNBT(tag);
+            } else
+                level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
 
-            level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
+
+
+            if (player instanceof ServerPlayer serverPlayer)
+                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, pos, stack);
 
             level.playSound(player, pos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS);
             DMHPacketHandler.CHANNEL.send(PacketDistributor.DIMENSION.with(() -> level.dimension()), new S2CRustScrapePacket(pos));
-
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
-            if (player != null) {
-                stack.hurtAndBreak(1, player, (p_150686_) -> p_150686_.broadcastBreakEvent(event.getHand()));
-            }
+
+
+            if (player != null)
+                stack.hurtAndBreak(1, player, p_150686_ -> p_150686_.broadcastBreakEvent(event.getHand()));
+
             event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
             event.setCanceled(true);
         }

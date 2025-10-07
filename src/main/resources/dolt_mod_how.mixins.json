@@ -45,16 +45,17 @@
     "vanilla.DispenserBlockMixin",
     "vanilla.FlowerPotMixin",
     "vanilla.HalfTransparentBlockMixin",
+    "vanilla.ItemMixin",
     "vanilla.PowderSnowBlockMixin",
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.RecipeManagerMixin",
     "vanilla.ServerLevelMixin",
-    "vanilla.ItemStackMixin",
     "vanilla.ServerPlayerMixin",
     "vanilla.ShulkerColoringRecipeMixin",
     "vanilla.SlimeMixin"
   ],
   "client": [
+    "vanilla.ItemPropertiesMixin"
   ],
   "mixinextras": {
     "minVersion": "0.5.0"

@@ -9,6 +9,7 @@ import net.minecraft.nbt.NbtUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -49,9 +50,9 @@ public class RecoveryCompassItem {
         return null;
     }
 
-    private static void lock(ResourceKey<Level> level, BlockPos pos, CompoundTag tag) {
-        tag.put(TAG_LOCKED_POS, NbtUtils.writeBlockPos(pos));
-        Level.RESOURCE_KEY_CODEC.encodeStart(NbtOps.INSTANCE, level).resultOrPartial(LOGGER::error).ifPresent((dimTag) -> {
+    private static void lock(GlobalPos pos, CompoundTag tag) {
+        tag.put(TAG_LOCKED_POS, NbtUtils.writeBlockPos(pos.pos()));
+        Level.RESOURCE_KEY_CODEC.encodeStart(NbtOps.INSTANCE, pos.dimension()).resultOrPartial(LOGGER::error).ifPresent((dimTag) -> {
             tag.put(TAG_LOCKED_DIMENSION, dimTag);
         });
         tag.putBoolean(TAG_LOCKED, true);
@@ -64,8 +65,10 @@ public class RecoveryCompassItem {
     }
 
     public static InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
+        InteractionResultHolder<ItemStack> originalUse = Items.RECOVERY_COMPASS.use(level, player, hand);
+        if (originalUse.getResult() != InteractionResult.PASS) return originalUse;
 
+        ItemStack stack = player.getItemInHand(hand);
         if (isLocked(stack)) {
             unlock(stack.getTag());
             player.playSound(SoundEvents.GRINDSTONE_USE, 0.5F, 0.5F);
@@ -75,16 +78,17 @@ public class RecoveryCompassItem {
             boolean replaceItem = !player.getAbilities().instabuild && stack.getCount() == 1;
 
             if (replaceItem) {
-                lock(level.dimension(), player.getLastDeathLocation().get().pos(), stack.getOrCreateTag());
+                lock(player.getLastDeathLocation().get(), stack.getOrCreateTag());
             } else {
                 ItemStack newStack = new ItemStack(Items.RECOVERY_COMPASS);
                 CompoundTag newTag = stack.hasTag() ? stack.getTag().copy() : new CompoundTag();
+                lock(player.getLastDeathLocation().get(), newTag);
                 newStack.setTag(newTag);
+
                 if (!player.getAbilities().instabuild) {
                     stack.shrink(1);
                 }
 
-                lock(level.dimension(), player.getLastDeathLocation().get().pos(), newTag);
                 if (!player.getInventory().add(newStack)) {
                     player.drop(newStack, false);
                 }
@@ -93,6 +97,6 @@ public class RecoveryCompassItem {
             return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
         }
 
-        return Items.RECOVERY_COMPASS.use(level, player, hand);
+        return InteractionResultHolder.pass(stack);
     }
 }

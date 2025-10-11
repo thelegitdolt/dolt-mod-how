@@ -55,6 +55,7 @@
     "vanilla.SlimeMixin"
   ],
   "client": [
+    "vanilla.ClientPacketListenerMixin",
     "vanilla.ItemPropertiesMixin"
   ],
   "mixinextras": {

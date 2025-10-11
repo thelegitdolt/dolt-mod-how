@@ -30,6 +30,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> shouldCombustionGriefBlocks;
         public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
         public final ConfigValue<Boolean> shouldPlaceBonePilesWithNormalBones;
+        public final ConfigValue<Boolean> disableEndPoem;
         public final ConfigValue<Boolean> doDispenserCauldrons;
         public final ConfigValue<Boolean> doUntillableFarmland;
         public final ConfigValue<Boolean> removeOrangeVapor;
@@ -66,6 +67,10 @@ public class DMHConfig {
 
             builder.push("bed");
             lessAnnoyingSleep = builder.comment("If having monsters next to you or being too far from bed should no longer prevent you from sleeping").define("Good ahh sleep", true);
+            builder.pop();
+
+            builder.push("end_poem");
+            disableEndPoem = builder.comment("If the end poem should never show up.").define("Opping End Poem", true);
             builder.pop();
 
             builder.push("beacons");

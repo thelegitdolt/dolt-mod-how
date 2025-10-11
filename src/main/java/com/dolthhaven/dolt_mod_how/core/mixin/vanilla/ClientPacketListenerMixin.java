@@ -15,7 +15,7 @@ public class ClientPacketListenerMixin {
     private boolean DoltModHow$NoEndPoem(Minecraft instance, Screen screen) {
         if (screen instanceof WinScreen winScreen && DMHConfig.COMMON.disableEndPoem.get()) {
             winScreen.respawn();
-            return true;
-        } return false;
+            return false;
+        } return true;
     }
 }

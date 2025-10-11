@@ -36,6 +36,7 @@
     "species.CrankbowMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
     "supplementaries.ItemDisplayTileMixin",
+    "supplementaries.SoapWashableHelperMixin",
     "vanilla.BeaconMixin",
     "vanilla.BlockMixin",
     "vanilla.CakeMixin",

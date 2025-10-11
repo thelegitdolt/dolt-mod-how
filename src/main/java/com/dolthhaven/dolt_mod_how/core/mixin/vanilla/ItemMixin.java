@@ -29,7 +29,7 @@ public class ItemMixin {
         InteractionResultHolder<ItemStack> result = cir.getReturnValue();
 
         Item self = (Item) (Object) this;
-        if (result.getResult() == InteractionResult.PASS && self == Items.RECOVERY_COMPASS ) {
+        if (result.getResult() == InteractionResult.PASS && self == Items.RECOVERY_COMPASS) {
             InteractionResultHolder<ItemStack> newResult = RecoveryCompassItem.use(level, player, hand);
             if (newResult.getResult().consumesAction()) cir.setReturnValue(newResult);
         }
@@ -38,8 +38,9 @@ public class ItemMixin {
     @Inject(method = "useOn", at = @At(value = "RETURN"), cancellable = true)
     private void DoltModHow$PlaceItems(UseOnContext useOnContext, CallbackInfoReturnable<InteractionResult> cir) {
         InteractionResult result = cir.getReturnValue();
-        Item self = (Item) (Object) this;
+
         if (result == InteractionResult.PASS) {
+            Item self = (Item) (Object) this;
             Pair<Supplier<Boolean>, BlockItem> pair = ITEM_PLACE_MAP.get(self);
             if (pair != null && pair.getFirst().get()) {
                 BlockPlaceContext context = new BlockPlaceContext(useOnContext);

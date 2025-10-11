@@ -3,6 +3,8 @@ package com.dolthhaven.dolt_mod_how.common.block;
 import com.teamabnormals.blueprint.common.block.BlueprintChiseledBookShelfBlock;
 import net.minecraft.world.phys.Vec2;
 
+import java.util.Arrays;
+
 public class ChiseledPewenBookshelfBlock extends BlueprintChiseledBookShelfBlock {
     public ChiseledPewenBookshelfBlock(Properties properties) {
         super(properties);

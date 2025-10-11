@@ -49,7 +49,7 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         this.storageRecipes(consumer, RecipeCategory.MISC, Items.HONEYCOMB, RecipeCategory.BUILDING_BLOCKS, WAX_BLOCK.get());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DMHItems.CHORUS_SODA.get(), 2)
-                .requires(Items.GLASS_BOTTLE).requires(Items.DRAGON_BREATH).requires(Items.CHORUS_FRUIT).requires(Items.SUGAR)
+                .requires(Items.GLASS_BOTTLE).requires(Items.CHORUS_FRUIT)
                 .unlockedBy("has_chorus_fruit", has(Items.CHORUS_FRUIT))
                 .save(consumer);
 

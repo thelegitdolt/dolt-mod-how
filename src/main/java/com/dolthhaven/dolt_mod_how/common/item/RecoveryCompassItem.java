@@ -82,8 +82,8 @@ public class RecoveryCompassItem {
             } else {
                 ItemStack newStack = new ItemStack(Items.RECOVERY_COMPASS);
                 CompoundTag newTag = stack.hasTag() ? stack.getTag().copy() : new CompoundTag();
-                lock(player.getLastDeathLocation().get(), newTag);
                 newStack.setTag(newTag);
+                lock(player.getLastDeathLocation().get(), newTag);
 
                 if (!player.getAbilities().instabuild) {
                     stack.shrink(1);

@@ -49,6 +49,7 @@ public class DMHItemTags extends ItemTagsProvider {
 
         this.tag(BlueprintItemTags.BUCKETS)
                 .addTags(DMHTags.ACID_BUCKETS, DMHTags.PURPLE_SODA_BUCKETS, DMHTags.MOLTEN_LEAD_BUCKETS);
+        this.tag(BnCTags.FERMENTED_DRINKS).add(TEQUILA.get());
 
         copy(BlueprintBlockTags.WOODEN_CHESTS, BlueprintItemTags.WOODEN_CHESTS);
         copy(BlueprintBlockTags.WOODEN_BOARDS, BlueprintItemTags.WOODEN_BOARDS);

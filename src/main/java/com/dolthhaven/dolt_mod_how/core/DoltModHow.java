@@ -21,6 +21,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -66,6 +67,8 @@ public class DoltModHow {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        ForgeMod.enableMilkFluid();
     }
 
     private void dataSetup(GatherDataEvent event) {

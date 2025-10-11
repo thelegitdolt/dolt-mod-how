@@ -2,11 +2,13 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlockFamilies;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHFluids;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DyeDepotCompat;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
+import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
+import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.minecraft.data.PackOutput;
@@ -17,18 +19,20 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.crafting.conditions.AndCondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import org.violetmoon.quark.addons.oddities.module.PipesModule;
+import umpaz.brewinandchewin.client.recipebook.FermentingRecipeBookTab;
+import umpaz.brewinandchewin.common.registry.BnCItems;
+import umpaz.brewinandchewin.data.builder.KegFermentingRecipeBuilder;
 
 import java.util.function.Consumer;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.THORNWOOD_LADDER;
 
 public class DMHRecipes extends BlueprintRecipeProvider {
     public DMHRecipes(PackOutput output) {
@@ -36,6 +40,9 @@ public class DMHRecipes extends BlueprintRecipeProvider {
     }
     public static final ModLoadedCondition ALEXSCAVES_LOADED = new ModLoadedCondition(DMHUtils.Constants.ALEXS_CAVES);
     public static final ModLoadedCondition CREATE_LOADED = new ModLoadedCondition(DMHUtils.Constants.CREATE);
+    public static final ModLoadedCondition BNC_LOADED = new ModLoadedCondition(DMHUtils.Constants.BREWING_AND_CHEWING);
+    public static final ModLoadedCondition ATMOSPHERIC_LOADED = new ModLoadedCondition(DMHUtils.Constants.ATMOSPHERIC);
+    public static final AndCondition BNC_ATMO_LOADED = new AndCondition(BNC_LOADED, ATMOSPHERIC_LOADED);
     public static final ModLoadedCondition CAVERNS_CHASMS_LOADED = new ModLoadedCondition(DMHUtils.Constants.CAVERNS_AND_CHASMS);
     public static final AndCondition CCC_LOADED = new AndCondition(CREATE_LOADED, CAVERNS_CHASMS_LOADED);
 
@@ -85,6 +92,12 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_WALL.get(), ZINC_BRICKS.get(), 1);
 
         generateRecipes(consumer, DMHBlockFamilies.ZINC_BRICKS_FAMILY);
+
+        KegFermentingRecipeBuilder.kegFermentingRecipe(DMHFluids.TEQUILA.get(), 1000, 9600, 1.0F, 1)
+                .addFluidIngredient(Fluids.WATER, 1000)
+                .addIngredient(AtmosphericBlocks.AGAVE.get(), 2)
+                .addIngredient(AtmosphericItems.YUCCA_FRUIT.get())
+                .addIngredient(Items.SUGAR).unlockedByItems("has_tankard", BnCItems.TANKARD.get()).setRecipeBookTab(FermentingRecipeBookTab.DRINKS).build(consumer);
 
         pipes(consumer);
     }

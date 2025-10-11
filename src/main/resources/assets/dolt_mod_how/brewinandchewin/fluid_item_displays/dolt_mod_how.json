@@ -2,5 +2,8 @@
   "dolt_mod_how:wardenzola": {
     "id": "dungeonsdelight:wardenzola",
     "optional": true
+  },
+  "dolt_mod_how:tequila": {
+    "id": "dolt_mod_how:tequila"
   }
 }

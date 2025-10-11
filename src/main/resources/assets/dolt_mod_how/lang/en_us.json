@@ -82,11 +82,13 @@
   "item.dolt_mod_how.golden_acid_bucket": "Golden Acid Bucket",
   "item.dolt_mod_how.golden_purple_soda_bucket": "Golden Purple Soda Bucket",
   "item.dolt_mod_how.golden_molten_lead_bucket": "Golden Molten Lead Bucket",
+  "item.dolt_mod_how.tequila": "Tequila",
 
   "item.dolt_mod_how.wardenzola": "This item does not exist. You are hallucinating. Wake up.",
   "item.dolt_mod_how.wardenzola_wedge": "Wardenzola Wedge",
 
   "fluid_type.dolt_mod_how.wardenzola_fluid_type": "Wardenzola",
+  "fluid_type.dolt_mod_how.tequila_type": "Tequila",
 
   "slabfish.type.dolt_mod_how.glimmering_weald": "Glimmering Weald",
   "slabfish.type.dolt_mod_how.abyssal_chasm": "Abyssal Chasm",

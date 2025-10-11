@@ -1,0 +1,7 @@
+{
+  "parent": "brewinandchewin:block/coaster_tankard",
+  "textures": {
+    "particle": "dolt_mod_how:block/coaster/tequila",
+    "tankard": "dolt_mod_how:block/coaster/tequila"
+  }
+}

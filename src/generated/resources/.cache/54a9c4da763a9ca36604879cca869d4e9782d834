@@ -1,10 +1,11 @@
-// 1.20.1	2025-09-27T15:28:12.960248	Tags for minecraft:item mod id dolt_mod_how
+// 1.20.1	2025-10-11T11:30:27.338209	Tags for minecraft:item mod id dolt_mod_how
 a546b8d6d9ef4880fe9d2f2786cca558b1eca7f8 data/blueprint/tags/items/wooden_beehives.json
 f3edab4b40bf9082933b2196e29d5efadbbbae2d data/blueprint/tags/items/wooden_bookshelves.json
 be93ccfb6564e382318d4275973099df90d1db6f data/blueprint/tags/items/wooden_chests.json
 4acfff93e7a9738c92eac3e059a213b2306acbfe data/blueprint/tags/items/wooden_ladders.json
 aa5a2b2c2af347a3beb2309fd1eb8961f783506c data/blueprint/tags/items/wooden_trapped_chests.json
 820332f0032e179f9f255c85aa56c3498948a1ce data/brewinandchewin/tags/items/cheese_wedges.json
+ac984a6f138fa8d1619a0af02660962ca3cea68b data/brewinandchewin/tags/items/fermented_drinks.json
 33c057152ba1e62c750784669ecceb558816938c data/dolt_mod_how/tags/items/leather.json
 820332f0032e179f9f255c85aa56c3498948a1ce data/dungeonsdelight/tags/items/sculk_cheese.json
 c7c0158e34d13cd455d559fd05e3aebb0dbb35a0 data/farmersdelight/tags/items/cabinets/wooden.json

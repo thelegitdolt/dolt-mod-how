@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-27T20:45:05.553979	Item Models: dolt_mod_how
+// 1.20.1	2025-10-11T11:30:27.339387	Item Models: dolt_mod_how
 f9a8f45980a224309d27b4f56c28b635e25a400c assets/dolt_mod_how/models/item/amber_encased_pipe.json
 b04966da6ca6ff1d0ccfb47540e0ab0939a130e8 assets/dolt_mod_how/models/item/aqua_encased_pipe.json
 811423fa8f3134f32f69713d7f1ddd9a934044d2 assets/dolt_mod_how/models/item/beige_encased_pipe.json
@@ -28,6 +28,7 @@ bec808a606b0934b70d1b4ca3e5600154c98ffb4 assets/dolt_mod_how/models/item/orange_
 abc65fb77afd48e9b8e3676dda630a3848985e1d assets/dolt_mod_how/models/item/slate_encased_pipe.json
 4f210c65eeca5f70ef9220ca2e03d3a0def8bd5b assets/dolt_mod_how/models/item/tan_encased_pipe.json
 497007a8b83bebc4b84974df6fd47c87e9c40cdd assets/dolt_mod_how/models/item/teal_encased_pipe.json
+19c3b32244ce4d244f05252027d32fd2229f5222 assets/dolt_mod_how/models/item/tequila.json
 9182c53a5b293e50b0a811a5b0a598762b5094c1 assets/dolt_mod_how/models/item/verdant_encased_pipe.json
 35dd69ee7853b66587708b38faabc39beb7b4e7e assets/dolt_mod_how/models/item/wardenzola_wedge.json
 5385fc4aaef4cfab2ed370bbf76c54ffdcf4678c assets/dolt_mod_how/models/item/white_encased_pipe.json

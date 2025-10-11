@@ -4,7 +4,9 @@ import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
 import com.dolthhaven.dolt_mod_how.common.item.ExperienceFoodItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.dolthhaven.dolt_mod_how.integration.DMHBnCAtmosCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
+import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
@@ -18,6 +20,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.fml.ModList;
@@ -31,6 +34,7 @@ import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.Food.WARDENZOLA;
@@ -62,9 +66,14 @@ public class DMHItems {
 
     public static final RegistryObject<Item> WARDENZOLA_WEDGE = HELPER.createItem("wardenzola_wedge",
             () -> new ExperienceFoodItem(new Item.Properties().food(WARDENZOLA)));
+    public static final RegistryObject<Item> TEQUILA = HELPER.createItem("tequila", getItem(DMHBnCAtmosCompat.TEQUILA));
 
 //    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
 //            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
+private static Supplier<? extends Item> getItem(Supplier<? extends Item> item, String... id) {
+    return BlockSubRegistryHelper.areModsLoaded(id) ? item : () -> new Item(new Item.Properties());
+}
+
 
     public static void setUpTabEditors() {
         CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
@@ -73,7 +82,7 @@ public class DMHItems {
                 .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, DMHUtils.Constants.WOODWORKS), PEWEN_BOARDS, THORNWOOD_BOARDS)
 
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
-                .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA)
+                .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA, TEQUILA)
                 .addItemsAfter(of(Items.MUSHROOM_STEW), ALPHACENE_SALAD)
 
                 .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)

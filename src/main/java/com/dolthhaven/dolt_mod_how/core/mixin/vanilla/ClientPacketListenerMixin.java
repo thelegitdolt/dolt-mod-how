@@ -13,6 +13,9 @@ import org.spongepowered.asm.mixin.injection.At;
 public class ClientPacketListenerMixin {
     @WrapWithCondition(method = "handleGameEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V"))
     private boolean DoltModHow$NoEndPoem(Minecraft instance, Screen screen) {
-        return DMHConfig.COMMON.disableEndPoem.get() && screen instanceof WinScreen;
+        if (screen instanceof WinScreen winScreen && DMHConfig.COMMON.disableEndPoem.get()) {
+            winScreen.respawn();
+            return true;
+        } return false;
     }
 }

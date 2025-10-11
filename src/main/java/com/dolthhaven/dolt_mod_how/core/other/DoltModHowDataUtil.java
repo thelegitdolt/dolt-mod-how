@@ -30,6 +30,7 @@ public class DoltModHowDataUtil {
         DMHRightClickEvent.registerUnRust();
         DMHRightClickEvent.registerBlockPlacing();
         DMHRightClickEvent.registerRakeables();
+        DMHCauldrons.register();
         registerPipes();
     }
 

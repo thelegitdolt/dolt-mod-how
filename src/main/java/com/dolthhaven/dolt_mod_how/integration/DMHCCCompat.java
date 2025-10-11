@@ -2,7 +2,10 @@ package com.dolthhaven.dolt_mod_how.integration;
 
 import com.dolthhaven.dolt_mod_how.common.item.DMHGoldenBucketItem;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.teamabnormals.caverns_and_chasms.common.dispenser.FilledGoldenBucketDispenseBehavior;
+import com.teamabnormals.caverns_and_chasms.common.dispenser.GoldenBucketDispenseBehavior;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
@@ -18,5 +21,8 @@ public class DMHCCCompat {
             new DMHGoldenBucketItem(() -> DMHUtils.getFluidOrWater(DMHUtils.Constants.MOLTEN_LEAD),
                     new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
 
+    public static DefaultDispenseItemBehavior getGoldenBucketDispenseBehavior() {
+        return new FilledGoldenBucketDispenseBehavior();
 
+    }
 }

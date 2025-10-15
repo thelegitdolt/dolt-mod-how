@@ -1,12 +1,9 @@
 package com.dolthhaven.dolt_mod_how.core;
 
 import com.teamabnormals.blueprint.core.annotations.ConfigKey;
-import net.minecraft.world.entity.player.Abilities;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import org.apache.commons.lang3.tuple.Pair;
-import org.violetmoon.quark.addons.oddities.module.PipesModule;
 
 public class DMHConfig {
     public static class Common {
@@ -26,6 +23,8 @@ public class DMHConfig {
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         @ConfigKey("quiver_recipe")
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
+        @ConfigKey("bookshelves_drop_themselves")
+        public final ConfigValue<Boolean> bookshelvesDropThemselves;
         public final ConfigValue<Integer> stackSizeForSpeciesCrankbow;
         public final ConfigValue<Boolean> shouldCombustionGriefBlocks;
         public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
@@ -67,6 +66,10 @@ public class DMHConfig {
 
             builder.push("bed");
             lessAnnoyingSleep = builder.comment("If having monsters next to you or being too far from bed should no longer prevent you from sleeping").define("Good ahh sleep", true);
+            builder.pop();
+
+            builder.push("bookshelves");
+            bookshelvesDropThemselves = builder.comment("If bookshelves and chiseled bookshelves should drop themselves without silk touch").define("Bookshelves Drop Themselves", true);
             builder.pop();
 
             builder.push("end_poem");

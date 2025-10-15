@@ -1,0 +1,16 @@
+{
+  "type": "dolt_mod_how:drop_self",
+  "conditions": [
+    {
+      "condition": "dolt_mod_how:trichotomy",
+      "blockTags": [
+        "blueprint:wooden_bookshelves",
+        "blueprint:wooden_chiseled_bookshelves"
+      ]
+    },
+    {
+      "condition": "dolt_mod_how:config",
+      "value": "bookshelves_drop_themselves"
+    }
+  ]
+}

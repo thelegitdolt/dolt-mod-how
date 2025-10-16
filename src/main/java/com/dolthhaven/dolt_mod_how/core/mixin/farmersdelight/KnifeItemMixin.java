@@ -108,11 +108,7 @@ public class KnifeItemMixin extends DiggerItem {
         }
 
         if (conqueringStar > 1) {
-            cleaver.ricochetsLeft += 2;
-        }
-
-        if (conqueringStar > 2) {
-            cleaver.setSerratedLevel(2);
+            cleaver.setSerratedLevel(conqueringStar - 1);
         }
     }
 

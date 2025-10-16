@@ -21,6 +21,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> hoesRakeSand;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
+        public final ConfigValue<Boolean> conqueringStar;
         @ConfigKey("quiver_recipe")
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
         @ConfigKey("bookshelves_drop_themselves")
@@ -135,10 +136,15 @@ public class DMHConfig {
             builder.pop();
 
             builder.push("farmersdelight");
+
             builder.push("Knife Enchantments");
             doUnbloatKnifeEnchants = builder.comment("If knives should no longer receive the silk touch and efficiency from the enchanting table").define("Unbloated Knife Enchantments", true);
-
             builder.pop();
+
+            builder.push("Conquering Star");
+            conqueringStar = builder.comment("If knives can receive the Conquering Star enchantment, which gives them the effect of Dungeon's Delight cleavers to be thrown.").define("Cleaverfication Enchantment", false);
+            builder.pop();
+
             builder.pop();
 
             builder.push("Mowzies Mobs");

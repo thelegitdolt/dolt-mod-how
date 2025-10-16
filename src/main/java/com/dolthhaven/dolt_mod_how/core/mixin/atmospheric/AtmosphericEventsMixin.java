@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.atmospheric;
 
 import com.teamabnormals.atmospheric.core.other.AtmosphericEvents;
 import org.spongepowered.asm.mixin.Mixin;

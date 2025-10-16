@@ -1,5 +1,6 @@
 {
 	"parent": "caverns_and_chasms:block/template_brazier",
+	"render_type": "cutout",
 	"textures": {
 		"fire": "netherexp:block/ancient_campfire_fire",
 		"lit": "dolt_mod_how:block/ancient_brazier_top_lit"

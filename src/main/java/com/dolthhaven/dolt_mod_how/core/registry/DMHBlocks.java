@@ -88,6 +88,8 @@ public class DMHBlocks {
             new ChiseledPewenBookshelfBlock(DMHBlockProps.THORNWOOD.chiseledBookshelf()), 300);
     public static final RegistryObject<Block> THORNWOOD_CABINET = HELPER.createFuelBlock("thornwood_cabinet", () ->
             new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get())), 300);
+    
+    public static final RegistryObject<Block> ANCIENT_BRAZIER = HELPER.createBlock("ancient_brazier", getOptionalBlock(DMHCCJNECompat.ANCIENT_BRAZIER));
 
     public static final RegistryObject<Block> ANCIENT_LEAF_PILE = HELPER.createBlock("ancient_leaf_pile", () ->
             new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()));
@@ -209,6 +211,10 @@ public class DMHBlocks {
 
     private static Supplier<? extends Block> getPot(String id, Supplier<? extends Block> block) {
         return ModList.get().isLoaded(id) ? block : () -> new Block(PropertyUtil.flowerPot());
+    }
+
+    private static Supplier<? extends Block> getOptionalBlock(Supplier<? extends Block> block, String... id) {
+        return BlockSubRegistryHelper.areModsLoaded(id) ? block : () -> new Block(BlockBehaviour.Properties.of());
     }
 
 

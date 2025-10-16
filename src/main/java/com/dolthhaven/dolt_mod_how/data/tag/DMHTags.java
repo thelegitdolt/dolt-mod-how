@@ -19,7 +19,6 @@ public class DMHTags {
     public static final TagKey<Block> MINEABLE_SHEARS = externalBlockTag("minecraft", "mineable/shear");
     public static final TagKey<Block> ENCASED_PIPES_BLOCKS = externalBlockTag("quark", "encased_pipes");
 
-
     public static final TagKey<Item> ACID_BUCKETS = externalItemTag("forge", "buckets/acid");
     public static final TagKey<Item> PURPLE_SODA_BUCKETS = externalItemTag("forge", "buckets/purple_soda");
     public static final TagKey<Item> MOLTEN_LEAD_BUCKETS = externalItemTag("forge", "buckets/molten_lead");

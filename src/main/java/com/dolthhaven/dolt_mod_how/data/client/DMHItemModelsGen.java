@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.data.client;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DyeDepotCompat;
@@ -19,7 +20,7 @@ public class DMHItemModelsGen extends BlueprintItemModelProvider {
 
     @Override
     protected void registerModels() {
-        generatedItem(DMHItems.WARDENZOLA_WEDGE, DMHItems.TEQUILA);
+        generatedItem(DMHItems.WARDENZOLA_WEDGE, DMHItems.TEQUILA, ANCIENT_BRAZIER);
         pipes();
     }
 

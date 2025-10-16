@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "netherexp:ancient_wax"
+    },
+    "S": {
+      "tag": "forge:ingots/silver"
+    }
+  },
+  "pattern": [
+    "S#S",
+    " S "
+  ],
+  "result": {
+    "item": "dolt_mod_how:ancient_brazier"
+  },
+  "show_notification": true
+}

@@ -1,6 +1,7 @@
-// 1.20.1	2025-09-28T13:07:40.60994	Loot Tables
+// 1.20.1	2025-10-16T08:17:15.853547	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
 7ee65a426beb9ecae98c65d2684b60feeb5b446e data/dolt_mod_how/loot_tables/blocks/amber_encased_pipe.json
+b149ee2669319065bfbb2e15b77271ca321d91cf data/dolt_mod_how/loot_tables/blocks/ancient_brazier.json
 59a85b165f87c048d1d2c8990c3bbcf648562eca data/dolt_mod_how/loot_tables/blocks/ancient_leaf_pile.json
 d4fcaaa9d3cc06ec2c30e1bfffa9a1508c83a50f data/dolt_mod_how/loot_tables/blocks/aqua_encased_pipe.json
 69585cd0b2418ee751f5f6355ea336e3e98e2491 data/dolt_mod_how/loot_tables/blocks/arid_raked_sand.json

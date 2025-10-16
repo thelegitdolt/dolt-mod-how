@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlockFamilies;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHFluids;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
@@ -10,10 +11,14 @@ import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
+import com.teamabnormals.caverns_and_chasms.core.other.tags.CCItemTags;
+import com.teamabnormals.caverns_and_chasms.core.registry.CCBlocks;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
+import net.jadenxgamer.netherexp.registry.item.JNEItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -43,8 +48,12 @@ public class DMHRecipes extends BlueprintRecipeProvider {
     public static final ModLoadedCondition BNC_LOADED = new ModLoadedCondition(DMHUtils.Constants.BREWING_AND_CHEWING);
     public static final ModLoadedCondition ATMOSPHERIC_LOADED = new ModLoadedCondition(DMHUtils.Constants.ATMOSPHERIC);
     public static final AndCondition BNC_ATMO_LOADED = new AndCondition(BNC_LOADED, ATMOSPHERIC_LOADED);
+    public static final ModLoadedCondition JNE_LOADED = new ModLoadedCondition(DMHUtils.Constants.JNE);
+
     public static final ModLoadedCondition CAVERNS_CHASMS_LOADED = new ModLoadedCondition(DMHUtils.Constants.CAVERNS_AND_CHASMS);
     public static final AndCondition CCC_LOADED = new AndCondition(CREATE_LOADED, CAVERNS_CHASMS_LOADED);
+    public static final AndCondition CCJNE_LOADED = new AndCondition(CAVERNS_CHASMS_LOADED, JNE_LOADED);
+
 
     @Override
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
@@ -85,6 +94,12 @@ public class DMHRecipes extends BlueprintRecipeProvider {
 
         cabinet(consumer, PEWEN_CABINET, ACBlockRegistry.PEWEN_PLANKS_SLAB, ACBlockRegistry.PEWEN_TRAPDOOR);
         cabinet(consumer, THORNWOOD_CABINET, ACBlockRegistry.THORNWOOD_PLANKS_SLAB, ACBlockRegistry.THORNWOOD_PLANKS_SLAB);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ANCIENT_BRAZIER.get())
+                .define('#', JNEItems.ANCIENT_WAX.get())
+                .define('S', CCItemTags.INGOTS_SILVER)
+                .pattern("S#S").pattern(" S ")
+                .unlockedBy("has_silver_ingot", has(CCItemTags.INGOTS_SILVER))
+                .unlockedBy("has_waxers", has(JNEItems.ANCIENT_WAX.get())).save(consumer);
 
         stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_SLAB.get(), ZINC_BRICKS.get(), 2);
         stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_STAIRS.get(), ZINC_BRICKS.get(), 1);

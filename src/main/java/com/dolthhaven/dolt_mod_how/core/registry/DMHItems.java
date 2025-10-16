@@ -110,6 +110,10 @@ private static Supplier<? extends Item> getItem(Supplier<? extends Item> item, S
                     TEAL_ENCASED_PIPE, MINT_ENCASED_PIPE, AQUA_ENCASED_PIPE, SLATE_ENCASED_PIPE, NAVY_ENCASED_PIPE, INDIGO_ENCASED_PIPE);
         }
 
+        if (BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.JNE, DMHUtils.Constants.CAVERNS_AND_CHASMS)) {
+            thing.addItems(ANCIENT_BRAZIER);
+        }
+
             thing.tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES),
                         GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET)

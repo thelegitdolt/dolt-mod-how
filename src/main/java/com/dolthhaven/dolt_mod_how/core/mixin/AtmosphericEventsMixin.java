@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AtmosphericEvents.class)
 public class AtmosphericEventsMixin {
-    @Inject(method = "isAprilFools", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "isAprilFools", at = @At("HEAD"), cancellable = true, remap = false)
     private static void DoltModHow$DoltGrinchArc(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(false);
     }

@@ -1,10 +1,11 @@
-// 1.20.1	2025-09-28T13:07:40.608745	Tags for minecraft:block mod id dolt_mod_how
+// 1.20.1	2025-10-16T08:17:15.852478	Tags for minecraft:block mod id dolt_mod_how
 a546b8d6d9ef4880fe9d2f2786cca558b1eca7f8 data/blueprint/tags/blocks/wooden_beehives.json
 f3edab4b40bf9082933b2196e29d5efadbbbae2d data/blueprint/tags/blocks/wooden_bookshelves.json
 be93ccfb6564e382318d4275973099df90d1db6f data/blueprint/tags/blocks/wooden_chests.json
 a59394c5938d8aad68399df31f3f96dd529377b9 data/blueprint/tags/blocks/wooden_chiseled_bookshelves.json
 4acfff93e7a9738c92eac3e059a213b2306acbfe data/blueprint/tags/blocks/wooden_ladders.json
 aa5a2b2c2af347a3beb2309fd1eb8961f783506c data/blueprint/tags/blocks/wooden_trapped_chests.json
+38178efe629193b06916b0eca24be17c4ad415b1 data/caverns_and_chasms/tags/blocks/braziers.json
 0defb48f4f79d0a8a25a32dd7039e747cea74f57 data/dolt_mod_how/tags/blocks/channels_lightning.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/dolt_mod_how/tags/blocks/cocoa_beans_additionally_plantable_on.json
 c1169b8f19af628ee5d01b0f9145c8b02afaa0a3 data/dolt_mod_how/tags/blocks/common_ores.json
@@ -16,7 +17,7 @@ e4256af683f5921828605a6704e62be4c9c8e264 data/farmersdelight/tags/blocks/unaffec
 2846354f84a313a99faf2f4987afc24af0d36ea8 data/minecraft/tags/blocks/flower_pots.json
 f6bf9e4d92e2212478f470997b4590334bad4be7 data/minecraft/tags/blocks/mineable/axe.json
 2bd7fada58e1c38d32cda136019e7798dc5682c5 data/minecraft/tags/blocks/mineable/hoe.json
-2ee1312b592d4d9e0567a8d1c5471ad203a53264 data/minecraft/tags/blocks/mineable/pickaxe.json
+78554224b817d6d503a4a1bb8d3fc2c6d1b5d33d data/minecraft/tags/blocks/mineable/pickaxe.json
 8df9ed57490afcf2fada128fdba2c29fd770b013 data/minecraft/tags/blocks/mineable/shear.json
 94fbf3a679f6e5f371c2ddf648d941c3998beccf data/minecraft/tags/blocks/mineable/shovel.json
 7b603314ded41a5faad4f93c0c0da009aebbe33b data/quark/tags/blocks/encased_pipes.json

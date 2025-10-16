@@ -106,6 +106,7 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropWhenSilkTouch(CHISELED_PEWEN_BOOKSHELF.get());
             this.add(ANCIENT_LEAF_PILE.get(), block -> createMultifaceBlockDrops(block,
                     MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS))));
+            this.dropSelf(ANCIENT_BRAZIER.get());
 
             this.add(THORNWOOD_CHEST.get(), this::createNameableBlockEntityTable);
             this.add(TRAPPED_THORNWOOD_CHEST.get(), this::createNameableBlockEntityTable);

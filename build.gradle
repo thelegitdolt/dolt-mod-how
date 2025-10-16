@@ -62,7 +62,7 @@ minecraft {
             property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
             property "blueprint.indev", "true"
             args "--mod", project.modId, "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources"),
-                    "--existing-mod", "blueprint", "--existing-mod", "brewinandchewin", "--existing-mod", "dye_depot", "--existing-mod", "blasted_barrens", "--existing-mod", "alexscaves", "--existing-mod", "atmospheric", "--existing-mod", "quark"
+                    "--existing-mod", "blueprint", "--existing-mod", "brewinandchewin", "--existing-mod", "dye_depot", "--existing-mod", "netherexp", "--existing-mod", "blasted_barrens", "--existing-mod", "alexscaves", "--existing-mod", "atmospheric", "--existing-mod", "quark"
             mods {
                 dolt_mod_how {
                     source sourceSets.main

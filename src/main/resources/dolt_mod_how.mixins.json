@@ -40,6 +40,7 @@
     "supplementaries.ItemDisplayTileMixin",
     "supplementaries.SoapWashableHelperMixin",
     "vanilla.BeaconMixin",
+    "vanilla.BlockItemMixin",
     "vanilla.BlockMixin",
     "vanilla.CakeMixin",
     "vanilla.CocoaBlockMixin",

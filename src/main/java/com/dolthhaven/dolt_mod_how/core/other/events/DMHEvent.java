@@ -151,19 +151,4 @@ public class DMHEvent {
             Block.popResourceFromFace(player.level(), event.getPos(), Direction.UP, dropStack);
         }
     }
-
-    @SubscribeEvent
-    public static void blockPlacedEvent(BlockEvent.EntityPlaceEvent event) {
-        Entity entity = event.getEntity();
-
-        if (entity instanceof ServerPlayer player && player.level() instanceof ServerLevel serverLevel) {
-            if (event.getPlacedBlock().is(DMHTags.NO_XP_REWARD_ON_PLACE) || !DMHConfig.COMMON.xpUponBlockPlace.get()) {
-                return;
-            }
-
-            if (player.getRandom().nextInt(DMHConfig.COMMON.blockPlaceXpChance.get()) == 0) {
-                ExperienceOrb.award(serverLevel, player.position(), player.getRandom().nextInt(3, 6));
-            }
-        }
-    }
 }

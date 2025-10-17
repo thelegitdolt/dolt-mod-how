@@ -33,7 +33,7 @@ public class DMHDDCompat {
     private static void applyEffects(ItemStack stack, CleaverEntity cleaver) {
         int sharpness = stack.getEnchantmentLevel(Enchantments.SHARPNESS);
         int fireAspect = stack.getEnchantmentLevel(Enchantments.FIRE_ASPECT);
-        int conqueringStar = stack.getEnchantmentLevel(DMHEnchants.CONQUERING_STAR.get());
+        int ballistic = stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get());
 
         if (sharpness > 0) {
             cleaver.setBaseDamage(cleaver.getBaseDamage() + (double)sharpness * (double)0.5F + (double)0.5F);
@@ -43,8 +43,8 @@ public class DMHDDCompat {
             cleaver.setRemainingFireTicks(fireAspect * 40 + cleaver.getRemainingFireTicks());
         }
 
-        if (conqueringStar > 1) {
-            cleaver.setSerratedLevel(conqueringStar - 1);
+        if (ballistic > 1) {
+            cleaver.setSerratedLevel(ballistic - 1);
         }
     }
 }

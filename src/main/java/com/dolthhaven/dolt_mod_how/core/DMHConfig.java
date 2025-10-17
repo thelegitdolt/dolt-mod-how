@@ -141,8 +141,8 @@ public class DMHConfig {
             doUnbloatKnifeEnchants = builder.comment("If knives should no longer receive the silk touch and efficiency from the enchanting table").define("Unbloated Knife Enchantments", true);
             builder.pop();
 
-            builder.push("Conquering Star");
-            conqueringStar = builder.comment("If knives can receive the Conquering Star enchantment, which gives them the effect of Dungeon's Delight cleavers to be thrown.").define("Cleaverfication Enchantment", false);
+            builder.push("Ballistic");
+            conqueringStar = builder.comment("If knives can receive the Ballistic enchantment, which gives them the effect of Dungeon's Delight cleavers to be thrown. REQUIRES DUNGEON's DELIGHT.").define("Cleaverfication Enchantment", false);
             builder.pop();
 
             builder.pop();

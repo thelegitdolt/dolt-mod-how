@@ -42,17 +42,17 @@ public class KnifeItemMixin extends DiggerItem {
 
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
-        return stack.getEnchantmentLevel(DMHEnchants.CONQUERING_STAR.get()) > 0 ? UseAnim.BOW : super.getUseAnimation(stack);
+        return stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0 ? UseAnim.BOW : super.getUseAnimation(stack);
     }
 
     @Override
     public int getUseDuration(ItemStack stack) {
-        return stack.getEnchantmentLevel(DMHEnchants.CONQUERING_STAR.get()) > 0 ? 72000 : super.getUseDuration(stack);
+        return stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0 ? 72000 : super.getUseDuration(stack);
     }
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {
-        if (stack.getEnchantmentLevel(DMHEnchants.CONQUERING_STAR.get()) > 0) {
+        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0) {
             throwCleaver(level, entity, stack, timeLeft);
         } else {
             super.releaseUsing(stack, level, entity, timeLeft);
@@ -62,7 +62,7 @@ public class KnifeItemMixin extends DiggerItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.getEnchantmentLevel(DMHEnchants.CONQUERING_STAR.get()) > 0) {
+        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0) {
             if (stack.getDamageValue() >= stack.getMaxDamage() - 1) {
                 return InteractionResultHolder.fail(stack);
             }

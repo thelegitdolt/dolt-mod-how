@@ -162,7 +162,7 @@ public class DMHEvent {
             }
 
             if (player.getRandom().nextInt(DMHConfig.COMMON.blockPlaceXpChance.get()) == 0) {
-                ExperienceOrb.award(serverLevel, player.position(), 1);
+                ExperienceOrb.award(serverLevel, player.position(), player.getRandom().nextInt(3, 6));
             }
         }
     }

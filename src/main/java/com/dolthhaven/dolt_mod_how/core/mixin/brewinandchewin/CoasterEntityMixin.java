@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.brewinandchewin;
 
+import com.dolthhaven.dolt_mod_how.integration.DMHBCCompat;
 import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -13,9 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import umpaz.brewinandchewin.common.block.CoasterBlock;
 import umpaz.brewinandchewin.common.block.entity.CoasterBlockEntity;
-import umpaz.brewinandchewin.common.registry.BnCBlocks;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
 @Mixin(CoasterBlockEntity.class)
@@ -30,13 +29,13 @@ public class CoasterEntityMixin extends SyncedBlockEntity {
     @ModifyExpressionValue(method = "onUse", at = @At("MIXINEXTRAS:EXPRESSION"), remap = false)
     private BlockState thing(BlockState original, @Share("isReal") LocalBooleanRef isReal) {
         isReal.set(true);
-        return BnCBlocks.COASTER.get().defaultBlockState().setValue(CoasterBlock.INVISIBLE, true).setValue(CoasterBlock.SIZE, 0);
+        return DMHBCCompat.blankCoasterState();
     }
 
     @WrapOperation(method = "onUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;setBlockAndUpdate(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z"))
     private boolean real(Level instance, BlockPos pos, BlockState state, Operation<Boolean> original, @Share("isReal") LocalBooleanRef isReal) {
         if (isReal.get()) {
-            instance.scheduleTick(pos, BnCBlocks.COASTER.get(), 100);
+            instance.scheduleTick(pos, DMHBCCompat.coaster(), 100);
         }
         return original.call(instance, pos, state);
     }

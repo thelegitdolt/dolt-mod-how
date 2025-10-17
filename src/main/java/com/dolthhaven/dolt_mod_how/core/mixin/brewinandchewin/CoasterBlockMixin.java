@@ -1,6 +1,5 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.brewinandchewin;
 
-import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;

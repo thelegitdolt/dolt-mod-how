@@ -70,6 +70,13 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
+    modId = "dungeonsdelight"
+    mandatory = false
+    versionRange = "[1.2.5,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+[[dependencies.dolt_mod_how]]
     modId = "upgrade_aquatic"
     mandatory = false
     versionRange = "[6.0.0,)"

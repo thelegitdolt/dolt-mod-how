@@ -3,6 +3,7 @@ package com.dolthhaven.dolt_mod_how.core;
 import com.dolthhaven.dolt_mod_how.client.other.DMHClientCompat;
 import com.dolthhaven.dolt_mod_how.core.network.DMHPacketHandler;
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
+import com.dolthhaven.dolt_mod_how.core.other.DMHTrackedData;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
 import com.dolthhaven.dolt_mod_how.core.registry.*;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
@@ -64,6 +65,8 @@ public class DoltModHow {
         DMHFluids.FLUID_TYPES.register(bus);
         DMHFluids.FLUIDS.register(bus);
         REGISTRY_HELPER.register(bus);
+
+        DMHTrackedData.registerTrackedData();
         
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
 

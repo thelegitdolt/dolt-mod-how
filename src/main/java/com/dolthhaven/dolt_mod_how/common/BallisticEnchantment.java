@@ -2,8 +2,10 @@ package com.dolthhaven.dolt_mod_how.common;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -15,10 +17,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class ConqueringStarEnchantment extends Enchantment {
-    public ConqueringStarEnchantment() {
+public class BallisticEnchantment extends Enchantment {
+    public BallisticEnchantment() {
         super(Rarity.RARE,
-                EnchantmentCategory.create("knife_config", knife -> isEnabled() && knife instanceof KnifeItem),
+                EnchantmentCategory.create("knife_config",
+                        knife -> isEnabled() && (knife instanceof KnifeItem || desolateDagger(knife))),
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
@@ -34,6 +37,10 @@ public class ConqueringStarEnchantment extends Enchantment {
 
     public static boolean isEnabled() {
         return ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT) && DMHConfig.COMMON.conqueringStar.get();
+    }
+
+    public static boolean desolateDagger(Item item) {
+        return DMHUtils.alexCavesLoaded() && DMHACCompat.isDesolateDagger(item);
     }
 
     public boolean isTradeable() {

@@ -1,4 +1,4 @@
-// 1.20.1	2025-10-16T08:17:15.854309	Recipes
+// 1.20.1	2025-10-18T11:19:31.687807	Recipes
 44477590c0a1b4f59a88eccf04c1afce1e029845 data/alexscaves/advancements/recipes/building_blocks/chiseled_pewen_bookshelf.json
 3f138ac812c2185f72e77113162adc14ee9c3d88 data/alexscaves/advancements/recipes/building_blocks/chiseled_thornwood_bookshelf.json
 b35dacf80854957c9ea86715ef9832b3d5699135 data/alexscaves/advancements/recipes/building_blocks/pewen_bookshelf.json
@@ -82,7 +82,7 @@ c6b8e7144e99411cb6cceb9b2641a65b93301804 data/dolt_mod_how/recipes/black_encased
 538cee11346fe4b88397046a92f521d7650290c5 data/dolt_mod_how/recipes/brown_encased_pipe.json
 ebc0a206c41c0fbe1fb6725ef4a417b272255ede data/dolt_mod_how/recipes/chiseled_zinc_bricks.json
 43f65616b677f8b202b368f96e90b7fd89b6480c data/dolt_mod_how/recipes/chiseled_zinc_bricks_from_zinc_bricks_stonecutting.json
-f1d708920446066efa05bfbcbb1d38d1fd2a546f data/dolt_mod_how/recipes/chorus_soda.json
+05fccb1f4f1d8c8c6456ae1e36e2ede4858332fc data/dolt_mod_how/recipes/chorus_soda.json
 ce7435392090590e453233b0da053ef05b15a60a data/dolt_mod_how/recipes/cobbled_deepslate_from_unpacking_sturdy_deepslate.json
 8848aab31a17f26b217b47b282b3837e8c29eb7b data/dolt_mod_how/recipes/coral_encased_pipe.json
 fcfd0d92bd4529cc9930735f1ca11e1f1f6cddab data/dolt_mod_how/recipes/cyan_encased_pipe.json

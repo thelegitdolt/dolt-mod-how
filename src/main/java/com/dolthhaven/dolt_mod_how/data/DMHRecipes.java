@@ -64,7 +64,7 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                 .unlockedBy("has_cobble_deepslate", has(Items.COBBLED_DEEPSLATE)).save(consumer);
         this.storageRecipes(consumer, RecipeCategory.MISC, Items.HONEYCOMB, RecipeCategory.BUILDING_BLOCKS, WAX_BLOCK.get());
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DMHItems.CHORUS_SODA.get(), 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DMHItems.CHORUS_SODA.get())
                 .requires(Items.GLASS_BOTTLE).requires(Items.CHORUS_FRUIT)
                 .unlockedBy("has_chorus_fruit", has(Items.CHORUS_FRUIT))
                 .save(consumer);

@@ -23,6 +23,5 @@ public class DMHCCCompat {
 
     public static DefaultDispenseItemBehavior getGoldenBucketDispenseBehavior() {
         return new FilledGoldenBucketDispenseBehavior();
-
     }
 }

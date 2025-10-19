@@ -30,7 +30,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.ModList;
 
 public class DMHACCompat {
-
     public static boolean explodePricklyCan(ItemStack stack, int index, RandomizableContainerBlockEntity can) {
         if (stack.getItem() instanceof RadioactiveOnDestroyedBlockItem radioactiveItem) {
             Level level = can.getLevel();
@@ -99,7 +98,6 @@ public class DMHACCompat {
             DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_REBAR.get(), ACBlockRegistry.METAL_REBAR.get());
         }
     }
-
 
     public static ItemStack makeMapFromString(ResourceLocation loc) {
         ItemStack map = new ItemStack(ACItemRegistry.CAVE_MAP.get());

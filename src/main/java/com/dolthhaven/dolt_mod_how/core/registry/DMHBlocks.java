@@ -25,6 +25,7 @@ import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
+import java.util.Properties;
 import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.ZINC_PLATED_BRICKS;
@@ -87,7 +88,8 @@ public class DMHBlocks {
     public static final RegistryObject<Block> THORNWOOD_CABINET = HELPER.createFuelBlock("thornwood_cabinet", () ->
             new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get())), 300);
     
-    public static final RegistryObject<Block> ANCIENT_BRAZIER = HELPER.createBlock("ancient_brazier", getOptionalBlock(DMHCCJNECompat.ANCIENT_BRAZIER));
+    public static final RegistryObject<Block> ANCIENT_BRAZIER = HELPER.createBlock("ancient_brazier",
+            BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.JNE) ? DMHCCJNECompat.ANCIENT_BRAZIER : () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> ANCIENT_LEAF_PILE = HELPER.createBlock("ancient_leaf_pile", () ->
             new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()));
@@ -211,9 +213,6 @@ public class DMHBlocks {
         return ModList.get().isLoaded(id) ? block : () -> new Block(PropertyUtil.flowerPot());
     }
 
-    private static Supplier<? extends Block> getOptionalBlock(Supplier<? extends Block> block, String... id) {
-        return BlockSubRegistryHelper.areModsLoaded(id) ? block : () -> new Block(BlockBehaviour.Properties.of());
-    }
 
 
 

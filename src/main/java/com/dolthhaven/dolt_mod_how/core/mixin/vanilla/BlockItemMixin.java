@@ -19,7 +19,8 @@ public class BlockItemMixin {
         InteractionResult result = cir.getReturnValue();
         if (context.getPlayer() instanceof ServerPlayer player) {
             boolean shouldAward =
-                            !DMHConfig.COMMON.xpUponBlockPlace.get() &&
+                            DMHConfig.COMMON.xpUponBlockPlace.get() &&
+                            !player.getAbilities().instabuild &&
                             result.consumesAction() &&
                             player.getRandom().nextInt(DMHConfig.COMMON.blockPlaceXpChance.get()) == 0;
             if (shouldAward) {

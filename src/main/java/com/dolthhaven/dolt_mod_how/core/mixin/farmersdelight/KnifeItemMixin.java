@@ -76,6 +76,8 @@ public class KnifeItemMixin extends DiggerItem {
 
     @Unique
     private void throwCleaver(Level level, LivingEntity entity, ItemStack stack, int timeLeft) {
+        if (!ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT)) return;
+
         if (entity instanceof Player player) {
             if (this.getUseDuration(stack) - timeLeft >= 6 && !player.getCooldowns().isOnCooldown(this)) {
                 if (!level.isClientSide) {

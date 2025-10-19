@@ -30,7 +30,6 @@ import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.Food.WARDENZOLA;

@@ -63,18 +63,7 @@ public class DMHItems {
     public static final RegistryObject<Item> WARDENZOLA_WEDGE = HELPER.createItem("wardenzola_wedge",
             () -> new ExperienceFoodItem(new Item.Properties().food(WARDENZOLA)));
     public static final RegistryObject<Item> TEQUILA = HELPER.createItem("tequila",
-            getItem(DMHBnCAtmosCompat.TEQUILA, DMHUtils.Constants.BREWING_AND_CHEWING, DMHUtils.Constants.ATMOSPHERIC));
-
-private static Supplier<? extends Item> getItem(Supplier<? extends Item> item, String... id) {
-    ModList modList = ModList.get();
-
-    for (String ids : id) {
-        if (!modList.isLoaded(ids)) return () -> new Item(new Item.Properties());
-    }
-
-    return item;
-}
-
+            BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.BREWING_AND_CHEWING, DMHUtils.Constants.ATMOSPHERIC) ? DMHBnCAtmosCompat.TEQUILA : () -> new Item(new Item.Properties()));
 
     public static void setUpTabEditors() {
         var thing = CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)

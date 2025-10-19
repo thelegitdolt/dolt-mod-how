@@ -1,13 +1,10 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.alexscaves;
 
-import com.dolthhaven.dolt_mod_how.core.other.DMHTrackedData;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHDDCompat;
-import com.github.alexmodguy.alexscaves.server.enchantment.ACEnchantmentRegistry;
 import com.github.alexmodguy.alexscaves.server.item.DesolateDaggerItem;
-import com.teamabnormals.blueprint.common.world.storage.tracking.IDataManager;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -50,7 +47,7 @@ public class DesolateDaggerMixin extends SwordItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0 && ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT)) {
+        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0) {
             if (stack.getDamageValue() >= stack.getMaxDamage() - 1) {
                 return InteractionResultHolder.fail(stack);
             }
@@ -62,6 +59,8 @@ public class DesolateDaggerMixin extends SwordItem {
 
     @Unique
     private void throwCleaver(Level level, LivingEntity entity, ItemStack stack, int timeLeft) {
+        if (ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT)) return;
+
         if (entity instanceof Player player) {
             if (this.getUseDuration(stack) - timeLeft >= 6 && !player.getCooldowns().isOnCooldown(this)) {
                 if (!level.isClientSide) {

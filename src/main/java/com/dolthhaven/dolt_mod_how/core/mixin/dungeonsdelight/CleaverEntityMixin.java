@@ -27,11 +27,11 @@ public abstract class CleaverEntityMixin extends AbstractArrow {
         super(p_36721_, p_36722_);
     }
 
-    @Shadow public abstract void playerTouch(Player player);
-
     @WrapOperation(method = "onHitEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;doPostHurtEffects(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/Entity;)V"))
     private void thing(LivingEntity living, Entity owner, Operation<Void> original) {
         original.call(living, owner);
+
+        if (!DMHUtils.alexCavesLoaded()) return;
 
         IDataManager cleaverData = (IDataManager) this;
         boolean desolateDagger = cleaverData.getValue(DMHTrackedData.IS_DESOLATE_DAGGER);

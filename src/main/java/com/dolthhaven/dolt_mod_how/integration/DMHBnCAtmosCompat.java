@@ -2,7 +2,6 @@ package com.dolthhaven.dolt_mod_how.integration;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHFluids;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericMobEffects;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;

@@ -24,17 +24,6 @@ import static com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent.I
 
 @Mixin(Item.class)
 public class ItemMixin {
-    @Inject(method = "use", at = @At(value = "RETURN"), cancellable = true)
-    private void DoltModHow$DoRecoveryCompass(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
-        InteractionResultHolder<ItemStack> result = cir.getReturnValue();
-
-        Item self = (Item) (Object) this;
-        if (result.getResult() == InteractionResult.PASS && self == Items.RECOVERY_COMPASS) {
-            InteractionResultHolder<ItemStack> newResult = RecoveryCompassItem.use(level, player, hand);
-            if (newResult.getResult().consumesAction()) cir.setReturnValue(newResult);
-        }
-    }
-
     @Inject(method = "useOn", at = @At(value = "RETURN"), cancellable = true)
     private void DoltModHow$PlaceItems(UseOnContext useOnContext, CallbackInfoReturnable<InteractionResult> cir) {
         InteractionResult result = cir.getReturnValue();

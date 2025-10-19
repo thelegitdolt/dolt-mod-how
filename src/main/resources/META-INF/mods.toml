@@ -128,7 +128,7 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
 [[dependencies.dolt_mod_how]]
     modId = "brewinandchewin"
     mandatory = false
-    versionRange = "[1.0.0,)"
+    versionRange = "[3.0.0,)"
     ordering = "AFTER"
     side = "BOTH"
 

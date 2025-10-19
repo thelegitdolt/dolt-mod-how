@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.mixin.farmersdelight;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHDDCompat;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -52,7 +54,7 @@ public class KnifeItemMixin extends DiggerItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {
-        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0) {
+        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0 && ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT)) {
             throwCleaver(level, entity, stack, timeLeft);
         } else {
             super.releaseUsing(stack, level, entity, timeLeft);
@@ -62,7 +64,7 @@ public class KnifeItemMixin extends DiggerItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0) {
+        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0 && ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT)) {
             if (stack.getDamageValue() >= stack.getMaxDamage() - 1) {
                 return InteractionResultHolder.fail(stack);
             }

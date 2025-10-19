@@ -6,11 +6,9 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHBnCAtmosCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
-import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
-import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -20,14 +18,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.violetmoon.quark.addons.oddities.module.PipesModule;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.MushroomColonyItem;
 import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
@@ -66,12 +62,17 @@ public class DMHItems {
 
     public static final RegistryObject<Item> WARDENZOLA_WEDGE = HELPER.createItem("wardenzola_wedge",
             () -> new ExperienceFoodItem(new Item.Properties().food(WARDENZOLA)));
-    public static final RegistryObject<Item> TEQUILA = HELPER.createItem("tequila", getItem(DMHBnCAtmosCompat.TEQUILA));
+    public static final RegistryObject<Item> TEQUILA = HELPER.createItem("tequila",
+            getItem(DMHBnCAtmosCompat.TEQUILA, DMHUtils.Constants.BREWING_AND_CHEWING, DMHUtils.Constants.ATMOSPHERIC));
 
-//    public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
-//            getGoldenBucket(DMHOptionalItems.GOLDEN_MOLTEN_LEAD_BUCKET));
 private static Supplier<? extends Item> getItem(Supplier<? extends Item> item, String... id) {
-    return BlockSubRegistryHelper.areModsLoaded(id) ? item : () -> new Item(new Item.Properties());
+    ModList modList = ModList.get();
+
+    for (String ids : id) {
+        if (!modList.isLoaded(ids)) return () -> new Item(new Item.Properties());
+    }
+
+    return item;
 }
 
 

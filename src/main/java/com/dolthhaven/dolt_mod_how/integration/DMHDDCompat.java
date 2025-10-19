@@ -1,8 +1,6 @@
 package com.dolthhaven.dolt_mod_how.integration;
 
-import com.dolthhaven.dolt_mod_how.core.other.DMHTrackedData;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEnchants;
-import com.teamabnormals.blueprint.common.world.storage.tracking.IDataManager;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -20,7 +18,7 @@ import org.spongepowered.asm.mixin.Unique;
 import java.util.function.Consumer;
 
 public class DMHDDCompat {
-    public static void makeCleaverAndThrowIt(ItemStack stack, Player player, Level level, double attackDamage, Consumer<? super CleaverEntity> postOps) {
+    public static void makeCleaverAndThrowIt(ItemStack stack, Player player, Level level, double attackDamage, Consumer<Entity> postOps) {
         CleaverEntity cleaver = new CleaverEntity(DDEntities.CLEAVER.get(), level, player, stack.copy());
         cleaver.setItem(stack.copy());
         applyEffects(stack, cleaver);

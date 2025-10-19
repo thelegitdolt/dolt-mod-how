@@ -26,7 +26,6 @@
     "caverns_and_chasms.GoldenBucketMixin",
     "dungeonsdelight.CleaverEntityMixin",
     "etcetera.UpdatePricklyCanC2SPacketMixin",
-    "farmersdelight.KnifeItemMixin",
     "farmersdelight.ModEnchantmentMixin",
     "jne.BoneRodsMixin",
     "nethers_delight.ConsumableItemMixin",

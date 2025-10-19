@@ -16,9 +16,9 @@ import org.violetmoon.zeta.client.event.play.ZRenderContainerScreen;
 import javax.annotation.Nullable;
 
 public class DMHUtils {
-    public static int NOT_TOOLBOX = 0;
-    public static int SUCCESSFUL_SETTING = 0;
-    public static int UNSUCCESSFUL_SETTING = 0;
+    public static final int NOT_TOOLBOX = 0;
+    public static final int SUCCESSFUL_SETTING = 1;
+    public static final int UNSUCCESSFUL_SETTING = 2;
 
 
     public static void printItem(Item item) {

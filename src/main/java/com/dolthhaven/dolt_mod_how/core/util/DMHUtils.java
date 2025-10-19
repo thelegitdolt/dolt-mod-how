@@ -16,6 +16,11 @@ import org.violetmoon.zeta.client.event.play.ZRenderContainerScreen;
 import javax.annotation.Nullable;
 
 public class DMHUtils {
+    public static int NOT_TOOLBOX = 0;
+    public static int SUCCESSFUL_SETTING = 0;
+    public static int UNSUCCESSFUL_SETTING = 0;
+
+
     public static void printItem(Item item) {
         ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
         if (res == ForgeRegistries.ITEMS.getDefaultKey() || res == null) {

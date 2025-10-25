@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.common.loot.modifiers;
+package com.dolthhaven.dolt_mod_how.common.loot.condition;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHLoot;
 import com.google.common.collect.ImmutableList;

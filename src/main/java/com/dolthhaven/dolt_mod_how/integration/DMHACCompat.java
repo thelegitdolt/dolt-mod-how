@@ -122,6 +122,11 @@ public class DMHACCompat {
         }
     }
 
+    public static void decode(ItemStack stack, int impendingStab, int satedBlade) {
+        stack.enchant(ACEnchantmentRegistry.IMPENDING_STAB.get(), impendingStab);
+        stack.enchant(ACEnchantmentRegistry.SATED_BLADE.get(), satedBlade);
+    }
+
     public static boolean isDesolateDagger(Item item) {
         return item == ACItemRegistry.DESOLATE_DAGGER.get();
     }
@@ -131,6 +136,6 @@ public class DMHACCompat {
         cleaverData.setValue(DMHTrackedData.IS_DESOLATE_DAGGER, true);
         cleaverData.setValue(DMHTrackedData.LEVEL_IMPENDING_STAB, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.IMPENDING_STAB.get()));
         cleaverData.setValue(DMHTrackedData.LEVEL_DOUBLE_STAB, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.DOUBLE_STAB.get()));
-
+        cleaverData.setValue(DMHTrackedData.LEVEL_SATED_BLADE, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.SATED_BLADE.get()));
     }
 }

@@ -5,6 +5,7 @@ import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHDDCompat;
 import com.github.alexmodguy.alexscaves.server.item.DesolateDaggerItem;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;

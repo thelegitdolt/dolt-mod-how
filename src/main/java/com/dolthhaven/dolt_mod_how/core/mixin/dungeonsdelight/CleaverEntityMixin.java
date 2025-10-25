@@ -28,7 +28,7 @@ public abstract class CleaverEntityMixin extends AbstractArrow {
     }
 
     @WrapOperation(method = "onHitEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;doPostHurtEffects(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/Entity;)V"))
-    private void thing(LivingEntity living, Entity owner, Operation<Void> original) {
+    private void DoltModHow$DesolateDaggerWorksWithEnchants(LivingEntity living, Entity owner, Operation<Void> original) {
         original.call(living, owner);
 
         if (!DMHUtils.alexCavesLoaded()) return;
@@ -37,9 +37,12 @@ public abstract class CleaverEntityMixin extends AbstractArrow {
         boolean desolateDagger = cleaverData.getValue(DMHTrackedData.IS_DESOLATE_DAGGER);
         byte doubleStab = cleaverData.getValue(DMHTrackedData.LEVEL_DOUBLE_STAB);
         byte impendingStab = cleaverData.getValue(DMHTrackedData.LEVEL_IMPENDING_STAB);
+        byte satedBlade = cleaverData.getValue(DMHTrackedData.LEVEL_SATED_BLADE);
 
         if (desolateDagger) {
-            DMHACCompat.summonHoveringKnives((Player) owner, living, cleaverItem, doubleStab, impendingStab);
+            ItemStack stack = cleaverItem.copy();
+            DMHACCompat.decode(cleaverItem, impendingStab, satedBlade);
+            DMHACCompat.summonHoveringKnives((Player) owner, living, stack, doubleStab, impendingStab);
         }
     }
 }

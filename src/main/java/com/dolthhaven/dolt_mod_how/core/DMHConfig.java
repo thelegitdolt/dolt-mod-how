@@ -19,6 +19,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
         public final ConfigValue<Boolean> replaceSawmillWithStonecutter;
         public final ConfigValue<Boolean> hoesRakeSand;
+        public final ConfigValue<Double> thunderstormMultiplier;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         public final ConfigValue<Boolean> conqueringStar;
@@ -44,6 +45,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> actuallyGoodBiomeTreats;
         public final ConfigValue<Boolean> pathfinderQuillMakesCaveMaps;
         public final ConfigValue<Boolean> hideBeaconParticles;
+        public final ConfigValue<Boolean> elytraInfiniteDurability;
 
         @ConfigKey("placeable_wardenzola")
         public final ConfigValue<Boolean> wheelifiedWardenzola;
@@ -69,8 +71,18 @@ public class DMHConfig {
             lessAnnoyingSleep = builder.comment("If having monsters next to you or being too far from bed should no longer prevent you from sleeping").define("Good ahh sleep", true);
             builder.pop();
 
+            builder.push("Thunderstorm rates");
+            thunderstormMultiplier = builder.comment("An inverse multiplier to how often thunderstorms should happen. If you put 1/3 here thunderstorms happen 3 times more often.")
+                            .define("Thunderstorm Multiplier", 0.75D);
+            builder.pop();
+
+
             builder.push("bookshelves");
             bookshelvesDropThemselves = builder.comment("If bookshelves and chiseled bookshelves should drop themselves without silk touch").define("Bookshelves Drop Themselves", true);
+            builder.pop();
+
+            builder.push("elytra");
+            elytraInfiniteDurability = builder.comment("If elytras should still work when they have 0 durability. Don't turn this on unless you also use another mod to make elytras unbreakable").define("Elytra infinite durability", false);
             builder.pop();
 
             builder.push("end_poem");

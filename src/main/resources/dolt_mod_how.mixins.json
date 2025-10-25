@@ -57,6 +57,7 @@
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.RecipeManagerMixin",
     "vanilla.ServerLevelMixin",
+    "vanilla.ServerLeveMixin",
     "vanilla.ServerPlayerMixin",
     "vanilla.SlimeMixin"
   ],

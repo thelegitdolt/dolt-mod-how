@@ -21,11 +21,13 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@Pseudo
 @Mixin(GoldenBucketItem.class)
 public abstract class GoldenBucketMixin extends Item implements DispensibleContainerItem {
     @Shadow(remap = false) public abstract Fluid getFluid();

@@ -5,10 +5,12 @@ import com.dolthhaven.dolt_mod_how.integration.DMHSpeciesCompat;
 import com.ninni.species.server.item.CrankbowItem;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@Pseudo
 @Mixin(CrankbowItem.class)
 public class CrankbowMixin {
     @Inject(method = "getMaxWeight", at = @At("HEAD"), cancellable = true, remap = false)

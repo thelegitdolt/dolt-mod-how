@@ -3,11 +3,13 @@ package com.dolthhaven.dolt_mod_how.core.mixin.brewinandchewin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import umpaz.brewinandchewin.client.renderer.CoasterBlockEntityRenderer;
 
 import java.util.stream.Stream;
 
+@Pseudo
 @Mixin(CoasterBlockEntityRenderer.class)
 public class CoasterBlockEntityRendererMixin {
     // prevents the coaster from rendering if it is invisible even if there's no blocks on it

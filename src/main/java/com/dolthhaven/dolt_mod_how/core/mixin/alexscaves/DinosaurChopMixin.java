@@ -20,12 +20,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.common.utility.ItemUtils;
 
+@Pseudo
 @Mixin(DinosaurChopBlock.class)
 public class DinosaurChopMixin {
     @Inject(method = "use", at = @At(value = "HEAD"), cancellable = true)

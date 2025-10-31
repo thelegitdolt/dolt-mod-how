@@ -140,6 +140,14 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
+    modId = "emi"
+    mandatory = false
+    versionRange = "[1.1.22+1.20.1+forge,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+
+[[dependencies.dolt_mod_how]]
     modId = "mynethersdelight"
     mandatory = false
     versionRange = "[1.0.0,)"

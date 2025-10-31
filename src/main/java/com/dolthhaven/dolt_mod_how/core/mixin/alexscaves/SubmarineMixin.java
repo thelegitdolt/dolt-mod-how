@@ -7,9 +7,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
+@Pseudo
 @Mixin(SubmarineEntity.class)
 public class SubmarineMixin {
     @ModifyArg(method = "interact", at = @At(value = "INVOKE", target = "Lcom/github/alexmodguy/alexscaves/server/entity/item/SubmarineEntity;playSound(Lnet/minecraft/sounds/SoundEvent;FF)V"))

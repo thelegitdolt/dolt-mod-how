@@ -8,8 +8,10 @@ import net.jadenxgamer.netherexp.registry.block.custom.BoneRodBlock;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 
+@Pseudo
 @Mixin(BoneRodBlock.class)
 public class BoneRodsMixin {
     @Definition(id = "asItem", method = "Lnet/jadenxgamer/netherexp/registry/block/custom/BoneRodBlock;asItem()Lnet/minecraft/world/item/Item;")

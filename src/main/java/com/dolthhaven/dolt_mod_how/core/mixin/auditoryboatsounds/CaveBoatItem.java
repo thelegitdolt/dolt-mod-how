@@ -5,9 +5,11 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+@Pseudo
 @Mixin(com.github.alexmodguy.alexscaves.server.item.CaveBoatItem.class)
 public class CaveBoatItem {
     @ModifyVariable(method = "use",

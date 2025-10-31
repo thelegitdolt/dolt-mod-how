@@ -8,10 +8,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-
+@Pseudo
 @Mixin(DispenserMinecartItem.class)
 public class DispenserMinecartItemMixin {
     @ModifyVariable(method = "useOn",

@@ -15,9 +15,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.yirmiri.dungeonsdelight.common.entity.misc.CleaverEntity;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
+@Pseudo
 @Mixin(CleaverEntity.class)
 public abstract class CleaverEntityMixin extends AbstractArrow {
 

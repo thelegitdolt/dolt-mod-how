@@ -13,10 +13,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import umpaz.brewinandchewin.common.block.entity.CoasterBlockEntity;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
+@Pseudo
 @Mixin(CoasterBlockEntity.class)
 public class CoasterEntityMixin extends SyncedBlockEntity {
     public CoasterEntityMixin(BlockEntityType<?> tileEntityTypeIn, BlockPos pos, BlockState state) {

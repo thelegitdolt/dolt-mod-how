@@ -10,9 +10,11 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 import umpaz.brewinandchewin.common.block.CoasterBlock;
 
+@Pseudo
 @Mixin(CoasterBlock.class)
 public class CoasterBlockMixin extends Block {
     @Shadow @Final public static BooleanProperty INVISIBLE;

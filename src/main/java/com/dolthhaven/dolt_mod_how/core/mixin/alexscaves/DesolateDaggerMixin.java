@@ -17,8 +17,10 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Unique;
 
+@Pseudo
 @Mixin(DesolateDaggerItem.class)
 public class DesolateDaggerMixin extends SwordItem {
     public DesolateDaggerMixin(Tier p_43269_, int p_43270_, float p_43271_, Properties p_43272_) {

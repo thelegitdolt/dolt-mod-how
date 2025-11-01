@@ -26,6 +26,7 @@
     "caverns_and_chasms.GoldenBucketMixin",
     "dungeonsdelight.CleaverEntityMixin",
     "emi.EmiRecipeFillerMixin",
+    "emi.FillRecipeC2SPacketMixin",
     "etcetera.UpdatePricklyCanC2SPacketMixin",
     "farmersdelight.KnifeItemMixin",
     "farmersdelight.ModEnchantmentMixin",

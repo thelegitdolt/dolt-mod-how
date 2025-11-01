@@ -16,6 +16,9 @@ import org.violetmoon.quark.addons.oddities.inventory.BackpackMenu;
 
 import java.util.List;
 
+/**
+ * Most code is borrowed from Emi's InventoryRecipeHandler. Thank you Emi!
+ */
 public class BackpackScreenHandler implements StandardRecipeHandler<BackpackMenu> {
     public static final Component TOO_SMALL = Component.translatable("emi.too_small");
 

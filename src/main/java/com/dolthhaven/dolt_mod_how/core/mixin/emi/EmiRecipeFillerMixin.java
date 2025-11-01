@@ -1,5 +1,6 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.emi;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import dev.emi.emi.api.recipe.handler.EmiRecipeHandler;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -22,6 +23,7 @@ public class EmiRecipeFillerMixin {
 
     @Inject(method = "getAllHandlers", at = @At(value = "HEAD"), cancellable = true)
     private static <T extends AbstractContainerMenu> void DoltModHow$Thing(AbstractContainerScreen<T> screen, CallbackInfoReturnable<List<EmiRecipeHandler<? extends AbstractContainerMenu>>> cir) {
+        DoltModHow.LOGGER.info("HI HI HI HI. Notice me notice me notice me. Also sex");
         if (screen != null && screen.getMenu() instanceof BackpackMenu && handlers.containsKey(screen.getMenu())) {
             cir.setReturnValue(handlers.get(screen.getMenu()));
         }

@@ -2,6 +2,14 @@
   "values": [
     "dolt_mod_how:wardenzola",
     {
+      "id": "netherexp:sorrowsquash",
+      "required": false
+    },
+    {
+      "id": "netherexp:carved_sorrowsquash",
+      "required": false
+    },
+    {
       "id": "alexscaves:dinosaur_chop",
       "required": false
     },

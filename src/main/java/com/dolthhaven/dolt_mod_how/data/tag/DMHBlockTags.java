@@ -4,6 +4,7 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintBlockTags;
 import com.teamabnormals.caverns_and_chasms.core.other.tags.CCBlockTags;
+import net.jadenxgamer.netherexp.registry.block.JNEBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -44,12 +45,12 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get(), ARID_RAKED_SAND.get(), ASHEN_RAKED_SAND.get(), RED_ARID_RAKED_SAND.get());
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(ANCIENT_LEAF_PILE.get());
 
-        this.tag(ModTags.MINEABLE_WITH_KNIFE).add(WARDENZOLA.get());
+        this.tag(ModTags.MINEABLE_WITH_KNIFE).add(WARDENZOLA.get()).addOptional(JNEBlocks.SORROWSQUASH.getId()).addOptional(JNEBlocks.CARVED_SORROWSQUASH.getId());
+
         this.tag(CCBlockTags.BRAZIERS).add(ANCIENT_BRAZIER.get());
 
         this.tag(DMHTags.NO_XP_CROPS)
                 .addOptional(new ResourceLocation(DMHUtils.Constants.FARMERS_DELIGHT, "tomatoes"));
-
         this.tag(DMHTags.COCOA_BEANS_ADDITIONALLY_PLANTABLE_ON);
 
         this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(),

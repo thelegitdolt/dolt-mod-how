@@ -13,6 +13,7 @@ public class DMHConfig {
         public final ConfigValue<Integer> maxCropXpDrops;
         public final ConfigValue<Boolean> xpUponBlockPlace;
         public final ConfigValue<Boolean> replaceableMossCarpet;
+        public final ConfigValue<Boolean> frogMistLikeHopeLights;
         public final ConfigValue<Boolean> lessAnnoyingSleep;
         public final ConfigValue<Integer> blockPlaceXpChance;
 
@@ -236,6 +237,10 @@ public class DMHConfig {
             stackSizeForSpeciesCrankbow = builder.comment("The stack size crankbows should have. The formula for the capacity of crankbows is stack size * 2 + capacity enchantment level * stack size.")
                     .comment("This is for if you use a mod like Bigger Stacks to change the stack size")
                     .define("Crankbow stack size ", 64);
+            builder.pop();
+
+            builder.push("hopelight");
+            frogMistLikeHopeLights = builder.comment("If species hopelights should act like JNE frogmists (only interactable when holding another hopelight or a pickaxe)").define("Frogmist Hopelights", true);
             builder.pop();
 
             builder.push("Combustion Effect");

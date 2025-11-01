@@ -40,6 +40,7 @@
     "quark.QuarkMixin",
     "species.CombustionEffectMixin",
     "species.CrankbowMixin",
+    "species.HopelightBlockMixin",
     "supplementaries.CuttingBoardBlockEntityMixin",
     "supplementaries.ItemDisplayTileMixin",
     "supplementaries.SoapWashableHelperMixin",

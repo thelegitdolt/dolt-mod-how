@@ -102,7 +102,7 @@ public class DoltModHow {
         event.enqueueWork(() -> {
             DoltModHowDispensers.registerDispenseBehavior();
             DoltModHowDataUtil.registerData();
-            DMHSupplementariesCompat.registerClayworksStuff();
+            DMHSupplementariesCompat.registerColors();
             DMHPacketHandler.register();
         });
 

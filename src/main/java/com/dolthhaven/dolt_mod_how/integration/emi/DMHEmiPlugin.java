@@ -4,7 +4,6 @@ import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
@@ -31,12 +30,20 @@ public class DMHEmiPlugin implements EmiPlugin {
             if (tag == null) return false;
 
             Potion potion = PotionUtils.getPotion(tag);
+
+            // hides all subtle potions that aren't normal water potions
+            boolean subtle = tag.getBoolean("Subtle");
+            if (subtle && potion == Potions.WATER && stack.getItem() != Items.POTION) return true;
+
+            // do not hide non-potions and water potions
             if (potion == Potions.EMPTY || potion == Potions.WATER) return false;
+
+            // hide all non-water variant potions
             else if (stack.getItem() != Items.POTION) return true;
 
             String potionType = tag.getString("Potion").toLowerCase(Locale.ROOT);
-            boolean subtle = tag.getBoolean("Subtle");
 
+            // hides all normal potions that are long and strong and subtle variants
             if (potionType.contains("long") || potionType.contains("strong") || subtle) return true;
 
             return false;

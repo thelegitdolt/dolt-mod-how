@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.integration;
 
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.mojang.datafixers.util.Pair;
 import net.mehvahdjukaar.moonlight.api.set.BlocksColorAPI;
 import net.mehvahdjukaar.moonlight.core.set.BlocksColorInternal;
 import net.minecraft.resources.ResourceLocation;
@@ -10,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
 
 import java.util.EnumMap;
-import java.util.List;
+import java.util.function.Function;
 
 public class DMHSupplementariesCompat {
     private static void block(EnumMap<DyeColor, Block> map, DyeColor color, String string) {
@@ -21,39 +22,69 @@ public class DMHSupplementariesCompat {
         map.put(color, DMHUtils.getPotentialItem(new ResourceLocation(string)));
     }
 
-    public static void registerClayworksStuff() {
+    public static void registerColors() {
+        registerConcrete();
+        registerEncasedPipe();
+
+    }
+
+    private static void registerConcrete() {
         if (!ModList.get().isLoaded(DMHUtils.Constants.CLAYWORKS)) {
             return;
         }
 
-        List<String> dyeDepot = List.of("rose", "maroon", "ginger", "tan", "beige", "coral", "olive", "forest", "verdant", "amber", "teal", "mint", "aqua", "slate", "navy", "indigo");
+        var concretes = makeBoth(color -> color + "_concrete", "minecraft", "dye_depot");
+        var powders = makeBoth(color -> color + "_concrete_powder", "minecraft", "dye_depot");
 
-        EnumMap<DyeColor, Block> concretes = new EnumMap<>(DyeColor.class), concretePowders = new EnumMap<>(DyeColor.class);
-        EnumMap<DyeColor, Item> concretesItems = new EnumMap<>(DyeColor.class), concretesPowderItems = new EnumMap<>(DyeColor.class);
+        registerBoth(new ResourceLocation("minecraft", "concrete"), concretes, DMHUtils.Constants.CONCRETE);
+        registerBoth(new ResourceLocation("minecraft", "concrete_powder"), powders, DMHUtils.Constants.CONCRETE_POWDER);
+    }
 
+    private static void registerEncasedPipe() {
+        var pipes = makeBoth(color -> color + "_encased_pipe", "dolt_mod_how", "dolt_mod_how");
+        registerBoth(new ResourceLocation("dolt_mod_how", "encased_pipe"), pipes, DMHUtils.Constants.ENCASED_PIPE);
+    }
+
+    private static void registerBoth(ResourceLocation name, Pair<EnumMap<DyeColor, Block>, EnumMap<DyeColor, Item>> maps, ResourceLocation location) {
+        BlocksColorAPI.registerBlockColorSet(name, maps.getFirst(), DMHUtils.getPotentialBlock(location));
+        BlocksColorAPI.registerItemColorSet(name, maps.getSecond(), DMHUtils.getPotentialItem(location));
+    }
+
+    public static EnumMap<DyeColor, Block> makeDyeMap(Function<String, String> colorIdDoer, String normalId, String dyeDepotId) {
+        EnumMap<DyeColor, Block> map = new EnumMap<>(DyeColor.class);
         for (DyeColor val : BlocksColorInternal.VANILLA_COLORS) {
-            block(concretes, val, val + "_concrete");
-            block(concretePowders, val, val + "_concrete_powder");
-            item(concretesItems, val, val + "_concrete");
-            item(concretesPowderItems, val, val + "_concrete_powder");
+            block(map, val,  normalId + ":" + colorIdDoer.apply(val.getName()));
         }
 
         if (ModList.get().isLoaded(DMHUtils.Constants.DYE_DEPOT)) {
             for (DyeColor color : BlocksColorInternal.MODDED_COLORS) {
-                if (dyeDepot.contains(color.toString())) {
-                    block(concretes, color, DMHUtils.Constants.DYE_DEPOT + ":" + color + "_concrete");
-                    block(concretePowders, color, DMHUtils.Constants.DYE_DEPOT + ":" + color + "_concrete_powder");
-                    item(concretesItems, color, DMHUtils.Constants.DYE_DEPOT + ":" +  color + "_concrete");
-                    item(concretesPowderItems, color, DMHUtils.Constants.DYE_DEPOT + ":" +  color + "_concrete_powder");
+                if (DyeDepotCompat.getDyeDepotDye(color.getName()) != null) {
+                    block(map, color, dyeDepotId + ":" + colorIdDoer.apply(color.getName()));
                 }
             }
         }
 
-        BlocksColorAPI.registerBlockColorSet(new ResourceLocation("minecraft", "concrete"), concretes, DMHUtils.getPotentialBlock(DMHUtils.Constants.CONCRETE));
-        BlocksColorAPI.registerBlockColorSet(new ResourceLocation("minecraft", "concrete_powder"), concretePowders, DMHUtils.getPotentialBlock(DMHUtils.Constants.CONCRETE_POWDER));
+        return map;
+    }
 
-        BlocksColorAPI.registerItemColorSet(new ResourceLocation("minecraft", "concrete"), concretesItems, DMHUtils.getPotentialItem(DMHUtils.Constants.CONCRETE));
-        BlocksColorAPI.registerItemColorSet(new ResourceLocation("minecraft", "concrete_powder"), concretesPowderItems, DMHUtils.getPotentialItem(DMHUtils.Constants.CONCRETE_POWDER));
+    public static Pair<EnumMap<DyeColor, Block>, EnumMap<DyeColor, Item>> makeBoth(Function<String, String> colorIdDoer, String normalId, String dyeDepotId) {
+        return Pair.of(makeDyeMap(colorIdDoer, normalId, dyeDepotId), makeItemDyeMap(colorIdDoer, normalId, dyeDepotId));
+    }
 
+    public static EnumMap<DyeColor, Item> makeItemDyeMap(Function<String, String> colorIdDoer, String normalId, String dyeDepotId) {
+        EnumMap<DyeColor, Item> map = new EnumMap<>(DyeColor.class);
+        for (DyeColor val : BlocksColorInternal.VANILLA_COLORS) {
+            item(map, val,  normalId + ":" + colorIdDoer.apply(val.getName()));
+        }
+
+        if (ModList.get().isLoaded(DMHUtils.Constants.DYE_DEPOT)) {
+            for (DyeColor color : BlocksColorInternal.MODDED_COLORS) {
+                if (DyeDepotCompat.getDyeDepotDye(color.getName()) != null) {
+                    item(map, color, dyeDepotId + ":" + colorIdDoer.apply(color.getName()));
+                }
+            }
+        }
+
+        return map;
     }
 }

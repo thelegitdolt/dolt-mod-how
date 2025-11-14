@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.ftgu;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHSnSCompat;
 import com.ninni.ftgu.server.entity.subentities.SporeRocketEntity;
@@ -23,7 +24,7 @@ public abstract class SporeRocketEntityMixin extends Entity {
 
     @Inject(method = "explode", at = @At("TAIL"), remap = false)
     private void DoltModHow$SporeRocketHasSpore(CallbackInfo ci) {
-        if (ModList.get().isLoaded(DMHUtils.Constants.SAVAGE_AND_RAVAGE))
-            DMHSnSCompat.makeSporeCloud(position(), new Vec2(this.getXRot(), getYRot()), this.level(), 4, 3);
+        if (ModList.get().isLoaded(DMHUtils.Constants.SAVAGE_AND_RAVAGE) && DMHConfig.COMMON.doltChargedCreeperTweaks.get())
+            DMHSnSCompat.makeSporeCloud(position(), new Vec2(getXRot(), getYRot()), this.level(), 4, 3);
     }
 }

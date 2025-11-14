@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,17 +17,14 @@ public class ChargedCreeperMobCap {
         return CHARGED_CREEPERS.add(entity.getUUID());
     }
 
-    public static void update(ServerLevel level) {
-        CHARGED_CREEPERS.removeIf(id -> level.getEntity(id) == null);
-    }
-
     public static boolean checkNewChargedCreeperSpawn(ServerLevel level, BlockPos pos) {
-        for (UUID creeper : CHARGED_CREEPERS) {
-            Entity entity = level.getEntity(creeper);
-            if (entity != null) {
-                if (entity.position().distanceTo(pos.getCenter()) < 200) {
-                    return false;
-                }
+        for (Iterator<UUID> creepers = CHARGED_CREEPERS.iterator(); creepers.hasNext();) {
+            UUID uuid = creepers.next();
+            Entity entity = level.getEntity(uuid);
+            if (entity == null) {
+                creepers.remove();
+            } else if (entity.position().distanceTo(pos.getCenter()) < 200) {
+                return false;
             }
         }
         return true;

@@ -3,7 +3,9 @@ package com.dolthhaven.dolt_mod_how.core;
 import com.teamabnormals.blueprint.core.annotations.ConfigKey;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.minecraftforge.fml.loading.FMLLoader;
 import org.apache.commons.lang3.tuple.Pair;
+import org.violetmoon.quark.base.Quark;
 
 public class DMHConfig {
     public static class Common {
@@ -50,6 +52,8 @@ public class DMHConfig {
 
         @ConfigKey("placeable_wardenzola")
         public final ConfigValue<Boolean> wheelifiedWardenzola;
+
+        public final ConfigValue<Boolean> doltChargedCreeperTweaks;
 
         public final ConfigValue<Boolean> damageReductions;
 
@@ -167,6 +171,13 @@ public class DMHConfig {
             builder.pop();
             builder.pop();
 
+            builder.push("From the Ground Up / ftgu");
+            builder.push("Creepers");
+            doltChargedCreeperTweaks = builder.comment("Removes the Doomed effect, creates preparations to allow charged creepers to naturally spawn during thunderstorms. Spawns must still be manually added by the modpack dev.")
+                            .define("Based Charged Creepers", false);
+            builder.pop();
+            builder.pop();
+
             builder.push("nethersdelight");
 
             builder.push("fungus_colonies");
@@ -273,5 +284,9 @@ public class DMHConfig {
         Pair<Client, ForgeConfigSpec> clientSpecPair = new ForgeConfigSpec.Builder().configure(Client::new);
         CLIENT_SPEC = clientSpecPair.getRight();
         CLIENT = clientSpecPair.getLeft();
+    }
+
+    private static boolean falseWhenShipped() {
+        return FMLLoader.isProduction();
     }
 }

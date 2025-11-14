@@ -1,6 +1,5 @@
 package com.dolthhaven.dolt_mod_how.integration;
 
-import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;

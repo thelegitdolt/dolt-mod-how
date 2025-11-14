@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.integration;
 
+import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.mojang.datafixers.util.Pair;
 import net.mehvahdjukaar.moonlight.api.set.BlocksColorAPI;
@@ -41,8 +42,8 @@ public class DMHSupplementariesCompat {
     }
 
     private static void registerEncasedPipe() {
-        var pipes = makeBoth(color -> color + "_encased_pipe", "dolt_mod_how", "dolt_mod_how");
-        registerBoth(new ResourceLocation("dolt_mod_how", "encased_pipe"), pipes, DMHUtils.Constants.ENCASED_PIPE);
+        var pipes = makeBoth(color -> color + "_encased_pipe", DoltModHow.MOD_ID, DoltModHow.MOD_ID);
+        registerBoth(new ResourceLocation(DoltModHow.MOD_ID, "encased_pipe"), pipes, DMHUtils.Constants.ENCASED_PIPE);
     }
 
     private static void registerBoth(ResourceLocation name, Pair<EnumMap<DyeColor, Block>, EnumMap<DyeColor, Item>> maps, ResourceLocation location) {

@@ -120,6 +120,7 @@ dependencies {
     implementation fg.deobf("maven.modrinth:ferrite-core:${project.ferriteCore}")
     implementation fg.deobf("maven.modrinth:dungeons_delight:${project.dungeonsDelight}")
     implementation fg.deobf("maven.modrinth:runiclib:${project.runiclib}")
+    implementation fg.deobf("maven.modrinth:from-the-ground-up:${project.ftgu}")
 
     implementation fg.deobf("curse.maven:caverns-and-chasms-438005:${project.cavernsAndChasms}")
 

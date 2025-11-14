@@ -3,23 +3,24 @@ package com.dolthhaven.dolt_mod_how.core.other.events;
 import com.dolthhaven.dolt_mod_how.common.item.RecoveryCompassItem;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
-import net.minecraft.advancements.CriteriaTriggers;
+import com.dolthhaven.dolt_mod_how.integration.DMHFTGUCompat;
+import com.ninni.ftgu.server.entity.ChargedCreeperEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.Item;
@@ -31,16 +32,18 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import static net.minecraft.world.InteractionHand.MAIN_HAND;
@@ -148,7 +151,7 @@ public class DMHEvent {
         Item self = event.getItemStack().getItem();
         if (self == Items.RECOVERY_COMPASS && event.getEntity().isShiftKeyDown()) {
             InteractionResultHolder<ItemStack> newResult = RecoveryCompassItem.use(event.getLevel(), event.getEntity(), event.getHand());
-            if (newResult.getResult().consumesAction())  {
+            if (newResult.getResult().consumesAction()) {
                 event.setCancellationResult(newResult.getResult());
                 event.setCanceled(true);
             }
@@ -167,6 +170,18 @@ public class DMHEvent {
             }
 
             Block.popResourceFromFace(player.level(), event.getPos(), Direction.UP, dropStack);
+        }
+    }
+
+
+    @SubscribeEvent
+    public static void registerSpawnRules(SpawnPlacementRegisterEvent event) {
+        EntityType<?> chargedCreeper = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("ftgu", "charged_creeper"));
+        if (chargedCreeper != null) {
+            event.register(chargedCreeper, (type, level, spawnType, pos, rand) -> {
+                return level.getLevel().isThundering() && DMHFTGUCompat.areaHasChargedCreeper(level.getLevel(), pos) &&
+                        Monster.checkMonsterSpawnRules((EntityType<? extends Monster>) type, level, spawnType, pos, rand);
+            });
         }
     }
 }

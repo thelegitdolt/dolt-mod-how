@@ -88,12 +88,14 @@ public class DMHUtils {
         public static final String DYE_DEPOT = "dye_depot";
         public static final String ENVIRONMENTAL = "environmental";
         public static final String FARMERS_DELIGHT = "farmersdelight";
+        public static final String FTGU = "ftgu";
         public static final String MOWZIES_MOBS = "mowziesmobs";
         public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
         public static final String NEAPOLITAN = "neapolitan";
         public static final String JNE = "netherexp";
         public static final String OREGANIZED = "oreganized";
         public static final String QUARK = "quark";
+        public static final String SAVAGE_AND_RAVAGE = "savage_and_ravage";
         public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
         public static final String SPECIES = "species";
         public static final String WOODWORKS = "woodworks";

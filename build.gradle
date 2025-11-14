@@ -130,6 +130,7 @@ dependencies {
 
 
     implementation fg.deobf("maven.modrinth:gallery:${project.gallery}")
+    implementation fg.deobf("maven.modrinth:savage-and-ravage:${project.savageandravage}")
     implementation fg.deobf("maven.modrinth:atmospheric:${project.atmospheric}")
 
     implementation fg.deobf("maven.modrinth:jadens-nether-expansion:${project.jne}")

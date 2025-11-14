@@ -1,12 +1,26 @@
 package com.dolthhaven.dolt_mod_how.integration;
 
+import com.dolthhaven.dolt_mod_how.core.other.ChargedCreeperMobCap;
 import com.ninni.ftgu.server.entity.ChargedCreeperEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.phys.AABB;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.entity.LivingEntity;
 
 public class DMHFTGUCompat {
-    public static boolean areaHasChargedCreeper(ServerLevel level, BlockPos pos) {
-        return level.getEntitiesOfClass(ChargedCreeperEntity.class, new AABB(pos).inflate(50, 8, 50)).isEmpty();
+    public static boolean shouldSpawnChargedCreeper(ServerLevel level, BlockPos pos, LivingEntity entity) {
+        if (entity instanceof ChargedCreeperEntity creeper) {
+            BlockPos belowPos = pos.below();
+            boolean shouldSpawn = level.isThundering() && level.getDifficulty() != Difficulty.PEACEFUL && level.canSeeSky(pos) &&
+                    level.getBlockState(belowPos).isValidSpawn(level, belowPos, creeper.getType()) && pos.getY() > 40
+                    && ChargedCreeperMobCap.checkNewChargedCreeperSpawn(level, pos);
+
+            if (shouldSpawn) {
+                ChargedCreeperMobCap.add(creeper);
+                return true;
+            }
+        }
+
+        return false;
     }
 }

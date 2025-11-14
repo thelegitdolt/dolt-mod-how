@@ -30,6 +30,7 @@
     "etcetera.UpdatePricklyCanC2SPacketMixin",
     "farmersdelight.KnifeItemMixin",
     "farmersdelight.ModEnchantmentMixin",
+    "ftgu.SporeRocketEntityMixin",
     "jne.BoneRodsMixin",
     "jne.SorrowsquashBlockMixin",
     "nethers_delight.ConsumableItemMixin",

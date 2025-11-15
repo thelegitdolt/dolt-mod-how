@@ -4,10 +4,10 @@ import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHSnSCompat;
 import com.ninni.ftgu.server.entity.subentities.SporeRocketEntity;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec2;
 import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
@@ -24,7 +24,10 @@ public abstract class SporeRocketEntityMixin extends Entity {
 
     @Inject(method = "explode", at = @At(value = "INVOKE", target = "Lcom/ninni/ftgu/server/entity/subentities/BaseSporeEntity;explode()V"), remap = false)
     private void DoltModHow$SporeRocketHasSpore(CallbackInfo ci) {
-        if (ModList.get().isLoaded(DMHUtils.Constants.SAVAGE_AND_RAVAGE) && DMHConfig.COMMON.doltChargedCreeperTweaks.get())
-            DMHSnSCompat.makeSporeCloud(this, 2, 2);
+        if (ModList.get().isLoaded(DMHUtils.Constants.SAVAGE_AND_RAVAGE)) {
+            boolean config = DMHConfig.COMMON.sporeRocketSummonSporeCloud.get() && Mth.nextInt(this.random, 1, 100) <= DMHConfig.COMMON.sporeCloudChance.get();
+            if (config) DMHSnSCompat.makeSporeCloud(this, 0, 1);
+        }
+
     }
 }

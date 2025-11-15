@@ -49,6 +49,8 @@ public class DMHConfig {
         public final ConfigValue<Boolean> pathfinderQuillMakesCaveMaps;
         public final ConfigValue<Boolean> hideBeaconParticles;
         public final ConfigValue<Boolean> elytraInfiniteDurability;
+        public final ConfigValue<Boolean> sporeRocketSummonSporeCloud;
+        public final ConfigValue<Integer> sporeCloudChance;
 
         @ConfigKey("placeable_wardenzola")
         public final ConfigValue<Boolean> wheelifiedWardenzola;
@@ -175,6 +177,8 @@ public class DMHConfig {
             builder.push("Creepers");
             doltChargedCreeperTweaks = builder.comment("Removes the Doomed effect, creates preparations to allow charged creepers to naturally spawn during thunderstorms. Spawns must still be manually added by the modpack dev.")
                             .define("Based Charged Creepers", false);
+            sporeRocketSummonSporeCloud = builder.comment("If spore rockets explosions should create a Spore Cloud from Savage and Ravage").define("Spore Bomb Two", true);
+            sporeCloudChance = builder.comment("The chance, out of 100, that a spore rocket will summon a spore cloud").defineInRange("Spore rocket possibilities", 100, 0, 100);
             builder.pop();
             builder.pop();
 

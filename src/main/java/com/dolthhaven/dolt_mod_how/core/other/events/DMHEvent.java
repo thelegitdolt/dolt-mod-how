@@ -173,7 +173,7 @@ public class DMHEvent {
     @SubscribeEvent
     public static void entitySpawnEvent(MobSpawnEvent.FinalizeSpawn event) {
         if (ModList.get().isLoaded(DMHUtils.Constants.FTGU) && DMHConfig.COMMON.doltChargedCreeperTweaks.get()) {
-            if (!DMHFTGUCompat.shouldSpawnChargedCreeper(event.getLevel().getLevel(), event.getEntity().blockPosition(), event.getEntity())) {
+            if (event.getSpawnType() == MobSpawnType.NATURAL && !DMHFTGUCompat.shouldSpawnChargedCreeper(event.getLevel().getLevel(), event.getEntity().blockPosition(), event.getEntity())) {
                 event.setSpawnCancelled(true);
                 event.setResult(Event.Result.DENY);
             }
@@ -181,11 +181,10 @@ public class DMHEvent {
     }
 
     @SubscribeEvent
-    public static void doomedEffectEvent(MobEffectEvent.Added event) {
+    public static void doomedEffectEvent(MobEffectEvent.Applicable event) {
         if (ModList.get().isLoaded(DMHUtils.Constants.FTGU)) {
             if (DMHConfig.COMMON.doltChargedCreeperTweaks.get() && DMHFTGUCompat.isDoomedEffect(event.getEffectInstance())) {
                 event.setResult(Event.Result.DENY);
-                event.setCanceled(true);
             }
         }
     }

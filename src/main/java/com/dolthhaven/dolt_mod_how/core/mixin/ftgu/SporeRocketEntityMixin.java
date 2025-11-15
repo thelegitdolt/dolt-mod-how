@@ -22,9 +22,9 @@ public abstract class SporeRocketEntityMixin extends Entity {
         super(p_19870_, p_19871_);
     }
 
-    @Inject(method = "explode", at = @At("TAIL"), remap = false)
+    @Inject(method = "explode", at = @At(value = "INVOKE", target = "Lcom/ninni/ftgu/server/entity/subentities/BaseSporeEntity;explode()V"), remap = false)
     private void DoltModHow$SporeRocketHasSpore(CallbackInfo ci) {
         if (ModList.get().isLoaded(DMHUtils.Constants.SAVAGE_AND_RAVAGE) && DMHConfig.COMMON.doltChargedCreeperTweaks.get())
-            DMHSnSCompat.makeSporeCloud(position(), new Vec2(getXRot(), getYRot()), this.level(), 4, 3);
+            DMHSnSCompat.makeSporeCloud(this, 2, 2);
     }
 }

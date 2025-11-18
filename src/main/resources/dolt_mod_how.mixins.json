@@ -25,6 +25,7 @@
     "brewinandchewin.CoasterEntityMixin",
     "caverns_and_chasms.GoldenBucketMixin",
     "dungeonsdelight.CleaverEntityMixin",
+    "dungeonsdelight.DDPropertiesMixin",
     "emi.EmiRecipeFillerMixin",
     "emi.FillRecipeC2SPacketMixin",
     "etcetera.UpdatePricklyCanC2SPacketMixin",

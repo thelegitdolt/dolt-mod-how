@@ -1,7 +1,6 @@
 package com.dolthhaven.dolt_mod_how.integration.emi;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
-import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;

@@ -9,6 +9,7 @@
     "alexscaves.CycadMixin",
     "alexscaves.DesolateDaggerMixin",
     "alexscaves.DinosaurChopMixin",
+    "alexscaves.GingerbreadManMixin",
     "alexscaves.SackOfSatingItemMixin",
     "alexscaves.SubmarineMixin",
     "alexscaves.TremorzillaMixin",

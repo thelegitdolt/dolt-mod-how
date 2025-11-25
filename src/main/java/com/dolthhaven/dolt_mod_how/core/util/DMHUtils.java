@@ -98,6 +98,7 @@ public class DMHUtils {
         public static final String SAVAGE_AND_RAVAGE = "savage_and_ravage";
         public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
         public static final String SPECIES = "species";
+        public static final String WINDSWEPT = "windswept";
         public static final String WOODWORKS = "woodworks";
 
         public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
@@ -120,6 +121,7 @@ public class DMHUtils {
         public static final ResourceLocation ARID_SAND = new ResourceLocation(ATMOSPHERIC, "arid_sand");
         public static final ResourceLocation RED_ARID_SAND = new ResourceLocation(ATMOSPHERIC, "red_arid_sand");
         public static final ResourceLocation ASHEN_SAND = new ResourceLocation(BLASTED_BARRENS, "ashen_sand");
+        public static final ResourceLocation GINGERBREAD_COOKIE = new ResourceLocation(WINDSWEPT, "gingerbread_cookie");
 
         public static final ResourceLocation ACID = new ResourceLocation(ALEXS_CAVES, "acid");
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");

@@ -60,6 +60,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> damageReductions;
 
         public final ConfigValue<String> discToSpawnAfterJukeboxStruckWithLightning;
+        public final ConfigValue<Boolean> gingerBreadMenDropWindsweptCookies;
 
 
 
@@ -223,6 +224,11 @@ public class DMHConfig {
                     .define("Okay Treats", true);
             builder.pop();
 
+            builder.push("Gingerbread Men");
+            gingerBreadMenDropWindsweptCookies = builder.comment("If gingerbread men should drop windswept gingerbread cookies instead of gingerbread crumps")
+                            .define("This Only Makes Sense In Dolt Modpack", false);
+            builder.pop();
+
             builder.push("Sack of Sating");
             sackOfSatingNoRestoreSat = builder.comment("If sacks of sating no longer restore saturation")
                     .define("Mid sack of sating", false);
@@ -264,6 +270,7 @@ public class DMHConfig {
             builder.pop();
 
             builder.pop();
+
         }
     }
 

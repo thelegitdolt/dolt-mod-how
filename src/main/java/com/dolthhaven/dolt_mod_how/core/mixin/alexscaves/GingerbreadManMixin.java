@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.alexscaves;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.github.alexmodguy.alexscaves.server.entity.living.GingerbreadManEntity;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -10,14 +11,16 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 
+@Pseudo
 @Mixin(GingerbreadManEntity.class)
 public class GingerbreadManMixin {
     @WrapOperation(method = "onLoseArm",
             at = @At(value = "NEW", target = "(Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/world/item/ItemStack;"))
     private ItemStack noMoreGingerbreadCrumbs(ItemLike item, Operation<ItemStack> original) {
-        cookie: if (ModList.get().isLoaded(DMHUtils.Constants.WINDSWEPT)) {
+        cookie: if (DMHConfig.COMMON.gingerBreadMenDropWindsweptCookies.get() && ModList.get().isLoaded(DMHUtils.Constants.WINDSWEPT)) {
             Item cookie = ForgeRegistries.ITEMS.getValue(DMHUtils.Constants.GINGERBREAD_COOKIE);
             if (cookie == null) break cookie;
 

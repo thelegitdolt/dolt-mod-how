@@ -4,15 +4,58 @@ buildscript {
         maven { url = "https://repo.spongepowered.org/repository/maven-public/" }
     }
     dependencies {
-        classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "[6.0,6.1)", changing: true
+        classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "6.0.46", changing: true
         classpath group: "org.spongepowered", name: "mixingradle", version: "0.7-SNAPSHOT"
     }
+}
+
+plugins {
+    id "me.modmuss50.mod-publish-plugin" version "1.1.0"
 }
 
 apply plugin: "net.minecraftforge.gradle"
 apply plugin: "eclipse"
 apply plugin: "maven-publish"
 apply plugin: "org.spongepowered.mixin"
+
+
+publishMods {
+    changelog = "- Added config for emi hiding" +
+            "- If you naively add From the Ground Up Charged Creepers as a natural spawn with a Forge Biome Modifier, it will automatically:" +
+            "   - Spawn only on thunderstorms" +
+            "   - Spawn only when when there are no charged creepers in a 200 block radius" +
+            "   - This option must be enabled in the config and does nothing on its own. Modpack devs must add the charged creeper spawns themselves." +
+            "- The From the Ground Up Charged Creeper's Spore Rocket attack will spawn a Savage and Ravage Spore Cloud." +
+            "- Added an option, disabled by default, to make gingerbread men drop Windswept gingerbread cookies instead of gingerbread crumbs" +
+            "- Removes the monster rarity added by Dungeon's Delight."
+    type = STABLE
+    file = jar.archiveFile
+    modLoaders.add("forge")
+    modLoaders.add("neoforge")
+//    curseforge {
+//        projectId = "993840"
+//        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+//        minecraftVersions.add("1.20.1")
+//        javaVersions.add(JavaVersion.VERSION_17)
+//        clientRequired = true
+//        serverRequired = true
+//        requires("blueprint", "farmers-delight", "supplementaries", "quark")
+//        optional("atmospheric", "ftgu-from-the-ground-up", "windswept", "alexs-caves", "biomes-o-plenty", "cave-delight", "clayworks", "create".
+//            "dungeons-delight", "dye-depot", "environmental", "mowzies-mobs", "jadens-nether-expansion", "my-nethers-delight", "neapolitan", "oreganized",
+//                "savage-and-ravage", "species", "windswept", "woodworks")
+//    }
+//    modrinth {
+//        accessToken = providers.environmentVariable("MODRINTH_API_KEY")
+//        projectId = "12345678"
+//        minecraftVersions.add("1.20.1")
+//
+//        // You can use the shortened method if you only need to specify the slug
+//        requires("blueprint", "farmers-delight", "supplementaries", "quark")
+//        optional("atmospheric", "from-the-ground-up", "windswept", "alexs-caves", "biomes-o-plenty", "cave-delight", "clayworks", "create".
+//                "dungeons_delight", "dye-depot", "environmental", "mowzies-mobs", "jadens-nether-expansion", "my-nethers-delight", "neapolitan", "oreganized",
+//                "savage-and-ravage", "species", "windswept", "woodworks")
+//    }
+}
 
 mixin {
     add sourceSets.main, "${project.modId}.refmap.json"

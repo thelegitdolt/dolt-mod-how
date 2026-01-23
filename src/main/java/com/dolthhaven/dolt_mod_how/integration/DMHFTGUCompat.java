@@ -21,9 +21,10 @@ public class DMHFTGUCompat {
                 ChargedCreeperMobCap.add(creeper);
                 return true;
             }
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     public static boolean isDoomedEffect(MobEffectInstance instance) {

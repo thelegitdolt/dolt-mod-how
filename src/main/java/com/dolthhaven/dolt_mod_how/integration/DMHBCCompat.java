@@ -17,7 +17,7 @@ public class DMHBCCompat {
     public static final Supplier<Block> WARDENZOLA = () ->
             new CheeseWheelBlock(DMHItems.WARDENZOLA_WEDGE, BlockBehaviour.Properties.copy(Blocks.CAKE));
 
-    public static final Supplier<FluidType> TEQUILA_FLUID_TYPE = () -> new AlcoholFluidType(0x50cded);
+    public static final Supplier<FluidType> TEQUILA_FLUID_TYPE = () -> new AlcoholFluidType(0xff3df0f2);
 
     public static Block coaster() {
         return BnCBlocks.COASTER.get();

@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
+import com.dolthhaven.dolt_mod_how.common.block.PlaceholderFluid;
 import com.dolthhaven.dolt_mod_how.common.block.WardenzolaFluid;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
@@ -19,8 +20,7 @@ public class DMHFluids {
 
 
     public static final RegistryObject<FluidType> TEQUILA_FLUID_TYPE = FLUID_TYPES.register("tequila_type",
-            chewin() ? DMHBCCompat.TEQUILA_FLUID_TYPE :
-                    () -> new FluidType(FluidType.Properties.create()));
+            chewin() ? DMHBCCompat.TEQUILA_FLUID_TYPE : () -> new PlaceholderFluid(0xff3df0f2));
 
     public static final RegistryObject<FlowingFluid> TEQUILA = FLUIDS.register("tequila", () -> new ForgeFlowingFluid.Source(DMHFluids.TEQUILA_PROPERTIES));
     public static final RegistryObject<FlowingFluid> FLOWING_TEQUILA = FLUIDS.register("flowing_tequila", () -> new ForgeFlowingFluid.Flowing(DMHFluids.TEQUILA_PROPERTIES));

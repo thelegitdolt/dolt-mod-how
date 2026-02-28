@@ -60,7 +60,7 @@
     "vanilla.FlowerPotMixin",
     "vanilla.HalfTransparentBlockMixin",
     "vanilla.ItemMixin",
-    "vanilla.PowderSnowBlockMixin",
+    "vanilla.NoteBlockMixin",
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.RecipeManagerMixin",
     "vanilla.ServerLevelMixin",

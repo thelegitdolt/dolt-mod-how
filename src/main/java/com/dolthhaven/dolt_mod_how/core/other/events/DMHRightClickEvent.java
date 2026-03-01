@@ -74,6 +74,7 @@ public class DMHRightClickEvent {
         rakeSand(event, level, player, hand, stack, pos, result);
     }
 
+
     public static void rakeSand(PlayerInteractEvent.RightClickBlock event, Level level, Player player, InteractionHand hand, ItemStack stack, BlockPos pos, BlockHitResult result) {
         if (!ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS)) {
             return;

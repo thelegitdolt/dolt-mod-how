@@ -23,6 +23,10 @@ public class ChorusSodaItem extends DrinkableItem {
         double y = consumer.getY();
         double z = consumer.getZ();
 
+        if (level.getMaxBuildHeight() < y + 12) {
+            return;
+        }
+
         consumer.teleportRelative(0, 10, 0);
         level.broadcastEntityEvent(consumer, (byte) 46);
 

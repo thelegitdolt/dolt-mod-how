@@ -13,6 +13,8 @@
     "alexscaves.SackOfSatingItemMixin",
     "alexscaves.SubmarineMixin",
     "alexscaves.TremorzillaMixin",
+    "amendments.DirectionalCakeBlockMixin",
+    "amendments.HangingSignDisplayItemMixin",
     "anchor.LightningBoltMixin",
     "atmospheric.AtmosphericEventsMixin",
     "auditoryboatsounds.BlueprintBoatItemMixin",

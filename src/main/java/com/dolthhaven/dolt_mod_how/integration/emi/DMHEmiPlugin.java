@@ -23,33 +23,33 @@ public class DMHEmiPlugin implements EmiPlugin {
     @Override
     public void register(EmiRegistry registry) {
         registry.addRecipeHandler(BackpackModule.menyType, new BackpackScreenHandler());
-        if (DMHConfig.CLIENT.hidePotions.get()) {
-            registry.removeEmiStacks(a -> {
-                ItemStack stack = a.getItemStack();
-                if (stack.isEmpty()) return false;
-                CompoundTag tag = stack.getTag();
-                if (tag == null) return false;
-
-                Potion potion = PotionUtils.getPotion(tag);
-
-                // hides all subtle potions that aren't normal water potions
-                boolean subtle = tag.getBoolean("Subtle");
-                if (subtle && potion == Potions.WATER && stack.getItem() != Items.POTION) return true;
-
-                // do not hide non-potions and water potions
-                if (potion == Potions.EMPTY || potion == Potions.WATER) return false;
-
-                    // hide all non-water variant potions
-                else if (stack.getItem() != Items.POTION) return true;
-
-                String potionType = tag.getString("Potion").toLowerCase(Locale.ROOT);
-
-                // hides all normal potions that are long and strong and subtle variants
-                if (potionType.contains("long") || potionType.contains("strong") || subtle) return true;
-
-                return false;
-            });
-        }
+//        if (DMHConfig.CLIENT.hidePotions.get()) {
+//            registry.removeEmiStacks(a -> {
+//                ItemStack stack = a.getItemStack();
+//                if (stack.isEmpty()) return false;
+//                CompoundTag tag = stack.getTag();
+//                if (tag == null) return false;
+//
+//                Potion potion = PotionUtils.getPotion(tag);
+//
+//                // hides all subtle potions that aren't normal water potions
+//                boolean subtle = tag.getBoolean("Subtle");
+//                if (subtle && potion == Potions.WATER && stack.getItem() != Items.POTION) return true;
+//
+//                // do not hide non-potions and water potions
+//                if (potion == Potions.EMPTY || potion == Potions.WATER) return false;
+//
+//                    // hide all non-water variant potions
+//                else if (stack.getItem() != Items.POTION) return true;
+//
+//                String potionType = tag.getString("Potion").toLowerCase(Locale.ROOT);
+//
+//                // hides all normal potions that are long and strong and subtle variants
+//                if (potionType.contains("long") || potionType.contains("strong") || subtle) return true;
+//
+//                return false;
+//            });
+//        }
 
         if (DMHConfig.CLIENT.hideEnchants.get()) {
             registry.removeEmiStacks(a -> {

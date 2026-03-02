@@ -3,13 +3,17 @@ package com.dolthhaven.dolt_mod_how.core.other.events;
 import com.dolthhaven.dolt_mod_how.common.item.RecoveryCompassItem;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.other.util.ThunderdomeUtil;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHCriteriaTriggers;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHFTGUCompat;
+import com.teamabnormals.caverns_and_chasms.common.entity.monster.Mime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -73,6 +77,31 @@ public class DMHEvent {
         }
     }
 
+    @SubscribeEvent
+    public static void THUNDERDOME(LivingDeathEvent event) {
+        Entity entity = event.getEntity();
+        if (event.getSource().getEntity() instanceof Player player) {
+            boolean hasMimed = false;
+            if (entity instanceof Mime mime) {
+                for (ItemStack stack : mime.getArmorSlots()) {
+                    if (!stack.isEmpty()) {
+                        hasMimed = true;
+                        break;
+                    }
+                }
+            }
+
+            if (hasMimed) {
+                if (ThunderdomeUtil.add(player, entity.level().getGameTime()) && player instanceof ServerPlayer serverPlayer) {
+                    DMHCriteriaTriggers.THUNDERDOME.trigger(serverPlayer);
+                }
+                player.displayClientMessage(Component.literal("thunder dome score: " + ThunderdomeUtil.score(player) + " also sex"), true);
+
+            } else {
+                ThunderdomeUtil.reset(player);
+            }
+        }
+    }
 
     @SubscribeEvent
     public static void removePoisonIfPlayerKillsArthropodWithBOA(LivingDeathEvent event) {

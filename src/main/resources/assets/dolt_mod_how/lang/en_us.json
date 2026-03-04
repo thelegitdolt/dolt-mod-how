@@ -109,5 +109,8 @@
   "advancements.dolt_mod_how.husbandry.dui.description": "Operate a mount while being more than a fair bit tipsy",
   "advancements.dolt_mod_how.husbandry.dui.title": "Not Endorsed",
   "advancements.dolt_mod_how.adventure.pvz.description": "Have a Foliaath eat a zombie at the build limit",
-  "advancements.dolt_mod_how.adventure.pvz.title": "Graze the Roof"
+  "advancements.dolt_mod_how.adventure.pvz.title": "Graze the Roof",
+
+  "advancements.dolt_mod_how.adventure.slay_bewereager_with_silver.description": "Slay a Bewereager using a crankbow and silver arrows",
+  "advancements.dolt_mod_how.adventure.slay_bewereager_with_silver.title": "Big Game Hunter"
 }

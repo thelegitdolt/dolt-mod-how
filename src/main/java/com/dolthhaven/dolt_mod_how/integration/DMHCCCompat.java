@@ -5,6 +5,7 @@ import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.caverns_and_chasms.common.block.entity.ToolboxBlockEntity;
 import com.teamabnormals.caverns_and_chasms.common.dispenser.FilledGoldenBucketDispenseBehavior;
 import com.teamabnormals.caverns_and_chasms.common.entity.monster.Mime;
+import com.teamabnormals.caverns_and_chasms.common.entity.projectile.LargeArrow;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
@@ -47,5 +48,9 @@ public class DMHCCCompat {
 
     public static boolean isMime(Entity entity) {
         return entity instanceof Mime;
+    }
+
+    public static boolean isLargeArrow(Entity entity) {
+        return entity instanceof LargeArrow;
     }
 }

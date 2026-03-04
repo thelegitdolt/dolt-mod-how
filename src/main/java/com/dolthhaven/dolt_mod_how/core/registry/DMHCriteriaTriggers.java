@@ -13,5 +13,6 @@ public class DMHCriteriaTriggers {
     // for Not Endorsed advancement
     public static final EmptyTrigger DUI = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("dui")));
     public static final EmptyTrigger PVZ = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("pvz")));
+    public static final EmptyTrigger SLAY_BEWEREAGER_WITH_SILVER = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("slay_bewereager_with_silver")));
 
 }

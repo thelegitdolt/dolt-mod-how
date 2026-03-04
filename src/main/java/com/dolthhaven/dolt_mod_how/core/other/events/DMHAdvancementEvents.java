@@ -7,8 +7,10 @@ import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHBCCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
+import com.dolthhaven.dolt_mod_how.integration.DMHSpeciesCompat;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -45,6 +47,22 @@ public class DMHAdvancementEvents {
             } else {
                 ThunderdomeUtil.reset(player);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void bigGameHunter(LivingDeathEvent event) {
+        if (!ModList.get().isLoaded(DMHUtils.Constants.SPECIES) || !DMHUtils.cavernsChasmsLoaded()) return;
+
+        Entity deadGuy = event.getEntity();
+        Entity killer = event.getSource().getEntity();
+        if (killer instanceof ServerPlayer player &&
+                DMHSpeciesCompat.isBewereager(deadGuy) &&
+                DMHCCCompat.isLargeArrow(event.getSource().getDirectEntity())) {
+            boolean playerHasCrankbow =
+                    DMHSpeciesCompat.isCrankbow(player.getItemInHand(InteractionHand.MAIN_HAND).getItem()) ||
+                    DMHSpeciesCompat.isCrankbow(player.getItemInHand(InteractionHand.OFF_HAND).getItem());
+            if (playerHasCrankbow) DMHCriteriaTriggers.SLAY_BEWEREAGER_WITH_SILVER.trigger(player);
         }
     }
 

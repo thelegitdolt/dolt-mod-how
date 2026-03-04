@@ -19,7 +19,7 @@ public class BlockMixin {
             return;
         }
 
-        if (state.is(Blocks.MOSS_CARPET) || state.getBlock().builtInRegistryHolder().is(DMHUtils.Constants.ALPHACENE_MOSS_CARPET)) {
+        if (state.is(Blocks.MOSS_CARPET) || state.is(Blocks.PINK_PETALS) || DMHUtils.getBlockId(state.getBlock()).equals(DMHUtils.Constants.ALPHACENE_MOSS_CARPET)) {
             cir.setReturnValue(true);
         }
     }

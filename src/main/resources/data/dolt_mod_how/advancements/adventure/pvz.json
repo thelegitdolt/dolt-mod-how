@@ -2,7 +2,7 @@
   "parent": "mowziesmobs:kill_foliaath",
   "display": {
     "icon": {
-      "item": "mowziesmobs:foliaath_seed"
+      "item": "minecraft:flower_pot"
     },
     "title": {
       "translate": "advancements.dolt_mod_how.adventure.pvz.title"

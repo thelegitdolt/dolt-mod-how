@@ -26,7 +26,7 @@ public abstract class PathfinderItemMixin {
         if (DMHUtils.alexCavesLoaded() && DMHConfig.COMMON.pathfinderQuillMakesCaveMaps.get()) {
             ItemStack stack = player.getItemInHand(hand);
 
-            if (!stack.getItem().builtInRegistryHolder().is(DMHUtils.Constants.PATHFINDER_QUILL)) return;
+            if (!DMHUtils.getItemId(stack.getItem()).equals(DMHUtils.Constants.PATHFINDER_QUILL)) return;
 
             ItemStack mapStack = DMHACCompat.makeMapFromString(getTarget(stack));
             player.setItemInHand(hand, mapStack);

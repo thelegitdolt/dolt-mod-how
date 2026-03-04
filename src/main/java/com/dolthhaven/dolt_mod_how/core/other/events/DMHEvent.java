@@ -95,8 +95,6 @@ public class DMHEvent {
                 if (ThunderdomeUtil.add(player, entity.level().getGameTime()) && player instanceof ServerPlayer serverPlayer) {
                     DMHCriteriaTriggers.THUNDERDOME.trigger(serverPlayer);
                 }
-                player.displayClientMessage(Component.literal("thunder dome score: " + ThunderdomeUtil.score(player) + " also sex"), true);
-
             } else {
                 ThunderdomeUtil.reset(player);
             }

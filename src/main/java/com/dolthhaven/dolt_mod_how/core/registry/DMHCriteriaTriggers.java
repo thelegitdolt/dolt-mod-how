@@ -8,4 +8,5 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
 public class DMHCriteriaTriggers {
     public static final EmptyTrigger THUNDERDOME = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("thunderdome")));
+    public static final EmptyTrigger REWIND_GREAT_DISTANCES = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("rewind_great_distances")));
 }

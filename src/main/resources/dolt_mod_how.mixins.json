@@ -26,6 +26,7 @@
     "brewinandchewin.CoasterBlockEntityRendererMixin",
     "brewinandchewin.CoasterBlockMixin",
     "brewinandchewin.CoasterEntityMixin",
+    "caverns_and_chasms.CCEventsMixin",
     "dungeonsdelight.CleaverEntityMixin",
     "dungeonsdelight.DDPropertiesMixin",
     "emi.EmiRecipeFillerMixin",

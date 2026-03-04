@@ -101,7 +101,9 @@
   "slabfish.type.dolt_mod_how.magnetic_caves": "Magnetic Caves",
   "slabfish.type.dolt_mod_how.primordial_caves": "Primordial Caves",
   "slabfish.type.dolt_mod_how.toxic_caves": "Toxic Caves",
-
   "advancements.dolt_mod_how.adventure.thunderdome.description": "Kill 3 mimes back to back after they've copied your armor",
-  "advancements.dolt_mod_how.adventure.thunderdome.title": "Thunderdome"
+  "advancements.dolt_mod_how.adventure.thunderdome.title": "Thunderdome",
+
+  "advancements.dolt_mod_how.nether.rewind_great_distances.description": "Travel at least 1000 blocks with the effect of a Rewind Potion",
+  "advancements.dolt_mod_how.nether.rewind_great_distances.title": "Applied Quotient Topology"
 }

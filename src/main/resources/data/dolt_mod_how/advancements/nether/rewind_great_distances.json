@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:nether/brew_potion",
+  "display": {
+    "icon": {
+      "item": "caverns_and_chasms:bejeweled_pearl"
+    },
+    "title": {
+      "translate": "advancements.dolt_mod_how.nether.rewind_great_distances.title"
+    },
+    "description": {
+      "translate": "advancements.dolt_mod_how.nether.rewind_great_distances.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sex": {
+      "trigger": "dolt_mod_how:rewind_great_distances"
+    }
+  }
+}

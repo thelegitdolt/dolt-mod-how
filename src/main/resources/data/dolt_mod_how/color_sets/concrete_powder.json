@@ -1,0 +1,7 @@
+{
+  "id": "minecraft:concrete_powder",
+  "colors": {
+    "default": "clayworks:concrete_powder"
+  },
+  "replace": false
+}

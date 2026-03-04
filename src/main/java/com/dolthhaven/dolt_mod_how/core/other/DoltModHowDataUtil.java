@@ -1,7 +1,5 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
-import com.dolthhaven.dolt_mod_how.core.DMHConfig;
-import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.util.DataUtil;
@@ -12,9 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.violetmoon.quark.addons.oddities.module.PipesModule;
-import software.bernie.geckolib.event.GeoRenderEvent;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 

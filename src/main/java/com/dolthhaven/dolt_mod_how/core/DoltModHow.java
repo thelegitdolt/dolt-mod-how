@@ -2,8 +2,8 @@ package com.dolthhaven.dolt_mod_how.core;
 
 import com.dolthhaven.dolt_mod_how.client.other.DMHClientCompat;
 import com.dolthhaven.dolt_mod_how.core.network.DMHPacketHandler;
-import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.DMHTrackedData;
+import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
 import com.dolthhaven.dolt_mod_how.core.registry.*;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
@@ -13,7 +13,6 @@ import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
 import com.dolthhaven.dolt_mod_how.data.client.DMHItemModelsGen;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
-import com.dolthhaven.dolt_mod_how.integration.DMHSupplementariesCompat;
 import com.dolthhaven.dolt_mod_how.integration.DoltModHowFishBarrelSetup;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -102,7 +101,6 @@ public class DoltModHow {
         event.enqueueWork(() -> {
             DoltModHowDispensers.registerDispenseBehavior();
             DoltModHowDataUtil.registerData();
-            DMHSupplementariesCompat.registerColors();
             DMHPacketHandler.register();
         });
 

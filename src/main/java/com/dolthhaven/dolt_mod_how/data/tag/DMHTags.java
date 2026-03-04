@@ -3,8 +3,8 @@ package com.dolthhaven.dolt_mod_how.data.tag;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.util.TagUtil;
-import net.minecraft.Util;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -28,6 +28,10 @@ public class DMHTags {
     public static final TagKey<Item> SHEARS = externalItemTag("forge", "shears");
     public static final TagKey<Item> SCULK_CHEESE = externalItemTag(DMHUtils.Constants.DUNGEONS_DELIGHT, "sculk_cheese");
 
+    public static final TagKey<EntityType<?>> HOSTILE_MOUNTS = entityTag("hostile_mounts");
+    public static final TagKey<EntityType<?>> HUMANOID_ZOMBIES = entityTag("humanoid_zombies");
+
+
 
     private static TagKey<Item> externalItemTag(String modId, String path) {
         return TagUtil.itemTag(modId, path);
@@ -46,4 +50,9 @@ public class DMHTags {
     private static TagKey<Block> blockTag(String path) {
         return TagUtil.blockTag(DoltModHow.MOD_ID, path);
     }
+
+    private static TagKey<EntityType<?>> entityTag(String path) {
+        return TagUtil.entityTypeTag(DoltModHow.MOD_ID, path);
+    }
+
 }

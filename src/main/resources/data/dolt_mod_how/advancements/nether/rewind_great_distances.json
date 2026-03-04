@@ -15,6 +15,9 @@
     "announce_to_chat": true,
     "hidden": false
   },
+  "rewards": {
+    "experience": 50
+  },
   "criteria": {
     "sex": {
       "trigger": "dolt_mod_how:rewind_great_distances"

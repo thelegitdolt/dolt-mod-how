@@ -1,6 +1,8 @@
 package com.dolthhaven.dolt_mod_how.integration;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -10,6 +12,7 @@ import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import umpaz.brewinandchewin.common.block.CoasterBlock;
 import umpaz.brewinandchewin.common.fluid.AlcoholFluidType;
 import umpaz.brewinandchewin.common.registry.BnCBlocks;
+import umpaz.brewinandchewin.common.registry.BnCEffects;
 
 import java.util.function.Supplier;
 
@@ -25,5 +28,11 @@ public class DMHBCCompat {
 
     public static BlockState blankCoasterState() {
         return coaster().defaultBlockState().setValue(CoasterBlock.INVISIBLE, true).setValue(CoasterBlock.SIZE, 0);
+    }
+
+    public static int tipsyEffectLevel(Player player) {
+        MobEffectInstance instance = player.getEffect(BnCEffects.TIPSY.get());
+        if (instance == null) return -1;
+        else return instance.getAmplifier();
     }
 }

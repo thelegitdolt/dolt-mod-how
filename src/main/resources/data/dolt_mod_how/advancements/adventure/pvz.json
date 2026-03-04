@@ -1,0 +1,23 @@
+{
+  "parent": "mowziesmobs:kill_foliaath",
+  "display": {
+    "icon": {
+      "item": "mowziesmobs:foliaath_seed"
+    },
+    "title": {
+      "translate": "advancements.dolt_mod_how.adventure.pvz.title"
+    },
+    "description": {
+      "translate": "advancements.dolt_mod_how.adventure.pvz.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sex": {
+      "trigger": "dolt_mod_how:pvz"
+    }
+  }
+}

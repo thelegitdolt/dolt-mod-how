@@ -12,6 +12,7 @@ import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
 import com.dolthhaven.dolt_mod_how.data.client.DMHItemModelsGen;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
+import com.dolthhaven.dolt_mod_how.data.tag.DMHEntityTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
 import com.dolthhaven.dolt_mod_how.integration.DoltModHowFishBarrelSetup;
 import com.mojang.logging.LogUtils;
@@ -89,6 +90,7 @@ public class DoltModHow {
         DMHBlockTags taggies = new DMHBlockTags(packOutput, provider, helper);
         dataGen.addProvider(includeServer, taggies);
         dataGen.addProvider(includeServer, new DMHItemTags(event, taggies));
+        dataGen.addProvider(includeServer, new DMHEntityTags(event));
         dataGen.addProvider(includeServer, new DoltModHowLootTables(packOutput));
         dataGen.addProvider(includeServer, new DMHRecipes(packOutput));
 

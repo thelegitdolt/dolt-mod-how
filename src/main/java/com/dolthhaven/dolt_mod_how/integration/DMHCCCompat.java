@@ -4,11 +4,12 @@ import com.dolthhaven.dolt_mod_how.common.item.DMHGoldenBucketItem;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.caverns_and_chasms.common.block.entity.ToolboxBlockEntity;
 import com.teamabnormals.caverns_and_chasms.common.dispenser.FilledGoldenBucketDispenseBehavior;
-import com.teamabnormals.caverns_and_chasms.common.dispenser.GoldenBucketDispenseBehavior;
+import com.teamabnormals.caverns_and_chasms.common.entity.monster.Mime;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -42,5 +43,9 @@ public class DMHCCCompat {
             return success ? DMHUtils.SUCCESSFUL_SETTING : DMHUtils.UNSUCCESSFUL_SETTING;
         }
         return DMHUtils.NOT_TOOLBOX;
+    }
+
+    public static boolean isMime(Entity entity) {
+        return entity instanceof Mime;
     }
 }

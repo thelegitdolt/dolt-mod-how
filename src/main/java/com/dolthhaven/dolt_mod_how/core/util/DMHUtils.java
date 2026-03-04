@@ -105,12 +105,9 @@ public class DMHUtils {
 
         public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
         public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
-        public static final ResourceLocation CONCRETE = new ResourceLocation(CLAYWORKS, "concrete");
-        public static final ResourceLocation CONCRETE_POWDER = new ResourceLocation(CLAYWORKS, "concrete_powder");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
-
-        public static final ResourceLocation ENCASED_PIPE = new ResourceLocation(QUARK, "encased_pipe");
+        public static final ResourceLocation FOLIAATH = new ResourceLocation(MOWZIES_MOBS, "foliaath");
 
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
@@ -158,4 +155,9 @@ public class DMHUtils {
     public static boolean alexCavesLoaded() {
         return ModList.get().isLoaded(Constants.ALEXS_CAVES);
     }
+
+    public static boolean cavernsChasmsLoaded() {
+        return ModList.get().isLoaded(Constants.CAVERNS_AND_CHASMS);
+    }
+
 }

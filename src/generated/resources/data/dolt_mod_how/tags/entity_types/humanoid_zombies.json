@@ -1,0 +1,11 @@
+{
+  "values": [
+    "minecraft:zombie",
+    "minecraft:husk",
+    "minecraft:drowned",
+    {
+      "id": "windswept:chilled",
+      "required": false
+    }
+  ]
+}

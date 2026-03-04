@@ -9,11 +9,12 @@ import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
+import com.dolthhaven.dolt_mod_how.integration.DMHBCCompat;
+import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHFTGUCompat;
-import com.teamabnormals.caverns_and_chasms.common.entity.monster.Mime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -35,6 +36,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
@@ -45,6 +47,7 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import static net.minecraft.world.InteractionHand.MAIN_HAND;
@@ -79,11 +82,13 @@ public class DMHEvent {
 
     @SubscribeEvent
     public static void THUNDERDOME(LivingDeathEvent event) {
+        if (!DMHUtils.cavernsChasmsLoaded()) return;
+
         Entity entity = event.getEntity();
         if (event.getSource().getEntity() instanceof Player player) {
             boolean hasMimed = false;
-            if (entity instanceof Mime mime) {
-                for (ItemStack stack : mime.getArmorSlots()) {
+            if (DMHCCCompat.isMime(entity)) {
+                for (ItemStack stack : entity.getArmorSlots()) {
                     if (!stack.isEmpty()) {
                         hasMimed = true;
                         break;
@@ -97,6 +102,42 @@ public class DMHEvent {
                 }
             } else {
                 ThunderdomeUtil.reset(player);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void grazeTheRoof(LivingDeathEvent event) {
+        if (!ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS)) return;
+
+        Entity deadGuy = event.getEntity();
+        Entity killer = event.getSource().getEntity();
+        if (killer == null) return;
+
+        ResourceLocation killerId = ForgeRegistries.ENTITY_TYPES.getKey(killer.getType());
+
+        boolean validEntities = deadGuy.getType().is(DMHTags.HUMANOID_ZOMBIES) && killerId != null
+                            && killerId.equals(DMHUtils.Constants.FOLIAATH);
+
+        if (!validEntities) return;
+
+        boolean validPos = killer.getCommandSenderWorld().dimension() == Level.OVERWORLD &&
+                killer.position().y > killer.level().getMaxBuildHeight() - 10;
+        if (!validPos) return;
+
+        if (killer.level().getNearestPlayer(killer, 20) instanceof ServerPlayer player) {
+            DMHCriteriaTriggers.PVZ.trigger(player);
+        }
+    }
+
+    @SubscribeEvent
+    public static void notEndorsed(EntityMountEvent event) {
+        if (!ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) || event.isDismounting()) return;
+        if (event.getEntityMounting() instanceof ServerPlayer player &&
+                !event.getEntityBeingMounted().getType().is(DMHTags.HOSTILE_MOUNTS)) {
+            int i = DMHBCCompat.tipsyEffectLevel(player);
+            if (i > 2) {
+                DMHCriteriaTriggers.DUI.trigger(player);
             }
         }
     }
@@ -216,7 +257,4 @@ public class DMHEvent {
             }
         }
     }
-
-
-
 }

@@ -1,0 +1,23 @@
+{
+  "parent": "brewinandchewin:main/brew_drink",
+  "display": {
+    "icon": {
+      "item": "brewinandchewin:beer"
+    },
+    "title": {
+      "translate": "advancements.dolt_mod_how.husbandry.dui.title"
+    },
+    "description": {
+      "translate": "advancements.dolt_mod_how.husbandry.dui.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sex": {
+      "trigger": "dolt_mod_how:dui"
+    }
+  }
+}

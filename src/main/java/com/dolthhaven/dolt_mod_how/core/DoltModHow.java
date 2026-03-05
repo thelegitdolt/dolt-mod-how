@@ -14,6 +14,7 @@ import com.dolthhaven.dolt_mod_how.data.client.DMHItemModelsGen;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHEntityTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
+import com.dolthhaven.dolt_mod_how.data.tag.DMHMobEffectTags;
 import com.dolthhaven.dolt_mod_how.integration.DoltModHowFishBarrelSetup;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -64,6 +65,10 @@ public class DoltModHow {
         DMHLoot.LOOT_MODIFIERS.register(bus);
         DMHFluids.FLUID_TYPES.register(bus);
         DMHFluids.FLUIDS.register(bus);
+
+        DMHMobEffects.MOB_EFFECTS.register(bus);
+        DMHMobEffects.POTIONS.register(bus);
+
         REGISTRY_HELPER.register(bus);
 
         DMHTrackedData.registerTrackedData();
@@ -91,6 +96,7 @@ public class DoltModHow {
         dataGen.addProvider(includeServer, taggies);
         dataGen.addProvider(includeServer, new DMHItemTags(event, taggies));
         dataGen.addProvider(includeServer, new DMHEntityTags(event));
+        dataGen.addProvider(includeServer, new DMHMobEffectTags(event));
         dataGen.addProvider(includeServer, new DoltModHowLootTables(packOutput));
         dataGen.addProvider(includeServer, new DMHRecipes(packOutput));
 

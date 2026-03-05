@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
 import com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHMobEffects;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
@@ -27,6 +28,7 @@ public class DoltModHowDataUtil {
         DMHRightClickEvent.registerBlockPlacing();
         DMHRightClickEvent.registerRakeables();
         DMHCauldrons.register();
+        DMHMobEffects.registerBrewingRecipes();
         registerPipes();
     }
 

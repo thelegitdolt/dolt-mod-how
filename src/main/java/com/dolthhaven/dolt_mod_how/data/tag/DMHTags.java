@@ -4,6 +4,7 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.teamabnormals.blueprint.core.util.TagUtil;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -31,6 +32,10 @@ public class DMHTags {
     public static final TagKey<EntityType<?>> HOSTILE_MOUNTS = entityTag("hostile_mounts");
     public static final TagKey<EntityType<?>> HUMANOID_ZOMBIES = entityTag("humanoid_zombies");
 
+    public static final TagKey<MobEffect> GENEROSITY_CANNOT_SHARE = mobEffectTag("generosity_cannot_steal");
+    public static final TagKey<MobEffect> MIMING_CANNOT_COPY = mobEffectTag("miming_cannot_copy");
+
+
 
 
     private static TagKey<Item> externalItemTag(String modId, String path) {
@@ -53,6 +58,10 @@ public class DMHTags {
 
     private static TagKey<EntityType<?>> entityTag(String path) {
         return TagUtil.entityTypeTag(DoltModHow.MOD_ID, path);
+    }
+
+    private static TagKey<MobEffect> mobEffectTag(String path) {
+        return TagUtil.mobEffectTag(DoltModHow.MOD_ID, path);
     }
 
 }

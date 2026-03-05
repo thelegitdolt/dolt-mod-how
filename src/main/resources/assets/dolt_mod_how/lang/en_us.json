@@ -112,5 +112,17 @@
   "advancements.dolt_mod_how.adventure.pvz.title": "Graze the Roof",
 
   "advancements.dolt_mod_how.adventure.slay_bewereager_with_silver.description": "Slay a Bewereager using a crankbow and silver arrows",
-  "advancements.dolt_mod_how.adventure.slay_bewereager_with_silver.title": "Big Game Hunter"
+  "advancements.dolt_mod_how.adventure.slay_bewereager_with_silver.title": "Big Game Hunter",
+
+  "effect.dolt_mod_how.generosity": "Generosity",
+  "item.minecraft.lingering_potion.effect.generosity": "Lingering Potion of Generosity",
+  "item.minecraft.potion.effect.generosity": "Potion of Generosity",
+  "item.minecraft.splash_potion.effect.generosity": "Splash Potion of Generosity",
+  "item.minecraft.tipped_arrow.effect.generosity": "Arrow of Generosity",
+
+  "effect.dolt_mod_how.miming": "Miming",
+  "item.minecraft.lingering_potion.effect.miming": "Lingering Potion of Miming",
+  "item.minecraft.potion.effect.miming": "Potion of Miming",
+  "item.minecraft.splash_potion.effect.miming": "Splash Potion of Miming",
+  "item.minecraft.tipped_arrow.effect.miming": "Arrow of Miming"
 }

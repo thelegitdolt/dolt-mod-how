@@ -122,6 +122,10 @@ public class DMHUtils {
 
         public static final ResourceLocation ACID = new ResourceLocation(ALEXS_CAVES, "acid");
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");
+
+        public static final ResourceLocation ZIRCONIA = new ResourceLocation(CAVERNS_AND_CHASMS, "zirconia");
+        public static final ResourceLocation TMT = new ResourceLocation(CAVERNS_AND_CHASMS, "tmt");
+
         public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");
         public static final ResourceLocation DESOLATE_DAGGER = new ResourceLocation(ALEXS_CAVES, "desolate_dagger");
         public static final ResourceLocation DINOSAUR_CHOP = new ResourceLocation(ALEXS_CAVES, "dinosaur_chop");

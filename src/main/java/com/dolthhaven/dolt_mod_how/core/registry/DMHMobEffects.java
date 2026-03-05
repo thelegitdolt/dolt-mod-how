@@ -23,33 +23,34 @@ public class DMHMobEffects {
     public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS, DoltModHow.MOD_ID);
 
     public static final RegistryObject<MobEffect> MIMING = MOB_EFFECTS.register("miming", () ->
-            new GenerosityMobEffect(MobEffectCategory.NEUTRAL));
-    public static final RegistryObject<MobEffect> GENEROSITY = MOB_EFFECTS.register("generosity", () ->
             new MimingMobEffect(MobEffectCategory.NEUTRAL));
+    public static final RegistryObject<MobEffect> GENEROSITY = MOB_EFFECTS.register("generosity", () ->
+            new GenerosityMobEffect(MobEffectCategory.NEUTRAL));
 
 
 
     public static final RegistryObject<Potion> NORMAL_MIMING = POTIONS.register("miming",
-            () -> new Potion("miming", new MobEffectInstance(MIMING.get(), 1)));
+            () -> new Potion("miming", new MobEffectInstance(MIMING.get())));
     public static final RegistryObject<Potion> MIMING_STRONG = POTIONS.register("strong_miming",
-            () -> new Potion("miming", new MobEffectInstance(MIMING.get(), 1, 1)));
+            () -> new Potion("miming", new MobEffectInstance(MIMING.get(), 0, 1)));
 
     public static final RegistryObject<Potion> NORMAL_GENEROSITY = POTIONS.register("generosity",
-            () -> new Potion("miming", new MobEffectInstance(GENEROSITY.get(), 1)));
+            () -> new Potion("generosity", new MobEffectInstance(GENEROSITY.get())));
     public static final RegistryObject<Potion> STRONG_GENEROSITY = POTIONS.register("strong_generosity",
-            () -> new Potion("miming", new MobEffectInstance(GENEROSITY.get(), 1, 1)));
+            () -> new Potion("generosity", new MobEffectInstance(GENEROSITY.get(), 0, 1)));
 
     public static void registerBrewingRecipes() {
         Item item = DMHUtils.getPotentialItem(DMHUtils.Constants.ZIRCONIA);
         if (item == null) {
-            item = DMHUtils.getPotentialItem(DMHUtils.Constants.TMT);
-        } if (item != null) {
-            DataUtil.addMix(Potions.AWKWARD, item, NORMAL_MIMING.get());
-            DataUtil.addMix(NORMAL_MIMING.get(), Items.GLOWSTONE_DUST, MIMING_STRONG.get());
-
-            DataUtil.addMix(NORMAL_MIMING.get(), Items.FERMENTED_SPIDER_EYE, NORMAL_GENEROSITY.get());
-            DataUtil.addMix(MIMING_STRONG.get(), Items.FERMENTED_SPIDER_EYE, STRONG_GENEROSITY.get());
+            item = Items.SCULK;
         }
+
+        DataUtil.addMix(Potions.AWKWARD, item, NORMAL_MIMING.get());
+        DataUtil.addMix(NORMAL_MIMING.get(), Items.GLOWSTONE_DUST, MIMING_STRONG.get());
+
+        DataUtil.addMix(NORMAL_MIMING.get(), Items.FERMENTED_SPIDER_EYE, NORMAL_GENEROSITY.get());
+        DataUtil.addMix(MIMING_STRONG.get(), Items.FERMENTED_SPIDER_EYE, STRONG_GENEROSITY.get());
+
     }
 
 }

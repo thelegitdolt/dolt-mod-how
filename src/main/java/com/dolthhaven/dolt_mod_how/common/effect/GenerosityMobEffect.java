@@ -1,7 +1,9 @@
 package com.dolthhaven.dolt_mod_how.common.effect;
 
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import net.minecraft.world.effect.InstantenousMobEffect;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -10,28 +12,33 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class GenerosityMobEffect extends InstantenousMobEffect {
     public GenerosityMobEffect(MobEffectCategory category) {
         super(category, 0xff6969);
     }
 
+    @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
-        Vec3 pos = entity.position();
-        List<LivingEntity> effectiveEntities = entity.level().getEntitiesOfClass(LivingEntity.class, new AABB(pos, pos.add(1, 1, 1)).inflate(2, 10, 2),
-                living -> true);
-        LivingEntity victim = entity.level().getNearestEntity(effectiveEntities, TargetingConditions.DEFAULT,null,  pos.x, pos.y, pos.z);
+        LivingEntity victim = DMHUtils.getClosestEntityTo(entity, e -> true);
         if (victim == null) return;
 
+        Set<MobEffect> toRemove = new HashSet<>();
+
+
         for (MobEffectInstance instance : entity.getActiveEffects()) {
-            if (!ForgeRegistries.MOB_EFFECTS.tags().getTag(DMHTags.GENEROSITY_CANNOT_SHARE).contains(instance.getEffect())) {
+            if (!ForgeRegistries.MOB_EFFECTS.tags().getTag(DMHTags.GENEROSITY_CANNOT_SHARE).contains(instance.getEffect()) && instance.getDuration() != -1) {
                 victim.addEffect(instance);
-                // does this cause concurrent modification???
-                entity.removeEffect(instance.getEffect());
+                toRemove.add(instance.getEffect());
 
                 if (amplifier == 0) break;
             }
         }
+
+        toRemove.forEach(entity::removeEffect);
     }
 }

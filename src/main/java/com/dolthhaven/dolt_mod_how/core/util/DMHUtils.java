@@ -2,18 +2,24 @@ package com.dolthhaven.dolt_mod_how.core.util;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
-import org.violetmoon.zeta.client.event.play.ZRenderContainerScreen;
 
 import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Predicate;
 
 public class DMHUtils {
     public static final int NOT_TOOLBOX = 0;
@@ -154,6 +160,14 @@ public class DMHUtils {
             }
             return true;
         }
+    }
+
+    @Nullable
+    public static LivingEntity getClosestEntityTo(Entity entity, Predicate<LivingEntity> entityPredicate) {
+        Vec3 pos = entity.position();
+        List<LivingEntity> effectiveEntities = entity.level().getEntitiesOfClass(LivingEntity.class,
+                new AABB(pos, pos.add(1, 1, 1)).inflate(2, 6, 2), entityPredicate);
+        return entity.level().getNearestEntity(effectiveEntities, TargetingConditions.DEFAULT,null,  pos.x, pos.y, pos.z);
     }
 
     public static boolean alexCavesLoaded() {

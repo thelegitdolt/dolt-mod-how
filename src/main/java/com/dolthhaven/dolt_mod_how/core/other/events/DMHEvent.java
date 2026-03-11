@@ -8,6 +8,7 @@ import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHFTGUCompat;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -15,6 +16,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -26,6 +28,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BeehiveBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -97,6 +100,10 @@ public class DMHEvent {
 
     @SubscribeEvent
     public static void onPlayerBreakOreEvent(BlockEvent.BreakEvent event) {
+        if (event.getPlayer() instanceof ServerPlayer serverPlayer && !(event.getState().getBlock() instanceof BeehiveBlock)) {
+            CriteriaTriggers.BEE_NEST_DESTROYED.trigger(serverPlayer, event.getState(), serverPlayer.getItemInHand(MAIN_HAND), 0);
+        }
+
         if (!DMHConfig.COMMON.doMetalOresDropXP.get()) {
             return;
         }

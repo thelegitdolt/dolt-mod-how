@@ -2,7 +2,7 @@
   "conditions": [
     {
       "type": "environmental:mod_loaded",
-      "modid": "alexscaves"
+      "modid": "spawn"
     },
     {
       "type": "environmental:event",

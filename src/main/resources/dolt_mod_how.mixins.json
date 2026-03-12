@@ -41,6 +41,7 @@
     "nethers_delight.FrogEatMagmaCakeGoalMixin",
     "nethers_delight.PowderyFlowerBlockMixin",
     "nethers_delight.RichSoilMixin",
+    "nethers_delight.ZoglinTrophyMixin",
     "quark.CopperPipeBlockMixin",
     "quark.PathfinderItemMixin",
     "quark.QuarkMixin",

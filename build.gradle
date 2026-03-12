@@ -151,7 +151,7 @@ dependencies {
     implementation fg.deobf("maven.modrinth:dye-depot:${project.dyeDepot}")
     implementation fg.deobf("curse.maven:zeta-968868:${project.zeta}")
 
-    implementation fg.deobf("curse.maven:my-nethers-delight-1003673:${project.myNethersDelight}")
+    implementation fg.deobf("maven.modrinth:my-nethers-delight:${project.myNethersDelight}")
     implementation fg.deobf("curse.maven:quark-243121:${project.quark}")
 
     implementation fg.deobf("maven.modrinth:mowzies-mobs:${project.mowziesMobs}")

@@ -39,6 +39,7 @@
     "jne.SorrowsquashBlockMixin",
     "nethers_delight.ConsumableItemMixin",
     "nethers_delight.FrogEatMagmaCakeGoalMixin",
+    "nethers_delight.GhastaWithCreamBlockMixin",
     "nethers_delight.PowderyFlowerBlockMixin",
     "nethers_delight.RichSoilMixin",
     "nethers_delight.ZoglinTrophyMixin",

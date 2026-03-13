@@ -1,0 +1,23 @@
+{
+  "parent": "mowziesmobs:kill_foliaath",
+  "display": {
+    "icon": {
+      "item": "upgrade_aquatic:thrasher_tooth"
+    },
+    "title": {
+      "translate": "advancements.dolt_mod_how.adventure.nether_thrasher.title"
+    },
+    "description": {
+      "translate": "advancements.dolt_mod_how.adventure.nether_thrasher.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sex": {
+      "trigger": "dolt_mod_how:nether_thrasher"
+    }
+  }
+}

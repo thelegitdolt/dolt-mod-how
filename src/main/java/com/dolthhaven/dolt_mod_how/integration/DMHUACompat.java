@@ -2,7 +2,10 @@ package com.dolthhaven.dolt_mod_how.integration;
 
 
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
+import com.teamabnormals.upgrade_aquatic.common.entity.monster.GreatThrasher;
+import com.teamabnormals.upgrade_aquatic.common.entity.monster.Thrasher;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 
@@ -13,4 +16,8 @@ public class DMHUACompat {
             new FlowerPotBlock(UABlocks.BEACHGRASS.get(), PropertyUtil.flowerPot());
     public static final Supplier<Block> POTTED_TALL_BEACHGRASS = () ->
             new FlowerPotBlock(UABlocks.TALL_BEACHGRASS.get(), PropertyUtil.flowerPot());
+
+    public static boolean isGreatThrasher(Entity thrasher) {
+        return thrasher instanceof GreatThrasher;
+    }
 }

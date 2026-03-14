@@ -2,13 +2,11 @@ package com.dolthhaven.dolt_mod_how.core.mixin.amendments;
 
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.AmendmentsBugfix;
-import net.mehvahdjukaar.amendments.common.block.DirectionalCakeBlock;
 import net.mehvahdjukaar.amendments.common.block.DoubleCakeBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -24,11 +22,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vectorwing.farmersdelight.common.tag.ModTags;
+import vectorwing.farmersdelight.common.utility.ItemUtils;
 
-@Mixin(DirectionalCakeBlock.class)
+@Mixin(DoubleCakeBlock.class)
 public class DirectionalCakeBlockMixin {
-    @Inject(method = "useGeneric", at = @At("HEAD"), remap = false, cancellable = true)
-    private void hi(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit, boolean canEat, CallbackInfoReturnable<InteractionResult> cir){
+    @Inject(method = "use", at = @At("HEAD"), remap = false, cancellable = true)
+    private void hi(BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir){
         ItemStack stack = player.getItemInHand(handIn);
         if (stack.is(ModTags.KNIVES)) {
             if (state.getBlock() instanceof DoubleCakeBlock doubleCake) {
@@ -49,7 +48,11 @@ public class DirectionalCakeBlockMixin {
                     level.setBlock(pos, cakeState, 3);
                 }
 
-                Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(sliceItem));
+                ItemUtils.spawnItemEntity(level, new ItemStack(sliceItem),
+                        pos.getX() + bites * 0.1,
+                        pos.getY() + 0.4,
+                        pos.getZ() + 0.5F, -0.02, 0, 0);
+
                 level.playSound(null, pos, SoundEvents.WOOL_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
                 cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
             }

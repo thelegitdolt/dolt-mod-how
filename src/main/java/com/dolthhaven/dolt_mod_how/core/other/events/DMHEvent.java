@@ -6,17 +6,25 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
+import com.dolthhaven.dolt_mod_how.integration.AmendmentsBugfix;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHFTGUCompat;
+import com.google.common.collect.Lists;
+import com.teamabnormals.abnormals_delight.core.other.ADConstants;
+import com.teamabnormals.abnormals_delight.core.other.tags.ADBlockTags;
+import com.teamabnormals.abnormals_delight.core.registry.ADItems;
+import net.mehvahdjukaar.amendments.common.block.DoubleCakeBlock;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -27,9 +35,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BeehiveBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CakeBlock;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -44,7 +54,13 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.tag.ModTags;
+import vectorwing.farmersdelight.common.utility.ItemUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
 import static net.minecraft.world.InteractionHand.MAIN_HAND;
 
@@ -194,5 +210,26 @@ public class DMHEvent {
                 event.setResult(Event.Result.DENY);
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        BlockState state = event.getState();
+        Player player = event.getPlayer();
+        if (player.getMainHandItem().is(ModTags.KNIVES) && state.getBlock() instanceof DoubleCakeBlock doubleCake) {
+            ResourceLocation idrl = DMHUtils.getBlockId(doubleCake);
+            if (idrl == null) return;
+
+            String id = idrl.getPath().replace("/double_", ":");
+            Block block = DMHUtils.getPotentialBlock(new ResourceLocation(id));
+            Item sliceItem = DMHUtils.getPotentialItem(AmendmentsBugfix.CAKE_SLICE_MAP.get(id));
+            if (sliceItem == null || block == null) return;
+
+            int bites = state.getValue(CakeBlock.BITES);
+
+            Block.popResource((Level) event.getLevel(), event.getPos(), new ItemStack(sliceItem, 14 - bites));
+
+        }
+
     }
 }

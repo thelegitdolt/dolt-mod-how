@@ -61,6 +61,7 @@
     "vanilla.CocoaBlockMixin",
     "vanilla.ComposterBlockMixin",
     "vanilla.CreeperMixin",
+    "vanilla.DataPackCommandMixin",
     "vanilla.DispenserBlockMixin",
     "vanilla.ElytraItemMixin",
     "vanilla.FlowerPotMixin",

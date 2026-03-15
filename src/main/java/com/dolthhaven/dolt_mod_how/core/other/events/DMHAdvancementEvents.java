@@ -17,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingUseTotemEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +47,15 @@ public class DMHAdvancementEvents {
                 }
             } else {
                 ThunderdomeUtil.reset(player);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void mimeUseTotem(LivingUseTotemEvent event) {
+        if (DMHUtils.cavernsChasmsLoaded()) {
+            if (DMHCCCompat.isMime(event.getEntity()) && event.getSource().getEntity() instanceof ServerPlayer player) {
+                DMHCriteriaTriggers.TRIGGER_MIME_TOTEM.trigger(player);
             }
         }
     }

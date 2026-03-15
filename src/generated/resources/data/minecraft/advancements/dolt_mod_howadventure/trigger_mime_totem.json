@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:adventure/totem_of_undying",
+  "criteria": {
+    "mimers": {
+      "trigger": "dolt_mod_how:trigger_mime_totem"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.dolt_mod_how.adventure.totes.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "caverns_and_chasms:spinel"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.dolt_mod_how.adventure.totes.title"
+    }
+  },
+  "requirements": [
+    [
+      "mimers"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

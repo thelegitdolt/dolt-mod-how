@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -96,6 +97,22 @@ public class DMHAdvancementEvents {
 
         if (killer.level().getNearestPlayer(killer, 20) instanceof ServerPlayer player) {
             DMHCriteriaTriggers.PVZ.trigger(player);
+        }
+    }
+
+    @SubscribeEvent
+    public static void watchMobKillTrigger(LivingDeathEvent event) {
+        Entity victim = event.getEntity();
+        Entity killer = event.getSource().getEntity();
+        if (killer == null) return;
+
+
+        if (killer.level().getNearestPlayer(killer, 50) instanceof ServerPlayer player) {
+            DMHCriteriaTriggers.WATCH_MOB_KILL.trigger(player, killer, victim);
+        }
+
+        if (killer instanceof TamableAnimal tamableAnimal && tamableAnimal.getOwner() instanceof ServerPlayer player) {
+            DMHCriteriaTriggers.WATCH_MOB_KILL.trigger(player, killer, victim);
         }
     }
 

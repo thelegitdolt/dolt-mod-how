@@ -1,0 +1,52 @@
+{
+  "parent": "neapolitan:husbandry/chimpanzee_attack",
+  "criteria": {
+    "sex": {
+      "conditions": {
+        "killer": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "neapolitan:chimpanzee",
+              "flags": {
+                "is_baby": false
+              }
+            }
+          }
+        ],
+        "victim": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "ravager"
+            }
+          }
+        ]
+      },
+      "trigger": "dolt_mod_how:watch_mob_kill"
+    }
+  },
+  "display": {
+    "description": {
+      "text": "Direct some Chimpanzees to kill a Ravager"
+    },
+    "title": {
+      "text": "What a Hullabaloo"
+    },
+    "announce_to_chat": true,
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "neapolitan:music_disc_hullabaloo"
+    },
+    "show_toast": true
+  },
+  "requirements": [
+    [
+      "sex"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

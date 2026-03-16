@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
+import com.dolthhaven.dolt_mod_how.common.WatchMobKillTrigger;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.teamabnormals.blueprint.common.advancement.EmptyTrigger;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -12,6 +13,7 @@ public class DMHCriteriaTriggers {
 
     // for Not Endorsed advancement
     public static final EmptyTrigger DUI = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("dui")));
+    public static final WatchMobKillTrigger WATCH_MOB_KILL = CriteriaTriggers.register(new WatchMobKillTrigger());
     public static final EmptyTrigger NETHER_THRASHER = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("nether_thrasher")));
     public static final EmptyTrigger TRIGGER_MIME_TOTEM = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("trigger_mime_totem")));
     public static final EmptyTrigger PVZ = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("pvz")));

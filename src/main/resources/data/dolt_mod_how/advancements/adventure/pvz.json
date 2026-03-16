@@ -16,8 +16,32 @@
     "hidden": false
   },
   "criteria": {
-    "sex": {
-      "trigger": "dolt_mod_how:pvz"
-    }
+    "conditions": {
+      "killer": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "mowziesmobs:foliaath",
+            "location": {
+              "dimension": "overworld",
+              "position": {
+                "min": 300
+              }
+            }
+          }
+        }
+      ],
+      "victim": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "#dolt_mod_how:humanoid_zombies"
+          }
+        }
+      ]
+    },
+    "trigger": "dolt_mod_how:watch_mob_kill"
   }
 }

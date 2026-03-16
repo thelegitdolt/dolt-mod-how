@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class WatchMobKillTrigger extends SimpleCriterionTrigger<WatchMobKillTrigger.TriggerInstance> {
-    static final ResourceLocation ID = DoltModHow.rl("watch_mob_kill");
+    private static final ResourceLocation ID = DoltModHow.rl("watch_mob_kill");
 
     @Override
     public ResourceLocation getId() {

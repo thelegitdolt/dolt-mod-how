@@ -16,32 +16,36 @@
     "hidden": false
   },
   "criteria": {
-    "conditions": {
-      "killer": [
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "mowziesmobs:foliaath",
-            "location": {
-              "dimension": "overworld",
-              "position": {
-                "min": 300
+    "sex": {
+      "conditions": {
+        "killer": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "mowziesmobs:foliaath",
+              "location": {
+                "dimension": "overworld",
+                "position": {
+                  "y": {
+                    "min": 300
+                  }
+                }
               }
             }
           }
-        }
-      ],
-      "victim": [
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "#dolt_mod_how:humanoid_zombies"
+        ],
+        "victim": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "#dolt_mod_how:humanoid_zombies"
+            }
           }
-        }
-      ]
-    },
-    "trigger": "dolt_mod_how:watch_mob_kill"
+        ]
+      },
+      "trigger": "dolt_mod_how:watch_mob_kill"
+    }
   }
 }

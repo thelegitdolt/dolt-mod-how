@@ -78,29 +78,6 @@ public class DMHAdvancementEvents {
     }
 
     @SubscribeEvent
-    public static void grazeTheRoof(LivingDeathEvent event) {
-        if (!ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS)) return;
-
-        Entity deadGuy = event.getEntity();
-        Entity killer = event.getSource().getEntity();
-        if (killer == null) return;
-
-        ResourceLocation killerId = ForgeRegistries.ENTITY_TYPES.getKey(killer.getType());
-
-        boolean validEntities = deadGuy.getType().is(DMHTags.HUMANOID_ZOMBIES) && killerId != null
-                && killerId.equals(DMHUtils.Constants.FOLIAATH);
-        if (!validEntities) return;
-
-        boolean validPos = killer.getCommandSenderWorld().dimension() == Level.OVERWORLD &&
-                killer.position().y > killer.level().getMaxBuildHeight() - 10;
-        if (!validPos) return;
-
-        if (killer.level().getNearestPlayer(killer, 20) instanceof ServerPlayer player) {
-            DMHCriteriaTriggers.PVZ.trigger(player);
-        }
-    }
-
-    @SubscribeEvent
     public static void watchMobKillTrigger(LivingDeathEvent event) {
         Entity victim = event.getEntity();
         Entity killer = event.getSource().getEntity();

@@ -8,7 +8,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.dolt_mod_how.adventure.totes.description"
+      "translate": "advancements.dolt_mod_how.adventure.trigger_mime_totem.description"
     },
     "frame": "task",
     "hidden": true,
@@ -17,7 +17,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.dolt_mod_how.adventure.totes.title"
+      "translate": "advancements.dolt_mod_how.adventure.trigger_mime_totem.title"
     }
   },
   "requirements": [
@@ -25,5 +25,6 @@
       "mimers"
     ]
   ],
+  "rewards": {},
   "sends_telemetry_event": true
 }

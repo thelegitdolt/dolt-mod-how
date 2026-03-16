@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:nether/root",
+  "criteria": {
+    "thrash": {
+      "trigger": "dolt_mod_how:nether_thrasher"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.dolt_mod_how.nether.nether_thrasher.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "upgrade_aquatic:thrasher_tooth"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.dolt_mod_how.nether.nether_thrasher.title"
+    }
+  },
+  "requirements": [
+    [
+      "thrash"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

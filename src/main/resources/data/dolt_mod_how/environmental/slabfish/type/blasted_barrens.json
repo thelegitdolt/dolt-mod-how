@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "type": "environmental:mod_loaded",
+      "modid": "blasted_barrens"
+    },
+    {
+      "type": "environmental:event",
+      "events": [
+        "spawn",
+        "breed"
+      ]
+    },
+    {
+      "type": "environmental:in_biome_key",
+      "biome": "blasted_barrens:blasted_barrens"
+    }
+  ],
+  "description": {
+    "translate": "slabfish.type.dolt_mod_how.blasted_barrens"
+  },
+  "priority": 5,
+  "texture": "dolt_mod_how:type/blasted_barrens"
+}

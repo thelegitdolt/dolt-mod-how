@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:adventure/play_jukebox_in_meadows",
+  "criteria": {
+    "jukers": {
+      "trigger": "dolt_mod_how:witness_holler_possess_jukebox"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.dolt_mod_how.adventure.witness_holler_possess_jukebox.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "doom_and_gloom:music_disc_afterlife"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.dolt_mod_how.adventure.witness_holler_possess_jukebox.title"
+    }
+  },
+  "requirements": [
+    [
+      "jukers"
+    ]
+  ],
+  "rewards": {},
+  "sends_telemetry_event": true
+}

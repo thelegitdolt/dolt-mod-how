@@ -96,7 +96,6 @@ public class DMHUtils {
         public static final String BREWING_AND_CHEWING = "brewinandchewin";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
         public static final String CAVE_DELIGHT = "cavedelight";
-        public static final String CLAYWORKS = "clayworks";
         public static final String CREATE = "create";
         public static final String DUNGEONS_DELIGHT = "dungeonsdelight";
         public static final String DYE_DEPOT = "dye_depot";
@@ -111,6 +110,7 @@ public class DMHUtils {
         public static final String QUARK = "quark";
         public static final String SAVAGE_AND_RAVAGE = "savage_and_ravage";
         public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
+        public static final String SPAWN = "spawn";
         public static final String SPECIES = "species";
         public static final String WINDSWEPT = "windswept";
         public static final String WOODWORKS = "woodworks";
@@ -121,7 +121,6 @@ public class DMHUtils {
         public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
-        public static final ResourceLocation FOLIAATH = new ResourceLocation(MOWZIES_MOBS, "foliaath");
 
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
@@ -138,7 +137,6 @@ public class DMHUtils {
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");
 
         public static final ResourceLocation ZIRCONIA = new ResourceLocation(CAVERNS_AND_CHASMS, "zirconia");
-        public static final ResourceLocation TMT = new ResourceLocation(CAVERNS_AND_CHASMS, "tmt");
 
         public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");
         public static final ResourceLocation DESOLATE_DAGGER = new ResourceLocation(ALEXS_CAVES, "desolate_dagger");
@@ -155,6 +153,8 @@ public class DMHUtils {
 
         public static final ResourceLocation PATHFINDER_QUILL = new ResourceLocation(QUARK,"pathfinders_quill");
 
+
+        public static final ResourceLocation FALLEN_LEAVES = new ResourceLocation(SPAWN,"fallen_leaves");
 
         public static final ResourceLocation ALPHACENE_MOSS_CARPET = new ResourceLocation(SPECIES,"alphacene_moss_carpet");
 

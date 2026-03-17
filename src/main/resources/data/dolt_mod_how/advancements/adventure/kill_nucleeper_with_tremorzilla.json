@@ -1,0 +1,52 @@
+{
+  "parent": "neapolitan:husbandry/chimpanzee_attack",
+  "criteria": {
+    "sex": {
+      "conditions": {
+        "killer": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "alexscaves:tremorzilla"
+            }
+          }
+        ],
+        "victim": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "alexscaves:nucleeper"
+            }
+          }
+        ]
+      },
+      "trigger": "dolt_mod_how:watch_mob_kill"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.dolt_mod_how.adventure.kill_nucleeper_with_tremorzilla.description"
+    },
+    "title": {
+      "translate": "advancements.dolt_mod_how.adventure.kill_nucleeper_with_tremorzilla.title"
+    },
+    "announce_to_chat": true,
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "alexscaves:tremorzilla_egg"
+    },
+    "show_toast": true
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "requirements": [
+    [
+      "sex"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

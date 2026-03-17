@@ -1,7 +1,11 @@
 package com.dolthhaven.dolt_mod_how.core.util;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
+import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
+import net.jadenxgamer.netherexp.registry.block.custom.EnigmaCrownBlock;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -184,6 +188,15 @@ public class DMHUtils {
 
     public static boolean cavernsChasmsLoaded() {
         return ModList.get().isLoaded(Constants.CAVERNS_AND_CHASMS);
+    }
+
+    public static boolean unreadableCode(Entity killer, Entity victim, DamageSource source) {
+        if (!alexCavesLoaded()) return true;
+        if (DMHACCompat.firstEntityIsTremorzillaAndSecondIsNucleeper(killer, victim)) {
+            return DMHACCompat.isNuclearBeamDamageSource(source);
+        }
+
+        return true;
     }
 
 }

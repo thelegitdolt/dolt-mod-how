@@ -11,18 +11,23 @@ import com.github.alexmodguy.alexscaves.server.block.blockentity.MetalBarrelBloc
 import com.github.alexmodguy.alexscaves.server.enchantment.ACEnchantmentRegistry;
 import com.github.alexmodguy.alexscaves.server.entity.ACEntityRegistry;
 import com.github.alexmodguy.alexscaves.server.entity.item.DesolateDaggerEntity;
+import com.github.alexmodguy.alexscaves.server.entity.living.NucleeperEntity;
+import com.github.alexmodguy.alexscaves.server.entity.living.TremorzillaEntity;
 import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import com.github.alexmodguy.alexscaves.server.item.RadioactiveOnDestroyedBlockItem;
+import com.github.alexmodguy.alexscaves.server.misc.ACDamageTypes;
 import com.teamabnormals.blueprint.common.world.storage.tracking.IDataManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
@@ -45,6 +50,14 @@ public class DMHACCompat {
         }
 
         return false;
+    }
+
+    public static boolean firstEntityIsTremorzillaAndSecondIsNucleeper(Entity entity1, Entity entity2) {
+        return entity1 instanceof TremorzillaEntity && entity2 instanceof NucleeperEntity;
+    }
+
+    public static boolean isNuclearBeamDamageSource(DamageSource source) {
+        return source.is(ACDamageTypes.TREMORZILLA_BEAM);
     }
 
     public static boolean isMetalBarrel(Level level, BlockPos pos) {
@@ -137,5 +150,9 @@ public class DMHACCompat {
         cleaverData.setValue(DMHTrackedData.LEVEL_IMPENDING_STAB, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.IMPENDING_STAB.get()));
         cleaverData.setValue(DMHTrackedData.LEVEL_DOUBLE_STAB, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.DOUBLE_STAB.get()));
         cleaverData.setValue(DMHTrackedData.LEVEL_SATED_BLADE, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.SATED_BLADE.get()));
+    }
+
+    public static ItemLike getFusionDisc() {
+        return ACItemRegistry.MUSIC_DISC_FUSION.get();
     }
 }

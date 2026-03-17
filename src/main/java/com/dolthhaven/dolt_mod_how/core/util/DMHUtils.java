@@ -5,7 +5,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,6 +27,12 @@ public class DMHUtils {
     public static final int NOT_TOOLBOX = 0;
     public static final int SUCCESSFUL_SETTING = 1;
     public static final int UNSUCCESSFUL_SETTING = 2;
+
+    public static void addToInvOrDrop(Player player, ItemStack stack) {
+        if (!player.getInventory().add(stack)) {
+            player.drop(stack, true);
+        }
+    }
 
 
     public static void printItem(Item item) {

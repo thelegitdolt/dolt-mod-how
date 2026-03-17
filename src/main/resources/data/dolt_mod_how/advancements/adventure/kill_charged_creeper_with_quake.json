@@ -1,0 +1,44 @@
+{
+  "parent": "species:species/v3/kill_ten_mobs_with_quake",
+  "display": {
+    "icon": {
+      "item": "species:kinetic_core"
+    },
+    "title": {
+      "translate": "advancements.dolt_mod_how.adventure.kill_charged_creeper_with_quake.title"
+    },
+    "description": {
+      "translate": "advancements.dolt_mod_how.adventure.kill_charged_creeper_with_quake.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sex": {
+      "conditions": {
+        "killer": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "species:quake"
+            }
+          }
+        ],
+        "victim": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:creeper",
+              "nbt": "{powered:1b}"
+            }
+          }
+        ]
+      },
+      "trigger": "dolt_mod_how:watch_mob_kill"
+    }
+  }
+}

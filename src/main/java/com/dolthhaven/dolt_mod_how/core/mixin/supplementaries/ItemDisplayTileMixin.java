@@ -1,6 +1,7 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.supplementaries;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.mehvahdjukaar.moonlight.api.block.ItemDisplayTile;
@@ -16,9 +17,7 @@ public class ItemDisplayTileMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;setItemInHand(Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/item/ItemStack;)V"))
     private void DoltModHow$FlowerPotPutStuffBack(Player instance, InteractionHand interactionHand, ItemStack itemStack, Operation<Void> original) {
         if (DMHConfig.COMMON.lessAnnoyingItemReclaim.get()) {
-            if (!instance.getInventory().add(itemStack)) {
-                instance.drop(itemStack, true);
-            }
+            DMHUtils.addToInvOrDrop(instance, itemStack);
         }
         else {
             original.call(instance, interactionHand, itemStack);

@@ -2,11 +2,10 @@ package com.dolthhaven.dolt_mod_how.core.util;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
-import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
-import net.jadenxgamer.netherexp.registry.block.custom.EnigmaCrownBlock;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
@@ -92,6 +91,11 @@ public class DMHUtils {
         return ForgeRegistries.BLOCKS.getKey(block);
     }
 
+    public static ResourceLocation entityId(EntityType<?> type) {
+        return ForgeRegistries.ENTITY_TYPES.getKey(type);
+    }
+
+
     public static class Constants {
         public static final String ALEXS_CAVES = "alexscaves";
         public static final String ATMOSPHERIC = "atmospheric";
@@ -101,6 +105,7 @@ public class DMHUtils {
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
         public static final String CAVE_DELIGHT = "cavedelight";
         public static final String CREATE = "create";
+        public static final String DOOM_AND_GLOOM = "doom_and_gloom";
         public static final String DUNGEONS_DELIGHT = "dungeonsdelight";
         public static final String DYE_DEPOT = "dye_depot";
         public static final String ENVIRONMENTAL = "environmental";
@@ -156,6 +161,7 @@ public class DMHUtils {
         public static final ResourceLocation WARDENZOLA = new ResourceLocation(DUNGEONS_DELIGHT,"wardenzola");
 
         public static final ResourceLocation PATHFINDER_QUILL = new ResourceLocation(QUARK,"pathfinders_quill");
+        public static final ResourceLocation STICKBUG = new ResourceLocation(SPAWN,"stickbug");
 
 
         public static final ResourceLocation FALLEN_LEAVES = new ResourceLocation(SPAWN,"fallen_leaves");
@@ -165,7 +171,7 @@ public class DMHUtils {
 
 
         public static boolean runData() {
-            for (String str : new String[]{ALEXS_CAVES, ATMOSPHERIC, BLASTED_BARRENS, NEAPOLITAN, UPGRADE_AQUATIC, ENVIRONMENTAL, MOWZIES_MOBS, WOODWORKS, BREWING_AND_CHEWING}) {
+            for (String str : new String[]{ALEXS_CAVES, ATMOSPHERIC, BLASTED_BARRENS, NEAPOLITAN, UPGRADE_AQUATIC, ENVIRONMENTAL, MOWZIES_MOBS, DOOM_AND_GLOOM, WOODWORKS, BREWING_AND_CHEWING}) {
                 if (!ModList.get().isLoaded(str)) {
                     return false;
                 }

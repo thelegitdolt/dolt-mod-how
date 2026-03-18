@@ -10,16 +10,22 @@ import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHSpeciesCompat;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.EntityGetter;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingUseTotemEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.List;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID)
 public class DMHAdvancementEvents {
@@ -55,6 +61,16 @@ public class DMHAdvancementEvents {
             if (DMHCCCompat.isMime(event.getEntity()) && event.getSource().getEntity() instanceof ServerPlayer player) {
                 DMHCriteriaTriggers.TRIGGER_MIME_TOTEM.trigger(player);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void stickbugBugLightningDeath(LivingDeathEvent event) {
+        if (!ModList.get().isLoaded(DMHUtils.Constants.SPAWN)) return;
+
+        Entity deadGuy = event.getEntity();
+        if (DMHUtils.entityId(deadGuy.getType()).equals(DMHUtils.Constants.STICKBUG) && event.getSource().is(DamageTypes.LIGHTNING_BOLT) && !deadGuy.level().isClientSide) {
+            getAllNearbyPlayers(deadGuy.level(), deadGuy.position()).forEach(DMHCriteriaTriggers.KILL_BUG_WITH_LIGHTNING::trigger);
         }
     }
 
@@ -104,5 +120,9 @@ public class DMHAdvancementEvents {
                 DMHCriteriaTriggers.DUI.trigger(player);
             }
         }
+    }
+
+    private static List<ServerPlayer> getAllNearbyPlayers(EntityGetter entityGetter, Vec3 position) {
+        return entityGetter.getEntitiesOfClass(ServerPlayer.class, new AABB(position, position.add(1, 1, 1)));
     }
 }

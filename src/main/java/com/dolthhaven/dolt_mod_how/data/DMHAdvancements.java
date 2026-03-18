@@ -4,7 +4,6 @@ import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHCriteriaTriggers;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import com.teamabnormals.upgrade_aquatic.core.registry.UAItems;
-import galena.doom_and_gloom.DoomAndGloom;
 import galena.doom_and_gloom.index.OItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -14,6 +13,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -33,12 +33,15 @@ public class DMHAdvancements implements ForgeAdvancementProvider.AdvancementGene
         adv(new ResourceLocation("adventure/totem_of_undying"), CCItems.SPINEL.get(), "adventure", "trigger_mime_totem", FrameType.TASK, true, 0)
                 .addCriterion("mimers", DMHCriteriaTriggers.TRIGGER_MIME_TOTEM.createInstance())
                 .save(saver, DoltModHow.MOD_ID + ":adventure/trigger_mime_totem");
-        adv(new ResourceLocation("nether/root"), UAItems.THRASHER_TOOTH.get(), "nether", "nether_thrasher", FrameType.CHALLENGE, true, 100)
+        adv(new ResourceLocation("nether/root"), UAItems.THRASHER_TOOTH.get(), "nether", "nether_thrasher", FrameType.CHALLENGE, false, 100)
                 .addCriterion("thrash", DMHCriteriaTriggers.NETHER_THRASHER.createInstance())
                 .save(saver, DoltModHow.MOD_ID + ":nether/nether_thrasher");
-        adv(new ResourceLocation("adventure/play_jukebox_in_meadows"), OItems.MUSIC_DISC_AFTERLIFE.get(), "adventure", "witness_holler_possess_jukebox", FrameType.TASK, true, 0)
+        adv(new ResourceLocation("adventure/play_jukebox_in_meadows"), OItems.MUSIC_DISC_AFTERLIFE.get(), "adventure", "witness_holler_possess_jukebox", FrameType.TASK, false, 0)
                 .addCriterion("jukers", DMHCriteriaTriggers.WITNESS_HOLLER_POSSESS_JUKEBOX.createInstance())
                 .save(saver, DoltModHow.MOD_ID + ":adventure/witness_holler_possess_jukebox");
+        adv(new ResourceLocation("spawn", "husbandry/discover_stickbug"), Items.STICK, "adventure", "kill_stickbug_with_lightning", FrameType.TASK, false, 0)
+                .addCriterion("oopsies", DMHCriteriaTriggers.KILL_BUG_WITH_LIGHTNING.createInstance())
+                .save(saver, DoltModHow.MOD_ID + ":adventure/kill_stickbug_with_lightning");
     }
 
     public Advancement.Builder adv(ResourceLocation parent, Item item, String category, String name, FrameType frame, boolean hidden, int rewards) {

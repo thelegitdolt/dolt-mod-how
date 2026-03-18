@@ -11,7 +11,7 @@
       "translate": "advancements.dolt_mod_how.adventure.witness_holler_possess_jukebox.description"
     },
     "frame": "task",
-    "hidden": true,
+    "hidden": false,
     "icon": {
       "item": "doom_and_gloom:music_disc_afterlife"
     },

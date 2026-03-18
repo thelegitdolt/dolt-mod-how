@@ -11,7 +11,7 @@
       "translate": "advancements.dolt_mod_how.nether.nether_thrasher.description"
     },
     "frame": "challenge",
-    "hidden": true,
+    "hidden": false,
     "icon": {
       "item": "upgrade_aquatic:thrasher_tooth"
     },

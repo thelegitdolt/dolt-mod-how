@@ -1,0 +1,30 @@
+{
+  "parent": "spawn:husbandry/discover_stickbug",
+  "criteria": {
+    "oopsies": {
+      "trigger": "dolt_mod_how:kill_stickbug_with_lightning"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.dolt_mod_how.adventure.kill_stickbug_with_lightning.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:stick"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.dolt_mod_how.adventure.kill_stickbug_with_lightning.title"
+    }
+  },
+  "requirements": [
+    [
+      "oopsies"
+    ]
+  ],
+  "rewards": {},
+  "sends_telemetry_event": true
+}

@@ -123,6 +123,6 @@ public class DMHAdvancementEvents {
     }
 
     private static List<ServerPlayer> getAllNearbyPlayers(EntityGetter entityGetter, Vec3 position) {
-        return entityGetter.getEntitiesOfClass(ServerPlayer.class, new AABB(position, position.add(1, 1, 1)));
+        return entityGetter.getEntitiesOfClass(ServerPlayer.class, new AABB(position, position.add(1, 1, 1)).inflate(40));
     }
 }

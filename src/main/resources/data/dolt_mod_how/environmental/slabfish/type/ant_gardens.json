@@ -13,12 +13,12 @@
     },
     {
       "type": "environmental:in_biome_key",
-      "biome": "spawn:ant_garden"
+      "biome": "spawn:ant_gardens"
     }
   ],
   "description": {
-    "translate": "slabfish.type.dolt_mod_how.ant_garden"
+    "translate": "slabfish.type.dolt_mod_how.ant_gardens"
   },
   "priority": 5,
-  "texture": "dolt_mod_how:type/ant_garden"
+  "texture": "dolt_mod_how:type/ant_gardens"
 }

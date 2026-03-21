@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.common.loot.modifiers;
 
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -8,6 +9,7 @@ import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -39,6 +41,7 @@ public class LuckModifier extends LootModifier {
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext ctx) {
         if (ctx.hasParam(LootContextParams.BLOCK_STATE) || ctx.hasParam(LootContextParams.THIS_ENTITY)) return generatedLoot;
 
+        Item clover = DMHUtils.getPotentialItem(DMHUtils.Constants.FOUR_LEAF_CLOVER);
         float luck = ctx.getLuck();
         int lootSize = generatedLoot.size();
         RandomSource random = ctx.getRandom();
@@ -67,6 +70,10 @@ public class LuckModifier extends LootModifier {
                             generatedLoot.add(stack);
                         }
                     });
+                }
+
+                if (clover != null && luck > 0.8 && random.nextInt(3) == 0) {
+                    generatedLoot.add(new ItemStack(clover));
                 }
             }
 

@@ -102,6 +102,7 @@ public class DMHUtils {
         public static final String BOP = "biomesoplenty";
         public static final String BLASTED_BARRENS = "blasted_barrens";
         public static final String BREWING_AND_CHEWING = "brewinandchewin";
+        public static final String BUZZIER_BEES = "buzzier_bees";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
         public static final String CAVE_DELIGHT = "cavedelight";
         public static final String CREATE = "create";
@@ -127,6 +128,9 @@ public class DMHUtils {
         public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
 
         public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
+
+        public static final ResourceLocation FOUR_LEAF_CLOVER = new ResourceLocation(BUZZIER_BEES, "four_leaf_clover");
+
         public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");

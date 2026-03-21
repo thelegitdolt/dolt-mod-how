@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
@@ -38,7 +39,7 @@ public class LuckModifier extends LootModifier {
 
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext ctx) {
-        if (ctx.hasParam(LootContextParams.BLOCK_STATE) || ctx.hasParam(LootContextParams.THIS_ENTITY)) return generatedLoot;
+        if (ctx.hasParam(LootContextParams.BLOCK_STATE) || ctx.hasParam(LootContextParams.KILLER_ENTITY) || ctx.getLuck() == 0) return generatedLoot;
 
         Item clover = DMHUtils.getPotentialItem(DMHUtils.Constants.FOUR_LEAF_CLOVER);
         float luck = ctx.getLuck();
@@ -47,6 +48,7 @@ public class LuckModifier extends LootModifier {
         ResourceLocation lootId = ctx.getQueriedLootTableId();
         if (lootId.getPath().startsWith("chests/") && !blacklistTables.contains(lootId)) {
             double addThirteenOdds = -0.33 * luck;
+
 
             if (luck < 0) {
                 for (int i = 0; i < weightedRound(-luck, random); i++) {
@@ -58,8 +60,7 @@ public class LuckModifier extends LootModifier {
             }
 
             if (luck > 0) {
-                List<ItemStack> stacks = new ArrayList<>();
-                ctx.getResolver().getLootTable(lootId).getRandomItems(ctx, stacks::add);
+                List<ItemStack> stacks = rollLootTableWithNoLuck(ctx);
 
                 for (int i = 0; i < weightedRound(luck, random); i++) {
                     Util.getRandomSafe(stacks, random).ifPresent(stack -> {
@@ -87,6 +88,18 @@ public class LuckModifier extends LootModifier {
         float floored = Mth.floor(a);
         float decimal = a - floored;
         return floored + (random.nextDouble() < decimal ? 1 : 0);
+    }
+
+    private static List<ItemStack> rollLootTableWithNoLuck(LootContext ctx) {
+        float oldLuck = ctx.getLuck();
+        LootParams lootParams = ctx.params;
+        lootParams.luck = 0;
+
+        List<ItemStack> items = new ArrayList<>();
+        ctx.getResolver().getLootTable(ctx.getQueriedLootTableId()).getRandomItems(ctx, items::add);
+
+        lootParams.luck = oldLuck;
+        return items;
     }
 
     @Override

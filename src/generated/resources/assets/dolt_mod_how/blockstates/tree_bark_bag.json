@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "dolt_mod_how:block/tree_bark_bag",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "dolt_mod_how:block/tree_bark_bag",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dolt_mod_how:block/tree_bark_bag",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "dolt_mod_how:block/tree_bark_bag",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "dolt_mod_how:block/tree_bark_bag"
+    },
+    "facing=west": {
+      "model": "dolt_mod_how:block/tree_bark_bag",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

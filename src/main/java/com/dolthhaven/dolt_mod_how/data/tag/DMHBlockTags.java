@@ -66,7 +66,7 @@ public class DMHBlockTags extends BlockTagsProvider {
         this.tag(BlueprintBlockTags.WOODEN_CHISELED_BOOKSHELVES).add(CHISELED_PEWEN_BOOKSHELF.get(), CHISELED_THORNWOOD_BOOKSHELF.get());
         this.tag(BlueprintBlockTags.LEAF_PILES).add(ANCIENT_LEAF_PILE.get());
 
-        this.tag(ModTags.MINEABLE_WITH_KNIFE)
+        this.tag(ModTags.MINEABLE_WITH_KNIFE).add(TREE_BARK_BAG.get())
                 .addOptional(DMHUtils.Constants.DINOSAUR_CHOP)
                 .addOptional(DMHUtils.Constants.COOKED_DINOSAUR_CHOPS);
         this.tag(DMHTags.MINEABLE_SHEARS).add(HONEYCOMB_BLOCK, WAX_BLOCK.get());

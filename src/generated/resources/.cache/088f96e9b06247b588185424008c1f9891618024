@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-18T01:19:01.624752	Block States: dolt_mod_how
+// 1.20.1	2026-03-21T01:49:59.506128	Block States: dolt_mod_how
 7b6b306aade3322da161640a65dc13d1a39be978 assets/dolt_mod_how/blockstates/ancient_leaf_pile.json
 9f450f1f24d84aeea6660ebb86a85ce8b8ab2231 assets/dolt_mod_how/blockstates/arid_raked_sand.json
 4de463cfad1e0470cec87262bad29e748cf0075d assets/dolt_mod_how/blockstates/ashen_raked_sand.json
@@ -29,6 +29,7 @@ ca99bf92925e1d03be50218f206b62bd77cfe709 assets/dolt_mod_how/blockstates/thornwo
 271f91d387d1290397c65ae28e83d7f9c636dc39 assets/dolt_mod_how/blockstates/thornwood_ladder.json
 1f9393f261e5b12491f10d7e87701239b12ff1cc assets/dolt_mod_how/blockstates/trapped_pewen_chest.json
 ca99bf92925e1d03be50218f206b62bd77cfe709 assets/dolt_mod_how/blockstates/trapped_thornwood_chest.json
+91a3bf01d0b35a09f532a95e9a0c1cb2c08ae426 assets/dolt_mod_how/blockstates/tree_bark_bag.json
 e54cb8207af46379cea8dabda8a8a46b781b2495 assets/dolt_mod_how/blockstates/wax_block.json
 b6025f3c54b05d3abd97e45922c258aca2c5a5d4 assets/dolt_mod_how/blockstates/zinc_brick_slab.json
 d8e030c09512d4f16352bd8e1d143eae7c5cb72f assets/dolt_mod_how/blockstates/zinc_brick_stairs.json
@@ -106,6 +107,7 @@ dfb485339d00a724cb33f52858fbc4be3e8cbf15 assets/dolt_mod_how/models/block/thornw
 32dd672fd905d38349112b7878078a4d6403fb20 assets/dolt_mod_how/models/block/thornwood_cabinet_open.json
 5b2013947f04943ad8463133ec191299ce3b90ec assets/dolt_mod_how/models/block/thornwood_chest.json
 628fa09f3da7ea216f35db043e7a30690566440a assets/dolt_mod_how/models/block/thornwood_ladder.json
+3a98fb12eb6dcc6e7d13f005b32b309422927aba assets/dolt_mod_how/models/block/tree_bark_bag.json
 2950219a303ce7b629a61490bd6d7f00115fe6f3 assets/dolt_mod_how/models/block/wax_block.json
 fbb98a8d093456df86d8ea642a68c80d303055f7 assets/dolt_mod_how/models/block/zinc_brick_slab.json
 6fd4f165b77afe9a61b8f64f806b61d723acd9f4 assets/dolt_mod_how/models/block/zinc_brick_slab_top.json
@@ -138,6 +140,7 @@ da706d4c56301c22e44fd00f7335f3367ca4e3a1 assets/dolt_mod_how/models/item/thornwo
 2389b400a4992cbc6d249502caef3c32be561969 assets/dolt_mod_how/models/item/thornwood_ladder.json
 1328d429bf988f88b70675244eb6be38d5954153 assets/dolt_mod_how/models/item/trapped_pewen_chest.json
 1328d429bf988f88b70675244eb6be38d5954153 assets/dolt_mod_how/models/item/trapped_thornwood_chest.json
+248f407410037310708bd50d737447354512be37 assets/dolt_mod_how/models/item/tree_bark_bag.json
 4724bbeabe2538f36f8482fd7544f4aee13347a7 assets/dolt_mod_how/models/item/wax_block.json
 ac7479404dfa0150a7977f3da1f8c5b0b1aff771 assets/dolt_mod_how/models/item/zinc_brick_slab.json
 b43cd0be8de596815ba157a12c4934f9e9bdfcbc assets/dolt_mod_how/models/item/zinc_brick_stairs.json

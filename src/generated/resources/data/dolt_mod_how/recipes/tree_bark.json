@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dolt_mod_how:tree_bark_bag"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "farmersdelight:tree_bark"
+  }
+}

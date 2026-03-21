@@ -37,6 +37,7 @@ public class DoltModHowDataUtil {
         DataUtil.registerCompostable(TOADSTOOL_COLONY.get(), 1.0f);
         DataUtil.registerCompostable(BOP_GLOW_SHROOM_COLONY.get(), 1.0f);
         DataUtil.registerCompostable(PINE_NUTS_CRATE.get(), 1.0f);
+        DataUtil.registerCompostable(TREE_BARK_BAG.get(), 1.0f);
 
         COMPOSTABLE_ENTITIES.defaultReturnValue(-1.0f);
 

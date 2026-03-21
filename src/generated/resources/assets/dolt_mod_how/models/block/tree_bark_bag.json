@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "dolt_mod_how:block/tree_bark_bag_bottom",
+    "side": "dolt_mod_how:block/tree_bark_bag_side",
+    "top": "dolt_mod_how:block/tree_bark_bag_top"
+  }
+}

@@ -84,7 +84,7 @@ public class DMHItems {
                 .addItemsAfter(of(Items.LEATHER), LEATHER_SCRAPS)
 
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
-                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), PINE_NUTS_CRATE, WAX_BLOCK)
+                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), TREE_BARK_BAG, PINE_NUTS_CRATE, WAX_BLOCK)
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, DMHUtils.Constants.WOODWORKS), ANCIENT_LEAF_PILE)
                 .addItemsAfter(of(Items.DIRT_PATH), ALPHACENE_PATH)
 

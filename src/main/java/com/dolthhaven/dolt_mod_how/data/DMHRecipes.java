@@ -34,6 +34,7 @@ import org.violetmoon.quark.addons.oddities.module.PipesModule;
 import umpaz.brewinandchewin.client.recipebook.FermentingRecipeBookTab;
 import umpaz.brewinandchewin.common.registry.BnCItems;
 import umpaz.brewinandchewin.data.builder.KegFermentingRecipeBuilder;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.function.Consumer;
 
@@ -107,6 +108,8 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_WALL.get(), ZINC_BRICKS.get(), 1);
 
         generateRecipes(consumer, DMHBlockFamilies.ZINC_BRICKS_FAMILY);
+
+        storageRecipes(consumer, RecipeCategory.BUILDING_BLOCKS, ModItems.TREE_BARK.get(), RecipeCategory.DECORATIONS, TREE_BARK_BAG.get());
 
         KegFermentingRecipeBuilder.kegFermentingRecipe(DMHFluids.TEQUILA.get(), 1000, 9600, 1.0F, 1)
                 .addFluidIngredient(Fluids.WATER, 1000)

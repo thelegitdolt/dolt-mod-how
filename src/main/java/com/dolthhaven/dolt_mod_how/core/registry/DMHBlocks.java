@@ -25,7 +25,6 @@ import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
-import java.util.Properties;
 import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.ZINC_PLATED_BRICKS;
@@ -53,6 +52,8 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> PINE_NUTS_CRATE = HELPER.createBlock("pine_nuts_crate", () ->
             new BlueprintDirectionalBlock(DMHBlockProps.PINE_NUT_CRATE));
+    public static final RegistryObject<Block> TREE_BARK_BAG = HELPER.createBlock("tree_bark_bag", () ->
+            new BlueprintDirectionalBlock(BlockBehaviour.Properties.copy(ModBlocks.RICE_BAG.get()).mapColor(MapColor.COLOR_BROWN)));
 
     public static final RegistryObject<Block> PEWEN_BEEHIVE = HELPER.createFuelBlock("pewen_beehive", () ->
             new BlueprintBeehiveBlock(DMHBlockProps.PEWEN.beehive()), 300);

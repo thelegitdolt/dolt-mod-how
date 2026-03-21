@@ -69,6 +69,7 @@
     "vanilla.FlowerPotMixin",
     "vanilla.HalfTransparentBlockMixin",
     "vanilla.ItemMixin",
+    "vanilla.LootTableTriggerMixin",
     "vanilla.NoteBlockMixin",
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.RecipeManagerMixin",

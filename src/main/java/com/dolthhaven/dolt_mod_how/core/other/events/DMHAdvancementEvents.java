@@ -8,6 +8,7 @@ import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHBCCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHSpeciesCompat;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -21,6 +22,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingUseTotemEvent;
+import net.minecraftforge.event.entity.living.LootingLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -99,7 +101,6 @@ public class DMHAdvancementEvents {
         if (!DMHUtils.unreadableCode(killer, victim, event.getSource())) {
             return;
         }
-
 
         if (killer.level().getNearestPlayer(killer, 50) instanceof ServerPlayer player) {
             DMHCriteriaTriggers.WATCH_MOB_KILL.trigger(player, killer, victim);

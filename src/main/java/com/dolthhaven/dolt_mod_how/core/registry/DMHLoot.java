@@ -3,7 +3,7 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 import com.dolthhaven.dolt_mod_how.common.loot.condition.TrichotomyLootCondition;
 import com.dolthhaven.dolt_mod_how.common.loot.modifiers.DropSelfLootModifier;
 import com.dolthhaven.dolt_mod_how.common.loot.modifiers.RemoveItemLootModifier;
-import com.dolthhaven.dolt_mod_how.common.loot.modifiers.ThirteenModifier;
+import com.dolthhaven.dolt_mod_how.common.loot.modifiers.LuckModifier;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.mojang.serialization.Codec;
@@ -33,5 +33,5 @@ public class DMHLoot {
 
     public static final RegistryObject<Codec<? extends IGlobalLootModifier>> DROP_SELF = LOOT_MODIFIERS.register("drop_self", DropSelfLootModifier.CODEC);
     public static final RegistryObject<Codec<? extends IGlobalLootModifier>> REMOVE_ITEM = LOOT_MODIFIERS.register("remove_item", RemoveItemLootModifier.CODEC);
-    public static final RegistryObject<Codec<? extends IGlobalLootModifier>> THIRTEEN = LOOT_MODIFIERS.register("thirteen", ThirteenModifier.CODEC);
+    public static final RegistryObject<Codec<? extends IGlobalLootModifier>> LUCK = LOOT_MODIFIERS.register("luck", LuckModifier.CODEC);
 }

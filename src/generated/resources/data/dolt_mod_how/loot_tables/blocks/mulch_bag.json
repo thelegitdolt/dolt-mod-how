@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dolt_mod_how:tree_bark_bag"
+          "name": "dolt_mod_how:mulch_bag"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "dolt_mod_how:blocks/tree_bark_bag"
+  "random_sequence": "dolt_mod_how:blocks/mulch_bag"
 }

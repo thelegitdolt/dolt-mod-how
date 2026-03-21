@@ -52,7 +52,7 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> PINE_NUTS_CRATE = HELPER.createBlock("pine_nuts_crate", () ->
             new BlueprintDirectionalBlock(DMHBlockProps.PINE_NUT_CRATE));
-    public static final RegistryObject<Block> TREE_BARK_BAG = HELPER.createBlock("tree_bark_bag", () ->
+    public static final RegistryObject<Block> MULCH_BAG = HELPER.createBlock("mulch_bag", () ->
             new BlueprintDirectionalBlock(BlockBehaviour.Properties.copy(ModBlocks.RICE_BAG.get()).mapColor(MapColor.COLOR_BROWN)));
 
     public static final RegistryObject<Block> PEWEN_BEEHIVE = HELPER.createFuelBlock("pewen_beehive", () ->

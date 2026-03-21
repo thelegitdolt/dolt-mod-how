@@ -2,7 +2,6 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlockFamilies;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHFluids;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
@@ -12,13 +11,11 @@ import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.caverns_and_chasms.core.other.tags.CCItemTags;
-import com.teamabnormals.caverns_and_chasms.core.registry.CCBlocks;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.jadenxgamer.netherexp.registry.item.JNEItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -109,7 +106,7 @@ public class DMHRecipes extends BlueprintRecipeProvider {
 
         generateRecipes(consumer, DMHBlockFamilies.ZINC_BRICKS_FAMILY);
 
-        storageRecipes(consumer, RecipeCategory.BUILDING_BLOCKS, ModItems.TREE_BARK.get(), RecipeCategory.DECORATIONS, TREE_BARK_BAG.get());
+        storageRecipes(consumer, RecipeCategory.BUILDING_BLOCKS, ModItems.TREE_BARK.get(), RecipeCategory.DECORATIONS, MULCH_BAG.get());
 
         KegFermentingRecipeBuilder.kegFermentingRecipe(DMHFluids.TEQUILA.get(), 1000, 9600, 1.0F, 1)
                 .addFluidIngredient(Fluids.WATER, 1000)

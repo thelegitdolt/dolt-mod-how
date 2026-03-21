@@ -49,7 +49,7 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         wallBlock(ZINC_BRICKS.get(), ZINC_BRICK_WALL.get());
         stairsBlock(ZINC_BRICKS.get(), ZINC_BRICK_STAIRS.get());
         slabBlock(ZINC_BRICKS.get(), ZINC_BRICK_SLAB.get());
-        directionalBlock(TREE_BARK_BAG);
+        directionalBlock(MULCH_BAG);
     }
 
 

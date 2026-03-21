@@ -2,9 +2,6 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.davigj.blasted_barrens.core.registry.BBBlocks;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
-import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.google.common.collect.ImmutableList;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -33,17 +30,13 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.common.loot.CanToolPerformAction;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
-import umpaz.brewinandchewin.BrewinAndChewin;
 import umpaz.brewinandchewin.common.block.CheeseWheelBlock;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
-import vectorwing.farmersdelight.common.item.KnifeItem;
-import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.List;
@@ -82,7 +75,7 @@ public class DoltModHowLootTables extends LootTableProvider {
         protected void generate() {
             this.dropSelf(STURDY_DEEPSLATE.get());
             this.dropSelf(PINE_NUTS_CRATE.get());
-            this.dropSelf(TREE_BARK_BAG.get());
+            this.dropSelf(MULCH_BAG.get());
             this.dropOther(ALPHACENE_PATH.get(), Blocks.DIRT);
 
             this.colony(GLOWSHROOM_COLONY);

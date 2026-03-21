@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "dolt_mod_how:tree_bark_bag"
+        "recipe": "dolt_mod_how:mulch_bag"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "dolt_mod_how:tree_bark_bag"
+      "dolt_mod_how:mulch_bag"
     ]
   },
   "sends_telemetry_event": false

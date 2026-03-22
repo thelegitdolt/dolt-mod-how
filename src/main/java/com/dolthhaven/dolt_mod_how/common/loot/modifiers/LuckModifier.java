@@ -43,7 +43,8 @@ public class LuckModifier extends LootModifier {
 
         Item clover = DMHUtils.getPotentialItem(DMHUtils.Constants.FOUR_LEAF_CLOVER);
         float luck = ctx.getLuck();
-        int lootSize = generatedLoot.size();
+        int lootSize = generatedLoot.size(); if (lootSize == 0) return generatedLoot;
+
         RandomSource random = ctx.getRandom();
         ResourceLocation lootId = ctx.getQueriedLootTableId();
         if (lootId.getPath().startsWith("chests/") && !blacklistTables.contains(lootId)) {
@@ -52,10 +53,16 @@ public class LuckModifier extends LootModifier {
 
             if (luck < 0) {
                 for (int i = 0; i < weightedRound(-luck, random); i++) {
-                    ItemStack removedStack = generatedLoot.remove(random.nextInt(generatedLoot.size()));
+                    if (generatedLoot.isEmpty()) return generatedLoot;
+                    ItemStack removedStack = generatedLoot.remove(random.nextInt(lootSize));
+
                     if (lootSize < 5) {
                         generatedLoot.add(removedStack.copyWithCount(removedStack.getCount() / 2 + random.nextInt(1)));
                     }
+                }
+
+                if (ctx.getRandom().nextDouble() < addThirteenOdds) {
+                    generatedLoot.add(new ItemStack(Items.MUSIC_DISC_13));
                 }
             }
 
@@ -75,10 +82,6 @@ public class LuckModifier extends LootModifier {
                 if (clover != null && luck > 0.8 && random.nextInt(3) == 0) {
                     generatedLoot.add(new ItemStack(clover));
                 }
-            }
-
-            if (ctx.getRandom().nextDouble() < addThirteenOdds) {
-                generatedLoot.add(new ItemStack(Items.MUSIC_DISC_13));
             }
         }
         return generatedLoot;

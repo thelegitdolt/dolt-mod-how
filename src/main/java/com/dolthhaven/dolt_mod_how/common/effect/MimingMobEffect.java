@@ -15,11 +15,11 @@ public class MimingMobEffect extends InstantenousMobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
-        LivingEntity victim = DMHUtils.getClosestEntityTo(entity, living -> !living.getActiveEffects().isEmpty());
+        LivingEntity victim = DMHUtils.getClosestEntityTo(entity, living -> !living.getActiveEffects().isEmpty() && living != entity);
         if (victim == null) return;
 
         for (MobEffectInstance instance : victim.getActiveEffects()) {
-            if (!ForgeRegistries.MOB_EFFECTS.tags().getTag(DMHTags.MIMING_CANNOT_COPY).contains(instance.getEffect()) && instance.getDuration() != -1) {
+            if (!ForgeRegistries.MOB_EFFECTS.tags().getTag(DMHTags.MIMING_CANNOT_COPY).contains(instance.getEffect()) && instance.getDuration() < 0) {
                 entity.addEffect(instance);
 
                 if (amplifier == 0) break;

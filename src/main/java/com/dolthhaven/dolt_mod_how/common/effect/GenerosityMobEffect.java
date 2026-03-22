@@ -24,7 +24,7 @@ public class GenerosityMobEffect extends InstantenousMobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
-        LivingEntity victim = DMHUtils.getClosestEntityTo(entity, e -> true);
+        LivingEntity victim = DMHUtils.getClosestEntityTo(entity, e -> e != entity);
         if (victim == null) return;
 
         Set<MobEffect> toRemove = new HashSet<>();

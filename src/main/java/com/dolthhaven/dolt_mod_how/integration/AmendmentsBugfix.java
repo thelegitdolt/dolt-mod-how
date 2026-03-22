@@ -1,7 +1,10 @@
 package com.dolthhaven.dolt_mod_how.integration;
 
+import net.mehvahdjukaar.amendments.common.block.DoubleCakeBlock;
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,4 +21,8 @@ public class AmendmentsBugfix {
         map.put("mynethersdelight:magma_cake_block", new ResourceLocation("mynethersdelight", "magma_cake_slice"));
         map.put("dungeonsdelight:monster_cake", new ResourceLocation("dungeonsdelight", "monster_cake_slice"));
     });
+
+    public static boolean isDoubleCakeBlock(BlockState block) {
+        return block.getBlock() instanceof DoubleCakeBlock;
+    }
 }

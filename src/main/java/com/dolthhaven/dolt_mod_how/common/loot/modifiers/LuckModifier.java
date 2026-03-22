@@ -56,8 +56,8 @@ public class LuckModifier extends LootModifier {
                     if (generatedLoot.isEmpty()) return generatedLoot;
                     ItemStack removedStack = generatedLoot.remove(random.nextInt(lootSize));
 
-                    if (lootSize < 5) {
-                        generatedLoot.add(removedStack.copyWithCount(removedStack.getCount() / 2 + random.nextInt(1)));
+                    if (lootSize < 5 && removedStack.getCount() > 1) {
+                        generatedLoot.add(removedStack.copyWithCount(removedStack.getCount() / 2));
                     }
                 }
 

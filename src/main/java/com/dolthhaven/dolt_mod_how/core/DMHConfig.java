@@ -26,6 +26,8 @@ public class DMHConfig {
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         public final ConfigValue<Boolean> conqueringStar;
+        public final ConfigValue<Boolean> ghastaWithCreamDoesntRegenerate;
+        public final ConfigValue<Boolean> hoglinMountDoesntTick;
         @ConfigKey("quiver_recipe")
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
         @ConfigKey("bookshelves_drop_themselves")
@@ -195,6 +197,14 @@ public class DMHConfig {
 
             builder.push("magma_cakes");
             frogsAreNotStupid = builder.comment("If frogs should become unable to consume magma cakes").define("Magma Cakes Good", false);
+            builder.pop();
+
+            builder.push("ghasta");
+            ghastaWithCreamDoesntRegenerate = builder.comment("If the ghasta with cream should be stopped from regenerating itself").define("Be normal ghasta", false);
+            builder.pop();
+
+            builder.push("hoglin mounts");
+            hoglinMountDoesntTick = builder.comment("If hoglin mounts should never zombify and whatever").define("Abnormal Hoglins", false);
             builder.pop();
 
             builder.pop();

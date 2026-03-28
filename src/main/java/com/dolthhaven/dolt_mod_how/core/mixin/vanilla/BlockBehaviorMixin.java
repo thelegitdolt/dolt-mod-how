@@ -2,29 +2,22 @@ package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
 import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.WorldlyContainerHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
-import org.jetbrains.annotations.NotNull;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(ComposterBlock.class)
-public abstract class ComposterBlockMixin extends Block implements WorldlyContainerHolder {
-    @Shadow @Final public static IntegerProperty LEVEL;
-
-    public ComposterBlockMixin(Properties p_49795_) {
-        super(p_49795_);
-    }
-
+@Mixin(BlockBehaviour.class)
+public class BlockBehaviorMixin {
     @Unique
     private static boolean DoltModHow$addEntity(BlockState state, LevelAccessor level, BlockPos pos, Entity entity, int compostLevel) {
         float chance = DoltModHowDataUtil.COMPOSTABLE_ENTITIES.getFloat(entity.getType());
@@ -33,7 +26,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
         }
 
         int newLevel = compostLevel + 1;
-        BlockState newState = state.setValue(LEVEL, newLevel);
+        BlockState newState = state.setValue(ComposterBlock.LEVEL, newLevel);
         level.setBlock(pos, newState, 3);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(null, state));
 
@@ -44,9 +37,11 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
         return true;
     }
 
-    @Override
-    public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
-        int compostLevel = state.getValue(LEVEL);
+    @Inject(method = "entityInside", at = @At("HEAD"))
+    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, CallbackInfo ci) {
+        if (!state.is(Blocks.COMPOSTER)) return;
+
+        int compostLevel = state.getValue(ComposterBlock.LEVEL);
 
         if (!level.isClientSide && compostLevel < 8 && DoltModHow$EntityInsideContent(entity, pos) &&
                 DoltModHowDataUtil.COMPOSTABLE_ENTITIES.containsKey(entity.getType())) {
@@ -64,5 +59,4 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
 
         return entity.getY() < yThresh && entity.getBoundingBox().maxY > (double) pos.getY() + 0.25;
     }
-
 }

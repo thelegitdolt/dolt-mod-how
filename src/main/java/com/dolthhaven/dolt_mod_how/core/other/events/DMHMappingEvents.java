@@ -17,33 +17,33 @@ import java.util.List;
 public class DMHMappingEvents {
     @SubscribeEvent
     public static void mappingsEvent(MissingMappingsEvent event) {
-        List<MissingMappingsEvent.Mapping<Block>> mappings = event.getAllMappings(ForgeRegistries.Keys.BLOCKS);
-
-        ImmutableMap<ResourceLocation, Block> mappers = Util.make(new ImmutableMap.Builder<ResourceLocation, Block>(), map -> {
-            putStuff(map, "stoneveil:stone_bricks_tiles", "caverns_and_chasms:cobblestone_bricks");
-            putStuff(map, "stoneveil:stone_bricks_tile_stairs", "caverns_and_chasms:cobblestone_brick_stairs");
-            putStuff(map, "stoneveil:stone_bricks_tile_slab", "caverns_and_chasms:cobblestone_brick_slab");
-            putStuff(map, "stoneveil:cracked_stone_bricks_tiles", "caverns_and_chasms:cobblestone_bricks");
-            putStuff(map, "stoneveil:cracked_stone_bricks_tile_stairs", "caverns_and_chasms:cobblestone_brick_stairs");
-            putStuff(map, "stoneveil:cracked_stone_bricks_tile_slab", "caverns_and_chasms:cobblestone_brick_slab");
-            putStuff(map, "stoneveil:mossy_stone_bricks_tiles", "caverns_and_chasms:mossy_cobblestone_bricks");
-            putStuff(map, "stoneveil:mossy_stone_bricks_tile_stairs", "caverns_and_chasms:mossy_cobblestone_brick_stairs");
-            putStuff(map, "stoneveil:mossy_stone_bricks_tile_slab", "caverns_and_chasms:mossy_cobblestone_brick_slab");
-
-            putStuff(map, "v_slab_compat:stoneveil/cracked_stone_bricks_tile_vertical_slab", "v_slab_compat:caverns_and_chasms/cobblestone_brick_vertical_slab");
-            putStuff(map, "v_slab_compat:stoneveil/mossy_stone_bricks_tile_vertical_slab", "v_slab_compat:caverns_and_chasms/mossy_cobblestone_brick_vertical_slab");
-            putStuff(map, "v_slab_compat:stoneveil/stone_bricks_tile_vertical_slab",  "v_slab_compat:caverns_and_chasms/cobblestone_brick_vertical_slab");
-            putStuff(map, "stoneveil:stone_pilar", "architects_palette:tuff_pillar");
-        }).build();
-
-        for (MissingMappingsEvent.Mapping<Block> mapping : mappings) {
-            Block block =mappers.get(mapping.getKey());
-            if (block != null) {
-                if (ForgeRegistries.BLOCKS.getKey(block) != null) {
-                    mapping.remap(block);
-                }
-            }
-        }
+//        List<MissingMappingsEvent.Mapping<Block>> mappings = event.getAllMappings(ForgeRegistries.Keys.BLOCKS);
+//
+//        ImmutableMap<ResourceLocation, Block> mappers = Util.make(new ImmutableMap.Builder<ResourceLocation, Block>(), map -> {
+//            putStuff(map, "stoneveil:stone_bricks_tiles", "caverns_and_chasms:cobblestone_bricks");
+//            putStuff(map, "stoneveil:stone_bricks_tile_stairs", "caverns_and_chasms:cobblestone_brick_stairs");
+//            putStuff(map, "stoneveil:stone_bricks_tile_slab", "caverns_and_chasms:cobblestone_brick_slab");
+//            putStuff(map, "stoneveil:cracked_stone_bricks_tiles", "caverns_and_chasms:cobblestone_bricks");
+//            putStuff(map, "stoneveil:cracked_stone_bricks_tile_stairs", "caverns_and_chasms:cobblestone_brick_stairs");
+//            putStuff(map, "stoneveil:cracked_stone_bricks_tile_slab", "caverns_and_chasms:cobblestone_brick_slab");
+//            putStuff(map, "stoneveil:mossy_stone_bricks_tiles", "caverns_and_chasms:mossy_cobblestone_bricks");
+//            putStuff(map, "stoneveil:mossy_stone_bricks_tile_stairs", "caverns_and_chasms:mossy_cobblestone_brick_stairs");
+//            putStuff(map, "stoneveil:mossy_stone_bricks_tile_slab", "caverns_and_chasms:mossy_cobblestone_brick_slab");
+//
+//            putStuff(map, "v_slab_compat:stoneveil/cracked_stone_bricks_tile_vertical_slab", "v_slab_compat:caverns_and_chasms/cobblestone_brick_vertical_slab");
+//            putStuff(map, "v_slab_compat:stoneveil/mossy_stone_bricks_tile_vertical_slab", "v_slab_compat:caverns_and_chasms/mossy_cobblestone_brick_vertical_slab");
+//            putStuff(map, "v_slab_compat:stoneveil/stone_bricks_tile_vertical_slab",  "v_slab_compat:caverns_and_chasms/cobblestone_brick_vertical_slab");
+//            putStuff(map, "stoneveil:stone_pilar", "architects_palette:tuff_pillar");
+//        }).build();
+//
+//        for (MissingMappingsEvent.Mapping<Block> mapping : mappings) {
+//            Block block =mappers.get(mapping.getKey());
+//            if (block != null) {
+//                if (ForgeRegistries.BLOCKS.getKey(block) != null) {
+//                    mapping.remap(block);
+//                }
+//            }
+//        }
     }
 
     private static void putStuff(ImmutableMap.Builder<ResourceLocation, Block> map, String a, String b) {

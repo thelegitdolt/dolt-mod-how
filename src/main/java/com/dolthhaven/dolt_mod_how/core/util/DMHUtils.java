@@ -189,7 +189,7 @@ public class DMHUtils {
     public static LivingEntity getClosestEntityTo(Entity entity, Predicate<LivingEntity> entityPredicate) {
         Vec3 pos = entity.position();
         List<LivingEntity> effectiveEntities = entity.level().getEntitiesOfClass(LivingEntity.class,
-                new AABB(pos, pos.add(1, 1, 1)).inflate(2, 6, 2), entityPredicate);
+                new AABB(pos, pos.add(1, 1, 1)).inflate(6, 6, 6), entityPredicate);
         return entity.level().getNearestEntity(effectiveEntities, TargetingConditions.DEFAULT,null,  pos.x, pos.y, pos.z);
     }
 

@@ -8,7 +8,9 @@ import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHBCCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHSpeciesCompat;
-import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -22,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingUseTotemEvent;
-import net.minecraftforge.event.entity.living.LootingLevelEvent;
+import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -125,5 +127,13 @@ public class DMHAdvancementEvents {
 
     private static List<ServerPlayer> getAllNearbyPlayers(EntityGetter entityGetter, Vec3 position) {
         return entityGetter.getEntitiesOfClass(ServerPlayer.class, new AABB(position, position.add(1, 1, 1)).inflate(40));
+    }
+
+    @SubscribeEvent
+    public static void serverStart(ServerStartedEvent event) {
+//        MinecraftServer server = event.getServer();
+//        Advancement adv = server.getAdvancements().getAdvancement(new ResourceLocation("husbandry/balanced_diet"));
+//        System.out.println("hi");
+
     }
 }

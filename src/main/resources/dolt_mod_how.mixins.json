@@ -28,6 +28,7 @@
     "brewinandchewin.CoasterBlockMixin",
     "brewinandchewin.CoasterEntityMixin",
     "caverns_and_chasms.CCEventsMixin",
+    "caverns_and_chasms.PackingContainerMixin",
     "caverns_and_chasms.TetherPotionMixin",
     "dungeonsdelight.CleaverEntityMixin",
     "dungeonsdelight.DDPropertiesMixin",

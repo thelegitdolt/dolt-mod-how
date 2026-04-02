@@ -20,7 +20,7 @@ public class DMHItemModelsGen extends BlueprintItemModelProvider {
 
     @Override
     protected void registerModels() {
-        generatedItem(DMHItems.WARDENZOLA_WEDGE, DMHItems.TEQUILA, ANCIENT_BRAZIER);
+        generatedItem(DMHItems.WARDENZOLA_WEDGE, DMHItems.TEQUILA, ANCIENT_BRAZIER, DMHItems.POULPO);
         pipes();
     }
 

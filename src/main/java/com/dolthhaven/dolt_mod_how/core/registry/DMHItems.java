@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
 import com.dolthhaven.dolt_mod_how.common.item.ExperienceFoodItem;
+import com.dolthhaven.dolt_mod_how.common.item.PoulpoItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHBnCAtmosCompat;
@@ -42,6 +43,9 @@ public class DMHItems {
     public static final RegistryObject<Item> GLOWSHROOM_COLONY = HELPER.createItem("glowshroom_colony", () -> new MushroomColonyItem(DMHBlocks.GLOWSHROOM_COLONY.get(), new Item.Properties()));
     public static final RegistryObject<Item> BOP_GLOWSHROOM_COLONY = HELPER.createItem("bop_glowshroom_colony", () -> new MushroomColonyItem(BOP_GLOW_SHROOM_COLONY.get(), new Item.Properties()));
     public static final RegistryObject<Item> TOADSTOOL_COLONY = HELPER.createItem("toadstool_colony", () -> new MushroomColonyItem(DMHBlocks.TOADSTOOL_COLONY.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> POULPO = HELPER
+            .createItem("poulpo", () -> new PoulpoItem(new Item.Properties()));
 
 
     public static final RegistryObject<Item> CHORUS_SODA = HELPER.createItem("chorus_soda",

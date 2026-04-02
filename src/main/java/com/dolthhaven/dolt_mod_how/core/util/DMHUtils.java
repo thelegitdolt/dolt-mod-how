@@ -197,6 +197,10 @@ public class DMHUtils {
         return ModList.get().isLoaded(Constants.ALEXS_CAVES);
     }
 
+    public static boolean oreganized() {
+        return ModList.get().isLoaded(Constants.OREGANIZED);
+    }
+
     public static boolean cavernsChasmsLoaded() {
         return ModList.get().isLoaded(Constants.CAVERNS_AND_CHASMS);
     }

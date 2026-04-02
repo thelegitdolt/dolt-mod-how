@@ -3,12 +3,14 @@ package com.dolthhaven.dolt_mod_how.core.other;
 import com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHMobEffects;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.violetmoon.quark.addons.oddities.module.PipesModule;
 
@@ -29,6 +31,9 @@ public class DoltModHowDataUtil {
         DMHRightClickEvent.registerRakeables();
         DMHCauldrons.register();
         DMHMobEffects.registerBrewingRecipes();
+        if (DMHUtils.alexCavesLoaded()) {
+            DMHCCCompat.registerGoldenBuckets();
+        }
         registerPipes();
     }
 

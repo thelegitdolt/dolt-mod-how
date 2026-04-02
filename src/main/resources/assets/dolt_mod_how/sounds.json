@@ -1,0 +1,8 @@
+{
+  "item.poulpo.poulpoes": {
+    "sounds": [
+      "dolt_mod_how:item/poulpo"
+    ],
+    "subtitle": "subtitles.dolt_mod_how.item.poulpo.poulpoes"
+  }
+}

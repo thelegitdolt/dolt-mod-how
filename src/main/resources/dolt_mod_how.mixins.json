@@ -35,6 +35,7 @@
     "emi.EmiRecipeFillerMixin",
     "emi.FillRecipeC2SPacketMixin",
     "etcetera.UpdatePricklyCanC2SPacketMixin",
+    "farmersdelight.KnifeCanUseBallisticMixins",
     "farmersdelight.KnifeItemMixin",
     "farmersdelight.ModEnchantmentMixin",
     "ftgu.SporeRocketEntityMixin",

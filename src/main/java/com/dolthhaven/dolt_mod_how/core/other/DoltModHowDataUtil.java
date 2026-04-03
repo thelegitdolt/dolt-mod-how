@@ -31,7 +31,7 @@ public class DoltModHowDataUtil {
         DMHRightClickEvent.registerRakeables();
         DMHCauldrons.register();
         DMHMobEffects.registerBrewingRecipes();
-        if (DMHUtils.alexCavesLoaded()) {
+        if (DMHUtils.cavernsChasmsLoaded()) {
             DMHCCCompat.registerGoldenBuckets();
         }
         registerPipes();

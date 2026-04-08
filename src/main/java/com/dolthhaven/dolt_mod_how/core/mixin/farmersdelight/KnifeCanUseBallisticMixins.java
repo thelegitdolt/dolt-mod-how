@@ -47,7 +47,7 @@ public class KnifeCanUseBallisticMixins {
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     private void DMH$UseBallisticKnife(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get()) > 0 && ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT)) {
+        if (isBallisticKnife(stack)) {
             if (stack.getDamageValue() >= stack.getMaxDamage() - 1) {
                 cir.setReturnValue(InteractionResultHolder.fail(stack));
             }

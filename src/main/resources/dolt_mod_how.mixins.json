@@ -11,6 +11,7 @@
     "alexscaves.DesolateDaggerMixin",
     "alexscaves.DinosaurChopMixin",
     "alexscaves.GingerbreadManMixin",
+    "alexscaves.NuclearFurnaceBlockEntityMixin",
     "alexscaves.SackOfSatingItemMixin",
     "alexscaves.SubmarineMixin",
     "alexscaves.TremorzillaMixin",

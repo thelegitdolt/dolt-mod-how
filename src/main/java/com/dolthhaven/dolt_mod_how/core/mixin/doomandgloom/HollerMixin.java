@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.doomandgloom;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHCriteriaTriggers;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;

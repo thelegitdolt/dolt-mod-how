@@ -12,6 +12,7 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import org.jetbrains.annotations.NotNull;
+import org.violetmoon.quark.addons.oddities.module.BackpackModule;
 import umpaz.brewinandchewin.common.tag.BnCTags;
 import umpaz.brewinandchewin.data.BnCItemTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -41,6 +42,7 @@ public class DMHItemTags extends ItemTagsProvider {
                 .addOptional(new ResourceLocation(DMHUtils.Constants.OREGANIZED, "molten_lead_bucket"));
 
         this.tag(DMHTags.LEATHER).add(Items.LEATHER, LEATHER_SCRAPS.get());
+        this.tag(DMHTags.HIDES_CAPES).add(BackpackModule.backpack);
         this.tag(DMHTags.SHEARS).add(Items.SHEARS);
         this.tag(BnCTags.CHEESE_WEDGES).add(WARDENZOLA_WEDGE.get());
         this.tag(DMHTags.SCULK_CHEESE).add(WARDENZOLA_WEDGE.get());

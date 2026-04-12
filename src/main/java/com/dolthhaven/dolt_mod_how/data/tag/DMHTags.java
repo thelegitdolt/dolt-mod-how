@@ -23,6 +23,7 @@ public class DMHTags {
     public static final TagKey<Item> PURPLE_SODA_BUCKETS = externalItemTag("forge", "buckets/purple_soda");
     public static final TagKey<Item> MOLTEN_LEAD_BUCKETS = externalItemTag("forge", "buckets/molten_lead");
     public static final TagKey<Item> LEATHER = itemTag("leather");
+    public static final TagKey<Item> HIDES_CAPES = itemTag("hides_capes");
     public static final TagKey<Item> PIPES = externalItemTag("quark", "pipes");
     public static final TagKey<Item> ENCASED_PIPES = externalItemTag("quark", "encased_pipes");
 

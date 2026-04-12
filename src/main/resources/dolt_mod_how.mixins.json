@@ -81,6 +81,7 @@
     "vanilla.SlimeMixin"
   ],
   "client": [
+    "vanilla.CapeLayerMixin",
     "vanilla.ClientPacketListenerMixin",
     "vanilla.ItemPropertiesMixin"
   ],

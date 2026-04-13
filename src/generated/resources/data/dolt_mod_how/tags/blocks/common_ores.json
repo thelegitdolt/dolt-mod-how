@@ -8,14 +8,6 @@
       "required": false
     },
     {
-      "id": "sullysmod:jade_ore",
-      "required": false
-    },
-    {
-      "id": "sullysmod:deepslate_jade_ore",
-      "required": false
-    },
-    {
       "id": "#forge:ores/lead",
       "required": false
     },

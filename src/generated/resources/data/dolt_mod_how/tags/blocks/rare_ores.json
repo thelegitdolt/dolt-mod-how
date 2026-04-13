@@ -8,6 +8,10 @@
     {
       "id": "#forge:ores/tin",
       "required": false
+    },
+    {
+      "id": "#forge:ores/palladium",
+      "required": false
     }
   ]
 }

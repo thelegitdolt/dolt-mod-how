@@ -120,6 +120,7 @@ public class DMHUtils {
         public static final String JNE = "netherexp";
         public static final String OREGANIZED = "oreganized";
         public static final String QUARK = "quark";
+        public static final String RESONANCE = "resonance";
         public static final String SAVAGE_AND_RAVAGE = "savage_and_ravage";
         public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
         public static final String SPAWN = "spawn";

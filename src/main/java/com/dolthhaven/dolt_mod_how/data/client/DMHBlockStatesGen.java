@@ -44,6 +44,7 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         stupidWoodworksBlocks("thornwood", ACBlockRegistry.THORNWOOD_PLANKS, THORNWOOD_BOARDS, THORNWOOD_LADDER, THORNWOOD_BOOKSHELF, THORNWOOD_BEEHIVE, THORNWOOD_CHEST, TRAPPED_THORNWOOD_CHEST);
 
         block(ZINC_BRICKS);
+        block(HEART_CRYSTAL_LAMP);
         block(WAX_BLOCK);
         block(CHISELED_ZINC_BRICKS);
         wallBlock(ZINC_BRICKS.get(), ZINC_BRICK_WALL.get());

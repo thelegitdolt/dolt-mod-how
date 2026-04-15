@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-21T02:05:28.253788	Loot Tables
+// 1.20.1	2026-04-15T13:04:00.727406	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
 7ee65a426beb9ecae98c65d2684b60feeb5b446e data/dolt_mod_how/loot_tables/blocks/amber_encased_pipe.json
 b149ee2669319065bfbb2e15b77271ca321d91cf data/dolt_mod_how/loot_tables/blocks/ancient_brazier.json
@@ -20,6 +20,7 @@ e56b9c9bc5fa01125e5814b0645b31ae0fd74eb7 data/dolt_mod_how/loot_tables/blocks/fo
 eeb6cde38daaedf45f15087d9a3bf04e40a6ffe4 data/dolt_mod_how/loot_tables/blocks/glowshroom_colony.json
 5ec258d6a886b357708a2e3e5bb2c0c5e05fb223 data/dolt_mod_how/loot_tables/blocks/gray_encased_pipe.json
 29334c7c6162fed47012c7b230386fcbc71dc3a2 data/dolt_mod_how/loot_tables/blocks/green_encased_pipe.json
+d9cc5cc801903b6a91c8388d26799dc4d4786d74 data/dolt_mod_how/loot_tables/blocks/heart_crystal_lamp.json
 c2825876711dfeefa58903cdcecb328597204f52 data/dolt_mod_how/loot_tables/blocks/indigo_encased_pipe.json
 b60d78901537b54ce96dca0a09c1b80b1c21d29d data/dolt_mod_how/loot_tables/blocks/light_blue_encased_pipe.json
 1560f7d846c2db74d8373eed679a522324205269 data/dolt_mod_how/loot_tables/blocks/light_gray_encased_pipe.json

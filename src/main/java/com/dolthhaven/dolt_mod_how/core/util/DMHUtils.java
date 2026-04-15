@@ -113,6 +113,7 @@ public class DMHUtils {
         public static final String ENVIRONMENTAL = "environmental";
         public static final String FARMERS_DELIGHT = "farmersdelight";
         public static final String FTGU = "ftgu";
+        public static final String HEART_CRYSTALS = "heart_crystals";
         public static final String MOWZIES_MOBS = "mowziesmobs";
         public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
         public static final String NEAPOLITAN = "neapolitan";

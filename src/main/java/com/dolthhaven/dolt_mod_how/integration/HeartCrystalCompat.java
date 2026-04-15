@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class DMHHCCompat {
+public class HeartCrystalCompat {
 
     public static InteractionResultHolder<ItemStack> useDummyHeartCrystal(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);

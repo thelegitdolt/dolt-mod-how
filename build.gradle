@@ -105,7 +105,7 @@ minecraft {
             property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
             property "blueprint.indev", "true"
             args "--mod", project.modId, "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources"),
-                    "--existing-mod", "blueprint", "--existing-mod", "brewinandchewin", "--existing-mod", "doom_and_gloom", "--existing-mod", "dye_depot", "--existing-mod", "heart_crystals", "--existing-mod", "netherexp", "--existing-mod", "blasted_barrens", "--existing-mod", "alexscaves", "--existing-mod", "atmospheric", "--existing-mod", "quark"
+                    "--existing-mod", "blueprint", "--existing-mod", "brewinandchewin", "--existing-mod", "doom_and_gloom", "--existing-mod", "dye_depot", "--existing-mod", "netherexp", "--existing-mod", "blasted_barrens", "--existing-mod", "alexscaves", "--existing-mod", "atmospheric", "--existing-mod", "quark"
             mods {
                 dolt_mod_how {
                     source sourceSets.main
@@ -190,7 +190,6 @@ dependencies {
 
     implementation fg.deobf("maven.modrinth:neapolitan:${project.neapolitan}")
     implementation fg.deobf("maven.modrinth:atmospheric:${project.atmospheric}")
-    implementation fg.deobf("maven.modrinth:heart_crystals:${project.heart_crystals}")
     implementation fg.deobf("maven.modrinth:brewin-and-chewin:${project.brewinAndChewin}")
 
     implementation fg.deobf("curse.maven:geckolib-388172:5675221")

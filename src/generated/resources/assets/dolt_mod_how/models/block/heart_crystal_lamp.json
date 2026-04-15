@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "dolt_mod_how:block/heart_crystal_lamp"
-  }
-}

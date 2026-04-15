@@ -63,13 +63,6 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     side = "BOTH"
 
 [[dependencies.dolt_mod_how]]
-    modId = "heart_crystals"
-    mandatory = false
-    versionRange = "[2.1.0,)"
-    ordering = "AFTER"
-    side = "BOTH"
-
-[[dependencies.dolt_mod_how]]
     modId = "blueprint"
     mandatory = true
     versionRange = "[7.1.0,)"

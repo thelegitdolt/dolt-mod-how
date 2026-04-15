@@ -1,0 +1,34 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "heart_crystals"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "building",
+        "key": {
+          "g": {
+            "item": "minecraft:glowstone"
+          },
+          "h": {
+            "item": "heart_crystals:heart_crystal_shard"
+          }
+        },
+        "pattern": [
+          " h ",
+          "hgh",
+          " h "
+        ],
+        "result": {
+          "item": "dolt_mod_how:heart_crystal_lamp"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

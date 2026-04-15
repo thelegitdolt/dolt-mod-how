@@ -32,6 +32,7 @@ import vectorwing.farmersdelight.common.registry.ModCreativeTabs;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.Food.WARDENZOLA;
@@ -74,6 +75,7 @@ public class DMHItems {
         var thing = CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                 .addItemsAfter(ofID(DMHUtils.Constants.STURDY_STONE), STURDY_DEEPSLATE)
+                .addItemsAfter(ofLoaded(() -> Items.LAPIS_BLOCK, DMHUtils.Constants.HEART_CRYSTALS), HEART_CRYSTAL_LAMP)
                 .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, DMHUtils.Constants.WOODWORKS), PEWEN_BOARDS, THORNWOOD_BOARDS)
 
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
@@ -145,6 +147,10 @@ public class DMHItems {
 
     public static boolean fdPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey() == ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey();
+    }
+
+    public static Predicate<ItemStack> ofLoaded(Supplier<Item> item, String... modids) {
+        return stack -> (BlockSubRegistryHelper.areModsLoaded(modids) && of(item.get()).test(stack));
     }
 
     public static boolean mowziesPredicate(BuildCreativeModeTabContentsEvent event) {

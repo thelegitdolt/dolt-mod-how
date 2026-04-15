@@ -27,6 +27,7 @@ import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.function.Supplier;
 
+import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.CC_LAMP;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.ZINC_PLATED_BRICKS;
 import static net.minecraft.world.level.material.MapColor.GLOW_LICHEN;
 import static net.minecraft.world.level.material.MapColor.TERRACOTTA_YELLOW;
@@ -52,6 +53,8 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> PINE_NUTS_CRATE = HELPER.createBlock("pine_nuts_crate", () ->
             new BlueprintDirectionalBlock(DMHBlockProps.PINE_NUT_CRATE));
+    public static final RegistryObject<Block> HEART_CRYSTAL_LAMP = HELPER.createBlock("heart_crystal_lamp", () ->
+            new Block(CC_LAMP));
     public static final RegistryObject<Block> MULCH_BAG = HELPER.createBlock("mulch_bag", () ->
             new BlueprintDirectionalBlock(BlockBehaviour.Properties.copy(ModBlocks.RICE_BAG.get()).mapColor(MapColor.COLOR_BROWN)));
 
@@ -227,7 +230,7 @@ public class DMHBlocks {
 
         public static final BlockBehaviour.Properties ZINC_PLATED_BRICKS = BlockBehaviour.Properties.of().mapColor(GLOW_LICHEN)
                 .strength(3.0f, 6.0f).sound(SoundType.METAL).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM);
-
+        public static final BlockBehaviour.Properties CC_LAMP = BlockBehaviour.Properties.of().lightLevel((state) -> 15).strength(0.3F).sound(SoundType.GLASS).isValidSpawn((a, b, c, d) -> true);
         public static final PropertyUtil.WoodSetProperties PEWEN = PropertyUtil
                 .WoodSetProperties.builder(MapColor.WOOD).sound(SoundType.CHERRY_WOOD).instrument(NoteBlockInstrument.BASS).build();
         public static final PropertyUtil.WoodSetProperties THORNWOOD = PropertyUtil

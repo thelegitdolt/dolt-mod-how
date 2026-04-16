@@ -19,7 +19,7 @@ public class MimingMobEffect extends InstantenousMobEffect {
         if (victim == null) return;
 
         for (MobEffectInstance instance : victim.getActiveEffects()) {
-            if (!ForgeRegistries.MOB_EFFECTS.tags().getTag(DMHTags.MIMING_CANNOT_COPY).contains(instance.getEffect()) && instance.getDuration() >= 0) {
+            if (!ForgeRegistries.MOB_EFFECTS.tags().getTag(DMHTags.MIMING_CANNOT_COPY).contains(instance.getEffect()) && !instance.isInfiniteDuration()) {
                 entity.addEffect(instance);
 
                 if (amplifier == 0) break;

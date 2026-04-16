@@ -1,7 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
 import com.dolthhaven.dolt_mod_how.common.item.ChorusSodaItem;
-import com.dolthhaven.dolt_mod_how.common.item.DummyHCItem;
 import com.dolthhaven.dolt_mod_how.common.item.ExperienceFoodItem;
 import com.dolthhaven.dolt_mod_how.common.item.PoulpoItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
@@ -61,7 +60,6 @@ public class DMHItems {
             BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_PURPLE_SODA_BUCKET : () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
             BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED) ? DMHCCCompat.GOLDEN_MOLTEN_LEAD_BUCKET : () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HEART_CRYSTAL_OWO = HELPER.createItem("heart_crystal", () -> new DummyHCItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> WARDENZOLA_WEDGE = HELPER.createItem("wardenzola_wedge",
             () -> new ExperienceFoodItem(new Item.Properties().food(WARDENZOLA)));
@@ -87,8 +85,6 @@ public class DMHItems {
 
                 .tab(CreativeModeTabs.INGREDIENTS)
                 .addItemsAfter(of(Items.LEATHER), LEATHER_SCRAPS)
-                .addItemsAfter(modLoaded(Items.DIAMOND, DMHUtils.Constants.RESONANCE, DMHUtils.Constants.BLASTED_BARRENS, DMHUtils.Constants.ALEXS_CAVES, DMHUtils.Constants.MOWZIES_MOBS, DMHUtils.Constants.CREATE, DMHUtils.Constants.AMENDMENTS, DMHUtils.Constants.SPECIES),
-                        HEART_CRYSTAL_OWO)
 
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                 .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), MULCH_BAG, PINE_NUTS_CRATE, WAX_BLOCK)

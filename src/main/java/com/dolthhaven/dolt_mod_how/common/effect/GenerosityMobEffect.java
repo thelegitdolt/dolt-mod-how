@@ -31,7 +31,7 @@ public class GenerosityMobEffect extends InstantenousMobEffect {
 
 
         for (MobEffectInstance instance : entity.getActiveEffects()) {
-            if (!ForgeRegistries.MOB_EFFECTS.tags().getTag(DMHTags.GENEROSITY_CANNOT_SHARE).contains(instance.getEffect()) && instance.getDuration() != -1) {
+            if (!ForgeRegistries.MOB_EFFECTS.tags().getTag(DMHTags.GENEROSITY_CANNOT_SHARE).contains(instance.getEffect()) && !instance.isInfiniteDuration()) {
                 victim.addEffect(instance);
                 toRemove.add(instance.getEffect());
 

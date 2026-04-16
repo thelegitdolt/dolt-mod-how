@@ -2,10 +2,10 @@
   "item.dolt_mod_how.leather_scraps": "Leather Scrap",
   "item.dolt_mod_how.chorus_soda": "Chorus Soda",
   "item.dolt_mod_how.alphacene_salad": "Alphacene Salad",
-  "item.dolt_mod_how.heart_crystal": "Heart Crystal",
 
   "item.dolt_mod_how.poulpo": "Poulpo",
   "subtitles.dolt_mod_how.item.poulpo.poulpoes": "Revengeance_Mode_Select.wav.ogg",
+  "dolt_mod_how.item.whenUsed": "When used:",
 
   "block.dolt_mod_how.lanternfish_barrel": "Barrel of Lanternfish",
   "block.dolt_mod_how.sturdy_deepslate": "Sturdy Deepslate",

@@ -1,5 +1,5 @@
 {
-	"parent": "caverns_and_chasms:block/template_brazier",
+	"parent": "dolt_mod_how:block/template_ancient_brazier",
 	"textures": {
 		"fire": "dolt_mod_how:block/ancient_brazier_fire",
 		"lit": "dolt_mod_how:block/ancient_brazier_top_lit"

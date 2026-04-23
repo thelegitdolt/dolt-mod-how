@@ -35,7 +35,7 @@ public class HeartCrystalMixin extends Item {
 
     @Unique
     private static final List<MobEffectInstance> BENEFITS = List
-            .of(new MobEffectInstance(MobEffects.HEALTH_BOOST, 60 * 8 * 20, 1), new MobEffectInstance(MobEffects.REGENERATION, 15 * 20, 1));
+            .of(new MobEffectInstance(MobEffects.HEALTH_BOOST, 60 * 8 * 20), new MobEffectInstance(MobEffects.REGENERATION, 15 * 20));
 
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     private void doEffectsInstead(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
@@ -46,7 +46,7 @@ public class HeartCrystalMixin extends Item {
         level.playSound(player, player.blockPosition(), HCSoundEvents.HEART_CRYSTAL_USE.get(), SoundSource.PLAYERS, 0.65F, 1.0F + (level.random.nextFloat() - 0.5F) / 8.0F);
         stack.shrink(1);
 
-        BENEFITS.forEach(player::addEffect);
+        BENEFITS.forEach(instance -> player.addEffect(new MobEffectInstance(instance.getEffect(), instance.getDuration(), instance.getAmplifier())));
         player.heal(4.0F);
 
         cir.setReturnValue(InteractionResultHolder.sidedSuccess(stack, level.isClientSide()));
@@ -67,7 +67,6 @@ public class HeartCrystalMixin extends Item {
             if (!instance.endsWithin(20)) {
                 effectText = Component.translatable("potion.withDuration", effectText, MobEffectUtil.formatDuration(instance, 1.0f));
             }
-
 
 
             tooltip.add(effectText.withStyle(instance.getEffect().getCategory().getTooltipFormatting()));

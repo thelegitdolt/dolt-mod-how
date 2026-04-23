@@ -286,14 +286,11 @@ public class DMHConfig {
 
     public static class Client {
         public final ConfigValue<Boolean> hidePotions;
-        public final ConfigValue<Boolean> hideEnchants;
 
 
         Client(ForgeConfigSpec.Builder builder) {
             builder.push("emi");
             hidePotions = builder.comment("If some potions should be hidden from EMI.").define("Hide Potions", true);
-            hideEnchants = builder.comment("If some enchanted books that are not max level should be hidden from EMI.")
-                    .define("Hide Enchants", true);
             builder.pop();
         }
     }

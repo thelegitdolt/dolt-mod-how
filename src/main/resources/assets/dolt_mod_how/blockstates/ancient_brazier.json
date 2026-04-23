@@ -1,10 +1,10 @@
 {
     "variants": {
         "lit=false,hanging=false": {
-            "model": "caverns_and_chasms:block/brazier_off"
+            "model": "dolt_mod_how:block/ancient_brazier_off"
         },
         "lit=false,hanging=true": {
-            "model": "caverns_and_chasms:block/brazier_off_hanging"
+            "model": "dolt_mod_how:block/ancient_brazier_off_hanging"
         },
         "lit=true,hanging=false": {
             "model": "dolt_mod_how:block/ancient_brazier"

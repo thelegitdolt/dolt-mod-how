@@ -79,7 +79,8 @@
     "vanilla.RecipeManagerMixin",
     "vanilla.ServerLevelMixin",
     "vanilla.ServerPlayerMixin",
-    "vanilla.SlimeMixin"
+    "vanilla.SlimeMixin",
+    "vanilla.SuspiciousStewMixin"
   ],
   "client": [
     "vanilla.CapeLayerMixin",

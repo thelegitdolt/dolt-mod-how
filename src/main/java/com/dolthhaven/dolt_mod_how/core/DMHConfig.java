@@ -25,6 +25,7 @@ public class DMHConfig {
         public final ConfigValue<Double> thunderstormMultiplier;
 
         public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
+        public final ConfigValue<Boolean> heartCrystalsAreDifferent;
         public final ConfigValue<Boolean> conqueringStar;
         public final ConfigValue<Boolean> ghastaWithCreamDoesntRegenerate;
         public final ConfigValue<Boolean> hoglinMountDoesntTick;
@@ -182,6 +183,13 @@ public class DMHConfig {
                             .define("Based Charged Creepers", false);
             sporeRocketSummonSporeCloud = builder.comment("If spore rockets explosions should create a Spore Cloud from Savage and Ravage").define("Spore Bomb Two", true);
             sporeCloudChance = builder.comment("The chance, out of 100, that a spore rocket will summon a spore cloud").defineInRange("Spore rocket possibilities", 100, 0, 100);
+            builder.pop();
+            builder.pop();
+
+            builder.push("heart_crystals");
+            builder.push("heart_crystal");
+            heartCrystalsAreDifferent = builder.comment("If heart crystals from the heart crystals mod should give the Health Boost effect and regen for awhile instead of giving you permanent hearts")
+                    .define("impermanentHearts", true);
             builder.pop();
             builder.pop();
 

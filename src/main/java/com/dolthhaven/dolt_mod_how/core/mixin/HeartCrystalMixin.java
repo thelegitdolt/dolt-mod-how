@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.rosemods.heart_crystals.common.item.HeartCrystalItem;
 import com.rosemods.heart_crystals.core.registry.HCSoundEvents;
 import net.minecraft.ChatFormatting;
@@ -39,6 +40,8 @@ public class HeartCrystalMixin extends Item {
 
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     private void doEffectsInstead(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
+        if (!DMHConfig.COMMON.heartCrystalsAreDifferent.get()) return;
+
         ItemStack stack = player.getItemInHand(hand);
 
         player.awardStat(Stats.ITEM_USED.get(this));
@@ -54,6 +57,8 @@ public class HeartCrystalMixin extends Item {
 
     @Inject(method = "appendHoverText", at = @At("HEAD"), cancellable = true)
     private void yeahDie(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag tooltipFlag, CallbackInfo ci) {
+        if (!DMHConfig.COMMON.heartCrystalsAreDifferent.get()) return;
+
         Component component = Component.translatable("dolt_mod_how.item.whenUsed").withStyle(ChatFormatting.DARK_PURPLE);
         tooltip.add(component);
 

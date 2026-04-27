@@ -9,6 +9,7 @@ public class Canceller implements MixinCanceller {
     public boolean shouldCancel(List<String> targetClassNames, String mixinClassName) {
         return mixinClassName.equals("com.ninni.etcetera.mixin.AbstractBlockStateMixin") ||
                 mixinClassName.equals("com.teamabnormals.atmospheric.core.mixin.client.LevelRendererMixin") ||
-                mixinClassName.equals("com.teamabnormals.environmental.core.mixin.PinkPetalsBlockMixin");
+                mixinClassName.equals("com.teamabnormals.environmental.core.mixin.PinkPetalsBlockMixin") ||
+                mixinClassName.equals("com.naterbobber.darkerdepths.mixin.BlockLightEngineMixin");
     }
 }

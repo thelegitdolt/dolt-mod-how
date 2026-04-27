@@ -5,6 +5,8 @@
       "condition": "dolt_mod_how:trichotomy",
       "blockTags": [
         "blueprint:wooden_bookshelves",
+        "blueprint:wooden_chiseled_bookshelves",
+        "forge:bookshelves",
         "blueprint:wooden_chiseled_bookshelves"
       ]
     },

@@ -23,7 +23,7 @@ public class BlockMixin {
 
         ResourceLocation id =  DMHUtils.getBlockId(state.getBlock());
         if (state.is(Blocks.MOSS_CARPET) || state.getBlock() instanceof PinkPetalsBlock ||
-               id.equals(DMHUtils.Constants.ALPHACENE_MOSS_CARPET) || id.equals(DMHUtils.Constants.FALLEN_LEAVES)) {
+               DMHUtils.Constants.SHOULD_MAKE_REPLACEABLE.contains(id)) {
             cir.setReturnValue(true);
         }
     }

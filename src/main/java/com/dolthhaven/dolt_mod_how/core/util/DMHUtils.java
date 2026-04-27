@@ -126,6 +126,7 @@ public class DMHUtils {
         public static final String SPAWN = "spawn";
         public static final String SPECIES = "species";
         public static final String WINDSWEPT = "windswept";
+        public static final String WILDER_FLOWERS = "wilderflowers";
         public static final String WOODWORKS = "woodworks";
 
         public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
@@ -174,7 +175,16 @@ public class DMHUtils {
         public static final ResourceLocation FALLEN_LEAVES = new ResourceLocation(SPAWN,"fallen_leaves");
 
         public static final ResourceLocation ALPHACENE_MOSS_CARPET = new ResourceLocation(SPECIES,"alphacene_moss_carpet");
+        public static final ResourceLocation DRY_MOSS_CARPET = new ResourceLocation(WINDSWEPT,"dry_moss_carpet");
+        public static final ResourceLocation RED_ALGAE_CARPET = new ResourceLocation(SPAWN,"red_algae_carpet");
 
+        public static final ResourceLocation MOODY_WILDFLOWERS = new ResourceLocation(WILDER_FLOWERS,"moody_wildflowers");
+        public static final ResourceLocation CHEERY_WILDFLOWERS = new ResourceLocation(WILDER_FLOWERS,"cheery_wildflowers");
+        public static final ResourceLocation HOPEFUL_WILDFLOWERS = new ResourceLocation(WILDER_FLOWERS,"hopeful_wildflowers");
+
+
+        public static final List<ResourceLocation> SHOULD_MAKE_REPLACEABLE = List
+                .of(HOPEFUL_WILDFLOWERS, CHEERY_WILDFLOWERS, MOODY_WILDFLOWERS, ALPHACENE_MOSS_CARPET, DRY_MOSS_CARPET, RED_ALGAE_CARPET);
 
 
         public static boolean runData() {

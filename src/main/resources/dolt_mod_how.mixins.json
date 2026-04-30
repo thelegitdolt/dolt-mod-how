@@ -5,6 +5,7 @@
   "refmap": "dolt_mod_how.refmap.json",
   "mixins": [
     "HeartCrystalMixin",
+    "what",
     "alexscaves.AcidBlockMixin",
     "alexscaves.BiomeTreatItemMixin",
     "alexscaves.CycadMixin",
@@ -31,6 +32,7 @@
     "caverns_and_chasms.CCEventsMixin",
     "caverns_and_chasms.PackingContainerMixin",
     "caverns_and_chasms.TetherPotionMixin",
+    "darkerdepths.ClimateUtilMixin",
     "doomandgloom.HollerMixin",
     "dungeonsdelight.CleaverEntityMixin",
     "dungeonsdelight.DDPropertiesMixin",

@@ -16,6 +16,7 @@ import com.github.alexmodguy.alexscaves.server.entity.living.TremorzillaEntity;
 import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import com.github.alexmodguy.alexscaves.server.item.RadioactiveOnDestroyedBlockItem;
 import com.github.alexmodguy.alexscaves.server.misc.ACDamageTypes;
+import com.github.alexmodguy.alexscaves.server.misc.ACSoundRegistry;
 import com.teamabnormals.blueprint.common.world.storage.tracking.IDataManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -50,6 +51,10 @@ public class DMHACCompat {
         }
 
         return false;
+    }
+
+    public static void playVallumSound(LivingEntity entity) {
+        entity.playSound(ACSoundRegistry.VALLUMRAPTOR_CALL.get(), 1.2f, 1.2f);
     }
 
     public static boolean firstEntityIsTremorzillaAndSecondIsNucleeper(Entity entity1, Entity entity2) {

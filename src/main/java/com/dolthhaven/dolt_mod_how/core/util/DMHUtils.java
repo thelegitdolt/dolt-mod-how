@@ -2,7 +2,8 @@ package com.dolthhaven.dolt_mod_how.core.util;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
-import net.minecraft.client.renderer.entity.layers.FoxHeldItemLayer;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
@@ -160,7 +162,8 @@ public class DMHUtils {
 
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
-
+        public static final ResourceLocation MUCK = new ResourceLocation(ALEXS_CAVES, "muck");
+        public static final ResourceKey<Biome> ABYSSAL_CHASMS = ResourceKey.create(Registries.BIOME, new ResourceLocation("alexscaves", "abyssal_chasm"));
         public static final ResourceLocation SAND_RAKE = new ResourceLocation(MOWZIES_MOBS, "sand_rake");
         public static final ResourceLocation RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "raked_sand");
         public static final ResourceLocation RED_RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "red_raked_sand");

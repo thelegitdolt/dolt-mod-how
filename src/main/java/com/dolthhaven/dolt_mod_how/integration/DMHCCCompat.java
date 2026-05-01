@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.integration;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.google.common.base.Suppliers;
 import com.teamabnormals.caverns_and_chasms.common.block.entity.ToolboxBlockEntity;
 import com.teamabnormals.caverns_and_chasms.common.dispenser.FilledGoldenBucketDispenseBehavior;
 import com.teamabnormals.caverns_and_chasms.common.entity.monster.Mime;
@@ -13,12 +14,18 @@ import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public class DMHCCCompat {
+    public static final Supplier<List<Item>> COPPER_INGOTS = Suppliers.memoize(() ->
+            List.of(Items.COPPER_INGOT, CCItems.EXPOSED_COPPER_INGOT.get(), CCItems.WEATHERED_COPPER_INGOT.get(), CCItems.OXIDIZED_COPPER_INGOT.get(),
+                    CCItems.WAXED_COPPER_INGOT.get(), CCItems.WAXED_EXPOSED_COPPER_INGOT.get(), CCItems.WAXED_WEATHERED_COPPER_INGOT.get(), CCItems.WAXED_OXIDIZED_COPPER_INGOT.get()));
+
     public static final Supplier<Item> GOLDEN_ACID_BUCKET = () ->
             new GoldenBucketItem(() -> DMHUtils.getFluidOrWater(DMHUtils.Constants.ACID),
                     new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));

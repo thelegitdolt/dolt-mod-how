@@ -71,6 +71,7 @@
     "vanilla.BlockBehaviorMixin",
     "vanilla.BlockItemMixin",
     "vanilla.BlockMixin",
+    "vanilla.BlockstateBaseMixin",
     "vanilla.CakeMixin",
     "vanilla.CocoaBlockMixin",
     "vanilla.CreeperMixin",

@@ -3,6 +3,7 @@ package com.dolthhaven.dolt_mod_how.core.mixin.alexscaves;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCCCompat;
+import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.github.alexmodguy.alexscaves.server.entity.item.SubmarineEntity;
 import com.github.alexmodguy.alexscaves.server.misc.ACSoundRegistry;
 import com.llamalad7.mixinextras.expression.Definition;
@@ -53,7 +54,7 @@ public abstract class SubmarineMixin {
         if (DMHUtils.cavernsChasmsLoaded()) {
             int oxy = this.getOxidizationLevel();
             int waxed = this.isWaxed() ? 4 : 0;
-            return DMHACCCCompat.COPPER_INGOTS.get().get(oxy + waxed);
+            return DMHCCCompat.COPPER_INGOTS.get().get(oxy + waxed);
         }
         return par1;
     }

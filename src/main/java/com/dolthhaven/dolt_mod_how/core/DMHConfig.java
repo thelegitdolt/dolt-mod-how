@@ -18,6 +18,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> frogMistLikeHopeLights;
         public final ConfigValue<Boolean> lessAnnoyingSleep;
         public final ConfigValue<Integer> blockPlaceXpChance;
+        public final ConfigValue<Boolean> removeDarkerDepthGlowStoneForest;
 
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
         public final ConfigValue<Boolean> replaceSawmillWithStonecutter;
@@ -183,6 +184,13 @@ public class DMHConfig {
                             .define("Based Charged Creepers", false);
             sporeRocketSummonSporeCloud = builder.comment("If spore rockets explosions should create a Spore Cloud from Savage and Ravage").define("Spore Bomb Two", true);
             sporeCloudChance = builder.comment("The chance, out of 100, that a spore rocket will summon a spore cloud").defineInRange("Spore rocket possibilities", 100, 0, 100);
+            builder.pop();
+            builder.pop();
+
+            builder.push("Darker Depths");
+            builder.push("Biomes");
+            removeDarkerDepthGlowStoneForest = builder.comment("If Darker Depths Glowstone Forests should be STOPPED from spawning")
+                    .define("Glowstone Forest", false);
             builder.pop();
             builder.pop();
 

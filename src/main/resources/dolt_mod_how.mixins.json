@@ -7,6 +7,7 @@
     "HeartCrystalMixin",
     "what",
     "alexscaves.AcidBlockMixin",
+    "alexscaves.AnimalLootChestsGoalMixin",
     "alexscaves.BiomeTreatItemMixin",
     "alexscaves.CycadMixin",
     "alexscaves.DesolateDaggerMixin",

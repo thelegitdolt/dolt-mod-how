@@ -11,6 +11,7 @@
     "alexscaves.CycadMixin",
     "alexscaves.DesolateDaggerMixin",
     "alexscaves.DinosaurChopMixin",
+    "alexscaves.EnigmaticEngineMixin",
     "alexscaves.GingerbreadManMixin",
     "alexscaves.MarineSnowMixin",
     "alexscaves.NuclearFurnaceBlockEntityMixin",

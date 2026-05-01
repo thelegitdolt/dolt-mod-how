@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.util;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
+import net.minecraft.client.renderer.entity.layers.FoxHeldItemLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -37,6 +38,12 @@ public class DMHUtils {
         }
     }
 
+    public static int toNumber(String path) {
+        if (path.contains("oxidized")) return 3;
+        if (path.contains("weathered")) return 2;
+        if (path.contains("exposed")) return 1;
+        return 0;
+    }
 
     public static void printItem(Item item) {
         ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
@@ -93,6 +100,18 @@ public class DMHUtils {
 
     public static ResourceLocation entityId(EntityType<?> type) {
         return ForgeRegistries.ENTITY_TYPES.getKey(type);
+    }
+
+    public static int getLargestIndexInArray(int[] oxy) {
+        int large = Integer.MIN_VALUE;
+        int ret = 0;
+        for (int i = 0; i < oxy.length; i++) {
+            if (oxy[i] > large) {
+                large = oxy[i];
+                ret = i;
+            }
+        }
+        return ret;
     }
 
 

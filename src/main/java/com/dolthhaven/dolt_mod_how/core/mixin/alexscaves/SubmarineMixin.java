@@ -21,7 +21,6 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.violetmoon.zetaimplforge.event.play.entity.player.ForgeZRightClickBlock;
 
 @Pseudo
 @Mixin(SubmarineEntity.class)

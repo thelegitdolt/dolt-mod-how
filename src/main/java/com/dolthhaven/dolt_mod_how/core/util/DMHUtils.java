@@ -40,13 +40,6 @@ public class DMHUtils {
         }
     }
 
-    public static int toNumber(String path) {
-        if (path.contains("oxidized")) return 3;
-        if (path.contains("weathered")) return 2;
-        if (path.contains("exposed")) return 1;
-        return 0;
-    }
-
     public static void printItem(Item item) {
         ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
         if (res == ForgeRegistries.ITEMS.getDefaultKey() || res == null) {

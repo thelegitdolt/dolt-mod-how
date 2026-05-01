@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Pseudo
@@ -33,7 +34,7 @@ public abstract class EnigmaticEngineMixin extends BlockEntity {
         String path = DMHUtils.getBlockId(beforeState.getBlock()).getPath();
         if (path.contains("copper")) {
             waxedCount.get()[path.contains("waxed") ? 1 : 0] += 1;
-            oxidationCount.get()[DMHUtils.toNumber(path)] += 1;
+            oxidationCount.get()[toOxiStateNumber(path)] += 1;
         }
         return ret;
     }
@@ -48,5 +49,13 @@ public abstract class EnigmaticEngineMixin extends BlockEntity {
         }
 
         return original.call(instance, entity);
+    }
+
+    @Unique
+    private static int toOxiStateNumber(String path) {
+        if (path.contains("oxidized")) return 3;
+        if (path.contains("weathered")) return 2;
+        if (path.contains("exposed")) return 1;
+        return 0;
     }
 }

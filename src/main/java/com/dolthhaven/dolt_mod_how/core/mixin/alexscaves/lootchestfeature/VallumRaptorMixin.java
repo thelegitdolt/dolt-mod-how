@@ -38,7 +38,7 @@ public abstract class VallumRaptorMixin extends LivingEntity implements FleeingH
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void sex(CallbackInfo ci) {
-        if ((this.level().getGameTime() & this.uuid.getLeastSignificantBits() % 10000) == 0) {
+        if ((this.level().getGameTime() & this.uuid.getLeastSignificantBits() % 4096) == 0) {
             DMHTrackedData.setVallumraptorChestData(this, true);
         }
     }

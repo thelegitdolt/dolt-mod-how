@@ -55,10 +55,9 @@ public abstract class AnimalLootChestsGoalMixin extends MoveToBlockGoal {
                 this.entity.playSound(SpawnSoundEvents.OCTOPUS_SQUIRT.get(), 1.0F, 1.0F);
                 if (this.entity instanceof FleeingHolder fleer) {
                     this.stop();
-                   fleer.flee(this.blockPos);
+                    fleer.flee(this.blockPos);
                 }
             }
-            this.stop();
             ci.cancel();
         }
 

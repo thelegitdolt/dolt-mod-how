@@ -6,7 +6,6 @@ import com.teamabnormals.blueprint.common.world.storage.tracking.IDataManager;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 
 public class DMHTrackedData {
     public static final TrackedData<Byte> LEVEL_IMPENDING_STAB = TrackedData.Builder.create(DataProcessors.BYTE, () -> (byte) 0).build();

@@ -43,10 +43,6 @@ public class ThunderdomeUtil {
         return data >>> 30;
     }
 
-    public static int score(Player player) {
-        return get(player) >>> 30;
-    }
-
     private static int lastGameTime(int data) {
         return data & TRUNCATOR;
     }

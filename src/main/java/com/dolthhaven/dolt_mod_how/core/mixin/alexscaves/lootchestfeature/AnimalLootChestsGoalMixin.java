@@ -2,10 +2,10 @@ package com.dolthhaven.dolt_mod_how.core.mixin.alexscaves.lootchestfeature;
 
 import com.dolthhaven.dolt_mod_how.core.other.DMHTrackedData;
 import com.dolthhaven.dolt_mod_how.core.other.FleeingHolder;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.dolthhaven.dolt_mod_how.integration.DMHSpawnCompat;
 import com.github.alexmodguy.alexscaves.server.entity.ai.AnimalLootChestsGoal;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.ninni.spawn.registry.SpawnSoundEvents;
-import com.ninni.spawn.server.entity.accessor.ChestBlockEntityAccessor;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -15,6 +15,7 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MoveToBlockGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
@@ -42,24 +43,24 @@ public abstract class AnimalLootChestsGoalMixin extends MoveToBlockGoal {
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/ai/navigation/PathNavigation;stop()V", shift = At.Shift.AFTER), remap = false, cancellable = true)
     private void sex(CallbackInfo ci, @Local BlockEntity blockEntity) {
-        if (blockEntity instanceof ChestBlockEntityAccessor accessor && accessor.getOctopusOwner() != null) {
-            if (this.entity.level() instanceof ServerLevel serverLevel) {
-                RandomSource rand = this.entity.getRandom();
-                for(int i = 0; i < 30; ++i) {
-                    serverLevel.sendParticles(ParticleTypes.SQUID_INK,
-                            entity.position().x + rand.nextGaussian() * 0.5D, entity.position().y + 1.5 + rand.nextGaussian() * 0.5D, entity.position().z + rand.nextGaussian() * 0.5F,
-                            0, 0.0F, 0.0F, 0.0F, 0.1F);
-                }
+        if (!ModList.get().isLoaded(DMHUtils.Constants.SPAWN)) return;
+        if (!DMHSpawnCompat.hasOctopus(blockEntity)) return;
 
-                this.entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0));
-                this.entity.playSound(SpawnSoundEvents.OCTOPUS_SQUIRT.get(), 1.0F, 1.0F);
-                if (this.entity instanceof FleeingHolder fleer) {
-                    this.stop();
-                    fleer.flee(this.blockPos);
-                }
+        if (this.entity.level() instanceof ServerLevel serverLevel) {
+            RandomSource rand = this.entity.getRandom();
+            for(int i = 0; i < 30; ++i) {
+                serverLevel.sendParticles(ParticleTypes.SQUID_INK,
+                        entity.position().x + rand.nextGaussian() * 0.5D, entity.position().y + 1.5 + rand.nextGaussian() * 0.5D, entity.position().z + rand.nextGaussian() * 0.5F,
+                        0, 0.0F, 0.0F, 0.0F, 0.1F);
             }
-            ci.cancel();
-        }
 
+            this.entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0));
+            this.entity.playSound(DMHSpawnCompat.octopusSquirtSound(), 1.0F, 1.0F);
+            if (this.entity instanceof FleeingHolder fleer) {
+                this.stop();
+                fleer.flee(this.blockPos);
+            }
+        }
+        ci.cancel();
     }
 }

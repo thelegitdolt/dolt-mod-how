@@ -35,7 +35,7 @@ public abstract class BlockstateBaseMixin {
     private void sex(ServerLevel level, BlockPos pos, RandomSource random, CallbackInfo ci) {
         if (!DMHUtils.alexCavesLoaded() || this.getBlock() != Blocks.MUD) return;
         Block muck = ForgeRegistries.BLOCKS.getValue(DMHUtils.Constants.MUCK);
-        boolean randomCheck = random.nextInt(200) == 0;
+        boolean randomCheck = random.nextInt(600) == 0;
         boolean isInAbyssalChasm = randomCheck && level.getBiome(pos).is(DMHUtils.Constants.ABYSSAL_CHASMS);
         boolean isReallyDeep = isInAbyssalChasm && pos.getY() < -16;
         boolean waterCheck = isReallyDeep && waterCheck(level, pos, random);

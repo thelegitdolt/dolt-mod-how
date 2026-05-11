@@ -59,6 +59,7 @@
     "quark.CopperPipeBlockMixin",
     "quark.PathfinderItemMixin",
     "quark.QuarkMixin",
+    "quark.WoodPostBlockMixin",
     "species.CombustionEffectMixin",
     "species.CrankbowMixin",
     "species.HopelightBlockMixin",

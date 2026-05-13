@@ -171,6 +171,7 @@ public class DMHUtils {
         public static final ResourceLocation ZIRCONIA = new ResourceLocation(CAVERNS_AND_CHASMS, "zirconia");
 
         public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");
+        public static final ResourceLocation ECTOPLASM = new ResourceLocation(JNE, "ectoplasm");
         public static final ResourceLocation DESOLATE_DAGGER = new ResourceLocation(ALEXS_CAVES, "desolate_dagger");
         public static final ResourceLocation DINOSAUR_CHOP = new ResourceLocation(ALEXS_CAVES, "dinosaur_chop");
         public static final ResourceLocation COOKED_DINOSAUR_CHOPS = new ResourceLocation(ALEXS_CAVES, "cooked_dinosaur_chop");

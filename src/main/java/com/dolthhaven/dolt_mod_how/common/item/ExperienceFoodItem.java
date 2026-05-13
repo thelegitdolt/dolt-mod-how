@@ -17,7 +17,7 @@ public class ExperienceFoodItem extends ConsumableItem {
     @Override
     public void affectConsumer(ItemStack stack, Level level, LivingEntity consumer) {
         if (consumer instanceof ServerPlayer && level instanceof ServerLevel serverLevel) {
-            ExperienceOrb.award(serverLevel, consumer.position(), UniformInt.of(0, 2).sample(consumer.getRandom()));
+            ExperienceOrb.award(serverLevel, consumer.position(), UniformInt.of(1, 3).sample(consumer.getRandom()));
         }
     }
 }

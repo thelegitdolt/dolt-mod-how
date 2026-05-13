@@ -19,6 +19,7 @@ public class DoltModHowDispensers {
             DispenserBlock.registerBehavior(DMHItems.GOLDEN_MOLTEN_LEAD_BUCKET.get(), buck);
             DispenserBlock.registerBehavior(DMHItems.GOLDEN_ACID_BUCKET.get(), buck);
             DispenserBlock.registerBehavior(DMHItems.GOLDEN_PURPLE_SODA_BUCKET.get(), buck);
+            DispenserBlock.registerBehavior(DMHItems.GOLDEN_ECTOPLASM_BUCKET.get(), buck);
         }
     }
 }

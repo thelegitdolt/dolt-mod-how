@@ -40,6 +40,9 @@ public class DMHItemTags extends ItemTagsProvider {
         this.tag(DMHTags.MOLTEN_LEAD_BUCKETS)
                 .add(GOLDEN_MOLTEN_LEAD_BUCKET.get())
                 .addOptional(new ResourceLocation(DMHUtils.Constants.OREGANIZED, "molten_lead_bucket"));
+        this.tag(DMHTags.ECTOPLASM_BUCKETS)
+                .add(GOLDEN_ECTOPLASM_BUCKET.get())
+                .addOptional(new ResourceLocation(DMHUtils.Constants.JNE, "ectoplasm_bucket"));
 
         this.tag(DMHTags.LEATHER).add(Items.LEATHER, LEATHER_SCRAPS.get());
         this.tag(DMHTags.HIDES_CAPES).add(BackpackModule.backpack);
@@ -47,7 +50,7 @@ public class DMHItemTags extends ItemTagsProvider {
         this.tag(BnCTags.CHEESE_WEDGES).add(WARDENZOLA_WEDGE.get());
         this.tag(DMHTags.SCULK_CHEESE).add(WARDENZOLA_WEDGE.get());
 
-        this.tag(ItemTags.PIGLIN_LOVED).add(GOLDEN_ACID_BUCKET.get(), GOLDEN_PURPLE_SODA_BUCKET.get(), GOLDEN_MOLTEN_LEAD_BUCKET.get());
+        this.tag(ItemTags.PIGLIN_LOVED).add(GOLDEN_ACID_BUCKET.get(), GOLDEN_PURPLE_SODA_BUCKET.get(), GOLDEN_MOLTEN_LEAD_BUCKET.get(), GOLDEN_ECTOPLASM_BUCKET.get());
 
         this.tag(BlueprintItemTags.BUCKETS)
                 .addTags(DMHTags.ACID_BUCKETS, DMHTags.PURPLE_SODA_BUCKETS, DMHTags.MOLTEN_LEAD_BUCKETS);

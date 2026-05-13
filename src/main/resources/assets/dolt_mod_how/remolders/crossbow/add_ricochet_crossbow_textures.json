@@ -1,0 +1,25 @@
+{
+  "molding": "json",
+  "remolder": {
+    "type": "add",
+    "target": "overrides[]",
+    "value": {
+        "predicate": {
+            "dolt_mod_how:ricochet_arrow": 1
+        },
+        "model": "dolt_mod_how:item/crossbow/crossbow_ricochet_arrow"
+    }
+  },
+  "selector": {
+    "type": "names",
+    "conditions": [
+      {
+        "type": "forge:mod_loaded",
+        "modid": "caverns_and_chasms"
+      }
+    ],
+    "config": [
+      "minecraft:models/item/crossbow"
+    ]
+  }
+}

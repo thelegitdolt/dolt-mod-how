@@ -17,6 +17,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.fml.ModList;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -34,6 +35,9 @@ public class DMHCCCompat {
                     new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
     public static final Supplier<Item> GOLDEN_MOLTEN_LEAD_BUCKET = () ->
             new GoldenBucketItem(() -> DMHUtils.getFluidOrWater(DMHUtils.Constants.MOLTEN_LEAD),
+                    new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
+    public static final Supplier<Item> GOLDEN_ECTOPLASM_BUCKET = () ->
+            new GoldenBucketItem(() -> DMHUtils.getFluidOrWater(DMHUtils.Constants.ECTOPLASM),
                     new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
 
     public static DefaultDispenseItemBehavior getGoldenBucketDispenseBehavior() {
@@ -71,5 +75,8 @@ public class DMHCCCompat {
             GoldenBucketItem.GOLDEN_BUCKET_BEHAVIORS.put(state -> state.getFluidState().is(DMHUtils.getFluidOrWater(DMHUtils.Constants.MOLTEN_LEAD)), DMHItems.GOLDEN_MOLTEN_LEAD_BUCKET);
         }
 
+        if (ModList.get().isLoaded(DMHUtils.Constants.JNE)) {
+            GoldenBucketItem.GOLDEN_BUCKET_BEHAVIORS.put(state -> state.getFluidState().is(DMHUtils.getFluidOrWater(DMHUtils.Constants.ECTOPLASM)), DMHItems.GOLDEN_ECTOPLASM_BUCKET);
+        }
     }
 }

@@ -32,12 +32,14 @@ public class DMHClientCompat {
         registerCrossbowIfModLoaded("seeking_arrow", () -> DMHUtils.getPotentialItem(DMHUtils.Constants.ALEXS_CAVES, "seeking_arrow"), DMHUtils.Constants.ALEXS_CAVES);
         registerCrossbowIfModLoaded("burrowing_arrow", () -> DMHUtils.getPotentialItem(DMHUtils.Constants.ALEXS_CAVES, "burrowing_arrow"), DMHUtils.Constants.ALEXS_CAVES);
         registerCrossbowIfModLoaded("phasmo_arrow", () -> DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "phasmo_arrow"), DMHUtils.Constants.JNE);
+        registerCrossbowIfModLoaded("ricochet_arrow", () -> DMHUtils.getPotentialItem(DMHUtils.Constants.CAVERNS_AND_CHASMS, "ricochet_arrow"), DMHUtils.Constants.CAVERNS_AND_CHASMS);
 
 
         registerCrossbowPredicate("torch_arrow", () -> TorchArrowModule.torch_arrow);
         registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_ACID_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES);
         registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_PURPLE_SODA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES);
         registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_MOLTEN_LEAD_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED);
+        registerGoldenBucketIfModLoaded(DMHItems.GOLDEN_ECTOPLASM_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.JNE);
     }
 
     private static void registerRendersMaybe() {

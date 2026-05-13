@@ -88,6 +88,7 @@
     "vanilla.RecipeManagerMixin",
     "vanilla.ServerLevelMixin",
     "vanilla.ServerPlayerMixin",
+    "vanilla.SkeletonMixin",
     "vanilla.SlimeMixin",
     "vanilla.SuspiciousStewMixin"
   ],

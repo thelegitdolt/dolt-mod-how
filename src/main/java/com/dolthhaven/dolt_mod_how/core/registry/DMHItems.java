@@ -60,6 +60,8 @@ public class DMHItems {
             BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES) ? DMHCCCompat.GOLDEN_PURPLE_SODA_BUCKET : () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GOLDEN_MOLTEN_LEAD_BUCKET = HELPER.createItem("golden_molten_lead_bucket",
             BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED) ? DMHCCCompat.GOLDEN_MOLTEN_LEAD_BUCKET : () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> GOLDEN_ECTOPLASM_BUCKET = HELPER.createItem("golden_ectoplasm_bucket",
+            BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.JNE) ? DMHCCCompat.GOLDEN_ECTOPLASM_BUCKET : () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> WARDENZOLA_WEDGE = HELPER.createItem("wardenzola_wedge",
             () -> new ExperienceFoodItem(new Item.Properties().food(WARDENZOLA)));
@@ -111,6 +113,8 @@ public class DMHItems {
                         GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET)
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED),
                         GOLDEN_MOLTEN_LEAD_BUCKET)
+                .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.JNE),
+                        GOLDEN_ECTOPLASM_BUCKET)
 
                 .predicate(DMHItems::fdPredicate)
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)

@@ -128,6 +128,7 @@ public class DMHUtils {
         public static final String FARMERS_DELIGHT = "farmersdelight";
         public static final String FTGU = "ftgu";
         public static final String HEART_CRYSTALS = "heart_crystals";
+        public static final String IMMERSIVE_ENCHANTING = "immersiveenchanting";
         public static final String MOWZIES_MOBS = "mowziesmobs";
         public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
         public static final String NEAPOLITAN = "neapolitan";
@@ -152,6 +153,7 @@ public class DMHUtils {
         public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
+        public static final ResourceLocation ANCIENT_BOOK = new ResourceLocation(IMMERSIVE_ENCHANTING, "ancient_book");
 
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");

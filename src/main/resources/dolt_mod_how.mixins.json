@@ -57,6 +57,7 @@
     "nethers_delight.StuffedHoglinMixin",
     "nethers_delight.ZoglinTrophyMixin",
     "quark.CopperPipeBlockMixin",
+    "quark.FoodTooltipMixin",
     "quark.PathfinderItemMixin",
     "quark.QuarkMixin",
     "quark.WoodPostBlockMixin",

@@ -7,13 +7,8 @@ import org.spongepowered.asm.mixin.MixinEnvironment;
 import org.spongepowered.asm.mixin.injection.At;
 import org.violetmoon.quark.base.Quark;
 
-@Mixin(value = Quark.class, priority = 0)
+@Mixin(value = Quark.class)
 public class QuarkMixin {
     @WrapOperation(method = "<init>", at = @At(value = "INVOKE", target = "Lorg/spongepowered/asm/mixin/MixinEnvironment;audit()V"))
     private void pleaseShutUp(MixinEnvironment instance, Operation<Void> original) {}
-
-    @WrapOperation(method = "<init>", at = @At(value = "INVOKE", target = "Lorg/violetmoon/zeta/util/Utils;isDevEnv()Z"))
-    private boolean pleaseShutUp(Operation<Boolean> original) {
-        return false;
-    }
 }

@@ -9,6 +9,7 @@ import org.apache.commons.lang3.tuple.Pair;
 public class DMHConfig {
     public static class Common {
         public final ConfigValue<Boolean> doMetalOresDropXP;
+        public final ConfigValue<Boolean> hasRemovedHunger;
         public final ConfigValue<Boolean> doCropBlocksDropXP;
         public final ConfigValue<Integer> minCropXpDrops;
         public final ConfigValue<Integer> maxCropXpDrops;
@@ -71,6 +72,9 @@ public class DMHConfig {
             builder.push("misc");
             lessAnnoyingItemReclaim = builder.comment("If interacting with blocks like Flower Pots and Amendment Placeable Books should put the item they contain into your inventory, thus merging with existing stacks, instead of adding it to your hand, which is EXTREMELY ANNOYING")
                             .define("Less Annoying Item Reclaim", true);
+
+            hasRemovedHunger = builder.comment("Set this to true if you have, say, used Melancholic Hunger to remove hunger from your modpack and made food directly restore health")
+                    .define("You are literally dolt", false);
             builder.pop();
 
             builder.push("Vanilla");

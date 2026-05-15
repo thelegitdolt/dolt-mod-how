@@ -149,5 +149,11 @@
   "item.minecraft.lingering_potion.effect.miming": "Lingering Potion of Miming",
   "item.minecraft.potion.effect.miming": "Potion of Miming",
   "item.minecraft.splash_potion.effect.miming": "Splash Potion of Miming",
-  "item.minecraft.tipped_arrow.effect.miming": "Arrow of Miming"
+  "item.minecraft.tipped_arrow.effect.miming": "Arrow of Miming",
+
+  "effect.dolt_mod_how.rapacity": "Rapacity",
+  "item.minecraft.lingering_potion.effect.rapacity": "Lingering Potion of Rapacity",
+  "item.minecraft.potion.effect.rapacity": "Potion of Rapacity",
+  "item.minecraft.splash_potion.effect.rapacity": "Splash Potion of Rapacity",
+  "item.minecraft.tipped_arrow.effect.rapacity": "Arrow of Rapacity"
 }

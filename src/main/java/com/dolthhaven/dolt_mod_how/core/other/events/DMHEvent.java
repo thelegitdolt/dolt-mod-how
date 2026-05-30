@@ -10,6 +10,7 @@ import com.dolthhaven.dolt_mod_how.integration.AmendmentsBugfix;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHFTGUCompat;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.particle.DragonBreathParticle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -21,6 +22,7 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.Item;
@@ -36,6 +38,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
@@ -54,6 +57,9 @@ import static net.minecraft.world.InteractionHand.MAIN_HAND;
 public class DMHEvent {
     private static final UniformInt COMMON_ORE = UniformInt.of(0, 2);
     private static final UniformInt RARE_ORE = UniformInt.of(1, 3);
+
+    public static void avoidDragonBreath(EntityJoinLevelEvent event) {
+    }
 
     @SubscribeEvent
     public static void projectileImpact(ProjectileImpactEvent event) {

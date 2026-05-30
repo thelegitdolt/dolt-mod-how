@@ -8,7 +8,6 @@ import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DyeDepotCompat;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.rosemods.heart_crystals.core.registry.HCBlocks;
-import com.rosemods.heart_crystals.core.registry.HCItems;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBlocks;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;

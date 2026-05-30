@@ -192,8 +192,10 @@ dependencies {
     compileOnly fg.deobf("maven.modrinth:etcetera:${project.etcetera}")
 
     implementation fg.deobf("maven.modrinth:neapolitan:${project.neapolitan}")
+    implementation fg.deobf("maven.modrinth:melancholic_hunger:${project.melancholicHunger}")
     implementation fg.deobf("maven.modrinth:atmospheric:${project.atmospheric}")
     implementation fg.deobf("maven.modrinth:geckolib:${project.geckolib}")
+    implementation fg.deobf("maven.modrinth:yacl:${project.yacl}")
     implementation fg.deobf("maven.modrinth:heart_crystals:${project.heart_crystals}")
     implementation fg.deobf("maven.modrinth:brewin-and-chewin:${project.brewinAndChewin}")
 

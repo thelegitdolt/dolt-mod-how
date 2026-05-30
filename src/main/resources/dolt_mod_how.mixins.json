@@ -33,6 +33,7 @@
     "brewinandchewin.CoasterBlockEntityRendererMixin",
     "brewinandchewin.CoasterBlockMixin",
     "brewinandchewin.CoasterEntityMixin",
+    "brewinandchewin.FieryFonduePotBlockMixin",
     "caverns_and_chasms.CCEventsMixin",
     "caverns_and_chasms.PackingContainerMixin",
     "caverns_and_chasms.TetherPotionMixin",

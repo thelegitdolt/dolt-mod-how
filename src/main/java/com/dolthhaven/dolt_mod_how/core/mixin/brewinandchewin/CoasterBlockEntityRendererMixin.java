@@ -58,7 +58,7 @@ public abstract class CoasterBlockEntityRendererMixin implements BlockEntityRend
     @Inject(method = "render(Lumpaz/brewinandchewin/common/block/entity/CoasterBlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V",
         at = @At("TAIL"), remap = false)
     private void DoltModHow$RenderCoasterNamePlate(CoasterBlockEntity entity, float tickDelta, PoseStack poseStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay, CallbackInfo ci) {
-        if (Minecraft.getInstance().hitResult instanceof BlockHitResult blockHitResult) {
+        if (this.renderer.cameraHitResult instanceof BlockHitResult blockHitResult) {
             BlockPos pos = blockHitResult.getBlockPos();
             if (entity.getBlockPos().equals(pos)) {
                 ItemStack stack = itemToRender(entity, blockHitResult.getLocation().toVector3f());
@@ -79,7 +79,7 @@ public abstract class CoasterBlockEntityRendererMixin implements BlockEntityRend
         float sin = Mth.sin(Mth.TWO_PI * rotation / 16);
         float cos = org.joml.Math.cosFromSin(sin, Mth.TWO_PI * rotation / 16);
         float newX = cos * x + sin * z;
-        float newY = - sin * x + cos * z;
+        float newY = -sin * x + cos * z;
         // + 0.5f is to make origin work again
         return new Vector2f(newX + 0.5f, newY + 0.5f);
     }

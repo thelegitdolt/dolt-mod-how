@@ -7,7 +7,10 @@ import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -34,6 +37,20 @@ public class DoltModHowDataUtil {
             DMHCCCompat.registerGoldenBuckets();
         }
         registerPipes();
+        transformItemProperties();
+    }
+
+    public static void transformItemProperties() {
+        int[] numbers = {1, 1, 1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13};
+
+        for (Item item : ForgeRegistries.ITEMS.getValues()) {
+            if (item.foodProperties != null) {
+                int nut = item.foodProperties.nutrition;
+                if (nut > 0 && nut <= 13) {
+                    item.foodProperties.nutrition = numbers[nut - 1];
+                }
+            }
+        }
     }
 
     private static void registerCompostable() {

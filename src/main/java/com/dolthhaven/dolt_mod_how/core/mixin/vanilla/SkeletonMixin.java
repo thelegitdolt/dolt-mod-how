@@ -21,9 +21,9 @@ public abstract class SkeletonMixin extends Monster {
 
     @ModifyReturnValue(method = "getArrow", at = @At("RETURN"), remap = false)
     private AbstractArrow sex(AbstractArrow arrow) {
-        if (this.getY() < 20 && this.random.nextInt(4) == 0) {
+        if (this.getY() < 20 && this.random.nextInt(3) == 0) {
             if (((AbstractSkeleton) (Object)this) instanceof Skeleton && arrow instanceof Arrow actualArrow) {
-                actualArrow.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, random.nextInt(2)));
+                actualArrow.addEffect(new MobEffectInstance(MobEffects.HUNGER, 300));
             }
         }
         return arrow;

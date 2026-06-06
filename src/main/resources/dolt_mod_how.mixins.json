@@ -99,7 +99,8 @@
   "client": [
     "vanilla.CapeLayerMixin",
     "vanilla.ClientPacketListenerMixin",
-    "vanilla.ItemPropertiesMixin"
+    "vanilla.ItemPropertiesMixin",
+    "vanilla.LocalPlayerMixin"
   ],
   "mixinextras": {
     "minVersion": "0.5.0"

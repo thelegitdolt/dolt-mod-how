@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.other;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHMobEffects;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
@@ -37,16 +38,18 @@ public class DoltModHowDataUtil {
             DMHCCCompat.registerGoldenBuckets();
         }
         registerPipes();
-        transformItemProperties();
+        if (DMHConfig.COMMON.hasRemovedHunger.get()) {
+            transformItemProperties();
+        }
     }
 
     public static void transformItemProperties() {
-        int[] numbers = {1, 1, 1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13};
+        int[] numbers = {1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 
         for (Item item : ForgeRegistries.ITEMS.getValues()) {
             if (item.foodProperties != null) {
                 int nut = item.foodProperties.nutrition;
-                if (nut > 0 && nut <= 13) {
+                if (nut > 0 && nut <= 21) {
                     item.foodProperties.nutrition = numbers[nut - 1];
                 }
             }

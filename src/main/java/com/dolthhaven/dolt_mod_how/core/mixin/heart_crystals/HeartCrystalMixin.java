@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin;
+package com.dolthhaven.dolt_mod_how.core.mixin.heart_crystals;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.rosemods.heart_crystals.common.item.HeartCrystalItem;
@@ -6,7 +6,6 @@ import com.rosemods.heart_crystals.core.registry.HCSoundEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;

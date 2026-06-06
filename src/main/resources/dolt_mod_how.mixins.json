@@ -58,6 +58,7 @@
     "nethers_delight.RichSoilMixin",
     "nethers_delight.StuffedHoglinMixin",
     "nethers_delight.ZoglinTrophyMixin",
+    "opposingforces.SawbladeItemMixin",
     "quark.CopperPipeBlockMixin",
     "quark.FoodTooltipMixin",
     "quark.PathfinderItemMixin",

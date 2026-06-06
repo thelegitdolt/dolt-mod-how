@@ -30,6 +30,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> conqueringStar;
         public final ConfigValue<Boolean> ghastaWithCreamDoesntRegenerate;
         public final ConfigValue<Boolean> hoglinMountDoesntTick;
+        public final ConfigValue<Boolean> opposeForceSawBladeChopTree;
         @ConfigKey("quiver_recipe")
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
         @ConfigKey("bookshelves_drop_themselves")
@@ -152,6 +153,13 @@ public class DMHConfig {
                     .comment("If bone rods should be placed by right clicking vanilla bones, instead of having a new bone rod item")
                     .comment("This will not change the loot table or recipe for bone rods. Modpack devs are expected to change those themselves")
                     .define("Bone ahh bone", false);
+            builder.pop();
+            builder.pop();
+
+            builder.push("OpposingForces");
+            builder.push("Sawblades");
+            opposeForceSawBladeChopTree = builder.comment("If the terror sawblades from the opposing forces modification should be banned from doing the tree chop thing, which is VANILLA MINUS and should not be encouraged.")
+                    .define("Vanilla Plus Modpack", false);
             builder.pop();
             builder.pop();
 

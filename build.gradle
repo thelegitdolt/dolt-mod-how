@@ -162,6 +162,7 @@ dependencies {
 
     implementation fg.deobf("maven.modrinth:oreganized:${project.oreganized}")
     implementation fg.deobf("maven.modrinth:doom-gloom:${project.doomGloom}")
+    implementation fg.deobf("maven.modrinth:opposing-force:${project.opposingForce}")
 
     implementation fg.deobf("maven.modrinth:ferrite-core:${project.ferriteCore}")
     implementation fg.deobf("maven.modrinth:dungeons_delight:${project.dungeonsDelight}")

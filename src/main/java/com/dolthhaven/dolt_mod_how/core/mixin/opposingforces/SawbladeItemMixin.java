@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Pseudo
 @Mixin(ForgeEvents.class)
 public class SawbladeItemMixin {
-    @WrapWithCondition(method = "onBlockBreak", at = @At(value = "INVOKE", target = "Lcom/unusualmodding/opposing_force/items/SawbladeItem;chopTree(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)V"))
+    @WrapWithCondition(method = "onBlockBreak", at = @At(value = "INVOKE", target = "Lcom/unusualmodding/opposing_force/items/SawbladeItem;chopTree(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;)V"), remap = false)
     private static boolean treeChop(Level belowPos, BlockPos logState, Player logPos) {
         return DMHConfig.COMMON.opposeForceSawBladeChopTree.get();
     }

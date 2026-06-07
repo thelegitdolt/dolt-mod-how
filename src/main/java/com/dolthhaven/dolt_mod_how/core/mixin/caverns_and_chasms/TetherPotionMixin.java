@@ -3,8 +3,6 @@ package com.dolthhaven.dolt_mod_how.core.mixin.caverns_and_chasms;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHDDCompat;
 import com.teamabnormals.caverns_and_chasms.common.item.TetherPotionItem;
-import net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffect;

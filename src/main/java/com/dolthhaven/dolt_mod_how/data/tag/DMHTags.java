@@ -14,6 +14,7 @@ public class DMHTags {
     public static final TagKey<Block> RARE_ORES = blockTag("rare_ores");
     public static final TagKey<Block> NO_XP_CROPS = blockTag("no_xp_crops");
     public static final TagKey<Block> CHANNELS_LIGHTNING = blockTag("channels_lightning");
+    public static final TagKey<Block> BIOME_CRUCIBLE_CAN_CONVERT = blockTag("biome_crucible_can_convert");
     public static final TagKey<Block> COCOA_BEANS_ADDITIONALLY_PLANTABLE_ON = blockTag("cocoa_beans_additionally_plantable_on");
     public static final TagKey<Block> PIPE_BLOCKS = externalBlockTag("quark", "pipes");
     public static final TagKey<Block> MINEABLE_SHEARS = externalBlockTag("minecraft", "mineable/shear");

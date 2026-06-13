@@ -15,4 +15,6 @@ public class PlayerMixin {
             cir.setReturnValue(true);
         }
     }
+
+//    @Inject(method = "aiStep", at = @At())
 }

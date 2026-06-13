@@ -6,6 +6,7 @@
   "mixins": [
     "what",
     "alexscaves.AcidBlockMixin",
+    "alexscaves.BiomeCrucibleMixin",
     "alexscaves.BiomeTreatItemMixin",
     "alexscaves.CycadMixin",
     "alexscaves.DesolateDaggerMixin",

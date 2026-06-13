@@ -3,20 +3,20 @@ package com.dolthhaven.dolt_mod_how.core.mixin.alexscaves.lootchestfeature;
 import com.dolthhaven.dolt_mod_how.core.other.DMHTrackedData;
 import com.dolthhaven.dolt_mod_how.core.other.FleeingHolder;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
-import com.github.alexmodguy.alexscaves.server.block.ACSoundTypes;
 import com.github.alexmodguy.alexscaves.server.entity.living.VallumraptorEntity;
-import com.github.alexmodguy.alexscaves.server.misc.ACSoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@Pseudo
 @Mixin(VallumraptorEntity.class)
 public abstract class VallumRaptorMixin extends LivingEntity implements FleeingHolder {
 

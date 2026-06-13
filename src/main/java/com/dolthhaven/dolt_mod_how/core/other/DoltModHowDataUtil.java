@@ -10,6 +10,7 @@ import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -35,14 +36,25 @@ public class DoltModHowDataUtil {
         if (DMHUtils.cavernsChasmsLoaded()) {
             DMHCCCompat.registerGoldenBuckets();
         }
+        if (DMHConfig.COMMON.musicDiscsStack.get()) {
+            transformStackSizeMusicDisc();
+        }
         registerPipes();
         if (DMHConfig.COMMON.hasRemovedHunger.get()) {
             transformItemProperties();
         }
     }
 
+    public static void transformStackSizeMusicDisc() {
+        for (Item item : ForgeRegistries.ITEMS.getValues()) {
+            if (item instanceof RecordItem) {
+                item.maxStackSize = 64;
+            }
+        }
+    }
+
     public static void transformItemProperties() {
-        int[] numbers = {1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+        int[] numbers = {1, 1, 1, 2, 3, 4, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 
         for (Item item : ForgeRegistries.ITEMS.getValues()) {
             if (item.foodProperties != null) {

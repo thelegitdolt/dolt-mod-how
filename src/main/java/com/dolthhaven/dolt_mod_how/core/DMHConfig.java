@@ -31,6 +31,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> ghastaWithCreamDoesntRegenerate;
         public final ConfigValue<Boolean> hoglinMountDoesntTick;
         public final ConfigValue<Boolean> opposeForceSawBladeChopTree;
+        public final ConfigValue<Boolean> musicDiscsStack;
         @ConfigKey("quiver_recipe")
         public final ConfigValue<Boolean> doHackyQuiverRecipe;
         @ConfigKey("bookshelves_drop_themselves")
@@ -81,6 +82,10 @@ public class DMHConfig {
             builder.push("Vanilla");
             builder.push("metal_ores");
             doMetalOresDropXP = builder.comment("If mining ores that normally drop raw ores should grant XP").define("Experienced metal", true);
+            builder.pop();
+
+            builder.push("music_discs");
+            musicDiscsStack = builder.comment("If music discs stack to 64").define("Stacking Discs", true);
             builder.pop();
 
             builder.push("bed");

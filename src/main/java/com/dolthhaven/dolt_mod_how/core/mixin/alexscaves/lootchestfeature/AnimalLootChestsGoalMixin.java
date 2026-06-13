@@ -37,12 +37,12 @@ public abstract class AnimalLootChestsGoalMixin extends MoveToBlockGoal {
     @Shadow @Final private Animal entity;
 
     @Inject(method = "canUse", at = @At("HEAD"), cancellable = true, remap = false)
-    private void sex(CallbackInfoReturnable<Boolean> cir) {
+    private void DoltModHow$CannotUseWhenScared(CallbackInfoReturnable<Boolean> cir) {
         if (!DMHTrackedData.getVallumraptorChestData(this.entity)) cir.setReturnValue(false);
     }
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/ai/navigation/PathNavigation;stop()V", shift = At.Shift.AFTER), remap = false, cancellable = true)
-    private void sex(CallbackInfo ci, @Local BlockEntity blockEntity) {
+    private void DoltModHow$PreventChestOpening(CallbackInfo ci, @Local BlockEntity blockEntity) {
         if (!ModList.get().isLoaded(DMHUtils.Constants.SPAWN)) return;
         if (!DMHSpawnCompat.hasOctopus(blockEntity)) return;
 

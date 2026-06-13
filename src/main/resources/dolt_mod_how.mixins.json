@@ -91,6 +91,7 @@
     "vanilla.PlayerMixin",
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.RecipeManagerMixin",
+    "vanilla.RecordItemMixin",
     "vanilla.ServerLevelMixin",
     "vanilla.ServerPlayerMixin",
     "vanilla.SkeletonMixin",

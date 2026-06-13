@@ -37,7 +37,7 @@ public abstract class DataPackCommandMixin {
 
         List<Pack> newList = new ArrayList<>();
         for (Pack pack : packrepository.getSelectedPacks()) {
-            if (pack.getId().toLowerCase().contains("openloader")) {
+            if (pack.getId().toLowerCase().startsWith("data/")) {
                 newList.add(pack);
             } else {
                 newList.add(0, pack);

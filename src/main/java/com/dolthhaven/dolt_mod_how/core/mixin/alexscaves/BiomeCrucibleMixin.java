@@ -17,7 +17,7 @@ public class BiomeCrucibleMixin {
     @Definition(id = "is", method = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z")
     @Definition(id = "UNMOVEABLE", field = "Lcom/github/alexmodguy/alexscaves/server/misc/ACTagRegistry;UNMOVEABLE:Lnet/minecraft/tags/TagKey;")
     @Expression("?.is(UNMOVEABLE)")
-    @WrapOperation(method = "recursivelySpreadBiomeBlocks", at = @At("MIXINEXTRAS:EXPRESSION"))
+    @WrapOperation(method = "recursivelySpreadBiomeBlocks", at = @At("MIXINEXTRAS:EXPRESSION"), remap = false)
     private boolean alsoCheckForNaturalBlock(BlockState instance, TagKey<Block> tagKey, Operation<Boolean> original) {
         boolean isUnmovable = original.call(instance, tagKey);
         boolean cannotReplaceBlock = !instance.is(DMHTags.BIOME_CRUCIBLE_CAN_CONVERT);

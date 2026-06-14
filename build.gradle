@@ -167,7 +167,7 @@ dependencies {
     implementation fg.deobf("maven.modrinth:ferrite-core:${project.ferriteCore}")
     implementation fg.deobf("maven.modrinth:dungeons_delight:${project.dungeonsDelight}")
     implementation fg.deobf("maven.modrinth:runiclib:${project.runiclib}")
-    implementation fg.deobf("maven.modrinth:darker-depths:${project.darkerDepths}")
+//    implementation fg.deobf("maven.modrinth:darker-depths:${project.darkerDepths}")
 
     implementation fg.deobf("maven.modrinth:from-the-ground-up:${project.ftgu}")
     implementation fg.deobf("maven.modrinth:caverns-and-chasms:${project.cavernsAndChasms}")
@@ -188,7 +188,7 @@ dependencies {
 
     implementation fg.deobf("maven.modrinth:environmental:${project.environmental}")
     implementation fg.deobf("maven.modrinth:upgrade-aquatic:${project.upgradeAquatic}")
-    implementation fg.deobf("maven.modrinth:spawn-mod:${project.spawn}")
+//    implementation fg.deobf("maven.modrinth:spawn-mod:${project.spawn}")
 
     compileOnly fg.deobf("maven.modrinth:etcetera:${project.etcetera}")
 

@@ -1,0 +1,9 @@
+{
+  "values": [
+    "dolt_mod_how:golden_ectoplasm_bucket",
+    {
+      "id": "netherexp:ectoplasm_bucket",
+      "required": false
+    }
+  ]
+}

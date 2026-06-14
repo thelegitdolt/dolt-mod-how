@@ -13,7 +13,6 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -21,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 import static net.minecraft.world.level.block.Blocks.*;
 
-
+@SuppressWarnings("removal")
 public class DMHBlockTags extends BlockTagsProvider {
     public DMHBlockTags(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper efh) {
         super(output, lookupProvider, DoltModHow.MOD_ID, efh);
@@ -37,7 +36,7 @@ public class DMHBlockTags extends BlockTagsProvider {
                 .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
         this.tag(DMHTags.BIOME_CRUCIBLE_CAN_CONVERT)
                 .addTag(BlockTags.BASE_STONE_OVERWORLD)
-                .addTag(BlockTags.DIRT);
+                .addTag(BlockTags.DIRT).addTag(BlockTags.SAND);
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get(), ZINC_BRICK_SLAB.get(), ZINC_BRICKS.get(), ZINC_BRICK_WALL.get(),
                 CHISELED_ZINC_BRICKS.get(), ZINC_BRICK_STAIRS.get(), HEART_CRYSTAL_LAMP.get(), ANCIENT_BRAZIER.get()).addTag(DMHTags.PIPE_BLOCKS);

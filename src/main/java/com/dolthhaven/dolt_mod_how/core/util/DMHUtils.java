@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
+@SuppressWarnings("removal")
 public class DMHUtils {
     public static final int NOT_TOOLBOX = 0;
     public static final int SUCCESSFUL_SETTING = 1;
@@ -171,6 +172,8 @@ public class DMHUtils {
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");
 
         public static final ResourceLocation ZIRCONIA = new ResourceLocation(CAVERNS_AND_CHASMS, "zirconia");
+
+        public static final ResourceLocation POUNCING = new ResourceLocation(DUNGEONS_DELIGHT, "pouncing");
 
         public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");
         public static final ResourceLocation ECTOPLASM = new ResourceLocation(JNE, "ectoplasm");

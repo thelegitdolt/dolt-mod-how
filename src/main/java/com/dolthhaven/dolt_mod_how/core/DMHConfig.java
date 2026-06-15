@@ -17,6 +17,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> replaceableMossCarpet;
         public final ConfigValue<Boolean> frogMistLikeHopeLights;
         public final ConfigValue<Boolean> lessAnnoyingSleep;
+        public final ConfigValue<Boolean> pouncingLetsYouClingToCeilings;
         public final ConfigValue<Integer> blockPlaceXpChance;
         public final ConfigValue<Boolean> removeDarkerDepthGlowStoneForest;
 
@@ -290,6 +291,14 @@ public class DMHConfig {
             wheelifiedWardenzola = builder.comment("If Wardenzola Dungeons Delight Should be Brewing and Chewingified; this means that they are placeable and have a keg recipe, as well as wedges.")
                     .define("Wardenzola Wheel", false);
             builder.pop();
+
+            builder.push("Pouncing");
+            pouncingLetsYouClingToCeilings = builder.comment("Pouncing effect from Dungeon's Delight also allows you to cling to ceilings, to differentiate it from Neapolitan Agility.")
+                    .comment("This works identical to the Alex's Mobs clinging effect.")
+                    .comment("In fact, the code is taken verbatim from Alex's mobs under its GNU license. Thanks alex!")
+                    .define("Ceiling Cling Pouncing", false);
+            builder.pop();
+
 
             builder.pop();
 

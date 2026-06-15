@@ -10,7 +10,9 @@ license = "https://github.com/thelegitdolt/dolt-mod-how/issues"
     credits = "Dolt H. Haven"
     displayName = "Dolt Mod How"
     description = '''
-        Hello
+        Mod that adds integration & tweaks for my modpack
+
+
     '''
 
 [[dependencies.dolt_mod_how]]

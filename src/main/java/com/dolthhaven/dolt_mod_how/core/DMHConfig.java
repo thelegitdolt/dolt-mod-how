@@ -14,6 +14,8 @@ public class DMHConfig {
         public final ConfigValue<Integer> minCropXpDrops;
         public final ConfigValue<Integer> maxCropXpDrops;
         public final ConfigValue<Boolean> xpUponBlockPlace;
+        public final ConfigValue<Boolean> brewingUnbloating;
+        public final ConfigValue<Boolean> noMoreAwkwardPotions;
         public final ConfigValue<Boolean> replaceableMossCarpet;
         public final ConfigValue<Boolean> frogMistLikeHopeLights;
         public final ConfigValue<Boolean> lessAnnoyingSleep;
@@ -83,6 +85,15 @@ public class DMHConfig {
             builder.push("Vanilla");
             builder.push("metal_ores");
             doMetalOresDropXP = builder.comment("If mining ores that normally drop raw ores should grant XP").define("Experienced metal", true);
+            builder.pop();
+
+            builder.push("brewing");
+            brewingUnbloating = builder.comment("If brewing stands should no longer require fuel.")
+                    .comment("If true, you need to retexture the brewing stand UI yourself to get rid of the fuel slot.")
+                    .define("Brewing Unbloating", false);
+            noMoreAwkwardPotions = builder.comment("If uses of awkward potions in brewing stands should be replaced with water.")
+                    .comment(" Also removes the water bottle + nether wart -> awkward potion recipe")
+                    .define("No More Awkward Potions", false);
             builder.pop();
 
             builder.push("music_discs");

@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 /**
  * The methods "startClinging", "getPositionUnderneath", "isUpsideDown" has code copied verbatim from Alex's Mobs code as shown which is available below:
  * <a href="https://github.com/AlexModGuy/AlexsMobs/blob/09755dade2cfbdf14839e026d3af446f9d3ff843/src/main/java/com/github/alexthe666/alexsmobs/effect/EffectClinging.java#L11">...</a>
- * As accessed by the project's GNU Public license.
+ * As accessed by the project's GNU Public license as found here https://www.gnu.org/licenses/gpl-3.0.txt.
  * You can download Alex's Mobs here: <a href="http://modrinth.com/mod/alexs-mobs">...</a>
  * To avoid overlap, features that make use of this code are turned off by default and must be enabled in the config.
  */

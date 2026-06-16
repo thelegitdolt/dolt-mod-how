@@ -20,6 +20,7 @@ import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
+@SuppressWarnings("removal")
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, value = Dist.CLIENT)
 public class DMHClientCompat {
     public static void doCompat() {

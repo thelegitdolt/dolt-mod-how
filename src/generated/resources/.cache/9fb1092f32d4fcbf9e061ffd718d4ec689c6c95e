@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-15T13:04:00.728278	Recipes
+// 1.20.1	2026-06-16T10:05:31.968471	Recipes
 44477590c0a1b4f59a88eccf04c1afce1e029845 data/alexscaves/advancements/recipes/building_blocks/chiseled_pewen_bookshelf.json
 3f138ac812c2185f72e77113162adc14ee9c3d88 data/alexscaves/advancements/recipes/building_blocks/chiseled_thornwood_bookshelf.json
 b35dacf80854957c9ea86715ef9832b3d5699135 data/alexscaves/advancements/recipes/building_blocks/pewen_bookshelf.json
@@ -118,7 +118,7 @@ ae1b62c670802568b021dde28f7f77e13477b6a3 data/dolt_mod_how/recipes/pewen_boards.
 821751f4ea3f27934d9753baf414d8cf0ca0e6c5 data/dolt_mod_how/recipes/tan_encased_pipe.json
 2815b1befa5b3e2f7ffaed092a44ebc1cd04d121 data/dolt_mod_how/recipes/teal_encased_pipe.json
 330cc60c769465263f73a8ab63f871b14baf4a37 data/dolt_mod_how/recipes/thornwood_boards.json
-34bebd4d095d38715cc461be601b5a870954a5c0 data/dolt_mod_how/recipes/thornwood_cabinet.json
+0f2bf4ab2517cf57d452d80f04a34f582efd1501 data/dolt_mod_how/recipes/thornwood_cabinet.json
 b2de4affd60a3a7a67769307b7322e4d478c0908 data/dolt_mod_how/recipes/thornwood_chest.json
 dbf92af20771e82cd3faeac444e55346b6b4db73 data/dolt_mod_how/recipes/trapped_pewen_chest.json
 dd54383e8003e575d7162eef575fbc06c48acc64 data/dolt_mod_how/recipes/trapped_thornwood_chest.json

@@ -101,7 +101,7 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         WoodworksRecipeProvider.sawmillRecipe(consumer, ALEXSCAVES_LOADED, RecipeCategory.BUILDING_BLOCKS, ACBlockRegistry.THORNWOOD_PLANKS.get(), THORNWOOD_BOARDS.get(), 1);
 
         cabinet(consumer, PEWEN_CABINET, ACBlockRegistry.PEWEN_PLANKS_SLAB, ACBlockRegistry.PEWEN_TRAPDOOR);
-        cabinet(consumer, THORNWOOD_CABINET, ACBlockRegistry.THORNWOOD_PLANKS_SLAB, ACBlockRegistry.THORNWOOD_PLANKS_SLAB);
+        cabinet(consumer, THORNWOOD_CABINET, ACBlockRegistry.THORNWOOD_PLANKS_SLAB, ACBlockRegistry.THORNWOOD_TRAPDOOR);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ANCIENT_BRAZIER.get())
                 .define('#', JNEItems.ANCIENT_WAX.get())
                 .define('S', CCItemTags.INGOTS_SILVER)

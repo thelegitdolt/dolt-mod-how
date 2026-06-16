@@ -15,15 +15,15 @@ import java.util.List;
 
 @Mixin(PotionBrewing.class)
 public class PotionBrewingMixin {
-    @WrapWithCondition(method = "addMix", at = @At(value = "INVOKE", target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
-    private static <E> boolean DoltModHow$NoMoreAwkwardness(List<E> instance, E e, @Local(argsOnly = true, ordinal = 1) Potion potion) {
-        return !(DMHConfig.COMMON.noMoreAwkwardPotions.get()) || (potion != Potions.AWKWARD);
-    }
-
-    @ModifyArgs(method = "addMix", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionBrewing$Mix;<init>(Lnet/minecraftforge/registries/IForgeRegistry;Ljava/lang/Object;Lnet/minecraft/world/item/crafting/Ingredient;Ljava/lang/Object;)V"))
-    private static void DoltModHow$NoMoreAwkwardness(Args args) {
-        if (args.get(0) == Potions.AWKWARD && DMHConfig.COMMON.noMoreAwkwardPotions.get()) {
-            args.set(0, Potions.WATER);
-        }
-    }
+//    @WrapWithCondition(method = "addMix", at = @At(value = "INVOKE", target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
+//    private static <E> boolean DoltModHow$NoMoreAwkwardness(List<E> instance, E e, @Local(argsOnly = true, ordinal = 1) Potion potion) {
+//        return !(DMHConfig.COMMON.noMoreAwkwardPotions.get()) || (potion != Potions.AWKWARD);
+//    }
+//
+//    @ModifyArgs(method = "addMix", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionBrewing$Mix;<init>(Lnet/minecraftforge/registries/IForgeRegistry;Ljava/lang/Object;Lnet/minecraft/world/item/crafting/Ingredient;Ljava/lang/Object;)V"))
+//    private static void DoltModHow$NoMoreAwkwardness(Args args) {
+//        if (args.get(0) == Potions.AWKWARD && DMHConfig.COMMON.noMoreAwkwardPotions.get()) {
+//            args.set(0, Potions.WATER);
+//        }
+//    }
 }

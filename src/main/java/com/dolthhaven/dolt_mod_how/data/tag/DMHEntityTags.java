@@ -9,6 +9,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.data.event.GatherDataEvent;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("removal")
 public class DMHEntityTags extends EntityTypeTagsProvider {
     public DMHEntityTags(GatherDataEvent event) {
         super(event.getGenerator().getPackOutput(),

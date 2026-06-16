@@ -42,6 +42,7 @@ import org.slf4j.Logger;
 import java.util.concurrent.CompletableFuture;
 
 @Mod(DoltModHow.MOD_ID)
+@SuppressWarnings("removal")
 public class DoltModHow {
     public static final String MOD_ID = "dolt_mod_how";
     public static final String GIT_URL = "https://github.com/thelegitdolt/dolt-mod-how";

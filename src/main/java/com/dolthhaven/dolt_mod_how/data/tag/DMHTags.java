@@ -40,9 +40,6 @@ public class DMHTags {
 
     public static final TagKey<Item> COPPER_INGOTS = externalItemTag(DMHUtils.Constants.CAVERNS_AND_CHASMS, "copper_ingots");
 
-
-
-
     private static TagKey<Item> externalItemTag(String modId, String path) {
         return TagUtil.itemTag(modId, path);
     }

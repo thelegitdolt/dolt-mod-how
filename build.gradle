@@ -185,6 +185,8 @@ dependencies {
     implementation fg.deobf("maven.modrinth:jadens-nether-expansion:${project.jne}")
     implementation fg.deobf("maven.modrinth:elysium-api:${project.elysium}")
 
+    implementation fg.deobf("maven.modrinth:galosphere:${project.galosphere}")
+
 
     implementation fg.deobf("maven.modrinth:environmental:${project.environmental}")
     implementation fg.deobf("maven.modrinth:upgrade-aquatic:${project.upgradeAquatic}")

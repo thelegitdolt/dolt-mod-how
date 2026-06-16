@@ -50,6 +50,8 @@
     "heart_crystals.HeartCrystalMixin",
     "jne.BoneRodsMixin",
     "jne.SorrowsquashBlockMixin",
+    "melancholic_hunger.HealthRegenerationComponentMixin",
+    "neapolitan.HealingItemMixin",
     "nethers_delight.ConsumableItemMixin",
     "nethers_delight.FrogEatMagmaCakeGoalMixin",
     "nethers_delight.GhastaWithCreamBlockMixin",

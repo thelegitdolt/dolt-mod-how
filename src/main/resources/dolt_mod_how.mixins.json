@@ -91,7 +91,6 @@
     "vanilla.LootTableTriggerMixin",
     "vanilla.NoteBlockMixin",
     "vanilla.PlayerMixin",
-    "vanilla.PotionBrewingMixin",
     "vanilla.ProtectionEnchantmentMixin",
     "vanilla.RecipeManagerMixin",
     "vanilla.RecordItemMixin",

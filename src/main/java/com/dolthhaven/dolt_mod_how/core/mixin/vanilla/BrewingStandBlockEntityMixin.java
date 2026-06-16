@@ -1,5 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
+import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -13,6 +14,6 @@ public class BrewingStandBlockEntityMixin {
     @Expression("?.fuel")
     @ModifyExpressionValue(method = "serverTick", at = @At("MIXINEXTRAS:EXPRESSION"))
     private static int brewingStandAlwaysHasFuel(int original) {
-        return 10000000;
+        return DMHConfig.COMMON.brewingUnbloating.get() ? 1000000 : original;
     }
 }

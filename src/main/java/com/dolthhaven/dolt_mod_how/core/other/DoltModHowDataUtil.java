@@ -8,7 +8,6 @@ import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
-import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;

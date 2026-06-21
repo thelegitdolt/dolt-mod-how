@@ -66,6 +66,7 @@ public class DoltModHow {
         DMHLoot.LOOT_CONDITIONS.register(bus);
         DMHLoot.LOOT_MODIFIERS.register(bus);
         DMHFluids.FLUID_TYPES.register(bus);
+        DMHEntities.ENTITIES.register(bus);
         DMHFluids.FLUIDS.register(bus);
 
         DMHMobEffects.MOB_EFFECTS.register(bus);

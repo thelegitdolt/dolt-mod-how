@@ -19,7 +19,6 @@ public class DMHConfig {
         public final ConfigValue<Boolean> replaceableMossCarpet;
         public final ConfigValue<Boolean> frogMistLikeHopeLights;
         public final ConfigValue<Boolean> lessAnnoyingSleep;
-        public final ConfigValue<Boolean> pouncingLetsYouClingToCeilings;
         public final ConfigValue<Integer> blockPlaceXpChance;
         public final ConfigValue<Boolean> removeDarkerDepthGlowStoneForest;
 

@@ -8,6 +8,7 @@ import com.teamabnormals.caverns_and_chasms.common.dispenser.FilledGoldenBucketD
 import com.teamabnormals.caverns_and_chasms.common.entity.monster.Mime;
 import com.teamabnormals.caverns_and_chasms.common.entity.projectile.LargeArrow;
 import com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem;
+import com.teamabnormals.caverns_and_chasms.core.registry.CCBlocks;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.ModList;
 
@@ -60,6 +62,10 @@ public class DMHCCCompat {
 
     public static boolean isMime(Entity entity) {
         return entity instanceof Mime;
+    }
+
+    public static boolean isRockyDirt(BlockState state) {
+        return state.is(CCBlocks.ROCKY_DIRT.get());
     }
 
     public static boolean isLargeArrow(Entity entity) {

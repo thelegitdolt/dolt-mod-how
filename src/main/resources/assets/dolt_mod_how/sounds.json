@@ -4,5 +4,20 @@
       "dolt_mod_how:item/poulpo"
     ],
     "subtitle": "subtitles.dolt_mod_how.item.poulpo.poulpoes"
+  },
+  "item.dolt_mod_how.tankard_hit": {
+    "sounds": [
+      "block/hanging_sign/break1",
+      "block/hanging_sign/break2",
+      "block/hanging_sign/break3",
+      "block/hanging_sign/break4"
+    ],
+    "subtitle": "subtitles.dolt_mod_how.item.tankard.impact"
+  },
+  "item.dolt_mod_how.tankard_shoot": {
+    "sounds": [
+      "random/bow"
+    ],
+    "subtitle": "subtitles.dolt_mod_how.item.tankard.shoot"
   }
 }

@@ -1,16 +1,20 @@
 package com.dolthhaven.dolt_mod_how.client.other;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHEntities;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import org.violetmoon.quark.content.tools.module.TorchArrowModule;
@@ -21,7 +25,7 @@ import java.util.function.Supplier;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
 @SuppressWarnings("removal")
-@Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DMHClientCompat {
     public static void doCompat() {
         registerItemProperties();
@@ -114,5 +118,10 @@ public class DMHClientCompat {
                 entity != null &&
                 CrossbowItem.isCharged(stack) &&
                 CrossbowItem.containsChargedProjectile(stack, projectile.get()) ? 1.0F : 0.0F;
+    }
+
+    @SubscribeEvent
+    public static void onEntityRendererRegister(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(DMHEntities.TANKARD.get(), ThrownItemRenderer::new);
     }
 }

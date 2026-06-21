@@ -12,5 +12,6 @@ public class DMHSounds {
 
     public static final RegistryObject<SoundEvent> POULPO = HELPER.createSoundEvent("item.poulpo.poulpoes");
 
-
+    public static final RegistryObject<SoundEvent> TANKARD_SHOOTS = HELPER.createSoundEvent("item.dolt_mod_how.tankard_shoots");
+    public static final RegistryObject<SoundEvent> TANKARD_HIT = HELPER.createSoundEvent("item.dolt_mod_how.tankard_hit");
 }

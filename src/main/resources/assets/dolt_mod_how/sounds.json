@@ -14,7 +14,7 @@
     ],
     "subtitle": "subtitles.dolt_mod_how.item.tankard.impact"
   },
-  "item.dolt_mod_how.tankard_shoot": {
+  "item.dolt_mod_how.tankard_shoots": {
     "sounds": [
       "random/bow"
     ],

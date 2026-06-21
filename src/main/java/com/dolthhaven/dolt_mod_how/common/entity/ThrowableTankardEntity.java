@@ -1,7 +1,9 @@
-package com.dolthhaven.dolt_mod_how.common;
+package com.dolthhaven.dolt_mod_how.common.entity;
 
 import com.dolthhaven.dolt_mod_how.core.registry.DMHEntities;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHSounds;
+import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
+import com.dolthhaven.dolt_mod_how.integration.DMHBnCCompat;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -11,11 +13,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
-import umpaz.brewinandchewin.common.registry.BnCItems;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -31,7 +33,7 @@ public class ThrowableTankardEntity extends ThrowableItemProjectile {
 
     @Override
     protected @NotNull Item getDefaultItem() {
-        return BnCItems.TANKARD.get();
+        return DMHUtils.Constants.BnC_LOADED.get() ? DMHBnCCompat.tankard() : Items.BOWL;
     }
 
     @Override
@@ -50,7 +52,7 @@ public class ThrowableTankardEntity extends ThrowableItemProjectile {
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         Entity entity = result.getEntity();
-        entity.hurt(this.damageSources().thrown(this, this.getOwner()), 0.0F);
+        entity.hurt(this.damageSources().thrown(this, this.getOwner()), 4.0F);
         this.playSound(DMHSounds.TANKARD_HIT.get(), 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
     }
 

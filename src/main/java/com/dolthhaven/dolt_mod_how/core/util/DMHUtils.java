@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.core.util;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
+import com.google.common.base.Suppliers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -28,6 +29,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 @SuppressWarnings("removal")
 public class DMHUtils {
@@ -144,6 +146,8 @@ public class DMHUtils {
         public static final String WINDSWEPT = "windswept";
         public static final String WILDER_FLOWERS = "wilderflowers";
         public static final String WOODWORKS = "woodworks";
+
+        public static Supplier<Boolean> BnC_LOADED = Suppliers.memoize(() -> ModList.get().isLoaded(BREWING_AND_CHEWING));
 
         public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
 

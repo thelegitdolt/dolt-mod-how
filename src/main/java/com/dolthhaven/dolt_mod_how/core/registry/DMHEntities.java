@@ -1,6 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
-import com.dolthhaven.dolt_mod_how.common.ThrowableTankardEntity;
+import com.dolthhaven.dolt_mod_how.common.entity.ThrowableTankardEntity;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;

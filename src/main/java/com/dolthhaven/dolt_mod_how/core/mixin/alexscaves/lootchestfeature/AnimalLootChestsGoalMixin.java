@@ -44,7 +44,7 @@ public abstract class AnimalLootChestsGoalMixin extends MoveToBlockGoal {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/ai/navigation/PathNavigation;stop()V", shift = At.Shift.AFTER), remap = false, cancellable = true)
     private void DoltModHow$PreventChestOpening(CallbackInfo ci, @Local BlockEntity blockEntity) {
         if (!ModList.get().isLoaded(DMHUtils.Constants.SPAWN)) return;
-        if (!DMHSpawnCompat.hasOctopus(blockEntity)) return;
+        if (!DMHSpawnCompat.hasOctopus(this.entity.level(), blockEntity)) return;
 
         if (this.entity.level() instanceof ServerLevel serverLevel) {
             RandomSource rand = this.entity.getRandom();

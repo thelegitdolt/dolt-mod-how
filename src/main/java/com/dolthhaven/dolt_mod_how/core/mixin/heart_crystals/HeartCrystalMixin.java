@@ -52,7 +52,7 @@ public class HeartCrystalMixin extends Item {
         level.playSound(player, player.blockPosition(), HCSoundEvents.HEART_CRYSTAL_USE.get(), SoundSource.PLAYERS, 0.65F, 1.0F + (level.random.nextFloat() - 0.5F) / 8.0F);
         stack.shrink(1);
 
-        if (player instanceof ServerPlayer serverPlayer && player.getHealth() < 0.55f) {
+        if (player instanceof ServerPlayer serverPlayer && player.getHealth() < 1.2f) {
             DMHCriteriaTriggers.USE_HEART_CRYSTAL_ON_LOW_HEALTH.trigger(serverPlayer);
         }
 

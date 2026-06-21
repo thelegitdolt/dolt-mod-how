@@ -1,5 +1,5 @@
 {
-  "parent": "oreganized:story/obtain_silver",
+  "parent": "minecraft:adventure/sleep_in_bed",
   "display": {
     "icon": {
       "item": "oreganized:speedometer"
@@ -17,7 +17,9 @@
   },
   "criteria": {
     "sex": {
-      "speed": 30.0,
+      "conditions": {
+        "speed": 0.67
+      },
       "trigger": "dolt_mod_how:speedometer_speed"
     }
   }

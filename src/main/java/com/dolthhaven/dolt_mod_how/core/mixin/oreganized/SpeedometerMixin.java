@@ -27,7 +27,6 @@ public class SpeedometerMixin {
         if (player instanceof ServerPlayer serverPlayer) {
             if (entity instanceof IMotionHolder motionHolder) {
                 float speed = (float) motionHolder.oreganised$getMotion();
-                DoltModHow.LOGGER.info("SEX SEX SEX {}", speed);
                 DMHCriteriaTriggers.SPEEDOMETER_SPEED.trigger(serverPlayer, speed);
             }
 

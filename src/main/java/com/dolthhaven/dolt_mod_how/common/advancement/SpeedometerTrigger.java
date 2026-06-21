@@ -31,7 +31,6 @@ public class SpeedometerTrigger extends SimpleCriterionTrigger<SpeedometerTrigge
     public void trigger(ServerPlayer player, float speed) {
 
         this.trigger(player, (instance) -> {
-            DoltModHow.LOGGER.info("EXCUSE ME HELLO {}, first thing umm second thing {}", speed, instance.speed);
             return instance.matches(speed);
         });
     }

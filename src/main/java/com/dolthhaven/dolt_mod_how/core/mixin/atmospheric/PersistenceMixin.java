@@ -8,8 +8,10 @@ import com.teamabnormals.atmospheric.common.effect.PersistenceEffect;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodData;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 
+@Pseudo
 @Mixin(PersistenceEffect.class)
 public class PersistenceMixin {
     @WrapOperation(method = "addAttributeModifiers", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/food/FoodData;getFoodLevel()I"))

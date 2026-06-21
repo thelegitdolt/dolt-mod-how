@@ -11,6 +11,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> doMetalOresDropXP;
         public final ConfigValue<Boolean> hasRemovedHunger;
         public final ConfigValue<Boolean> doCropBlocksDropXP;
+        public final ConfigValue<Boolean> fallDamageNerf;
         public final ConfigValue<Integer> minCropXpDrops;
         public final ConfigValue<Integer> maxCropXpDrops;
         public final ConfigValue<Boolean> xpUponBlockPlace;
@@ -93,6 +94,11 @@ public class DMHConfig {
             noMoreAwkwardPotions = builder.comment("If uses of awkward potions in brewing stands should be replaced with water.")
                     .comment(" Also removes the water bottle + nether wart -> awkward potion recipe")
                     .define("No More Awkward Potions", false);
+            builder.pop();
+
+            builder.push("fall damage");
+            fallDamageNerf = builder.comment("If all fall damage should be multiplied by 0.67 and then floored.")
+                    .define("Make Fall Damage Less", true);
             builder.pop();
 
             builder.push("music_discs");

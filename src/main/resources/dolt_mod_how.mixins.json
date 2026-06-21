@@ -96,6 +96,7 @@
     "vanilla.HalfTransparentBlockMixin",
     "vanilla.ItemMixin",
     "vanilla.ItemstackMixin",
+    "vanilla.LivingEntityMixin",
     "vanilla.LootTableTriggerMixin",
     "vanilla.NoteBlockMixin",
     "vanilla.ProtectionEnchantmentMixin",

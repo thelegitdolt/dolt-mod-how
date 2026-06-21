@@ -29,10 +29,7 @@ public class SpeedometerTrigger extends SimpleCriterionTrigger<SpeedometerTrigge
     }
 
     public void trigger(ServerPlayer player, float speed) {
-
-        this.trigger(player, (instance) -> {
-            return instance.matches(speed);
-        });
+        this.trigger(player, (instance) -> instance.matches(speed));
     }
 
     public static class TriggerInstance extends AbstractCriterionTriggerInstance {

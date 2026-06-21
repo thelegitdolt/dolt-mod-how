@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:adventure/kill_a_mob",
+  "criteria": {
+    "oopsies": {
+      "trigger": "dolt_mod_how:use_heart_crystal_on_low_health"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.dolt_mod_how.adventure.use_heart_crystal_on_low_health.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "heart_crystals:heart_crystal"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.dolt_mod_how.adventure.use_heart_crystal_on_low_health.title"
+    }
+  },
+  "requirements": [
+    [
+      "oopsies"
+    ]
+  ],
+  "rewards": {},
+  "sends_telemetry_event": true
+}

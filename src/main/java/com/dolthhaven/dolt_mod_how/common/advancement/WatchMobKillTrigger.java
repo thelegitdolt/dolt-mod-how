@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.common;
+package com.dolthhaven.dolt_mod_how.common.advancement;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.google.gson.JsonObject;
@@ -43,10 +43,6 @@ public class WatchMobKillTrigger extends SimpleCriterionTrigger<WatchMobKillTrig
             super(ID, player);
             this.killer = killer;
             this.victim = victim;
-        }
-
-        public static WatchMobKillTrigger.TriggerInstance mobKillWatched(ContextAwarePredicate killer, ContextAwarePredicate victim) {
-            return new WatchMobKillTrigger.TriggerInstance(ContextAwarePredicate.ANY, killer, victim);
         }
 
         public boolean matches(LootContext killer, LootContext victim) {

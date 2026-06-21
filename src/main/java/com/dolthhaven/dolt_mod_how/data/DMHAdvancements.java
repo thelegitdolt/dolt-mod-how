@@ -2,6 +2,7 @@ package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHCriteriaTriggers;
+import com.rosemods.heart_crystals.core.registry.HCBlocks;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import com.teamabnormals.upgrade_aquatic.core.registry.UAItems;
 import galena.doom_and_gloom.index.OItems;
@@ -42,6 +43,9 @@ public class DMHAdvancements implements ForgeAdvancementProvider.AdvancementGene
         adv(new ResourceLocation("spawn", "husbandry/discover_stickbug"), Items.STICK, "adventure", "kill_stickbug_with_lightning", FrameType.TASK, false, 0)
                 .addCriterion("oopsies", DMHCriteriaTriggers.KILL_BUG_WITH_LIGHTNING.createInstance())
                 .save(saver, DoltModHow.MOD_ID + ":adventure/kill_stickbug_with_lightning");
+        adv(new ResourceLocation("adventure/kill_a_mob"), HCBlocks.HEART_CRYSTAL.get().asItem(), "adventure", "use_heart_crystal_on_low_health", FrameType.TASK, false, 0)
+                .addCriterion("oopsies", DMHCriteriaTriggers.USE_HEART_CRYSTAL_ON_LOW_HEALTH.createInstance())
+                .save(saver, DoltModHow.MOD_ID + ":adventure/use_heart_crystal_on_low_health");
     }
 
     public Advancement.Builder adv(ResourceLocation parent, Item item, String category, String name, FrameType frame, boolean hidden, int rewards) {

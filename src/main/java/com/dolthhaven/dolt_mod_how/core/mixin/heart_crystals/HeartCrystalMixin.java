@@ -1,11 +1,13 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.heart_crystals;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHCriteriaTriggers;
 import com.rosemods.heart_crystals.common.item.HeartCrystalItem;
 import com.rosemods.heart_crystals.core.registry.HCSoundEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -49,6 +51,10 @@ public class HeartCrystalMixin extends Item {
         player.getCooldowns().addCooldown(this, 5 * 20);
         level.playSound(player, player.blockPosition(), HCSoundEvents.HEART_CRYSTAL_USE.get(), SoundSource.PLAYERS, 0.65F, 1.0F + (level.random.nextFloat() - 0.5F) / 8.0F);
         stack.shrink(1);
+
+        if (player instanceof ServerPlayer serverPlayer && player.getHealth() < 0.55f) {
+            DMHCriteriaTriggers.USE_HEART_CRYSTAL_ON_LOW_HEALTH.trigger(serverPlayer);
+        }
 
         BENEFITS.forEach(instance -> player.addEffect(new MobEffectInstance(instance.getEffect(), instance.getDuration(), instance.getAmplifier())));
         player.heal(4.0F);

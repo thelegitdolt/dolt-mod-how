@@ -28,9 +28,6 @@ public class DMHMobEffects {
             new MimingMobEffect(MobEffectCategory.NEUTRAL));
     public static final RegistryObject<MobEffect> GENEROSITY = MOB_EFFECTS.register("generosity", () ->
             new GenerosityMobEffect(MobEffectCategory.NEUTRAL));
-    public static final RegistryObject<MobEffect> RAPACITY = MOB_EFFECTS.register("rapacity", () ->
-            new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0xff9970));
-
 
     public static final RegistryObject<Potion> NORMAL_MIMING = POTIONS.register("miming",
             () -> new Potion("miming", new MobEffectInstance(MIMING.get())));
@@ -40,11 +37,6 @@ public class DMHMobEffects {
             () -> new Potion("generosity", new MobEffectInstance(GENEROSITY.get())));
     public static final RegistryObject<Potion> STRONG_GENEROSITY = POTIONS.register("strong_generosity",
             () -> new Potion("generosity", new MobEffectInstance(GENEROSITY.get(), 0, 1)));
-
-    public static final RegistryObject<Potion> NORMAL_RAPACITY = POTIONS.register("rapacity",
-            () -> new Potion("rapacity", new MobEffectInstance(RAPACITY.get(), 3600)));
-    public static final RegistryObject<Potion> LONG_RAPACITY = POTIONS.register("long_rapacity",
-            () -> new Potion("rapacity", new MobEffectInstance(RAPACITY.get(), 9600)));
 
     public static void registerBrewingRecipes() {
         Item item = DMHUtils.getPotentialItem(DMHUtils.Constants.ZIRCONIA);
@@ -57,9 +49,5 @@ public class DMHMobEffects {
 
         DataUtil.addMix(NORMAL_MIMING.get(), Items.FERMENTED_SPIDER_EYE, NORMAL_GENEROSITY.get());
         DataUtil.addMix(MIMING_STRONG.get(), Items.FERMENTED_SPIDER_EYE, STRONG_GENEROSITY.get());
-
-        DataUtil.addMix(Potions.AWKWARD, Items.ROTTEN_FLESH, NORMAL_RAPACITY.get());
-        DataUtil.addMix(NORMAL_RAPACITY.get(), Items.REDSTONE, LONG_RAPACITY.get());
     }
-
 }

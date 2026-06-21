@@ -303,14 +303,6 @@ public class DMHConfig {
                     .define("Wardenzola Wheel", false);
             builder.pop();
 
-            builder.push("Pouncing");
-            pouncingLetsYouClingToCeilings = builder.comment("Pouncing effect from Dungeon's Delight also allows you to cling to ceilings, to differentiate it from Neapolitan Agility.")
-                    .comment("This works identical to the Alex's Mobs clinging effect.")
-                    .comment("In fact, the code is taken verbatim from Alex's mobs under its GNU license. Thanks alex!")
-                    .define("Ceiling Cling Pouncing", false);
-            builder.pop();
-
-
             builder.pop();
 
 

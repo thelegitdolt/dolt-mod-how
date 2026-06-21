@@ -147,7 +147,7 @@ dependencies {
     implementation fg.deobf("maven.modrinth:moonlight:${project.moonlight}")
     implementation fg.deobf("maven.modrinth:species:${project.species}")
     implementation fg.deobf("maven.modrinth:amendments:${project.amendments}")
-    implementation fg.deobf("maven.modrinth:spawn-mod:${project.spawn}")
+//    implementation fg.deobf("maven.modrinth:spawn-mod:${project.spawn}")
     implementation fg.deobf("maven.modrinth:abnormals-delight:${project.abnormalsdelight}")
     implementation fg.deobf("maven.modrinth:dye-depot:${project.dyeDepot}")
     implementation fg.deobf("curse.maven:zeta-968868:${project.zeta}")

@@ -5,10 +5,10 @@
       "item": "oreganized:speedometer"
     },
     "title": {
-      "translate": "advancements.dolt_mod_how.adventure.speed_demon.title"
+      "translate": "advancements.dolt_mod_how.story.speed_demon.title"
     },
     "description": {
-      "translate": "advancements.dolt_mod_how.adventure.speed_demon.description"
+      "translate": "advancements.dolt_mod_how.story.speed_demon.description"
     },
     "frame": "task",
     "show_toast": true,

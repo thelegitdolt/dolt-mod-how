@@ -18,7 +18,7 @@ public class SpeedometerMixin {
     private void sex(ItemCooldowns instance, Item item, int ticks, Operation<Void> original, @Local(argsOnly = true) Player player) {
         original.call(instance, item, ticks);
         if (player instanceof ServerPlayer serverPlayer) {
-//            DMHCriteriaTriggers.SPEEDOMETER_SPEED.trigger(serverPlayer, (float) serverPlayer.getDeltaMovement().length());
+            DMHCriteriaTriggers.SPEEDOMETER_SPEED.trigger(serverPlayer, (float) serverPlayer.getDeltaMovement().length());
         }
     }
 }

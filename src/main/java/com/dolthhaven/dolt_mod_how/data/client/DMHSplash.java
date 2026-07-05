@@ -6,13 +6,15 @@ import com.teamabnormals.blueprint.client.screen.splash.SplashProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 
 public class DMHSplash extends SplashProvider {
-    protected DMHSplash(GatherDataEvent event) {
+    public DMHSplash(GatherDataEvent event) {
         super(DoltModHow.MOD_ID, event.getGenerator().getPackOutput());
     }
 
     @Override
     protected void registerSplashes() {
         this.add("Dolt Splash How");
+        this.add(WMWSplash.INSTANCE);
+        this.add(WMWSplash.INSTANCE);
         this.add(WMWSplash.INSTANCE);
     }
 }

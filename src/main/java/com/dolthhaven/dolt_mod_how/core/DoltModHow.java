@@ -12,6 +12,7 @@ import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
 import com.dolthhaven.dolt_mod_how.data.client.DMHItemModelsGen;
+import com.dolthhaven.dolt_mod_how.data.client.DMHSplash;
 import com.dolthhaven.dolt_mod_how.data.client.splash.WMWSplash;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHEntityTags;
@@ -82,6 +83,7 @@ public class DoltModHow {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> DMHItems::setUpTabEditors);
 
         MinecraftForge.EVENT_BUS.register(this);
+        SplashSerializers.register(rl("wmw"), WMWSplash.CODEC);
 
         ForgeMod.enableMilkFluid();
     }
@@ -110,10 +112,7 @@ public class DoltModHow {
         boolean includeClient = event.includeClient();
         dataGen.addProvider(includeClient, new DMHBlockStatesGen(event));
         dataGen.addProvider(includeClient, new DMHItemModelsGen(event));
-
-        if (FMLEnvironment.dist == Dist.CLIENT) {
-            SplashSerializers.register(rl("clayworks"), WMWSplash.CODEC.codec());
-        }
+        dataGen.addProvider(includeClient, new DMHSplash(event));
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {

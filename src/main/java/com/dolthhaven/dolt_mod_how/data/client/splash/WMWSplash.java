@@ -1,31 +1,27 @@
 package com.dolthhaven.dolt_mod_how.data.client.splash;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
 import com.teamabnormals.blueprint.client.screen.splash.Splash;
-import net.minecraft.client.User;
-import net.minecraft.util.RandomSource;
 
-public enum WMWSplash implements Splash {
+public enum WMWSplash implements LevelNameSplash {
     INSTANCE;
 
-    public static final MapCodec<WMWSplash> CODEC = MapCodec.unit(INSTANCE);
+    public static final Codec<WMWSplash> CODEC = Codec.unit(INSTANCE);
 
     @Override
-    public String getText(User user, RandomSource random) {
-        return "Your Random Where's My Water Level Name is: %s".formatted(LEVEL_NAMES[random.nextInt(LEVEL_NAMES.length)]);
+    public String getGame() {
+        return "Where's My Water";
     }
 
     @Override
-    public boolean isRandom() {
-        return true;
+    public String[] getLevels() {
+        return LEVEL_NAMES;
     }
 
     @Override
     public Codec<? extends Splash> codec() {
-        return CODEC.codec();
+        return CODEC;
     }
-
 
     public static final String[] LEVEL_NAMES = {
             "First Dig",

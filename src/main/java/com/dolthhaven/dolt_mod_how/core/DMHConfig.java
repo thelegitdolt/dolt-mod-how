@@ -98,6 +98,7 @@ public class DMHConfig {
 
             builder.push("fall damage");
             fallDamageNerf = builder.comment("If all fall damage should be multiplied by 0.67 and then floored.")
+                    .comment("1 damage -> 0, 2 -> 1, 3 -> 2, 4 -> 2, 5 -> 3, et cetera")
                     .define("Make Fall Damage Less", true);
             builder.pop();
 

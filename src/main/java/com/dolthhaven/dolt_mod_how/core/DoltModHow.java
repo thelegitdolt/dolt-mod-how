@@ -12,12 +12,14 @@ import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
 import com.dolthhaven.dolt_mod_how.data.client.DMHItemModelsGen;
+import com.dolthhaven.dolt_mod_how.data.client.splash.WMWSplash;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHEntityTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHMobEffectTags;
 import com.dolthhaven.dolt_mod_how.integration.DoltModHowFishBarrelSetup;
 import com.mojang.logging.LogUtils;
+import com.teamabnormals.blueprint.client.screen.splash.SplashSerializers;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -37,6 +39,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 
 import java.util.concurrent.CompletableFuture;
@@ -107,6 +110,10 @@ public class DoltModHow {
         boolean includeClient = event.includeClient();
         dataGen.addProvider(includeClient, new DMHBlockStatesGen(event));
         dataGen.addProvider(includeClient, new DMHItemModelsGen(event));
+
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            SplashSerializers.register(rl("clayworks"), WMWSplash.CODEC.codec());
+        }
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {

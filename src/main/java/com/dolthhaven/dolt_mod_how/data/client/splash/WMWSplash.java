@@ -13,7 +13,7 @@ public enum WMWSplash implements Splash {
 
     @Override
     public String getText(User user, RandomSource random) {
-        return LEVEL_NAMES[random.nextInt(LEVEL_NAMES.length)];
+        return "Your Random Where's My Water Level Name is: %s".formatted(LEVEL_NAMES[random.nextInt(LEVEL_NAMES.length)]);
     }
 
     @Override

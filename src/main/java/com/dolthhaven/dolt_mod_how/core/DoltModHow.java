@@ -13,6 +13,7 @@ import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
 import com.dolthhaven.dolt_mod_how.data.client.DMHItemModelsGen;
 import com.dolthhaven.dolt_mod_how.data.client.DMHSplash;
+import com.dolthhaven.dolt_mod_how.data.client.splash.AltverzSplash;
 import com.dolthhaven.dolt_mod_how.data.client.splash.WMWSplash;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHEntityTags;
@@ -84,6 +85,7 @@ public class DoltModHow {
 
         MinecraftForge.EVENT_BUS.register(this);
         SplashSerializers.register(rl("wmw"), WMWSplash.CODEC);
+        SplashSerializers.register(rl("altverz"), AltverzSplash.CODEC);
 
         ForgeMod.enableMilkFluid();
     }

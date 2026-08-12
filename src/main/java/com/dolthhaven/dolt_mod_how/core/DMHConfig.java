@@ -20,6 +20,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> replaceableMossCarpet;
         public final ConfigValue<Boolean> frogMistLikeHopeLights;
         public final ConfigValue<Boolean> lessAnnoyingSleep;
+        public final ConfigValue<String> replaceEndShipItem;
         public final ConfigValue<Integer> blockPlaceXpChance;
         public final ConfigValue<Boolean> removeDarkerDepthGlowStoneForest;
 
@@ -113,6 +114,11 @@ public class DMHConfig {
             builder.push("Thunderstorm rates");
             thunderstormMultiplier = builder.comment("An inverse multiplier to how often thunderstorms should happen. If you put 1/3 here thunderstorms happen 3 times more often.")
                             .define("Thunderstorm Multiplier", 0.75D);
+            builder.pop();
+
+            builder.push("End City");
+            replaceEndShipItem = builder.comment("Replaces the item found in the item frame in the end ship with this item.")
+                    .define("End City Frame Replace To", "minecraft:elytra");
             builder.pop();
 
 

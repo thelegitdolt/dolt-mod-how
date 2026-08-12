@@ -92,6 +92,7 @@
     "vanilla.DataPackCommandMixin",
     "vanilla.DispenserBlockMixin",
     "vanilla.ElytraItemMixin",
+    "vanilla.EndCityPiecesMixin",
     "vanilla.FlowerPotMixin",
     "vanilla.HalfTransparentBlockMixin",
     "vanilla.ItemMixin",

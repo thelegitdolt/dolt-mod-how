@@ -51,12 +51,7 @@ public class DMHConfig {
 
         public final ConfigValue<Boolean> killBulletPepperPlacement;
         public final ConfigValue<Boolean> frogsAreNotStupid;
-        public final ConfigValue<Boolean> removeTremorzillaGrief;
 
-        public final ConfigValue<Boolean> acidCorrodesCopper;
-        public final ConfigValue<Boolean> sackOfSatingNoRestoreSat;
-        public final ConfigValue<Boolean> actuallyGoodBiomeTreats;
-        public final ConfigValue<Boolean> pathfinderQuillMakesCaveMaps;
         public final ConfigValue<Boolean> hideBeaconParticles;
         public final ConfigValue<Boolean> elytraInfiniteDurability;
         public final ConfigValue<Boolean> sporeRocketSummonSporeCloud;
@@ -70,7 +65,6 @@ public class DMHConfig {
         public final ConfigValue<Boolean> damageReductions;
 
         public final ConfigValue<String> discToSpawnAfterJukeboxStruckWithLightning;
-        public final ConfigValue<Boolean> gingerBreadMenDropWindsweptCookies;
 
 
 
@@ -271,40 +265,6 @@ public class DMHConfig {
                     .define("Realistic Quivers", true);
 
             builder.pop();
-            builder.pop();
-
-            builder.push("Alexander Caverns");
-
-            builder.push("Acid");
-            acidCorrodesCopper = builder.comment("If acid should not corrode copper")
-                    .define("Good Acid", true);
-            builder.pop();
-
-            builder.push("Cave Maps");
-            pathfinderQuillMakesCaveMaps = builder.comment("If pathfinder quills should make a based sigma cave map instead of a cringe beta vanilla map")
-                            .define("I'm sorry I said all that", true);
-            builder.pop();
-
-            builder.push("Biome Treats");
-            actuallyGoodBiomeTreats = builder.comment("If biome treats should work regardless of hunger")
-                    .define("Okay Treats", true);
-            builder.pop();
-
-            builder.push("Gingerbread Men");
-            gingerBreadMenDropWindsweptCookies = builder.comment("If gingerbread men should drop windswept gingerbread cookies instead of gingerbread crumps")
-                            .define("This Only Makes Sense In Dolt Modpack", false);
-            builder.pop();
-
-            builder.push("Sack of Sating");
-            sackOfSatingNoRestoreSat = builder.comment("If sacks of sating no longer restore saturation")
-                    .define("Mid sack of sating", false);
-            builder.pop();
-
-            builder.push("Tremorzilla");
-            removeTremorzillaGrief = builder.comment("If tremorzillas should no longer passively break all blocks in its hitbox. Blocks are still broken when the tremorzilla attacks, or with its beam attack.")
-                        .define("Marginally Less Griefy Tremorzillas", false);
-            builder.pop();
-
             builder.pop();
 
 

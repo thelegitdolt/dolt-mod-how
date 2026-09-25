@@ -24,7 +24,5 @@ public class DMHCriteriaTriggers {
 
     public static final EmptyTrigger USE_HEART_CRYSTAL_ON_LOW_HEALTH = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("use_heart_crystal_on_low_health")));
     public static final SpeedometerTrigger SPEEDOMETER_SPEED = CriteriaTriggers.register(new SpeedometerTrigger());
-    public static final EmptyTrigger USE_OCTOPUS_TO_PREVENT_VALLUMRAPTOR_TOMFOOLERY = CriteriaTriggers.register(new EmptyTrigger(DoltModHow.rl("use_octopus_to_prevent_vallumraptor_tomfoolery")));
-
 
 }

@@ -38,8 +38,6 @@ public class DMHTags {
     public static final TagKey<MobEffect> GENEROSITY_CANNOT_SHARE = mobEffectTag("generosity_cannot_steal");
     public static final TagKey<MobEffect> MIMING_CANNOT_COPY = mobEffectTag("miming_cannot_copy");
 
-    public static final TagKey<Item> COPPER_INGOTS = externalItemTag(DMHUtils.Constants.CAVERNS_AND_CHASMS, "copper_ingots");
-
     private static TagKey<Item> externalItemTag(String modId, String path) {
         return TagUtil.itemTag(modId, path);
     }

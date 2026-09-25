@@ -47,9 +47,6 @@ public class DMHClientCompat {
     }
 
     private static void registerRendersMaybe() {
-        ItemBlockRenderTypes.setRenderLayer(ANCIENT_BRAZIER.get(), RenderType.cutout());
-
-
         ItemBlockRenderTypes.setRenderLayer(WHITE_ENCASED_PIPE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(BROWN_ENCASED_PIPE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(GRAY_ENCASED_PIPE.get(), RenderType.translucent());

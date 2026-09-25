@@ -14,11 +14,8 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import org.jetbrains.annotations.NotNull;
 import org.violetmoon.quark.addons.oddities.module.BackpackModule;
 import umpaz.brewinandchewin.common.tag.BnCTags;
-import umpaz.brewinandchewin.data.BnCItemTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.PEWEN_CABINET;
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.THORNWOOD_CABINET;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.*;
 
 public class DMHItemTags extends ItemTagsProvider {
@@ -56,16 +53,9 @@ public class DMHItemTags extends ItemTagsProvider {
                 .addTags(DMHTags.ACID_BUCKETS, DMHTags.PURPLE_SODA_BUCKETS, DMHTags.MOLTEN_LEAD_BUCKETS);
         this.tag(BnCTags.FERMENTED_DRINKS).add(TEQUILA.get());
 
-        copy(BlueprintBlockTags.WOODEN_CHESTS, BlueprintItemTags.WOODEN_CHESTS);
-        copy(BlueprintBlockTags.WOODEN_BOARDS, BlueprintItemTags.WOODEN_BOARDS);
-        copy(BlueprintBlockTags.WOODEN_BOOKSHELVES, BlueprintItemTags.WOODEN_BOOKSHELVES);
-        copy(BlueprintBlockTags.WOODEN_TRAPPED_CHESTS, BlueprintItemTags.WOODEN_TRAPPED_CHESTS);
-        copy(BlueprintBlockTags.WOODEN_LADDERS, BlueprintItemTags.WOODEN_LADDERS);
-        copy(BlueprintBlockTags.WOODEN_BEEHIVES, BlueprintItemTags.WOODEN_BEEHIVES);
-        copy(BlueprintBlockTags.LEAF_PILES, BlueprintItemTags.LEAF_PILES);
+
         copy(DMHTags.PIPE_BLOCKS, DMHTags.PIPES);
         copy(DMHTags.ENCASED_PIPES_BLOCKS, DMHTags.ENCASED_PIPES);
 
-        this.tag(ModTags.WOODEN_CABINETS).add(PEWEN_CABINET.get().asItem(), THORNWOOD_CABINET.get().asItem());
     }
 }

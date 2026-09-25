@@ -73,28 +73,19 @@ public class DMHItems {
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                 .addItemsAfter(ofID(DMHUtils.Constants.STURDY_STONE), STURDY_DEEPSLATE)
                 .addItemsAfter(ofLoaded(() -> Items.LAPIS_BLOCK, DMHUtils.Constants.HEART_CRYSTALS), HEART_CRYSTAL_LAMP)
-                .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, DMHUtils.Constants.WOODWORKS), PEWEN_BOARDS, THORNWOOD_BOARDS)
 
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
                 .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA, TEQUILA)
                 .addItemsAfter(of(Items.MUSHROOM_STEW), ALPHACENE_SALAD)
 
-                .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
-                .addItemsAfter(modLoaded(Blocks.LADDER, DMHUtils.Constants.ALEXS_CAVES), PEWEN_LADDER, THORNWOOD_LADDER)
-                .addItemsAfter(modLoaded(Blocks.BEEHIVE, DMHUtils.Constants.ALEXS_CAVES), PEWEN_BEEHIVE, THORNWOOD_BEEHIVE)
-                .addItemsAfter(modLoaded(Blocks.CHISELED_BOOKSHELF, DMHUtils.Constants.ALEXS_CAVES), PEWEN_BOOKSHELF, CHISELED_PEWEN_BOOKSHELF, THORNWOOD_BOOKSHELF, CHISELED_THORNWOOD_BOOKSHELF)
-                .addItemsAfter(modLoaded(Blocks.CHEST, DMHUtils.Constants.ALEXS_CAVES), PEWEN_CHEST, THORNWOOD_CHEST)
-
                 .tab(CreativeModeTabs.INGREDIENTS)
                 .addItemsAfter(of(Items.LEATHER), LEATHER_SCRAPS)
 
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
-                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), MULCH_BAG, PINE_NUTS_CRATE, WAX_BLOCK)
-                .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, DMHUtils.Constants.WOODWORKS), ANCIENT_LEAF_PILE)
+                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), MULCH_BAG, WAX_BLOCK)
                 .addItemsAfter(of(Items.DIRT_PATH), ALPHACENE_PATH)
 
                 .tab(CreativeModeTabs.REDSTONE_BLOCKS)
-                .addItemsAfter(modLoaded(Blocks.TRAPPED_CHEST, DMHUtils.Constants.ALEXS_CAVES), TRAPPED_PEWEN_CHEST, TRAPPED_THORNWOOD_CHEST)
                 .addItems(WHITE_ENCASED_PIPE, BROWN_ENCASED_PIPE, GRAY_ENCASED_PIPE, LIGHT_GRAY_ENCASED_PIPE, RED_ENCASED_PIPE, ORANGE_ENCASED_PIPE,
                         YELLOW_ENCASED_PIPE, LIME_ENCASED_PIPE, GREEN_ENCASED_PIPE, BLUE_ENCASED_PIPE, LIGHT_BLUE_ENCASED_PIPE, CYAN_ENCASED_PIPE, PURPLE_ENCASED_PIPE,
                         MAGENTA_ENCASED_PIPE, PINK_ENCASED_PIPE, BLACK_ENCASED_PIPE);
@@ -102,10 +93,6 @@ public class DMHItems {
             thing.addItems(ROSE_ENCASED_PIPE, MAROON_ENCASED_PIPE, GINGER_ENCASED_PIPE, TAN_ENCASED_PIPE,
                     BEIGE_ENCASED_PIPE, CORAL_ENCASED_PIPE, OLIVE_ENCASED_PIPE, FOREST_ENCASED_PIPE, VERDANT_ENCASED_PIPE, AMBER_ENCASED_PIPE,
                     TEAL_ENCASED_PIPE, MINT_ENCASED_PIPE, AQUA_ENCASED_PIPE, SLATE_ENCASED_PIPE, NAVY_ENCASED_PIPE, INDIGO_ENCASED_PIPE);
-        }
-
-        if (BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.JNE, DMHUtils.Constants.CAVERNS_AND_CHASMS)) {
-            thing.addItems(ANCIENT_BRAZIER);
         }
 
             thing.tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
@@ -120,7 +107,6 @@ public class DMHItems {
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)
                 .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId(), DMHUtils.Constants.BOP), TOADSTOOL_COLONY, BOP_GLOWSHROOM_COLONY)
 
-                .addItemsBefore(ofID(ModItems.BAMBOO_CABINET.getId()), PEWEN_CABINET, THORNWOOD_CABINET)
                 .predicate(DMHItems::mowziesPredicate)
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.ATMOSPHERIC),
                         ARID_RAKED_SAND, RED_ARID_RAKED_SAND)

@@ -27,6 +27,5 @@ public class BlockItemMixin {
                 ExperienceOrb.award((ServerLevel) player.level(), player.position(), player.getRandom().nextInt(3, 6));
             }
         }
-
     }
 }

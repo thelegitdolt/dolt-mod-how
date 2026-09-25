@@ -9,7 +9,6 @@
 
   "block.dolt_mod_how.lanternfish_barrel": "Barrel of Lanternfish",
   "block.dolt_mod_how.sturdy_deepslate": "Sturdy Deepslate",
-  "block.dolt_mod_how.pine_nuts_crate": "Crate of Pine Nuts",
   "block.dolt_mod_how.mulch_bag": "Bag of Mulch",
 
   "block.dolt_mod_how.heart_crystal_lamp": "Heart Crystal Lamp",
@@ -28,32 +27,11 @@
   "block.dolt_mod_how.red_arid_raked_sand": "Raked Red Arid Sand",
   "block.dolt_mod_how.ashen_raked_sand": "Raked Ashen Sand",
 
-  "block.dolt_mod_how.pewen_chest": "Pewen Chest",
-  "block.dolt_mod_how.trapped_pewen_chest": "Trapped Pewen Chest",
-  "block.dolt_mod_how.pewen_boards": "Pewen Boards",
-  "block.dolt_mod_how.pewen_beehive": "Pewen Beehive",
-  "block.dolt_mod_how.pewen_ladder": "Pewen Ladder",
-  "block.dolt_mod_how.chiseled_pewen_bookshelf": "Chiseled Pewen Bookshelf",
-  "block.dolt_mod_how.pewen_bookshelf": "Pewen Bookshelf",
-
-  "block.dolt_mod_how.thornwood_chest": "Thornwood Chest",
-  "block.dolt_mod_how.trapped_thornwood_chest": "Trapped Thornwood Chest",
-  "block.dolt_mod_how.thornwood_boards": "Thornwood Boards",
-  "block.dolt_mod_how.thornwood_beehive": "Thornwood Beehive",
-  "block.dolt_mod_how.thornwood_ladder": "Thornwood Ladder",
-  "block.dolt_mod_how.chiseled_thornwood_bookshelf": "Chiseled Thornwood Bookshelf",
-  "block.dolt_mod_how.thornwood_bookshelf": "Thornwood Bookshelf",
-
-  "block.dolt_mod_how.pewen_cabinet": "Pewen Cabinet",
-  "block.dolt_mod_how.thornwood_cabinet": "Thornwood Cabinet",
-
   "block.dolt_mod_how.zinc_bricks": "Zinc Plated Bricks",
   "block.dolt_mod_how.zinc_brick_stairs": "Zinc Plated Brick Stairs",
   "block.dolt_mod_how.zinc_brick_slab": "Zinc Plated Brick Slab",
   "block.dolt_mod_how.zinc_brick_wall": "Zinc Plated Brick Wall",
   "block.dolt_mod_how.chiseled_zinc_bricks": "Chiseled Zinc Plated Bricks",
-
-  "block.dolt_mod_how.ancient_leaf_pile": "Pile of Ancient Leaves",
 
   "block.dolt_mod_how.white_encased_pipe": "White Encased Pipe",
   "block.dolt_mod_how.brown_encased_pipe": "Brown Encased Pipe",

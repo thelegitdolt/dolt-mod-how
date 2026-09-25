@@ -1,15 +1,10 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
-import com.dolthhaven.dolt_mod_how.common.block.ChiseledPewenBookshelfBlock;
 import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.*;
-import com.teamabnormals.blueprint.common.block.BlueprintBeehiveBlock;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
-import com.teamabnormals.blueprint.common.block.LeafPileBlock;
-import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
-import com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.world.level.block.*;
@@ -21,7 +16,6 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import org.violetmoon.quark.addons.oddities.block.pipe.EncasedPipeBlock;
-import vectorwing.farmersdelight.common.block.CabinetBlock;
 import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
@@ -30,7 +24,6 @@ import java.util.function.Supplier;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.CC_LAMP;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.ZINC_PLATED_BRICKS;
 import static net.minecraft.world.level.material.MapColor.GLOW_LICHEN;
-import static net.minecraft.world.level.material.MapColor.TERRACOTTA_YELLOW;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DMHBlocks {
@@ -51,53 +44,10 @@ public class DMHBlocks {
             new MushroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM), DMHBopCompat.toadstool()));
 
 
-    public static final RegistryObject<Block> PINE_NUTS_CRATE = HELPER.createBlock("pine_nuts_crate", () ->
-            new BlueprintDirectionalBlock(DMHBlockProps.PINE_NUT_CRATE));
     public static final RegistryObject<Block> HEART_CRYSTAL_LAMP = HELPER.createBlock("heart_crystal_lamp", () ->
             new Block(CC_LAMP));
     public static final RegistryObject<Block> MULCH_BAG = HELPER.createBlock("mulch_bag", () ->
             new BlueprintDirectionalBlock(BlockBehaviour.Properties.copy(ModBlocks.RICE_BAG.get()).mapColor(MapColor.COLOR_BROWN)));
-
-    public static final RegistryObject<Block> PEWEN_BEEHIVE = HELPER.createFuelBlock("pewen_beehive", () ->
-            new BlueprintBeehiveBlock(DMHBlockProps.PEWEN.beehive()), 300);
-    public static final RegistryObject<BlueprintChestBlock> PEWEN_CHEST = HELPER
-            .createChestBlock("pewen", DMHBlockProps.PEWEN.chest());
-    public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_PEWEN_CHEST = HELPER
-            .createTrappedChestBlockNamed("pewen", DMHBlockProps.PEWEN.chest());
-    public static final RegistryObject<Block> PEWEN_LADDER = HELPER.createFuelBlock("pewen_ladder", () ->
-            new LadderBlock(DMHBlockProps.PEWEN.ladder()), 300);
-    public static final RegistryObject<Block> PEWEN_BOARDS = HELPER.createFuelBlock("pewen_boards", () ->
-            new RotatedPillarBlock(DMHBlockProps.PEWEN.planks()), 300);
-    public static final RegistryObject<Block> PEWEN_BOOKSHELF = HELPER.createFuelBlock("pewen_bookshelf", () ->
-            new Block(DMHBlockProps.PEWEN.bookshelf()), 300);
-    public static final RegistryObject<Block> CHISELED_PEWEN_BOOKSHELF = HELPER.createFuelBlock("chiseled_pewen_bookshelf", () ->
-            new ChiseledPewenBookshelfBlock(DMHBlockProps.PEWEN.chiseledBookshelf()), 300);
-    public static final RegistryObject<Block> PEWEN_CABINET = HELPER.createFuelBlock("pewen_cabinet", () ->
-            new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get())), 300);
-
-    public static final RegistryObject<Block> THORNWOOD_BEEHIVE = HELPER.createFuelBlock("thornwood_beehive", () ->
-            new BlueprintBeehiveBlock(DMHBlockProps.THORNWOOD.beehive()), 300);
-    public static final RegistryObject<BlueprintChestBlock> THORNWOOD_CHEST = HELPER
-            .createChestBlock("thornwood", DMHBlockProps.PEWEN.chest());
-    public static final RegistryObject<BlueprintTrappedChestBlock> TRAPPED_THORNWOOD_CHEST = HELPER
-            .createTrappedChestBlockNamed("thornwood", DMHBlockProps.THORNWOOD.chest());
-    public static final RegistryObject<Block> THORNWOOD_LADDER = HELPER.createFuelBlock("thornwood_ladder", () ->
-            new LadderBlock(DMHBlockProps.THORNWOOD.ladder()), 300);
-    public static final RegistryObject<Block> THORNWOOD_BOARDS = HELPER.createFuelBlock("thornwood_boards", () ->
-            new RotatedPillarBlock(DMHBlockProps.THORNWOOD.planks()), 300);
-    public static final RegistryObject<Block> THORNWOOD_BOOKSHELF = HELPER.createFuelBlock("thornwood_bookshelf", () ->
-            new Block(DMHBlockProps.THORNWOOD.bookshelf()), 300);
-    public static final RegistryObject<Block> CHISELED_THORNWOOD_BOOKSHELF = HELPER.createFuelBlock("chiseled_thornwood_bookshelf", () ->
-            new ChiseledPewenBookshelfBlock(DMHBlockProps.THORNWOOD.chiseledBookshelf()), 300);
-    public static final RegistryObject<Block> THORNWOOD_CABINET = HELPER.createFuelBlock("thornwood_cabinet", () ->
-            new CabinetBlock(BlockBehaviour.Properties.copy(ModBlocks.OAK_CABINET.get())), 300);
-    
-    public static final RegistryObject<Block> ANCIENT_BRAZIER = HELPER.createBlock("ancient_brazier",
-            BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.JNE) ? DMHCCJNECompat.ANCIENT_BRAZIER : () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-
-    public static final RegistryObject<Block> ANCIENT_LEAF_PILE = HELPER.createBlock("ancient_leaf_pile", () ->
-            new LeafPileBlock(DMHBlockProps.PEWEN.leafPile()));
-
 
 //    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", ModList.get().isLoaded("fish_in_planks") ?
 //            DMHFishBarrels.LANTERNFISH_BLOCK : () -> new Block(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD)),
@@ -225,8 +175,6 @@ public class DMHBlocks {
                 .pushReaction(PushReaction.IGNORE);
         public static final BlockBehaviour.Properties ALPHACENE_PATH = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN)
                 .strength(0.65F).sound(BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.SPECIES) ? DMHSpeciesCompat.opSound() : SoundType.GRAVEL).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always);
-        public static final BlockBehaviour.Properties PINE_NUT_CRATE = BlockBehaviour.Properties.of().mapColor(TERRACOTTA_YELLOW)
-                .strength(1.5f).sound(SoundType.WOOD).ignitedByLava();
 
         public static final BlockBehaviour.Properties ZINC_PLATED_BRICKS = BlockBehaviour.Properties.of().mapColor(GLOW_LICHEN)
                 .strength(3.0f, 6.0f).sound(SoundType.METAL).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM);

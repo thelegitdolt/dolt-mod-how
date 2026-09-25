@@ -96,7 +96,6 @@ public class DoltModHowDataUtil {
         DataUtil.registerCompostable(GLOWSHROOM_COLONY.get(), 1.0f);
         DataUtil.registerCompostable(TOADSTOOL_COLONY.get(), 1.0f);
         DataUtil.registerCompostable(BOP_GLOW_SHROOM_COLONY.get(), 1.0f);
-        DataUtil.registerCompostable(PINE_NUTS_CRATE.get(), 1.0f);
         DataUtil.registerCompostable(MULCH_BAG.get(), 1.0f);
 
         COMPOSTABLE_ENTITIES.defaultReturnValue(-1.0f);

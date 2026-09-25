@@ -74,7 +74,6 @@ public class DoltModHowLootTables extends LootTableProvider {
         @Override
         protected void generate() {
             this.dropSelf(STURDY_DEEPSLATE.get());
-            this.dropSelf(PINE_NUTS_CRATE.get());
             this.dropSelf(HEART_CRYSTAL_LAMP.get());
             this.dropSelf(MULCH_BAG.get());
             this.dropOther(ALPHACENE_PATH.get(), Blocks.DIRT);
@@ -90,29 +89,6 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropPottedContents(POTTED_CABBAGE.get());
             this.dropPottedContents(POTTED_ONION.get());
             this.dropPottedContents(POTTED_TOMATOES.get());
-
-            this.add(PEWEN_CHEST.get(), this::createNameableBlockEntityTable);
-            this.add(TRAPPED_PEWEN_CHEST.get(), this::createNameableBlockEntityTable);
-            this.add(PEWEN_BOOKSHELF.get(), block -> this.createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3)));
-            this.add(PEWEN_BEEHIVE.get(), BlockLootSubProvider::createBeeHiveDrop);
-            this.dropSelf(PEWEN_LADDER.get());
-            this.dropSelf(PEWEN_BOARDS.get());
-            this.add(PEWEN_CABINET.get(), this::createNameableBlockEntityTable);
-            this.dropWhenSilkTouch(CHISELED_PEWEN_BOOKSHELF.get());
-            this.add(ANCIENT_LEAF_PILE.get(), block -> createMultifaceBlockDrops(block,
-                    MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS))));
-            this.dropSelf(ANCIENT_BRAZIER.get());
-
-            this.add(THORNWOOD_CHEST.get(), this::createNameableBlockEntityTable);
-            this.add(TRAPPED_THORNWOOD_CHEST.get(), this::createNameableBlockEntityTable);
-            this.add(THORNWOOD_CABINET.get(), this::createNameableBlockEntityTable);
-            this.add(THORNWOOD_BEEHIVE.get(), BlockLootSubProvider::createBeeHiveDrop);
-            this.dropSelf(THORNWOOD_LADDER.get());
-            this.dropSelf(WAX_BLOCK.get());
-            this.dropSelf(THORNWOOD_BOARDS.get());
-            this.add(THORNWOOD_CABINET.get(), this::createNameableBlockEntityTable);
-            this.add(THORNWOOD_BOOKSHELF.get(), block -> this.createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3)));
-            this.dropWhenSilkTouch(CHISELED_THORNWOOD_BOOKSHELF.get());
 
             this.dropOther(ARID_RAKED_SAND.get(), AtmosphericBlocks.ARID_SAND.get());
             this.dropOther(RED_ARID_RAKED_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());

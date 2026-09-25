@@ -1,7 +1,0 @@
-{
-	"parent": "dolt_mod_how:block/template_ancient_brazier_hanging",
-	"textures": {
-		"fire": "dolt_mod_how:block/ancient_brazier_fire",
-		"lit": "dolt_mod_how:block/ancient_brazier_top_lit"
-	}
-}

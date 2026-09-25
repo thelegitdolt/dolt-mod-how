@@ -103,16 +103,6 @@ public class DMHACCompat {
         }
     }
 
-    public static void registerUnRust() {
-        if (ModList.get().isLoaded(DMHUtils.Constants.ALEXS_CAVES)) {
-            DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCRAP_METAL.get(), ACBlockRegistry.SCRAP_METAL.get());
-            DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCRAP_METAL_PLATE.get(), ACBlockRegistry.SCRAP_METAL_PLATE.get());
-            DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_BARREL.get(), ACBlockRegistry.METAL_BARREL.get());
-            DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_SCAFFOLDING.get(), ACBlockRegistry.METAL_SCAFFOLDING.get());
-            DMHRightClickEvent.UNRUST_MAP.put(ACBlockRegistry.RUSTY_REBAR.get(), ACBlockRegistry.METAL_REBAR.get());
-        }
-    }
-
     public static ItemStack makeMapFromString(ResourceLocation loc) {
         ItemStack map = new ItemStack(ACItemRegistry.CAVE_MAP.get());
         CompoundTag tag = new CompoundTag();

@@ -67,7 +67,6 @@ public class DoltModHow {
 
         DMHEnchants.ENCHANTMENTS.register(bus);
         DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
-        DMHParticles.PARTICLES.register(bus);
         DMHLoot.LOOT_CONDITIONS.register(bus);
         DMHLoot.LOOT_MODIFIERS.register(bus);
         DMHFluids.FLUID_TYPES.register(bus);

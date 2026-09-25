@@ -3,7 +3,6 @@ package com.dolthhaven.dolt_mod_how.core.other.events;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.network.DMHPacketHandler;
-import com.dolthhaven.dolt_mod_how.core.network.S2CRustScrapePacket;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
@@ -54,7 +53,6 @@ import java.util.function.Supplier;
 public class DMHRightClickEvent {
     public static final Map<Block, Block> RAKE_MAP = new HashMap<>();
     public static final Map<Block, Block> TILL_MAP = new HashMap<>();
-    public static final Map<Block, Block> UNRUST_MAP = new HashMap<>();
     public static final Map<Item, Pair<Supplier<Boolean>, BlockItem>> ITEM_PLACE_MAP = new HashMap<>();
 
     @SubscribeEvent
@@ -69,7 +67,6 @@ public class DMHRightClickEvent {
         handleBulletPepper(event);
         handleAlphacenePath(event);
         handleUntillFarmland(event);
-        tryUnrustRustyStuff(event);
         potStrawberry(event);
         rakeSand(event, level, player, hand, stack, pos, result);
     }
@@ -136,10 +133,6 @@ public class DMHRightClickEvent {
             putIfNotNull(TILL_MAP, DMHBlocks.RED_ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_ARID_SAND));
             putIfNotNull(TILL_MAP, DMHBlocks.ASHEN_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ASHEN_SAND));
         }
-    }
-
-    public static void registerUnRust() {
-        if (DMHUtils.alexCavesLoaded()) DMHACCompat.registerUnRust();
     }
 
     public static void registerRakeables() {
@@ -219,48 +212,6 @@ public class DMHRightClickEvent {
             }
 
             level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
-            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
-            event.setCanceled(true);
-        }
-    }
-
-    private static void tryUnrustRustyStuff(PlayerInteractEvent.RightClickBlock event) {
-        if (!DMHUtils.alexCavesLoaded()) return;
-
-        ItemStack stack = event.getItemStack();
-        Player player = event.getEntity();
-        Level level = event.getLevel();
-        BlockPos pos = event.getPos();
-        BlockState state = level.getBlockState(pos);
-
-        if (stack.canPerformAction(ToolActions.AXE_SCRAPE) && UNRUST_MAP.containsKey(state.getBlock())) {
-            for (Direction dir : Direction.Plane.HORIZONTAL)
-                if (DMHACCompat.isAcid(level.getBlockState(pos.relative(dir)))) return;
-
-
-            BlockState newState = UNRUST_MAP.get(state.getBlock()).defaultBlockState();
-            newState = copyStates(newState, state);
-
-            if (DMHACCompat.isMetalBarrel(level, pos)) {
-                CompoundTag tag = level.getBlockEntity(pos).serializeNBT();
-                level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
-                level.getBlockEntity(pos).deserializeNBT(tag);
-            } else
-                level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
-
-
-
-            if (player instanceof ServerPlayer serverPlayer)
-                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, pos, stack);
-
-            level.playSound(player, pos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS);
-            DMHPacketHandler.CHANNEL.send(PacketDistributor.DIMENSION.with(() -> level.dimension()), new S2CRustScrapePacket(pos));
-            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
-
-
-            if (player != null)
-                stack.hurtAndBreak(1, player, p_150686_ -> p_150686_.broadcastBreakEvent(event.getHand()));
-
             event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
             event.setCanceled(true);
         }

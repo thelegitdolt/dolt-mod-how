@@ -1,4 +1,4 @@
-package com.dolthhaven.dolt_mod_how.core.mixin.anchor;
+package com.dolthhaven.dolt_mod_how.core.mixin.vanilla;
 
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;

@@ -53,10 +53,6 @@ public class DMHACCompat {
         return false;
     }
 
-    public static void playVallumSound(LivingEntity entity) {
-        entity.playSound(ACSoundRegistry.VALLUMRAPTOR_CALL.get(), 1.2f, 1.2f);
-    }
-
     public static boolean firstEntityIsTremorzillaAndSecondIsNucleeper(Entity entity1, Entity entity2) {
         return entity1 instanceof TremorzillaEntity && entity2 instanceof NucleeperEntity;
     }

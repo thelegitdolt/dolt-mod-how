@@ -6,8 +6,6 @@
   "mixins": [
     "alexscaves.DesolateDaggerMixin",
     "alexscaves.DinosaurChopMixin",
-    "alexscaves.lootchestfeature.AnimalLootChestsGoalMixin",
-    "alexscaves.lootchestfeature.VallumRaptorMixin",
     "amendments.DirectionalCakeBlockMixin",
     "amendments.HangingSignDisplayItemMixin",
     "anchor.LightningBoltMixin",

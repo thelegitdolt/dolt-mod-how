@@ -33,7 +33,6 @@ public class DoltModHowDataUtil {
     public static void registerData() {
         registerCompostable();
         DMHRightClickEvent.registerHoeTills();
-        DMHRightClickEvent.registerUnRust();
         DMHRightClickEvent.registerBlockPlacing();
         DMHRightClickEvent.registerRakeables();
         DMHCauldrons.register();

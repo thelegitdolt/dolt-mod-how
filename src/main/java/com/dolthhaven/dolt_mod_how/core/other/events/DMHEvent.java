@@ -3,6 +3,7 @@ package com.dolthhaven.dolt_mod_how.core.other.events;
 import com.dolthhaven.dolt_mod_how.common.item.RecoveryCompassItem;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
+import com.dolthhaven.dolt_mod_how.core.registry.DMHParticles;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHTags;
 import com.dolthhaven.dolt_mod_how.integration.AmendmentsBugfix;
@@ -54,9 +55,6 @@ import static net.minecraft.world.InteractionHand.MAIN_HAND;
 public class DMHEvent {
     private static final UniformInt COMMON_ORE = UniformInt.of(0, 2);
     private static final UniformInt RARE_ORE = UniformInt.of(1, 3);
-
-    public static void avoidDragonBreath(EntityJoinLevelEvent event) {
-    }
 
     @SubscribeEvent
     public static void projectileImpact(ProjectileImpactEvent event) {

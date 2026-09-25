@@ -19,11 +19,5 @@ public class DMHPacketHandler {
                 .clientAcceptedVersions(s -> true)
                 .serverAcceptedVersions(s -> true)
                 .simpleChannel();
-
-        CHANNEL.messageBuilder(S2CRustScrapePacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
-                .decoder(S2CRustScrapePacket::new)
-                .encoder(S2CRustScrapePacket::write)
-                .consumerMainThread(S2CRustScrapePacket::handle)
-                .add();
     }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "blueprint:block/template_boards_horizontal",
-  "textures": {
-    "all": "dolt_mod_how:block/thornwood_boards"
-  }
-}

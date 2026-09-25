@@ -76,6 +76,7 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropSelf(STURDY_DEEPSLATE.get());
             this.dropSelf(HEART_CRYSTAL_LAMP.get());
             this.dropSelf(MULCH_BAG.get());
+            this.dropSelf(WAX_BLOCK.get());
             this.dropOther(ALPHACENE_PATH.get(), Blocks.DIRT);
 
             this.colony(GLOWSHROOM_COLONY);

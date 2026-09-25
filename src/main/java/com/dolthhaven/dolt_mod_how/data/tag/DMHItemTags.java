@@ -2,7 +2,6 @@ package com.dolthhaven.dolt_mod_how.data.tag;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
-import com.teamabnormals.blueprint.core.other.tags.BlueprintBlockTags;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -14,10 +13,10 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import org.jetbrains.annotations.NotNull;
 import org.violetmoon.quark.addons.oddities.module.BackpackModule;
 import umpaz.brewinandchewin.common.tag.BnCTags;
-import vectorwing.farmersdelight.common.tag.ModTags;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.*;
 
+@SuppressWarnings("removal")
 public class DMHItemTags extends ItemTagsProvider {
     public DMHItemTags(GatherDataEvent event, BlockTagsProvider blockTags) {
         super(event.getGenerator().getPackOutput(),

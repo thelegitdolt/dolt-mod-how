@@ -14,7 +14,6 @@
     "auditoryboatsounds.BlueprintBoatItemMixin",
     "auditoryboatsounds.BoatItemMixin",
     "auditoryboatsounds.BoatloadBoatItemMixin",
-    "auditoryboatsounds.CaveBoatItem",
     "auditoryboatsounds.DispenserMinecartItemMixin",
     "auditoryboatsounds.MinecartItemMixin",
     "brewinandchewin.CoasterBlockEntityRendererMixin",

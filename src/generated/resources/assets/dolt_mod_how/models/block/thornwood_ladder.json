@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/ladder",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "particle": "dolt_mod_how:block/thornwood_ladder",
-    "texture": "dolt_mod_how:block/thornwood_ladder"
-  }
-}

@@ -90,13 +90,6 @@ public class DMHRecipes extends BlueprintRecipeProvider {
         generateRecipes(consumer, DMHBlockFamilies.ZINC_BRICKS_FAMILY);
 
         storageRecipes(consumer, RecipeCategory.BUILDING_BLOCKS, ModItems.TREE_BARK.get(), RecipeCategory.DECORATIONS, MULCH_BAG.get());
-
-        KegFermentingRecipeBuilder.kegFermentingRecipe(DMHFluids.TEQUILA.get(), 1000, 9600, 1.0F, 1)
-                .addFluidIngredient(Fluids.WATER, 1000)
-                .addIngredient(AtmosphericBlocks.AGAVE.get(), 2)
-                .addIngredient(AtmosphericItems.YUCCA_FRUIT.get())
-                .addIngredient(Items.SUGAR).unlockedByItems("has_tankard", BnCItems.TANKARD.get()).setRecipeBookTab(FermentingRecipeBookTab.DRINKS).build(consumer);
-
         pipes(consumer);
     }
 

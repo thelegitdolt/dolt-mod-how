@@ -5,7 +5,6 @@ import com.dolthhaven.dolt_mod_how.common.item.ExperienceFoodItem;
 import com.dolthhaven.dolt_mod_how.common.item.PoulpoItem;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
-import com.dolthhaven.dolt_mod_how.integration.DMHBnCAtmosCompat;
 import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -65,8 +64,6 @@ public class DMHItems {
 
     public static final RegistryObject<Item> WARDENZOLA_WEDGE = HELPER.createItem("wardenzola_wedge",
             () -> new ExperienceFoodItem(new Item.Properties().food(WARDENZOLA)));
-    public static final RegistryObject<Item> TEQUILA = HELPER.createItem("tequila",
-            BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.BREWING_AND_CHEWING, DMHUtils.Constants.ATMOSPHERIC) ? DMHBnCAtmosCompat.TEQUILA : () -> new Item(new Item.Properties()));
 
     public static void setUpTabEditors() {
         var thing = CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
@@ -75,7 +72,7 @@ public class DMHItems {
                 .addItemsAfter(ofLoaded(() -> Items.LAPIS_BLOCK, DMHUtils.Constants.HEART_CRYSTALS), HEART_CRYSTAL_LAMP)
 
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
-                .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA, TEQUILA)
+                .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA)
                 .addItemsAfter(of(Items.MUSHROOM_STEW), ALPHACENE_SALAD)
 
                 .tab(CreativeModeTabs.INGREDIENTS)

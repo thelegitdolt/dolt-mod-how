@@ -19,14 +19,6 @@ public class DMHFluids {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, DoltModHow.MOD_ID);
 
 
-    public static final RegistryObject<FluidType> TEQUILA_FLUID_TYPE = FLUID_TYPES.register("tequila_type",
-            chewin() ? DMHBCCompat.TEQUILA_FLUID_TYPE : () -> new PlaceholderFluid(0xff3df0f2));
-
-    public static final RegistryObject<FlowingFluid> TEQUILA = FLUIDS.register("tequila", () -> new ForgeFlowingFluid.Source(DMHFluids.TEQUILA_PROPERTIES));
-    public static final RegistryObject<FlowingFluid> FLOWING_TEQUILA = FLUIDS.register("flowing_tequila", () -> new ForgeFlowingFluid.Flowing(DMHFluids.TEQUILA_PROPERTIES));
-    public static final ForgeFlowingFluid.Properties TEQUILA_PROPERTIES = new ForgeFlowingFluid.Properties(TEQUILA_FLUID_TYPE, TEQUILA, FLOWING_TEQUILA);
-
-
     public static final RegistryObject<FluidType> WARDENZOLA_FLUID_TYPE = FLUID_TYPES.register("wardenzola_fluid_type", WardenzolaFluid::new);
     public static final RegistryObject<FlowingFluid> WARDENZOLA = FLUIDS.register("wardenzola", () ->
             new ForgeFlowingFluid.Source(DMHFluids.WARDENZOLA_FLUID_PROPERTIES));

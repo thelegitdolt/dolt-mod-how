@@ -47,13 +47,10 @@ public class DMHRecipes extends BlueprintRecipeProvider {
     public static final ModLoadedCondition CREATE_LOADED = new ModLoadedCondition(DMHUtils.Constants.CREATE);
     public static final ModLoadedCondition BNC_LOADED = new ModLoadedCondition(DMHUtils.Constants.BREWING_AND_CHEWING);
     public static final ModLoadedCondition ATMOSPHERIC_LOADED = new ModLoadedCondition(DMHUtils.Constants.ATMOSPHERIC);
-    public static final AndCondition BNC_ATMO_LOADED = new AndCondition(BNC_LOADED, ATMOSPHERIC_LOADED);
     public static final ModLoadedCondition JNE_LOADED = new ModLoadedCondition(DMHUtils.Constants.JNE);
 
     public static final ModLoadedCondition CAVERNS_CHASMS_LOADED = new ModLoadedCondition(DMHUtils.Constants.CAVERNS_AND_CHASMS);
-    public static final AndCondition CCC_LOADED = new AndCondition(CREATE_LOADED, CAVERNS_CHASMS_LOADED);
     public static final ModLoadedCondition HEART_CRYSTALS_LOADED = new ModLoadedCondition(DMHUtils.Constants.HEART_CRYSTALS);
-    public static final AndCondition CCJNE_LOADED = new AndCondition(CAVERNS_CHASMS_LOADED, JNE_LOADED);
 
 
     @Override
@@ -89,7 +86,6 @@ public class DMHRecipes extends BlueprintRecipeProvider {
 
         generateRecipes(consumer, DMHBlockFamilies.ZINC_BRICKS_FAMILY);
 
-        storageRecipes(consumer, RecipeCategory.BUILDING_BLOCKS, ModItems.TREE_BARK.get(), RecipeCategory.DECORATIONS, MULCH_BAG.get());
         pipes(consumer);
     }
 

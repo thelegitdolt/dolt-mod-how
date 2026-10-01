@@ -53,7 +53,7 @@ public class DMHBlockTags extends BlockTagsProvider {
                 POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get(), POTTED_TOMATOES.get(), POTTED_ONION.get(), POTTED_CABBAGE.get(),
                 POTTED_STRAWBERRIES.get(), POTTED_WHITE_STRAWBERRIES.get());
 
-        this.tag(ModTags.MINEABLE_WITH_KNIFE).add(MULCH_BAG.get())
+        this.tag(ModTags.MINEABLE_WITH_KNIFE)
                 .addOptional(DMHUtils.Constants.DINOSAUR_CHOP)
                 .addOptional(DMHUtils.Constants.COOKED_DINOSAUR_CHOPS);
         this.tag(DMHTags.MINEABLE_SHEARS).add(HONEYCOMB_BLOCK, WAX_BLOCK.get());

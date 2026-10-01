@@ -46,8 +46,6 @@ public class DMHBlocks {
 
     public static final RegistryObject<Block> HEART_CRYSTAL_LAMP = HELPER.createBlock("heart_crystal_lamp", () ->
             new Block(CC_LAMP));
-    public static final RegistryObject<Block> MULCH_BAG = HELPER.createBlock("mulch_bag", () ->
-            new BlueprintDirectionalBlock(BlockBehaviour.Properties.copy(ModBlocks.RICE_BAG.get()).mapColor(MapColor.COLOR_BROWN)));
 
 //    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", ModList.get().isLoaded("fish_in_planks") ?
 //            DMHFishBarrels.LANTERNFISH_BLOCK : () -> new Block(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD)),

@@ -79,7 +79,7 @@ public class DMHItems {
                 .addItemsAfter(of(Items.LEATHER), LEATHER_SCRAPS)
 
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
-                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), MULCH_BAG, WAX_BLOCK)
+                .addItemsAfter(modLoaded(Blocks.HAY_BLOCK, DMHUtils.Constants.ALEXS_CAVES), WAX_BLOCK)
                 .addItemsAfter(of(Items.DIRT_PATH), ALPHACENE_PATH)
 
                 .tab(CreativeModeTabs.REDSTONE_BLOCKS)

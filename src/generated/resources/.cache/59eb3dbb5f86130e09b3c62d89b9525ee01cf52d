@@ -1,4 +1,4 @@
-// 1.20.1	2026-09-25T08:34:01.986922	Loot Tables
+// 1.20.1	2026-10-01T01:06:35.685279	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
 7ee65a426beb9ecae98c65d2684b60feeb5b446e data/dolt_mod_how/loot_tables/blocks/amber_encased_pipe.json
 d4fcaaa9d3cc06ec2c30e1bfffa9a1508c83a50f data/dolt_mod_how/loot_tables/blocks/aqua_encased_pipe.json
@@ -24,7 +24,6 @@ a0133358617046f5b02f06281de9ee3be8102976 data/dolt_mod_how/loot_tables/blocks/li
 b15bb786bb6ee783c2f9167309ab946caf772153 data/dolt_mod_how/loot_tables/blocks/magenta_encased_pipe.json
 f67de5e65ddbdaafbd9bad8578a7bfa040da2884 data/dolt_mod_how/loot_tables/blocks/maroon_encased_pipe.json
 909a799a93385d41b5bb01ab0b5c38de17b3936b data/dolt_mod_how/loot_tables/blocks/mint_encased_pipe.json
-01a49572c3f0912a2d57745a5657a0a6999396b2 data/dolt_mod_how/loot_tables/blocks/mulch_bag.json
 98da33438b44be0d161eb4b100b84c7dfe95e54e data/dolt_mod_how/loot_tables/blocks/navy_encased_pipe.json
 06e54d3e4e8b036b15fc31da5f655d8fb14e343e data/dolt_mod_how/loot_tables/blocks/olive_encased_pipe.json
 80cd2ae1e1d4cbd0997963b572089d41152bf9d2 data/dolt_mod_how/loot_tables/blocks/orange_encased_pipe.json

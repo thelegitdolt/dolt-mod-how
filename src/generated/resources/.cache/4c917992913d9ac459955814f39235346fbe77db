@@ -1,11 +1,11 @@
-// 1.20.1	2026-09-25T08:34:01.985794	Tags for minecraft:block mod id dolt_mod_how
+// 1.20.1	2026-10-01T01:06:35.684319	Tags for minecraft:block mod id dolt_mod_how
 fd429c7217cb74919a4d277810687ac6ee8dfd3c data/dolt_mod_how/tags/blocks/biome_crucible_can_convert.json
 0defb48f4f79d0a8a25a32dd7039e747cea74f57 data/dolt_mod_how/tags/blocks/channels_lightning.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/dolt_mod_how/tags/blocks/cocoa_beans_additionally_plantable_on.json
 9a88b943e66f9de960da235578ef458c4ef44f60 data/dolt_mod_how/tags/blocks/common_ores.json
 0998b262bff03c8c017b55f94c3b4fcd9bed171e data/dolt_mod_how/tags/blocks/no_xp_crops.json
 13723fd1d33d80ab98e9aafa8335967999b114b6 data/dolt_mod_how/tags/blocks/rare_ores.json
-bc3d37f0f8f8b2a93cb490dfba7f135fe6860d5c data/farmersdelight/tags/blocks/mineable/knife.json
+1458edbe95cbe2b90c99f54c8cb188e4fd31fbbd data/farmersdelight/tags/blocks/mineable/knife.json
 e4256af683f5921828605a6704e62be4c9c8e264 data/farmersdelight/tags/blocks/unaffected_by_rich_soil.json
 2846354f84a313a99faf2f4987afc24af0d36ea8 data/minecraft/tags/blocks/flower_pots.json
 58a6fd30533123127daca3641dd05cf9e35bd6cf data/minecraft/tags/blocks/mineable/pickaxe.json

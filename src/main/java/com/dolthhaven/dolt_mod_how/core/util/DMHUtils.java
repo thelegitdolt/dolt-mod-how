@@ -155,8 +155,6 @@ public class DMHUtils {
 
         public static final ResourceLocation FOUR_LEAF_CLOVER = new ResourceLocation(BUZZIER_BEES, "four_leaf_clover");
 
-        public static final ResourceLocation BULLET_PEPPER = new ResourceLocation(MY_NETHERS_DELIGHT, "bullet_pepper");
-
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
         public static final ResourceLocation ANCIENT_BOOK = new ResourceLocation(IMMERSIVE_ENCHANTING, "ancient_book");
 

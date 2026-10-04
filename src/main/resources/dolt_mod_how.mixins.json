@@ -67,7 +67,6 @@
     "vanilla.FlowerPotMixin",
     "vanilla.HalfTransparentBlockMixin",
     "vanilla.ItemMixin",
-    "vanilla.ItemstackMixin",
     "vanilla.LightningBoltMixin",
     "vanilla.LivingEntityMixin",
     "vanilla.LootTableTriggerMixin",

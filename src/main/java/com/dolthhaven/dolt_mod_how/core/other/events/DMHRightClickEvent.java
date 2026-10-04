@@ -64,7 +64,6 @@ public class DMHRightClickEvent {
         BlockHitResult result = event.getHitVec();
         ItemStack stack = event.getItemStack();
 
-        handleBulletPepper(event);
         handleAlphacenePath(event);
         handleUntillFarmland(event);
         potStrawberry(event);
@@ -214,17 +213,6 @@ public class DMHRightClickEvent {
             level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
             event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
             event.setCanceled(true);
-        }
-    }
-
-    private static void handleBulletPepper(PlayerInteractEvent.RightClickBlock event) {
-        if (!DMHConfig.COMMON.killBulletPepperPlacement.get() || !ModList.get().isLoaded(DMHUtils.Constants.MY_NETHERS_DELIGHT))
-            return;
-
-        ItemStack stack = event.getItemStack();
-        Item bulletPepper = DMHUtils.getPotentialItem(DMHUtils.Constants.BULLET_PEPPER);
-        if (bulletPepper != null && stack.is(bulletPepper)) {
-            event.setUseItem(Event.Result.DENY);
         }
     }
 

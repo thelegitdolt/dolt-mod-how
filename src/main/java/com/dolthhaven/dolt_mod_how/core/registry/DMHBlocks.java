@@ -1,10 +1,8 @@
 package com.dolthhaven.dolt_mod_how.core.registry;
 
-import com.dolthhaven.dolt_mod_how.common.block.GlowshroomColonyBlock;
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.*;
-import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.world.level.block.*;

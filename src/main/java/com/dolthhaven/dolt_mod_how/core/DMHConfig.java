@@ -29,11 +29,7 @@ public class DMHConfig {
         public final ConfigValue<Boolean> hoesRakeSand;
         public final ConfigValue<Double> thunderstormMultiplier;
 
-        public final ConfigValue<Boolean> doRichSoilGrowFungusColony;
         public final ConfigValue<Boolean> heartCrystalsAreDifferent;
-        public final ConfigValue<Boolean> conqueringStar;
-        public final ConfigValue<Boolean> ghastaWithCreamDoesntRegenerate;
-        public final ConfigValue<Boolean> hoglinMountDoesntTick;
         public final ConfigValue<Boolean> opposeForceSawBladeChopTree;
         public final ConfigValue<Boolean> musicDiscsStack;
         @ConfigKey("quiver_recipe")
@@ -42,23 +38,16 @@ public class DMHConfig {
         public final ConfigValue<Boolean> bookshelvesDropThemselves;
         public final ConfigValue<Integer> stackSizeForSpeciesCrankbow;
         public final ConfigValue<Boolean> shouldCombustionGriefBlocks;
-        public final ConfigValue<Boolean> doUnbloatKnifeEnchants;
         public final ConfigValue<Boolean> shouldPlaceBonePilesWithNormalBones;
         public final ConfigValue<Boolean> disableEndPoem;
         public final ConfigValue<Boolean> doDispenserCauldrons;
         public final ConfigValue<Boolean> doUntillableFarmland;
         public final ConfigValue<Boolean> removeOrangeVapor;
 
-        public final ConfigValue<Boolean> killBulletPepperPlacement;
-        public final ConfigValue<Boolean> frogsAreNotStupid;
-
         public final ConfigValue<Boolean> hideBeaconParticles;
         public final ConfigValue<Boolean> elytraInfiniteDurability;
         public final ConfigValue<Boolean> sporeRocketSummonSporeCloud;
         public final ConfigValue<Integer> sporeCloudChance;
-
-        @ConfigKey("placeable_wardenzola")
-        public final ConfigValue<Boolean> wheelifiedWardenzola;
 
         public final ConfigValue<Boolean> doltChargedCreeperTweaks;
 
@@ -193,17 +182,6 @@ public class DMHConfig {
             builder.pop();
             builder.pop();
 
-            builder.push("farmersdelight");
-
-            builder.push("Knife Enchantments");
-            doUnbloatKnifeEnchants = builder.comment("If knives should no longer receive the silk touch and efficiency from the enchanting table").define("Unbloated Knife Enchantments", true);
-            builder.pop();
-
-            builder.push("Ballistic");
-            conqueringStar = builder.comment("If knives can receive the Ballistic enchantment, which gives them the effect of Dungeon's Delight cleavers to be thrown. REQUIRES DUNGEON's DELIGHT.").define("Cleaverfication Enchantment", false);
-            builder.pop();
-
-            builder.pop();
 
             builder.push("Mowzies Mobs");
             builder.push("Rakes");
@@ -235,29 +213,7 @@ public class DMHConfig {
             builder.pop();
             builder.pop();
 
-            builder.push("nethersdelight");
 
-            builder.push("fungus_colonies");
-            doRichSoilGrowFungusColony = builder.comment("If fungus colonies should grow on normal rich soil instead of soul rich soil").define("Rich Fungus", true);
-            builder.pop();
-
-            builder.push("bullet_peppers");
-            killBulletPepperPlacement = builder.comment("If bullet peppers should become unplaceable, thus killing letios plants forever").define("Kill letios plants", true);
-            builder.pop();
-
-            builder.push("magma_cakes");
-            frogsAreNotStupid = builder.comment("If frogs should become unable to consume magma cakes").define("Magma Cakes Good", false);
-            builder.pop();
-
-            builder.push("ghasta");
-            ghastaWithCreamDoesntRegenerate = builder.comment("If the ghasta with cream should be stopped from regenerating itself").define("Be normal ghasta", false);
-            builder.pop();
-
-            builder.push("hoglin mounts");
-            hoglinMountDoesntTick = builder.comment("If hoglin mounts should never zombify and whatever").define("Abnormal Hoglins", false);
-            builder.pop();
-
-            builder.pop();
             builder.push("supplementaries");
             builder.push("quivers");
 
@@ -268,14 +224,7 @@ public class DMHConfig {
             builder.pop();
 
 
-            builder.push("Dungeon's Delight");
 
-            builder.push("Brewing and Chewing Wardenzola");
-            wheelifiedWardenzola = builder.comment("If Wardenzola Dungeons Delight Should be Brewing and Chewingified; this means that they are placeable and have a keg recipe, as well as wedges.")
-                    .define("Wardenzola Wheel", false);
-            builder.pop();
-
-            builder.pop();
 
 
             builder.push("John Species");

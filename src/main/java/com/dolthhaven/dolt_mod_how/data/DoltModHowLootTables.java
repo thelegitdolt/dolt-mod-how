@@ -49,7 +49,6 @@ import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
 
 public class DoltModHowLootTables extends LootTableProvider {
-    protected static final LootItemCondition.Builder HAS_SHEARS_TAG = CanToolPerformAction.canToolPerformAction(ToolActions.SHEARS_HARVEST);
     protected static final LootItemCondition.Builder HAS_KNIFE = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.KNIVES));
 
     public DoltModHowLootTables(PackOutput packOutput) {
@@ -106,24 +105,7 @@ public class DoltModHowLootTables extends LootTableProvider {
 
         }
 
-        private void colony(RegistryObject<? extends Block> block) {
-            if (block.get() instanceof MushroomColonyBlock colony) {
-                Item shroomItem = colony.mushroomType.get();
-                Item colonyItem = colony.asItem();
-                this.add(block.get(), LootTable.lootTable()
-                        .withPool(LootPool.lootPool()
-                                .add(AlternativesEntry.alternatives(LootItem.lootTableItem(colonyItem)
-                                                .when(stateCond(block, MushroomColonyBlock.COLONY_AGE, 3))
-                                                .when(HAS_SHEARS_TAG))
-                                        .otherwise(LootItem.lootTableItem(shroomItem)
-                                                .apply(MushroomColonyBlock.COLONY_AGE.getPossibleValues(), value -> SetItemCountFunction
-                                                        .setCount(ConstantValue.exactly(2.0f + value), false)
-                                                        .when(stateCond(block, MushroomColonyBlock.COLONY_AGE, value)))))));
-            }
-            else {
-                throw new IllegalArgumentException("Not mushroom colony");
-            }
-        }
+
 
         private void cheese(RegistryObject<? extends Block> wheel) {
             if (wheel.get() instanceof CheeseWheelBlock cheese) {

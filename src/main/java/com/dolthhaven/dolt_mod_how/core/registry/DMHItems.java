@@ -37,10 +37,6 @@ import static net.minecraft.world.item.crafting.Ingredient.of;
 public class DMHItems {
     public static final ItemSubRegistryHelper HELPER = DoltModHow.REGISTRY_HELPER.getItemSubHelper();
 
-    public static final RegistryObject<Item> GLOWSHROOM_COLONY = HELPER.createItem("glowshroom_colony", () -> new MushroomColonyItem(DMHBlocks.GLOWSHROOM_COLONY.get(), new Item.Properties()));
-    public static final RegistryObject<Item> BOP_GLOWSHROOM_COLONY = HELPER.createItem("bop_glowshroom_colony", () -> new MushroomColonyItem(BOP_GLOW_SHROOM_COLONY.get(), new Item.Properties()));
-    public static final RegistryObject<Item> TOADSTOOL_COLONY = HELPER.createItem("toadstool_colony", () -> new MushroomColonyItem(DMHBlocks.TOADSTOOL_COLONY.get(), new Item.Properties()));
-
     public static final RegistryObject<Item> POULPO = HELPER
             .createItem("poulpo", () -> new PoulpoItem(new Item.Properties()));
 
@@ -99,10 +95,6 @@ public class DMHItems {
                         GOLDEN_MOLTEN_LEAD_BUCKET)
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.JNE),
                         GOLDEN_ECTOPLASM_BUCKET)
-
-                .predicate(DMHItems::fdPredicate)
-                .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId()), GLOWSHROOM_COLONY)
-                .addItemsAfter(ofID(ModItems.RED_MUSHROOM_COLONY.getId(), DMHUtils.Constants.BOP), TOADSTOOL_COLONY, BOP_GLOWSHROOM_COLONY)
 
                 .predicate(DMHItems::mowziesPredicate)
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.ATMOSPHERIC),

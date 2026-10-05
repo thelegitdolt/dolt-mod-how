@@ -67,10 +67,6 @@
   "item.dolt_mod_how.golden_molten_lead_bucket": "Golden Molten Lead Bucket",
   "item.dolt_mod_how.tequila": "Tequila",
 
-  "block.dolt_mod_how.wardenzola": "Wardenzola",
-  "item.dolt_mod_how.wardenzola_wedge": "Wardenzola Wedge",
-
-  "fluid_type.dolt_mod_how.wardenzola_fluid_type": "Wardenzola",
   "fluid_type.dolt_mod_how.tequila_type": "Tequila",
 
   "enchantment.dolt_mod_how.ballistic": "Ballistic",
@@ -85,8 +81,6 @@
   "advancements.dolt_mod_how.adventure.thunderdome.title": "Thunderdome",
   "advancements.dolt_mod_how.nether.rewind_great_distances.description": "Travel at least 1000 blocks with the power of a Rewind Potion",
   "advancements.dolt_mod_how.nether.rewind_great_distances.title": "Applied Quotient Topology",
-  "advancements.dolt_mod_how.husbandry.dui.description": "Operate a mount while being more than a fair bit tipsy",
-  "advancements.dolt_mod_how.husbandry.dui.title": "Not Endorsed",
   "advancements.dolt_mod_how.adventure.pvz.description": "Have a Foliaath eat a zombie at the build limit",
   "advancements.dolt_mod_how.adventure.pvz.title": "Graze the Roof",
   "advancements.dolt_mod_how.adventure.trigger_mime_totem.description": "Attempt to kill a Mime while holding a Totem of Undying",

@@ -34,40 +34,6 @@ public class DMHDDCompat {
         map.put(MobEffects.JUMP, DDEffects.POUNCING.get());
     }));
 
-    public static void makeCleaverAndThrowIt(ItemStack stack, Player player, Level level, double attackDamage, Consumer<Entity> postOps) {
-        CleaverEntity cleaver = new CleaverEntity(DDEntities.CLEAVER.get(), level, player, stack.copy());
-        cleaver.setItem(stack.copy());
-        applyEffects(stack, cleaver);
-        cleaver.setBaseDamage(cleaver.getBaseDamage() + attackDamage);
-        cleaver.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, ((CleaverItem) DDItems.NETHERITE_CLEAVER.get()).range, 1.0F);
-        postOps.accept(cleaver);
-        if (player.getAbilities().instabuild) {
-            cleaver.pickup = AbstractArrow.Pickup.DISALLOWED;
-        }
-        level.addFreshEntity(cleaver);
-        cleaver.setOwner(player);
-        level.playSound(null, cleaver, DDSounds.CLEAVER_THROW.get(), SoundSource.PLAYERS, 2.0F, 1.0F);
-    }
-
-    private static void applyEffects(ItemStack stack, CleaverEntity cleaver) {
-        int sharpness = stack.getEnchantmentLevel(Enchantments.SHARPNESS);
-        int fireAspect = stack.getEnchantmentLevel(Enchantments.FIRE_ASPECT);
-        int ballistic = stack.getEnchantmentLevel(DMHEnchants.BALLISTIC.get());
-
-
-        if (sharpness > 0) {
-            cleaver.setBaseDamage(cleaver.getBaseDamage() + (double) sharpness * (double) 0.5F + (double) 0.5F);
-        }
-
-        if (fireAspect > 0) {
-            cleaver.setRemainingFireTicks(fireAspect * 40 + cleaver.getRemainingFireTicks());
-        }
-
-        if (ballistic > 1) {
-            cleaver.setSerratedLevel(ballistic - 1);
-        }
-    }
-
     public static MobEffect getMonsterEffect(MobEffect effect) {
         return MONSTER_EFFECT_MAP.get().get(effect);
     }

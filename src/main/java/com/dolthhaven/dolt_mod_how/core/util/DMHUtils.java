@@ -125,20 +125,17 @@ public class DMHUtils {
         public static final String CAVE_DELIGHT = "cavedelight";
         public static final String CREATE = "create";
         public static final String DOOM_AND_GLOOM = "doom_and_gloom";
-        public static final String DUNGEONS_DELIGHT = "dungeonsdelight";
         public static final String DYE_DEPOT = "dye_depot";
         public static final String ENVIRONMENTAL = "environmental";
         public static final String FARMERS_DELIGHT = "farmersdelight";
         public static final String FTGU = "ftgu";
         public static final String HEART_CRYSTALS = "heart_crystals";
-        public static final String IMMERSIVE_ENCHANTING = "immersiveenchanting";
         public static final String MOWZIES_MOBS = "mowziesmobs";
         public static final String MY_NETHERS_DELIGHT = "mynethersdelight";
         public static final String NEAPOLITAN = "neapolitan";
         public static final String JNE = "netherexp";
         public static final String OREGANIZED = "oreganized";
         public static final String QUARK = "quark";
-        public static final String RESONANCE = "resonance";
         public static final String SAVAGE_AND_RAVAGE = "savage_and_ravage";
         public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
         public static final String SPAWN = "spawn";
@@ -147,7 +144,6 @@ public class DMHUtils {
         public static final String WILDER_FLOWERS = "wilderflowers";
         public static final String WOODWORKS = "woodworks";
 
-        public static Supplier<Boolean> BnC_LOADED = Suppliers.memoize(() -> ModList.get().isLoaded(BREWING_AND_CHEWING));
 
         public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
 
@@ -156,26 +152,20 @@ public class DMHUtils {
         public static final ResourceLocation FOUR_LEAF_CLOVER = new ResourceLocation(BUZZIER_BEES, "four_leaf_clover");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
-        public static final ResourceLocation ANCIENT_BOOK = new ResourceLocation(IMMERSIVE_ENCHANTING, "ancient_book");
 
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
         public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
-        public static final ResourceLocation MUCK = new ResourceLocation(ALEXS_CAVES, "muck");
-        public static final ResourceKey<Biome> ABYSSAL_CHASMS = ResourceKey.create(Registries.BIOME, new ResourceLocation("alexscaves", "abyssal_chasm"));
         public static final ResourceLocation SAND_RAKE = new ResourceLocation(MOWZIES_MOBS, "sand_rake");
         public static final ResourceLocation RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "raked_sand");
         public static final ResourceLocation RED_RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "red_raked_sand");
         public static final ResourceLocation ARID_SAND = new ResourceLocation(ATMOSPHERIC, "arid_sand");
         public static final ResourceLocation RED_ARID_SAND = new ResourceLocation(ATMOSPHERIC, "red_arid_sand");
         public static final ResourceLocation ASHEN_SAND = new ResourceLocation(BLASTED_BARRENS, "ashen_sand");
-        public static final ResourceLocation GINGERBREAD_COOKIE = new ResourceLocation(WINDSWEPT, "gingerbread_cookie");
 
         public static final ResourceLocation ACID = new ResourceLocation(ALEXS_CAVES, "acid");
         public static final ResourceLocation PURPLE_SODA = new ResourceLocation(ALEXS_CAVES, "purple_soda");
 
         public static final ResourceLocation ZIRCONIA = new ResourceLocation(CAVERNS_AND_CHASMS, "zirconia");
-
-        public static final ResourceLocation POUNCING = new ResourceLocation(DUNGEONS_DELIGHT, "pouncing");
 
         public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");
         public static final ResourceLocation ECTOPLASM = new ResourceLocation(JNE, "ectoplasm");
@@ -187,9 +177,6 @@ public class DMHUtils {
 
         public static final ResourceLocation MOWZIES_MOBS_TAB = new ResourceLocation(MOWZIES_MOBS, "mowziesmobs_tab");
         public static final ResourceLocation CREATE_BUILDING_TAB = new ResourceLocation(CREATE, "palettes");
-
-        public static final ResourceLocation DUNGEONS_DELIGHT_TAB = new ResourceLocation(DUNGEONS_DELIGHT,"dungeonsdelight_tab");
-        public static final ResourceLocation WARDENZOLA = new ResourceLocation(DUNGEONS_DELIGHT,"wardenzola");
 
         public static final ResourceLocation PATHFINDER_QUILL = new ResourceLocation(QUARK,"pathfinders_quill");
         public static final ResourceLocation STICKBUG = new ResourceLocation(SPAWN,"stickbug");

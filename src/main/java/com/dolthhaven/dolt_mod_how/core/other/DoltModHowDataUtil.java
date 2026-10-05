@@ -92,10 +92,6 @@ public class DoltModHowDataUtil {
     }
 
     private static void registerCompostable() {
-        DataUtil.registerCompostable(GLOWSHROOM_COLONY.get(), 1.0f);
-        DataUtil.registerCompostable(TOADSTOOL_COLONY.get(), 1.0f);
-        DataUtil.registerCompostable(BOP_GLOW_SHROOM_COLONY.get(), 1.0f);
-
         COMPOSTABLE_ENTITIES.defaultReturnValue(-1.0f);
 
         if (ModList.get().isLoaded(DMHUtils.Constants.NEAPOLITAN)) {

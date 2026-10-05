@@ -32,16 +32,6 @@ public class DMHBlocks {
     public static final RegistryObject<Block> ALPHACENE_PATH = HELPER.createBlock("alphacene_path", () ->
             new DirtPathBlock(DMHBlockProps.ALPHACENE_PATH));
 
-    public static final RegistryObject<Block> GLOWSHROOM_COLONY = HELPER.createBlockNoItem("glowshroom_colony", () ->
-            new GlowshroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM)
-                    .randomTicks()
-                    .lightLevel(s -> 10)));
-    public static final RegistryObject<Block> BOP_GLOW_SHROOM_COLONY = HELPER.createBlockNoItem("bop_glowshroom_colony", () ->
-            new MushroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM).mapColor(GLOW_LICHEN).lightLevel(state -> 6), DMHBopCompat.glowshroom()));
-    public static final RegistryObject<Block> TOADSTOOL_COLONY = HELPER.createBlockNoItem("toadstool_colony", () ->
-            new MushroomColonyBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_MUSHROOM), DMHBopCompat.toadstool()));
-
-
     public static final RegistryObject<Block> HEART_CRYSTAL_LAMP = HELPER.createBlock("heart_crystal_lamp", () ->
             new Block(CC_LAMP));
 

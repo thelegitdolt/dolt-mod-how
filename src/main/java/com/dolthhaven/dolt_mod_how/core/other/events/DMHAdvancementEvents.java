@@ -110,18 +110,6 @@ public class DMHAdvancementEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void notEndorsed(EntityMountEvent event) {
-        if (!ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) || event.isDismounting()) return;
-        if (event.getEntityMounting() instanceof ServerPlayer player &&
-                !event.getEntityBeingMounted().getType().is(DMHTags.HOSTILE_MOUNTS)) {
-            int i = DMHBCCompat.tipsyEffectLevel(player);
-            if (i > 2) {
-                DMHCriteriaTriggers.DUI.trigger(player);
-            }
-        }
-    }
-
     private static List<ServerPlayer> getAllNearbyPlayers(EntityGetter entityGetter, Vec3 position) {
         return entityGetter.getEntitiesOfClass(ServerPlayer.class, new AABB(position, position.add(1, 1, 1)).inflate(40));
     }

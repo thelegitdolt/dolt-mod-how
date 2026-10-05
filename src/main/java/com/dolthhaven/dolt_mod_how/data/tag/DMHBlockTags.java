@@ -28,22 +28,11 @@ public class DMHBlockTags extends BlockTagsProvider {
 
     @Override
     public void addTags(HolderLookup.@NotNull Provider provider) {
-        this.tag(ModTags.UNAFFECTED_BY_RICH_SOIL)
-                .add(GLOWSHROOM_COLONY.get())
-                .add(TOADSTOOL_COLONY.get())
-                .add(BOP_GLOW_SHROOM_COLONY.get())
-                .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "warped_fungus_colony"))
-                .addOptional(new ResourceLocation(DMHUtils.Constants.MY_NETHERS_DELIGHT, "crimson_fungus_colony"));
-        this.tag(DMHTags.BIOME_CRUCIBLE_CAN_CONVERT)
-                .addTag(BlockTags.BASE_STONE_OVERWORLD)
-                .addTag(BlockTags.DIRT).addTag(BlockTags.SAND);
-
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get(), ZINC_BRICK_SLAB.get(), ZINC_BRICKS.get(), ZINC_BRICK_WALL.get(),
                 CHISELED_ZINC_BRICKS.get(), ZINC_BRICK_STAIRS.get(), HEART_CRYSTAL_LAMP.get()).addTag(DMHTags.PIPE_BLOCKS);
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get(), ARID_RAKED_SAND.get(), ASHEN_RAKED_SAND.get(), RED_ARID_RAKED_SAND.get());
 
-        this.tag(ModTags.MINEABLE_WITH_KNIFE).add(WARDENZOLA.get()).addOptional(JNEBlocks.SORROWSQUASH.getId()).addOptional(JNEBlocks.CARVED_SORROWSQUASH.getId());
 
         this.tag(DMHTags.NO_XP_CROPS)
                 .addOptional(new ResourceLocation(DMHUtils.Constants.FARMERS_DELIGHT, "tomatoes"));
@@ -54,6 +43,7 @@ public class DMHBlockTags extends BlockTagsProvider {
                 POTTED_STRAWBERRIES.get(), POTTED_WHITE_STRAWBERRIES.get());
 
         this.tag(ModTags.MINEABLE_WITH_KNIFE)
+                .addOptional(JNEBlocks.SORROWSQUASH.getId()).addOptional(JNEBlocks.CARVED_SORROWSQUASH.getId())
                 .addOptional(DMHUtils.Constants.DINOSAUR_CHOP)
                 .addOptional(DMHUtils.Constants.COOKED_DINOSAUR_CHOPS);
         this.tag(DMHTags.MINEABLE_SHEARS).add(HONEYCOMB_BLOCK, WAX_BLOCK.get());

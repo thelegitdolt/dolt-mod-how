@@ -14,7 +14,6 @@ public class DMHTags {
     public static final TagKey<Block> RARE_ORES = blockTag("rare_ores");
     public static final TagKey<Block> NO_XP_CROPS = blockTag("no_xp_crops");
     public static final TagKey<Block> CHANNELS_LIGHTNING = blockTag("channels_lightning");
-    public static final TagKey<Block> BIOME_CRUCIBLE_CAN_CONVERT = blockTag("biome_crucible_can_convert");
     public static final TagKey<Block> COCOA_BEANS_ADDITIONALLY_PLANTABLE_ON = blockTag("cocoa_beans_additionally_plantable_on");
     public static final TagKey<Block> PIPE_BLOCKS = externalBlockTag("quark", "pipes");
     public static final TagKey<Block> MINEABLE_SHEARS = externalBlockTag("minecraft", "mineable/shear");
@@ -30,7 +29,6 @@ public class DMHTags {
     public static final TagKey<Item> ENCASED_PIPES = externalItemTag("quark", "encased_pipes");
 
     public static final TagKey<Item> SHEARS = externalItemTag("forge", "shears");
-    public static final TagKey<Item> SCULK_CHEESE = externalItemTag(DMHUtils.Constants.DUNGEONS_DELIGHT, "sculk_cheese");
 
     public static final TagKey<EntityType<?>> HOSTILE_MOUNTS = entityTag("hostile_mounts");
     public static final TagKey<EntityType<?>> HUMANOID_ZOMBIES = entityTag("humanoid_zombies");

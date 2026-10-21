@@ -1,6 +1,5 @@
-// 1.20.1	2026-10-21T12:12:31.452659	Recipes
+// 1.20.1	2026-10-21T12:19:36.433379	Recipes
 a6ef445be93c5af92d7367a8f93364ebef197d67 data/dolt_mod_how/advancements/recipes/building_blocks/wax_block.json
-010d763213cb4a971f7f1410b33bde978c1c61e4 data/dolt_mod_how/advancements/recipes/food/chorus_soda.json
 7205ea8deff6b36e6c9b46dbebbbdac335b08df7 data/dolt_mod_how/advancements/recipes/misc/honeycomb.json
 390335cbbf08351cc1a043c72a2c757946feffa5 data/dolt_mod_how/advancements/recipes/redstone/amber_encased_pipe.json
 371e313e50bd64ab33c3d01206b62ba5fe214138 data/dolt_mod_how/advancements/recipes/redstone/aqua_encased_pipe.json
@@ -40,7 +39,6 @@ d195be054630b6a5133989711786499b74abb796 data/dolt_mod_how/recipes/aqua_encased_
 c6b8e7144e99411cb6cceb9b2641a65b93301804 data/dolt_mod_how/recipes/black_encased_pipe.json
 9d5e288e83365b902f393af030faa6fba96d9b8b data/dolt_mod_how/recipes/blue_encased_pipe.json
 538cee11346fe4b88397046a92f521d7650290c5 data/dolt_mod_how/recipes/brown_encased_pipe.json
-05fccb1f4f1d8c8c6456ae1e36e2ede4858332fc data/dolt_mod_how/recipes/chorus_soda.json
 8848aab31a17f26b217b47b282b3837e8c29eb7b data/dolt_mod_how/recipes/coral_encased_pipe.json
 fcfd0d92bd4529cc9930735f1ca11e1f1f6cddab data/dolt_mod_how/recipes/cyan_encased_pipe.json
 3430ad4ccf177e11b30de7fafe217429382b433a data/dolt_mod_how/recipes/forest_encased_pipe.json

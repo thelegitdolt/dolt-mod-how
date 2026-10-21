@@ -36,10 +36,6 @@ public class DMHRecipes extends BlueprintRecipeProvider {
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         this.storageRecipes(consumer, RecipeCategory.MISC, Items.HONEYCOMB, RecipeCategory.BUILDING_BLOCKS, WAX_BLOCK.get());
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DMHItems.CHORUS_SODA.get())
-                .requires(Items.GLASS_BOTTLE).requires(Items.CHORUS_FRUIT)
-                .unlockedBy("has_chorus_fruit", has(Items.CHORUS_FRUIT))
-                .save(consumer);
 
         pipes(consumer);
     }

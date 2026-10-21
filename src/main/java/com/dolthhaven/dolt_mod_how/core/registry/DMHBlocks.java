@@ -9,26 +9,20 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import org.violetmoon.quark.addons.oddities.block.pipe.EncasedPipeBlock;
-import vectorwing.farmersdelight.common.block.MushroomColonyBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import java.util.function.Supplier;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.CC_LAMP;
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.DMHBlockProps.ZINC_PLATED_BRICKS;
-import static net.minecraft.world.level.material.MapColor.GLOW_LICHEN;
 
 @Mod.EventBusSubscriber(modid = DoltModHow.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DMHBlocks {
     public static final BlockSubRegistryHelper HELPER = DoltModHow.REGISTRY_HELPER.getBlockSubHelper();
 
-    public static final RegistryObject<Block> STURDY_DEEPSLATE = HELPER.createBlock("sturdy_deepslate", () ->
-            new Block(DMHBlockProps.STURDY_DEEPSLATE));
     public static final RegistryObject<Block> ALPHACENE_PATH = HELPER.createBlock("alphacene_path", () ->
             new DirtPathBlock(DMHBlockProps.ALPHACENE_PATH));
 
@@ -67,18 +61,6 @@ public class DMHBlocks {
             DMHMowziesMobsCompat.RAKED_RED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
     public static final RegistryObject<Block> ASHEN_RAKED_SAND = HELPER.createBlock("ashen_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
             DMHMowziesMobsCompat.RAKED_ASHEN_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
-
-    public static final RegistryObject<Block> ZINC_BRICKS = HELPER.createBlock("zinc_bricks", () -> new Block(ZINC_PLATED_BRICKS));
-    public static final RegistryObject<Block> ZINC_BRICK_STAIRS = HELPER.createBlock("zinc_brick_stairs", () ->
-            new StairBlock(() -> ZINC_BRICKS.get().defaultBlockState(), ZINC_PLATED_BRICKS));
-    public static final RegistryObject<Block> ZINC_BRICK_SLAB = HELPER.createBlock("zinc_brick_slab", () ->
-            new SlabBlock(ZINC_PLATED_BRICKS));
-    public static final RegistryObject<Block> ZINC_BRICK_WALL = HELPER.createBlock("zinc_brick_wall", () ->
-            new WallBlock(ZINC_PLATED_BRICKS));
-    public static final RegistryObject<Block> CHISELED_ZINC_BRICKS = HELPER.createBlock("chiseled_zinc_bricks", () -> new Block(ZINC_PLATED_BRICKS));
-
-    public static final RegistryObject<Block> WARDENZOLA = HELPER.createBlock("wardenzola", ModList.get().isLoaded(DMHUtils.Constants.BREWING_AND_CHEWING) ?
-            DMHBCCompat.WARDENZOLA : () -> new Block(BlockBehaviour.Properties.copy(Blocks.CAKE)));
 
     public static final RegistryObject<Block> WAX_BLOCK = HELPER.createBlock("wax_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.HONEYCOMB_BLOCK)));
@@ -157,13 +139,9 @@ public class DMHBlocks {
 
 
     public static class DMHBlockProps {
-        public static final BlockBehaviour.Properties STURDY_DEEPSLATE = BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(4.5F, 9.0F)
-                .pushReaction(PushReaction.IGNORE);
         public static final BlockBehaviour.Properties ALPHACENE_PATH = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN)
                 .strength(0.65F).sound(BlockSubRegistryHelper.areModsLoaded(DMHUtils.Constants.SPECIES) ? DMHSpeciesCompat.opSound() : SoundType.GRAVEL).isViewBlocking(PropertyUtil::always).isSuffocating(PropertyUtil::always);
 
-        public static final BlockBehaviour.Properties ZINC_PLATED_BRICKS = BlockBehaviour.Properties.of().mapColor(GLOW_LICHEN)
-                .strength(3.0f, 6.0f).sound(SoundType.METAL).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM);
         public static final BlockBehaviour.Properties CC_LAMP = BlockBehaviour.Properties.of().lightLevel((state) -> 15).strength(0.3F).sound(SoundType.GLASS).isValidSpawn((a, b, c, d) -> true).sound(SoundType.AMETHYST);
         public static final PropertyUtil.WoodSetProperties PEWEN = PropertyUtil
                 .WoodSetProperties.builder(MapColor.WOOD).sound(SoundType.CHERRY_WOOD).instrument(NoteBlockInstrument.BASS).build();

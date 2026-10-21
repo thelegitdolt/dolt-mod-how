@@ -28,8 +28,7 @@ public class DMHBlockTags extends BlockTagsProvider {
 
     @Override
     public void addTags(HolderLookup.@NotNull Provider provider) {
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get(), ZINC_BRICK_SLAB.get(), ZINC_BRICKS.get(), ZINC_BRICK_WALL.get(),
-                CHISELED_ZINC_BRICKS.get(), ZINC_BRICK_STAIRS.get(), HEART_CRYSTAL_LAMP.get()).addTag(DMHTags.PIPE_BLOCKS);
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(HEART_CRYSTAL_LAMP.get()).addTag(DMHTags.PIPE_BLOCKS);
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ALPHACENE_PATH.get(), ARID_RAKED_SAND.get(), ASHEN_RAKED_SAND.get(), RED_ARID_RAKED_SAND.get());
 

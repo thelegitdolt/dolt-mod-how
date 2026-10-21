@@ -24,38 +24,38 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(TetherPotionItem.class)
 public class TetherPotionMixin {
-    @Inject(method = "updateTetherPotionEffects", at = @At("HEAD"), remap = false)
-    private static void sex(LivingEntity entity, ItemStack stack, boolean infiniteDuration, CallbackInfo ci) {
-        if (infiniteDuration || !ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT)) return;
-
-        for (MobEffectInstance instance : PotionUtils.getMobEffects(stack)) {
-            MobEffect effect = DMHDDCompat.getMonsterEffect(instance.getEffect());
-            if (effect == null) continue;
-
-            entity.removeEffectNoUpdate(effect);
-            MobEffectInstance newInstance = new MobEffectInstance(effect, TetherPotionItem.getTetherPotionDuration(instance.getDuration()), instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon());
-            entity.addEffect(newInstance);
-        }
-    }
-
-    @Inject(method = "use", at = @At("HEAD"), cancellable = true)
-    public void DoltModHow$TakeIntoAccountStackables(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
-        ItemStack handStack = player.getItemInHand(hand);
-        EquipmentSlot slot = Mob.getEquipmentSlotForItem(handStack);
-        ItemStack armorStack = player.getItemBySlot(slot);
-
-        if (handStack.getCount() > 1 && !EnchantmentHelper.hasBindingCurse(armorStack)) {
-            if (!ItemStack.isSameItemSameTags(handStack, armorStack)) {
-                if (!armorStack.isEmpty()) {
-                    ItemStack newArmorStack = armorStack.copyAndClear();
-                    DMHUtils.addToInvOrDrop(player, newArmorStack);
-                }
-
-                player.setItemSlot(slot, handStack.split(1));
-                cir.setReturnValue(InteractionResultHolder.sidedSuccess(handStack, level.isClientSide()));
-            } else {
-                cir.setReturnValue(InteractionResultHolder.fail(handStack));
-            }
-        }
-    }
+//    @Inject(method = "updateTetherPotionEffects", at = @At("HEAD"), remap = false)
+//    private static void sex(LivingEntity entity, ItemStack stack, boolean infiniteDuration, CallbackInfo ci) {
+//        if (infiniteDuration || !ModList.get().isLoaded(DMHUtils.Constants.DUNGEONS_DELIGHT)) return;
+//
+//        for (MobEffectInstance instance : PotionUtils.getMobEffects(stack)) {
+//            MobEffect effect = DMHDDCompat.getMonsterEffect(instance.getEffect());
+//            if (effect == null) continue;
+//
+//            entity.removeEffectNoUpdate(effect);
+//            MobEffectInstance newInstance = new MobEffectInstance(effect, TetherPotionItem.getTetherPotionDuration(instance.getDuration()), instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon());
+//            entity.addEffect(newInstance);
+//        }
+//    }
+//
+//    @Inject(method = "use", at = @At("HEAD"), cancellable = true)
+//    public void DoltModHow$TakeIntoAccountStackables(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
+//        ItemStack handStack = player.getItemInHand(hand);
+//        EquipmentSlot slot = Mob.getEquipmentSlotForItem(handStack);
+//        ItemStack armorStack = player.getItemBySlot(slot);
+//
+//        if (handStack.getCount() > 1 && !EnchantmentHelper.hasBindingCurse(armorStack)) {
+//            if (!ItemStack.isSameItemSameTags(handStack, armorStack)) {
+//                if (!armorStack.isEmpty()) {
+//                    ItemStack newArmorStack = armorStack.copyAndClear();
+//                    DMHUtils.addToInvOrDrop(player, newArmorStack);
+//                }
+//
+//                player.setItemSlot(slot, handStack.split(1));
+//                cir.setReturnValue(InteractionResultHolder.sidedSuccess(handStack, level.isClientSide()));
+//            } else {
+//                cir.setReturnValue(InteractionResultHolder.fail(handStack));
+//            }
+//        }
+//    }
 }

@@ -35,13 +35,7 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
         rakedSand(ARID_RAKED_SAND, AtmosphericBlocks.ARID_SAND);
         rakedSand(RED_ARID_RAKED_SAND, AtmosphericBlocks.RED_ARID_SAND);
 
-        block(ZINC_BRICKS);
-        block(HEART_CRYSTAL_LAMP);
         block(WAX_BLOCK);
-        block(CHISELED_ZINC_BRICKS);
-        wallBlock(ZINC_BRICKS.get(), ZINC_BRICK_WALL.get());
-        stairsBlock(ZINC_BRICKS.get(), ZINC_BRICK_STAIRS.get());
-        slabBlock(ZINC_BRICKS.get(), ZINC_BRICK_SLAB.get());
     }
 
 

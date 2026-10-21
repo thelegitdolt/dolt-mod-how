@@ -25,7 +25,6 @@ import java.util.ListIterator;
 import java.util.Set;
 
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHItems.GLOWSHROOM_COLONY;
 
 public class DoltModHowDataUtil {
     public static final Object2FloatMap<EntityType<?>> COMPOSTABLE_ENTITIES = new Object2FloatOpenHashMap<>();

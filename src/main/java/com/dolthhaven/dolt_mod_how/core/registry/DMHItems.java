@@ -64,7 +64,6 @@ public class DMHItems {
     public static void setUpTabEditors() {
         var thing = CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                .addItemsAfter(ofID(DMHUtils.Constants.STURDY_STONE), STURDY_DEEPSLATE)
                 .addItemsAfter(ofLoaded(() -> Items.LAPIS_BLOCK, DMHUtils.Constants.HEART_CRYSTALS), HEART_CRYSTAL_LAMP)
 
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
@@ -100,10 +99,9 @@ public class DMHItems {
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.ATMOSPHERIC),
                         ARID_RAKED_SAND, RED_ARID_RAKED_SAND)
                 .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.BLASTED_BARRENS),
-                        ASHEN_RAKED_SAND)
+                        ASHEN_RAKED_SAND);
 
-                .predicate(DMHItems::createPredicate)
-                .addItemsAfter(ofID(DMHUtils.Constants.ZINC_BLOCK), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS);
+
     }
 
     public static Predicate<ItemStack> modLoaded(ItemLike item, String... modids) {
@@ -124,10 +122,6 @@ public class DMHItems {
 
     public static boolean mowziesPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey().location().equals(DMHUtils.Constants.MOWZIES_MOBS_TAB);
-    }
-
-    public static boolean createPredicate(BuildCreativeModeTabContentsEvent event) {
-        return event.getTabKey().location().equals(DMHUtils.Constants.CREATE_BUILDING_TAB);
     }
 
     public static class Food {

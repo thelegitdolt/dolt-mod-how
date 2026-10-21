@@ -40,7 +40,7 @@ public abstract class DispenserBlockMixin {
         if (facingState.getBlock() instanceof AbstractCauldronBlock cauldron) {
             Map<Item, CauldronInteraction> interactions = cauldron.interactions;
             if (interactions.get(stack.getItem()) != null) {
-                ItemStack stackRemainder = new FakePlayerCauldronInteract(stack.getItem()).dispense(source, stack);
+                new FakePlayerCauldronInteract(stack.getItem()).dispense(source, stack);
                 ci.cancel();
             }
         }

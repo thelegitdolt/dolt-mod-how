@@ -65,7 +65,6 @@ public class DoltModHow {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
 
-        DMHEnchants.ENCHANTMENTS.register(bus);
         DMHRecipeSerializer.RECIPE_SERIALIZERS.register(bus);
         DMHLoot.LOOT_CONDITIONS.register(bus);
         DMHLoot.LOOT_MODIFIERS.register(bus);

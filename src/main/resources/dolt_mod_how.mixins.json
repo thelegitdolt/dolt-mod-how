@@ -56,7 +56,6 @@
     "vanilla.CakeMixin",
     "vanilla.CocoaBlockMixin",
     "vanilla.CreeperMixin",
-    "vanilla.DataPackCommandMixin",
     "vanilla.DispenserBlockMixin",
     "vanilla.ElytraItemMixin",
     "vanilla.EndCityPiecesMixin",
@@ -73,8 +72,7 @@
     "vanilla.ServerLevelMixin",
     "vanilla.ServerPlayerMixin",
     "vanilla.SkeletonMixin",
-    "vanilla.SlimeMixin",
-    "vanilla.SuspiciousStewMixin"
+    "vanilla.SlimeMixin"
   ],
   "client": [
     "vanilla.CapeLayerMixin",

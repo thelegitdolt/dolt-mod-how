@@ -113,9 +113,6 @@ public class DMHRightClickEvent {
     }
 
     public static void registerBlockPlacing() {
-        putIfNotNull(ITEM_PLACE_MAP, DMHUtils.getPotentialItem(DMHUtils.Constants.WARDENZOLA),
-                DMHConfig.COMMON.wheelifiedWardenzola,
-                (BlockItem) DMHBlocks.WARDENZOLA.get().asItem());
         putIfNotNull(ITEM_PLACE_MAP, Items.BONE, DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones,
                 (BlockItem) DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "bone_rod"));
     }

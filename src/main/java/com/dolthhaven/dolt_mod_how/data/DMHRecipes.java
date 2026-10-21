@@ -1,7 +1,6 @@
 package com.dolthhaven.dolt_mod_how.data;
 
 import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.core.registry.DMHBlockFamilies;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHItems;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DyeDepotCompat;
@@ -42,11 +41,6 @@ public class DMHRecipes extends BlueprintRecipeProvider {
 
     @Override
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, STURDY_DEEPSLATE.get())
-                .define('1', Items.COBBLED_DEEPSLATE)
-                .pattern("111").pattern("111")
-                .pattern("111")
-                .unlockedBy("has_cobble_deepslate", has(Items.COBBLED_DEEPSLATE)).save(consumer);
         this.storageRecipes(consumer, RecipeCategory.MISC, Items.HONEYCOMB, RecipeCategory.BUILDING_BLOCKS, WAX_BLOCK.get());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DMHItems.CHORUS_SODA.get())
@@ -60,18 +54,6 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                         .define('g', Blocks.GLOWSTONE)
                         .pattern(" h ").pattern("hgh").pattern(" h ")
                         .unlockedBy("has_heart_crystal", has(HCBlocks.HEART_CRYSTAL_SHARD.get())));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.COBBLED_DEEPSLATE, 9)
-                .requires(STURDY_DEEPSLATE.get())
-                .unlockedBy("has_sturdy_dep", has(STURDY_DEEPSLATE.get()))
-                .save(consumer, new ResourceLocation("dolt_mod_how", "cobbled_deepslate_from_unpacking_sturdy_deepslate"));
-
-        stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_SLAB.get(), ZINC_BRICKS.get(), 2);
-        stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_STAIRS.get(), ZINC_BRICKS.get(), 1);
-        stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, CHISELED_ZINC_BRICKS.get(), ZINC_BRICKS.get(), 1);
-        stonecutterRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ZINC_BRICK_WALL.get(), ZINC_BRICKS.get(), 1);
-
-        generateRecipes(consumer, DMHBlockFamilies.ZINC_BRICKS_FAMILY);
 
         pipes(consumer);
     }

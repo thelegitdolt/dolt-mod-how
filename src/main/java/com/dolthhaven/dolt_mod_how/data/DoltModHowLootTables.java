@@ -71,7 +71,6 @@ public class DoltModHowLootTables extends LootTableProvider {
 
         @Override
         protected void generate() {
-            this.dropSelf(STURDY_DEEPSLATE.get());
             this.dropSelf(HEART_CRYSTAL_LAMP.get());
             this.dropSelf(WAX_BLOCK.get());
             this.dropOther(ALPHACENE_PATH.get(), Blocks.DIRT);
@@ -91,11 +90,6 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropOther(RED_ARID_RAKED_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());
             this.dropOther(ASHEN_RAKED_SAND.get(), BBBlocks.ASHEN_SAND.get());
 
-            this.dropSelf(ZINC_BRICKS.get());
-            this.dropSelf(ZINC_BRICK_STAIRS.get());
-            this.add(ZINC_BRICK_SLAB.get(), this::createSlabItemTable);
-            this.dropSelf(ZINC_BRICK_WALL.get());
-            this.dropSelf(CHISELED_ZINC_BRICKS.get());
             this.pipes();
         }
 

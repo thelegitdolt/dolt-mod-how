@@ -41,7 +41,6 @@ public class DMHItemTags extends ItemTagsProvider {
                 .addOptional(new ResourceLocation(DMHUtils.Constants.JNE, "ectoplasm_bucket"));
 
         this.tag(DMHTags.LEATHER).add(Items.LEATHER, LEATHER_SCRAPS.get());
-        this.tag(DMHTags.HIDES_CAPES).add(BackpackModule.backpack);
         this.tag(DMHTags.SHEARS).add(Items.SHEARS);
 
         this.tag(ItemTags.PIGLIN_LOVED).add(GOLDEN_ACID_BUCKET.get(), GOLDEN_PURPLE_SODA_BUCKET.get(), GOLDEN_MOLTEN_LEAD_BUCKET.get(), GOLDEN_ECTOPLASM_BUCKET.get());

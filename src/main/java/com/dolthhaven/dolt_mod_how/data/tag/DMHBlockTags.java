@@ -35,7 +35,6 @@ public class DMHBlockTags extends BlockTagsProvider {
 
         this.tag(DMHTags.NO_XP_CROPS)
                 .addOptional(new ResourceLocation(DMHUtils.Constants.FARMERS_DELIGHT, "tomatoes"));
-        this.tag(DMHTags.COCOA_BEANS_ADDITIONALLY_PLANTABLE_ON);
 
         this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(),
                 POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get(), POTTED_TOMATOES.get(), POTTED_ONION.get(), POTTED_CABBAGE.get(),

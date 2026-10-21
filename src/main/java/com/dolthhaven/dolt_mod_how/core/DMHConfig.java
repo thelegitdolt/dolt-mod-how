@@ -18,38 +18,26 @@ public class DMHConfig {
         public final ConfigValue<Boolean> brewingUnbloating;
         public final ConfigValue<Boolean> noMoreAwkwardPotions;
         public final ConfigValue<Boolean> replaceableMossCarpet;
-        public final ConfigValue<Boolean> frogMistLikeHopeLights;
         public final ConfigValue<Boolean> lessAnnoyingSleep;
         public final ConfigValue<String> replaceEndShipItem;
         public final ConfigValue<Integer> blockPlaceXpChance;
-        public final ConfigValue<Boolean> removeDarkerDepthGlowStoneForest;
 
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
         public final ConfigValue<Boolean> replaceSawmillWithStonecutter;
-        public final ConfigValue<Boolean> hoesRakeSand;
         public final ConfigValue<Double> thunderstormMultiplier;
 
-        public final ConfigValue<Boolean> heartCrystalsAreDifferent;
-        public final ConfigValue<Boolean> opposeForceSawBladeChopTree;
         public final ConfigValue<Boolean> musicDiscsStack;
-        @ConfigKey("quiver_recipe")
-        public final ConfigValue<Boolean> doHackyQuiverRecipe;
         @ConfigKey("bookshelves_drop_themselves")
         public final ConfigValue<Boolean> bookshelvesDropThemselves;
-        public final ConfigValue<Integer> stackSizeForSpeciesCrankbow;
-        public final ConfigValue<Boolean> shouldCombustionGriefBlocks;
-        public final ConfigValue<Boolean> shouldPlaceBonePilesWithNormalBones;
+
         public final ConfigValue<Boolean> disableEndPoem;
         public final ConfigValue<Boolean> doDispenserCauldrons;
         public final ConfigValue<Boolean> doUntillableFarmland;
-        public final ConfigValue<Boolean> removeOrangeVapor;
+
 
         public final ConfigValue<Boolean> hideBeaconParticles;
         public final ConfigValue<Boolean> elytraInfiniteDurability;
-        public final ConfigValue<Boolean> sporeRocketSummonSporeCloud;
-        public final ConfigValue<Integer> sporeCloudChance;
 
-        public final ConfigValue<Boolean> doltChargedCreeperTweaks;
 
         public final ConfigValue<Boolean> damageReductions;
 
@@ -158,93 +146,6 @@ public class DMHConfig {
 
             builder.pop();
 
-
-            builder.push("jaden nether expansion");
-            builder.push("Bone Rods");
-            shouldPlaceBonePilesWithNormalBones = builder
-                    .comment("If bone rods should be placed by right clicking vanilla bones, instead of having a new bone rod item")
-                    .comment("This will not change the loot table or recipe for bone rods. Modpack devs are expected to change those themselves")
-                    .define("Bone ahh bone", false);
-            builder.pop();
-            builder.pop();
-
-            builder.push("OpposingForces");
-            builder.push("Sawblades");
-            opposeForceSawBladeChopTree = builder.comment("If the terror sawblades from the opposing forces modification should be banned from doing the tree chop thing, which is VANILLA MINUS and should not be encouraged.")
-                    .define("Vanilla Plus Modpack", false);
-            builder.pop();
-            builder.pop();
-
-            builder.push("atmospheric");
-            builder.push("Oranges");
-            removeOrangeVapor = builder.comment("If oranges can no longer be jumped on to be broken and to create a vapor cloud").define("Normal Oranges", true);
-
-            builder.pop();
-            builder.pop();
-
-
-            builder.push("Mowzies Mobs");
-            builder.push("Rakes");
-            hoesRakeSand = builder.comment("If hoes should also be able to rake sand. Disabled by default option for my modpack")
-                            .define("Hoes Rake Sand", false);
-            builder.pop();
-            builder.pop();
-
-            builder.push("From the Ground Up / ftgu");
-            builder.push("Creepers");
-            doltChargedCreeperTweaks = builder.comment("Removes the Doomed effect, creates preparations to allow charged creepers to naturally spawn during thunderstorms. Spawns must still be manually added by the modpack dev.")
-                            .define("Based Charged Creepers", false);
-            sporeRocketSummonSporeCloud = builder.comment("If spore rockets explosions should create a Spore Cloud from Savage and Ravage").define("Spore Bomb Two", true);
-            sporeCloudChance = builder.comment("The chance, out of 100, that a spore rocket will summon a spore cloud").defineInRange("Spore rocket possibilities", 100, 0, 100);
-            builder.pop();
-            builder.pop();
-
-            builder.push("Darker Depths");
-            builder.push("Biomes");
-            removeDarkerDepthGlowStoneForest = builder.comment("If Darker Depths Glowstone Forests should be STOPPED from spawning")
-                    .define("Glowstone Forest", false);
-            builder.pop();
-            builder.pop();
-
-            builder.push("heart_crystals");
-            builder.push("heart_crystal");
-            heartCrystalsAreDifferent = builder.comment("If heart crystals from the heart crystals mod should give the Health Boost effect and regen for awhile instead of giving you permanent hearts")
-                    .define("impermanentHearts", true);
-            builder.pop();
-            builder.pop();
-
-
-            builder.push("supplementaries");
-            builder.push("quivers");
-
-            doHackyQuiverRecipe = builder.comment("If processing a quiver in a cutting board will eject all the arrows in that quiver")
-                    .define("Realistic Quivers", true);
-
-            builder.pop();
-            builder.pop();
-
-
-
-
-
-            builder.push("John Species");
-
-            builder.push("Crankbow");
-            stackSizeForSpeciesCrankbow = builder.comment("The stack size crankbows should have. The formula for the capacity of crankbows is stack size * 2 + capacity enchantment level * stack size.")
-                    .comment("This is for if you use a mod like Bigger Stacks to change the stack size")
-                    .define("Crankbow stack size ", 64);
-            builder.pop();
-
-            builder.push("hopelight");
-            frogMistLikeHopeLights = builder.comment("If species hopelights should act like JNE frogmists (only interactable when holding another hopelight or a pickaxe)").define("Frogmist Hopelights", true);
-            builder.pop();
-
-            builder.push("Combustion Effect");
-            shouldCombustionGriefBlocks = builder.comment("If explosions caused by mobs that die with the Species Combustion effect should not any blocks")
-                    .define("Less combusty combustion", false);
-            builder.pop();
-
-            builder.pop();
 
         }
     }

@@ -26,9 +26,6 @@ public class DMHBlocks {
     public static final RegistryObject<Block> ALPHACENE_PATH = HELPER.createBlock("alphacene_path", () ->
             new DirtPathBlock(DMHBlockProps.ALPHACENE_PATH));
 
-    public static final RegistryObject<Block> HEART_CRYSTAL_LAMP = HELPER.createBlock("heart_crystal_lamp", () ->
-            new Block(CC_LAMP));
-
 //    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", ModList.get().isLoaded("fish_in_planks") ?
 //            DMHFishBarrels.LANTERNFISH_BLOCK : () -> new Block(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD)),
 //            AbstractSubRegistryHelper.areModsLoaded("fish_in_planks") ? CreativeModeTab.TAB_BUILDING_BLOCKS : null);

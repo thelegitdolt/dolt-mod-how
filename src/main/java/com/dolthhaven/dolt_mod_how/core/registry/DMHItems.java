@@ -64,7 +64,6 @@ public class DMHItems {
     public static void setUpTabEditors() {
         var thing = CreativeModeTabContentsPopulator.mod(DoltModHow.MOD_ID)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                .addItemsAfter(ofLoaded(() -> Items.LAPIS_BLOCK, DMHUtils.Constants.HEART_CRYSTALS), HEART_CRYSTAL_LAMP)
 
                 .tab(CreativeModeTabs.FOOD_AND_DRINKS)
                 .addItemsAfter(of(Items.HONEY_BOTTLE), CHORUS_SODA)

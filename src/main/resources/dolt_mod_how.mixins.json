@@ -15,8 +15,6 @@
     "auditoryboatsounds.DispenserMinecartItemMixin",
     "auditoryboatsounds.MinecartItemMixin",
     "caverns_and_chasms.CCEventsMixin",
-    "caverns_and_chasms.TetherPotionMixin",
-    "doomandgloom.HollerMixin",
     "dungeonsdelight.CleaverEntityMixin",
     "dungeonsdelight.DDPropertiesMixin",
     "etcetera.UpdatePricklyCanC2SPacketMixin",

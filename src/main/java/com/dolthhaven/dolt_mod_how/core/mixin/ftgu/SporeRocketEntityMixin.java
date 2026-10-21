@@ -24,10 +24,10 @@ public abstract class SporeRocketEntityMixin extends Entity {
 
     @Inject(method = "explode", at = @At(value = "INVOKE", target = "Lcom/ninni/ftgu/server/entity/subentities/BaseSporeEntity;explode()V"), remap = false)
     private void DoltModHow$SporeRocketHasSpore(CallbackInfo ci) {
-        if (ModList.get().isLoaded(DMHUtils.Constants.SAVAGE_AND_RAVAGE)) {
-            boolean config = DMHConfig.COMMON.sporeRocketSummonSporeCloud.get() && Mth.nextInt(this.random, 1, 100) <= DMHConfig.COMMON.sporeCloudChance.get();
-            if (config) DMHSnSCompat.makeSporeCloud(this, 0, 1);
-        }
+//        if (ModList.get().isLoaded(DMHUtils.Constants.SAVAGE_AND_RAVAGE)) {
+//            boolean config = DMHConfig.COMMON.sporeRocketSummonSporeCloud.get() && Mth.nextInt(this.random, 1, 100) <= DMHConfig.COMMON.sporeCloudChance.get();
+//            if (config) DMHSnSCompat.makeSporeCloud(this, 0, 1);
+//        }
 
     }
 }

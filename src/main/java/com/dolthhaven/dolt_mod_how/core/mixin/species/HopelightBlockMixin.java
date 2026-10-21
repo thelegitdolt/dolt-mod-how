@@ -24,17 +24,17 @@ public class HopelightBlockMixin extends Block {
         super(p_49795_);
     }
 
-    @Inject(method = "getShape", at = @At("HEAD"), cancellable = true)
-    private void hi(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> cir) {
-        if (!DMHConfig.COMMON.frogMistLikeHopeLights.get()) return;
-
-        if (context instanceof EntityCollisionContext entityContext) {
-            if (entityContext.getEntity() instanceof Player player) {
-                ItemStack stack = player.getMainHandItem();
-                if (!stack.is(this.asItem()) && !stack.is(ItemTags.HOES)) {
-                    cir.setReturnValue(Shapes.empty());
-                }
-            }
-        }
-    }
+//    @Inject(method = "getShape", at = @At("HEAD"), cancellable = true)
+//    private void hi(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> cir) {
+//        if (!DMHConfig.COMMON.frogMistLikeHopeLights.get()) return;
+//
+//        if (context instanceof EntityCollisionContext entityContext) {
+//            if (entityContext.getEntity() instanceof Player player) {
+//                ItemStack stack = player.getMainHandItem();
+//                if (!stack.is(this.asItem()) && !stack.is(ItemTags.HOES)) {
+//                    cir.setReturnValue(Shapes.empty());
+//                }
+//            }
+//        }
+//    }
 }

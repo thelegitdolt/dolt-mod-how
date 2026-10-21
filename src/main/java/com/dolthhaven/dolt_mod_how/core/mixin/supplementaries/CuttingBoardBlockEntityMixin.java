@@ -38,16 +38,16 @@ public abstract class CuttingBoardBlockEntityMixin extends SyncedBlockEntity {
     @Inject(method = "lambda$processStoredItemUsingTool$2(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lvectorwing/farmersdelight/common/crafting/CuttingBoardRecipe;)V",
     at = @At("HEAD"), remap = false)
     private void DoltModHow$ProcessQuiver(ItemStack stack, Player player, CuttingBoardRecipe recipe, CallbackInfo ci) {
-        if (!DMHConfig.COMMON.doHackyQuiverRecipe.get()) return;
-
-        assert this.level != null;
-        ItemStack boardStack = this.getInventory().getStackInSlot(0);
-        if (boardStack.getItem() instanceof QuiverItem && QuiverItemImpl.getQuiverData(boardStack) != null) {
-            for (ItemStack resultStack : Objects.requireNonNull(QuiverItemImpl.getQuiverData(boardStack)).getContentView()) {
-                Direction direction = this.getBlockState().getValue(CuttingBoardBlock.FACING).getCounterClockWise().getOpposite();
-
-                ItemUtils.spawnItemEntity(this.level, resultStack.copy(), (double) this.worldPosition.getX() + 0.5 + (double) direction.getStepX() * 0.2, (double) this.worldPosition.getY() + 0.2, (double) this.worldPosition.getZ() + 0.5 + (double) direction.getStepZ() * 0.2, (float) direction.getStepX() * 0.2F, 0.0, (float) direction.getStepZ() * 0.2F);
-            }
-        }
+//        if (!DMHConfig.COMMON.doHackyQuiverRecipe.get()) return;
+//
+//        assert this.level != null;
+//        ItemStack boardStack = this.getInventory().getStackInSlot(0);
+//        if (boardStack.getItem() instanceof QuiverItem && QuiverItemImpl.getQuiverData(boardStack) != null) {
+//            for (ItemStack resultStack : Objects.requireNonNull(QuiverItemImpl.getQuiverData(boardStack)).getContentView()) {
+//                Direction direction = this.getBlockState().getValue(CuttingBoardBlock.FACING).getCounterClockWise().getOpposite();
+//
+//                ItemUtils.spawnItemEntity(this.level, resultStack.copy(), (double) this.worldPosition.getX() + 0.5 + (double) direction.getStepX() * 0.2, (double) this.worldPosition.getY() + 0.2, (double) this.worldPosition.getZ() + 0.5 + (double) direction.getStepZ() * 0.2, (float) direction.getStepX() * 0.2F, 0.0, (float) direction.getStepZ() * 0.2F);
+//            }
+//        }
     }
 }

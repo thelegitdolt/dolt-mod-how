@@ -1,5 +1,4 @@
-// 1.20.1	2026-10-21T00:13:29.939115	Recipes
-3bb5435d7cc2902776b94b945f675518713181d8 data/dolt_mod_how/advancements/recipes/building_blocks/heart_crystal_lamp.json
+// 1.20.1	2026-10-21T12:12:31.452659	Recipes
 a6ef445be93c5af92d7367a8f93364ebef197d67 data/dolt_mod_how/advancements/recipes/building_blocks/wax_block.json
 010d763213cb4a971f7f1410b33bde978c1c61e4 data/dolt_mod_how/advancements/recipes/food/chorus_soda.json
 7205ea8deff6b36e6c9b46dbebbbdac335b08df7 data/dolt_mod_how/advancements/recipes/misc/honeycomb.json
@@ -48,7 +47,6 @@ fcfd0d92bd4529cc9930735f1ca11e1f1f6cddab data/dolt_mod_how/recipes/cyan_encased_
 a0cdf5e4a14a74b270f0a692952ae0ff198db752 data/dolt_mod_how/recipes/ginger_encased_pipe.json
 865837966ab295d64cc1fd9cf8155b75af8dbb30 data/dolt_mod_how/recipes/gray_encased_pipe.json
 32b599ff92502b91d89b0c2de73974af82f8631f data/dolt_mod_how/recipes/green_encased_pipe.json
-ab6c039769b6185eb23fbf6b8f34b4a737c133b7 data/dolt_mod_how/recipes/heart_crystal_lamp.json
 08d3f29763326d8788113fa66cb32ad69bee3a94 data/dolt_mod_how/recipes/honeycomb.json
 7e0591868c4273c81a191c16b5479d64519c6811 data/dolt_mod_how/recipes/indigo_encased_pipe.json
 53dfe8d47502e77a95162b56891207a34ecdb4e1 data/dolt_mod_how/recipes/light_blue_encased_pipe.json

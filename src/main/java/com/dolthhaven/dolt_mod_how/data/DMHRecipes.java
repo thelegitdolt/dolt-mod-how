@@ -29,13 +29,6 @@ public class DMHRecipes extends BlueprintRecipeProvider {
     public DMHRecipes(PackOutput output) {
         super(DoltModHow.MOD_ID, output);
     }
-    public static final ModLoadedCondition ALEXSCAVES_LOADED = new ModLoadedCondition(DMHUtils.Constants.ALEXS_CAVES);
-    public static final ModLoadedCondition CREATE_LOADED = new ModLoadedCondition(DMHUtils.Constants.CREATE);
-    public static final ModLoadedCondition BNC_LOADED = new ModLoadedCondition(DMHUtils.Constants.BREWING_AND_CHEWING);
-    public static final ModLoadedCondition ATMOSPHERIC_LOADED = new ModLoadedCondition(DMHUtils.Constants.ATMOSPHERIC);
-    public static final ModLoadedCondition JNE_LOADED = new ModLoadedCondition(DMHUtils.Constants.JNE);
-
-    public static final ModLoadedCondition CAVERNS_CHASMS_LOADED = new ModLoadedCondition(DMHUtils.Constants.CAVERNS_AND_CHASMS);
     public static final ModLoadedCondition HEART_CRYSTALS_LOADED = new ModLoadedCondition(DMHUtils.Constants.HEART_CRYSTALS);
 
 
@@ -47,13 +40,6 @@ public class DMHRecipes extends BlueprintRecipeProvider {
                 .requires(Items.GLASS_BOTTLE).requires(Items.CHORUS_FRUIT)
                 .unlockedBy("has_chorus_fruit", has(Items.CHORUS_FRUIT))
                 .save(consumer);
-
-        conditionalRecipe(consumer, HEART_CRYSTALS_LOADED, RecipeCategory.BUILDING_BLOCKS,
-                ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, HEART_CRYSTAL_LAMP.get())
-                        .define('h', HCBlocks.HEART_CRYSTAL_SHARD.get())
-                        .define('g', Blocks.GLOWSTONE)
-                        .pattern(" h ").pattern("hgh").pattern(" h ")
-                        .unlockedBy("has_heart_crystal", has(HCBlocks.HEART_CRYSTAL_SHARD.get())));
 
         pipes(consumer);
     }

@@ -71,7 +71,6 @@ public class DoltModHowLootTables extends LootTableProvider {
 
         @Override
         protected void generate() {
-            this.dropSelf(HEART_CRYSTAL_LAMP.get());
             this.dropSelf(WAX_BLOCK.get());
             this.dropOther(ALPHACENE_PATH.get(), Blocks.DIRT);
 

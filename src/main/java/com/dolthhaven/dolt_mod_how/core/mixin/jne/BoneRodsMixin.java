@@ -14,10 +14,10 @@ import org.spongepowered.asm.mixin.injection.At;
 @Pseudo
 @Mixin(BoneRodBlock.class)
 public class BoneRodsMixin {
-    @Definition(id = "asItem", method = "Lnet/jadenxgamer/netherexp/registry/block/custom/BoneRodBlock;asItem()Lnet/minecraft/world/item/Item;")
-    @Expression("this.asItem()")
-    @ModifyExpressionValue(method = "canBeReplaced", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private Item hi(Item original){
-        return DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones.get() ? Items.BONE : original;
-    }
+//    @Definition(id = "asItem", method = "Lnet/jadenxgamer/netherexp/registry/block/custom/BoneRodBlock;asItem()Lnet/minecraft/world/item/Item;")
+//    @Expression("this.asItem()")
+//    @ModifyExpressionValue(method = "canBeReplaced", at = @At("MIXINEXTRAS:EXPRESSION"))
+//    private Item hi(Item original){
+//        return DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones.get() ? Items.BONE : original;
+//    }
 }

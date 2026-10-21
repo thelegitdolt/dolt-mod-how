@@ -72,63 +72,63 @@ public class DMHRightClickEvent {
 
 
     public static void rakeSand(PlayerInteractEvent.RightClickBlock event, Level level, Player player, InteractionHand hand, ItemStack stack, BlockPos pos, BlockHitResult result) {
-        if (!ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS)) {
-            return;
-        }
-
-        BlockState state = level.getBlockState(pos);
-        Item rake = DMHUtils.getPotentialItem(DMHUtils.Constants.SAND_RAKE);
-
-        Block rakedSand;
-        if (DMHMowziesMobsCompat.isRakedSand(state.getBlock())) {
-            rakedSand = state.getBlock();
-        } else {
-            rakedSand = RAKE_MAP.get(state.getBlock());
-        }
-        if (rakedSand == null) return;
-        boolean isRake = stack.is(rake);
-        boolean isHoe = stack.canPerformAction(ToolActions.HOE_TILL) && DMHConfig.COMMON.hoesRakeSand.get();
-
-        if (isRake && rakedSand.builtInRegistryHolder().key().location().getNamespace().equals(DMHUtils.Constants.MOWZIES_MOBS)) {
-            return;
-        }
-
-        BlockPlaceContext context = fromEvent(event);
-
-        if (isRake || isHoe) {
-            BlockState rakedState = rakedSand.getStateForPlacement(context);
-            if (rakedState != null && !DMHMowziesMobsCompat.sameRakedState(state, rakedState)) {
-                DMHMowziesMobsCompat.playSandRakeSound(level, player, pos);
-                if (!level.isClientSide) {
-                    level.setBlock(pos, rakedState, Block.UPDATE_ALL_IMMEDIATE);
-                    rakedSand.onPlace(rakedState, level, pos, rakedState, false);
-                    DMHMowziesMobsCompat.updateRakedSand(rakedSand, rakedState, level, pos, false);
-                    context.getItemInHand().hurtAndBreak(1, player, (p_43122_) -> p_43122_.broadcastBreakEvent(context.getHand()));
-                }
-
-                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
-                event.setCanceled(true);
-            }
-        }
+//        if (!ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS)) {
+//            return;
+//        }
+//
+//        BlockState state = level.getBlockState(pos);
+//        Item rake = DMHUtils.getPotentialItem(DMHUtils.Constants.SAND_RAKE);
+//
+//        Block rakedSand;
+//        if (DMHMowziesMobsCompat.isRakedSand(state.getBlock())) {
+//            rakedSand = state.getBlock();
+//        } else {
+//            rakedSand = RAKE_MAP.get(state.getBlock());
+//        }
+//        if (rakedSand == null) return;
+//        boolean isRake = stack.is(rake);
+//        boolean isHoe = stack.canPerformAction(ToolActions.HOE_TILL) && DMHConfig.COMMON.hoesRakeSand.get();
+//
+//        if (isRake && rakedSand.builtInRegistryHolder().key().location().getNamespace().equals(DMHUtils.Constants.MOWZIES_MOBS)) {
+//            return;
+//        }
+//
+//        BlockPlaceContext context = fromEvent(event);
+//
+//        if (isRake || isHoe) {
+//            BlockState rakedState = rakedSand.getStateForPlacement(context);
+//            if (rakedState != null && !DMHMowziesMobsCompat.sameRakedState(state, rakedState)) {
+//                DMHMowziesMobsCompat.playSandRakeSound(level, player, pos);
+//                if (!level.isClientSide) {
+//                    level.setBlock(pos, rakedState, Block.UPDATE_ALL_IMMEDIATE);
+//                    rakedSand.onPlace(rakedState, level, pos, rakedState, false);
+//                    DMHMowziesMobsCompat.updateRakedSand(rakedSand, rakedState, level, pos, false);
+//                    context.getItemInHand().hurtAndBreak(1, player, (p_43122_) -> p_43122_.broadcastBreakEvent(context.getHand()));
+//                }
+//
+//                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
+//                event.setCanceled(true);
+//            }
+//        }
     }
 
     public static void registerBlockPlacing() {
-        putIfNotNull(ITEM_PLACE_MAP, Items.BONE, DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones,
-                (BlockItem) DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "bone_rod"));
+//        putIfNotNull(ITEM_PLACE_MAP, Items.BONE, DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones,
+//                (BlockItem) DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "bone_rod"));
     }
 
     public static void registerHoeTills() {
-        TILL_MAP.put(Blocks.FARMLAND, Blocks.DIRT);
-        TILL_MAP.put(ModBlocks.RICH_SOIL_FARMLAND.get(), ModBlocks.RICH_SOIL.get());
-        TILL_MAP.put(ModRegistry.RAKED_GRAVEL.get(), Blocks.GRAVEL);
-
-        if (DMHConfig.COMMON.hoesRakeSand.get()) {
-            putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RAKED_SAND), Blocks.SAND);
-            putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_RAKED_SAND), Blocks.RED_SAND);
-            putIfNotNull(TILL_MAP, DMHBlocks.ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ARID_SAND));
-            putIfNotNull(TILL_MAP, DMHBlocks.RED_ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_ARID_SAND));
-            putIfNotNull(TILL_MAP, DMHBlocks.ASHEN_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ASHEN_SAND));
-        }
+//        TILL_MAP.put(Blocks.FARMLAND, Blocks.DIRT);
+//        TILL_MAP.put(ModBlocks.RICH_SOIL_FARMLAND.get(), ModBlocks.RICH_SOIL.get());
+//        TILL_MAP.put(ModRegistry.RAKED_GRAVEL.get(), Blocks.GRAVEL);
+//
+//        if (DMHConfig.COMMON.hoesRakeSand.get()) {
+//            putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RAKED_SAND), Blocks.SAND);
+//            putIfNotNull(TILL_MAP, DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_RAKED_SAND), Blocks.RED_SAND);
+//            putIfNotNull(TILL_MAP, DMHBlocks.ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ARID_SAND));
+//            putIfNotNull(TILL_MAP, DMHBlocks.RED_ARID_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.RED_ARID_SAND));
+//            putIfNotNull(TILL_MAP, DMHBlocks.ASHEN_RAKED_SAND.get(), DMHUtils.getPotentialBlock(DMHUtils.Constants.ASHEN_SAND));
+//        }
     }
 
     public static void registerRakeables() {

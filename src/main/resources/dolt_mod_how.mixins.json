@@ -20,8 +20,6 @@
     "doomandgloom.HollerMixin",
     "dungeonsdelight.CleaverEntityMixin",
     "dungeonsdelight.DDPropertiesMixin",
-    "emi.EmiRecipeFillerMixin",
-    "emi.FillRecipeC2SPacketMixin",
     "etcetera.UpdatePricklyCanC2SPacketMixin",
     "ftgu.SporeRocketEntityMixin",
     "galosphere.MoidMixin",

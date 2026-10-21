@@ -24,7 +24,6 @@ import java.util.Map;
 public class DMHEmiPlugin implements EmiPlugin {
     @Override
     public void register(EmiRegistry registry) {
-        registry.addRecipeHandler(BackpackModule.menyType, new BackpackScreenHandler());
         Comparison potionComparison = Comparison.compareData((stack) -> PotionUtils.getPotion(stack.getNbt()));
         registry.setDefaultComparison(CCItems.TETHER_POTION.get(), potionComparison);
         registry.setDefaultComparison(CCItems.IMPACT_POTION.get(), potionComparison);

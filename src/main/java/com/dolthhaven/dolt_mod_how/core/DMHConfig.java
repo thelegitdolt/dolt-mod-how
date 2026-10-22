@@ -23,7 +23,6 @@ public class DMHConfig {
         public final ConfigValue<Integer> blockPlaceXpChance;
 
         public final ConfigValue<Boolean> lessAnnoyingItemReclaim;
-        public final ConfigValue<Boolean> replaceSawmillWithStonecutter;
         public final ConfigValue<Double> thunderstormMultiplier;
 
         public final ConfigValue<Boolean> musicDiscsStack;
@@ -115,11 +114,6 @@ public class DMHConfig {
 
             builder.push("Moss carpet");
             replaceableMossCarpet = builder.comment("Whether Moss Carpets should become replaceable, like tall grass or something idk.").define("Replaceable Moss Carpet", true);
-            builder.pop();
-
-            builder.push("Stonecutter");
-            replaceSawmillWithStonecutter = builder.comment("If Woodworks is loaded, whether all sawmill " +
-                    "recipes should becomes stonecutter recipes instead.").define("Stonecutter more like woodcutter am I right", false);
             builder.pop();
 
 

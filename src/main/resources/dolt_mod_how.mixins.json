@@ -36,12 +36,10 @@
     "species.CombustionEffectMixin",
     "species.CrankbowMixin",
     "species.HopelightBlockMixin",
-    "supplementaries.CuttingBoardBlockEntityMixin",
     "supplementaries.ItemDisplayTileMixin",
     "supplementaries.SoapWashableHelperMixin",
     "upgradeaquatic.ThrasherMixin",
     "vanilla.BeaconMixin",
-    "vanilla.BlockBehaviorMixin",
     "vanilla.BlockItemMixin",
     "vanilla.BlockMixin",
     "vanilla.BrewingStandBlockEntityMixin",
@@ -69,8 +67,7 @@
   ],
   "client": [
     "vanilla.ClientPacketListenerMixin",
-    "vanilla.ItemPropertiesMixin",
-    "vanilla.LocalPlayerMixin"
+    "vanilla.ItemPropertiesMixin"
   ],
   "mixinextras": {
     "minVersion": "0.5.0"

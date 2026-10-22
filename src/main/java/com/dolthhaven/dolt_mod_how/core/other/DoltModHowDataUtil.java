@@ -27,10 +27,7 @@ import java.util.Set;
 import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
 public class DoltModHowDataUtil {
-    public static final Object2FloatMap<EntityType<?>> COMPOSTABLE_ENTITIES = new Object2FloatOpenHashMap<>();
-
     public static void registerData() {
-        registerCompostable();
         DMHRightClickEvent.registerHoeTills();
         DMHRightClickEvent.registerBlockPlacing();
         DMHRightClickEvent.registerRakeables();
@@ -87,15 +84,6 @@ public class DoltModHowDataUtil {
                     item.foodProperties.nutrition = numbers[nut - 1];
                 }
             }
-        }
-    }
-
-    private static void registerCompostable() {
-        COMPOSTABLE_ENTITIES.defaultReturnValue(-1.0f);
-
-        if (ModList.get().isLoaded(DMHUtils.Constants.NEAPOLITAN)) {
-            EntityType<?> bananaPeel = ForgeRegistries.ENTITY_TYPES.getValue(DMHUtils.Constants.BANANA_PEEL);
-            COMPOSTABLE_ENTITIES.put(bananaPeel, 0.5f);
         }
     }
 

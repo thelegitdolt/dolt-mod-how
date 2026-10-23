@@ -53,7 +53,6 @@ import java.util.function.Supplier;
 public class DMHRightClickEvent {
     public static final Map<Block, Block> RAKE_MAP = new HashMap<>();
     public static final Map<Block, Block> TILL_MAP = new HashMap<>();
-    public static final Map<Item, Pair<Supplier<Boolean>, BlockItem>> ITEM_PLACE_MAP = new HashMap<>();
 
     @SubscribeEvent
     public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
@@ -109,11 +108,6 @@ public class DMHRightClickEvent {
 //                event.setCanceled(true);
 //            }
 //        }
-    }
-
-    public static void registerBlockPlacing() {
-//        putIfNotNull(ITEM_PLACE_MAP, Items.BONE, DMHConfig.COMMON.shouldPlaceBonePilesWithNormalBones,
-//                (BlockItem) DMHUtils.getPotentialItem(DMHUtils.Constants.JNE, "bone_rod"));
     }
 
     public static void registerHoeTills() {

@@ -24,7 +24,6 @@ import java.util.Set;
 public class DoltModHowDataUtil {
     public static void registerData() {
         DMHRightClickEvent.registerHoeTills();
-        DMHRightClickEvent.registerBlockPlacing();
         DMHRightClickEvent.registerRakeables();
         DMHCauldrons.register();
         DMHMobEffects.registerBrewingRecipes();
@@ -33,9 +32,6 @@ public class DoltModHowDataUtil {
         }
         if (DMHConfig.COMMON.musicDiscsStack.get()) {
             transformStackSizeMusicDisc();
-        }
-        if (DMHConfig.COMMON.hasRemovedHunger.get()) {
-            transformItemProperties();
         }
         if (DMHConfig.COMMON.noMoreAwkwardPotions.get()) {
             try {
@@ -64,19 +60,6 @@ public class DoltModHowDataUtil {
         for (Item item : ForgeRegistries.ITEMS.getValues()) {
             if (item instanceof RecordItem) {
                 item.maxStackSize = 64;
-            }
-        }
-    }
-
-    public static void transformItemProperties() {
-        int[] numbers = {1, 1, 1, 2, 3, 4, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-
-        for (Item item : ForgeRegistries.ITEMS.getValues()) {
-            if (item.foodProperties != null) {
-                int nut = item.foodProperties.nutrition;
-                if (nut > 0 && nut <= 21) {
-                    item.foodProperties.nutrition = numbers[nut - 1];
-                }
             }
         }
     }

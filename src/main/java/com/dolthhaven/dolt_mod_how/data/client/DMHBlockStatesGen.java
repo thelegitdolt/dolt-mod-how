@@ -28,24 +28,12 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        customPot(POTTED_ARID_SPROUTS, POTTED_MYCELIUM_SPROUTS, POTTED_BEACHGRASS,
-                POTTED_TALL_BEACHGRASS, POTTED_STRAWBERRIES, POTTED_WHITE_STRAWBERRIES, POTTED_ONION, POTTED_TOMATOES, POTTED_CABBAGE);
 
         rakedSand(ASHEN_RAKED_SAND, BBBlocks.ASHEN_SAND);
         rakedSand(ARID_RAKED_SAND, AtmosphericBlocks.ARID_SAND);
         rakedSand(RED_ARID_RAKED_SAND, AtmosphericBlocks.RED_ARID_SAND);
 
         block(WAX_BLOCK);
-    }
-
-
-    @SafeVarargs
-    private void customPot(RegistryObject<? extends Block>... pots) {
-        for (RegistryObject<? extends Block> pot : pots) {
-            ResourceLocation potTexture = DoltModHow.rl("block/" + name(pot.get()));
-            this.simpleBlock(pot.get(), models()
-                    .singleTexture(name(pot.get()), new ResourceLocation("block/flower_pot_cross"), "plant", potTexture).renderType("cutout"));
-        }
     }
 
     private void rakedSand(RegistryObject<? extends Block> sand, RegistryObject<? extends Block> nonRaked) {

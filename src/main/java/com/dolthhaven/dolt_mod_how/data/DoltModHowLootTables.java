@@ -74,17 +74,6 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropSelf(WAX_BLOCK.get());
             this.dropOther(ALPHACENE_PATH.get(), Blocks.DIRT);
 
-
-            this.dropPottedContents(POTTED_TALL_BEACHGRASS.get());
-            this.dropPottedContents(POTTED_BEACHGRASS.get());
-            this.dropPottedContents(POTTED_ARID_SPROUTS.get());
-            this.dropPottedContents(POTTED_MYCELIUM_SPROUTS.get());
-            this.dropPottedContents(POTTED_STRAWBERRIES.get());
-            this.dropPottedContents(POTTED_WHITE_STRAWBERRIES.get());
-            this.dropPottedContents(POTTED_CABBAGE.get());
-            this.dropPottedContents(POTTED_ONION.get());
-            this.dropPottedContents(POTTED_TOMATOES.get());
-
             this.dropOther(ARID_RAKED_SAND.get(), AtmosphericBlocks.ARID_SAND.get());
             this.dropOther(RED_ARID_RAKED_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());
             this.dropOther(ASHEN_RAKED_SAND.get(), BBBlocks.ASHEN_SAND.get());

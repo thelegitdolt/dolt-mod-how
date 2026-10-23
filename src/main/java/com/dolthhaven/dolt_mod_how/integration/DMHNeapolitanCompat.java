@@ -11,11 +11,6 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import java.util.function.Supplier;
 
 public class DMHNeapolitanCompat {
-    public static final Supplier<Block> POTTED_WHITE_STRAWBERRIES = () ->
-            new FlowerPotBlock(NeapolitanBlocks.STRAWBERRY_BUSH.get(), PropertyUtil.flowerPot());
-
-    public static final Supplier<Block> POTTED_STRAWBERRIES = () ->
-            new FlowerPotBlock(NeapolitanBlocks.STRAWBERRY_BUSH.get(), PropertyUtil.flowerPot());
 
 
     public static boolean isWhiteStrawberry(Level level, BlockPos pos) {

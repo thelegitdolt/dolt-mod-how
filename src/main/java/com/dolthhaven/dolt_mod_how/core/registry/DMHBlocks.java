@@ -26,38 +26,9 @@ public class DMHBlocks {
     public static final RegistryObject<Block> ALPHACENE_PATH = HELPER.createBlock("alphacene_path", () ->
             new DirtPathBlock(DMHBlockProps.ALPHACENE_PATH));
 
-//    public static final RegistryObject<Block> LANTERNFISH_BARREL = HELPER.createBlock("lanternfish_barrel", ModList.get().isLoaded("fish_in_planks") ?
-//            DMHFishBarrels.LANTERNFISH_BLOCK : () -> new Block(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD)),
-//            AbstractSubRegistryHelper.areModsLoaded("fish_in_planks") ? CreativeModeTab.TAB_BUILDING_BLOCKS : null);
-
-
-    public static final RegistryObject<Block> POTTED_ARID_SPROUTS = HELPER.createBlockNoItem("potted_arid_sprouts",
-            getPot(DMHUtils.Constants.ATMOSPHERIC, DMHAtmosphericCompat.POTTED_ARID_SPROUTS));
-    public static final RegistryObject<Block> POTTED_BEACHGRASS = HELPER.createBlockNoItem("potted_beachgrass",
-            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUACompat.POTTED_BEACHGRASS));
-    public static final RegistryObject<Block> POTTED_TALL_BEACHGRASS = HELPER.createBlockNoItem("potted_tall_beachgrass",
-            getPot(DMHUtils.Constants.UPGRADE_AQUATIC, DMHUACompat.POTTED_TALL_BEACHGRASS));
-    public static final RegistryObject<Block> POTTED_MYCELIUM_SPROUTS = HELPER.createBlockNoItem("potted_mycelium_sprouts",
-            getPot(DMHUtils.Constants.ENVIRONMENTAL, DMHEnvironmentalCompat.POTTED_MYCELIUM_SPROUTS));
-
-    public static final RegistryObject<Block> POTTED_STRAWBERRIES = HELPER.createBlockNoItem("potted_strawberries",
-            getPot(DMHUtils.Constants.NEAPOLITAN, DMHNeapolitanCompat.POTTED_STRAWBERRIES));
-    public static final RegistryObject<Block> POTTED_WHITE_STRAWBERRIES = HELPER.createBlockNoItem("potted_white_strawberries",
-            getPot(DMHUtils.Constants.NEAPOLITAN, DMHNeapolitanCompat.POTTED_WHITE_STRAWBERRIES));
-
-    public static final RegistryObject<Block> POTTED_ONION = HELPER.createBlockNoItem("potted_onion", () ->
-            new FlowerPotBlock(ModBlocks.ONION_CROP.get(), PropertyUtil.flowerPot()));
-    public static final RegistryObject<Block> POTTED_TOMATOES = HELPER.createBlockNoItem("potted_tomatoes", () ->
-            new FlowerPotBlock(ModBlocks.BUDDING_TOMATO_CROP.get(), PropertyUtil.flowerPot()));
-    public static final RegistryObject<Block> POTTED_CABBAGE = HELPER.createBlockNoItem("potted_cabbage", () ->
-            new FlowerPotBlock(ModBlocks.CABBAGE_CROP.get(), PropertyUtil.flowerPot()));
-
-    public static final RegistryObject<Block> ARID_RAKED_SAND = HELPER.createBlock("arid_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
-            DMHMowziesMobsCompat.RAKED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
-    public static final RegistryObject<Block> RED_ARID_RAKED_SAND = HELPER.createBlock("red_arid_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
-            DMHMowziesMobsCompat.RAKED_RED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
-    public static final RegistryObject<Block> ASHEN_RAKED_SAND = HELPER.createBlock("ashen_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ?
-            DMHMowziesMobsCompat.RAKED_ASHEN_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
+    public static final RegistryObject<Block> ARID_RAKED_SAND = HELPER.createBlock("arid_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ? DMHMowziesMobsCompat.RAKED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
+    public static final RegistryObject<Block> RED_ARID_RAKED_SAND = HELPER.createBlock("red_arid_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ? DMHMowziesMobsCompat.RAKED_RED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
+    public static final RegistryObject<Block> ASHEN_RAKED_SAND = HELPER.createBlock("ashen_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ? DMHMowziesMobsCompat.RAKED_ASHEN_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
 
     public static final RegistryObject<Block> WAX_BLOCK = HELPER.createBlock("wax_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.HONEYCOMB_BLOCK)));

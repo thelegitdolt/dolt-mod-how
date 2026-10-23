@@ -66,7 +66,6 @@ public class DMHRightClickEvent {
 
         handleAlphacenePath(event);
         handleUntillFarmland(event);
-        potStrawberry(event);
         rakeSand(event, level, player, hand, stack, pos, result);
     }
 
@@ -210,32 +209,6 @@ public class DMHRightClickEvent {
             level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0f, 1.0f);
             event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
             event.setCanceled(true);
-        }
-    }
-
-    private static void potStrawberry(PlayerInteractEvent.RightClickBlock event) {
-        if (ModList.get().isLoaded(DMHUtils.Constants.NEAPOLITAN)) {
-            ItemStack stack = event.getItemStack();
-            Player player = event.getEntity();
-            Level level = event.getLevel();
-            BlockPos pos = event.getPos();
-            BlockState state = level.getBlockState(pos);
-
-            Item strawberryPip = DMHUtils.getPotentialItem(DMHUtils.Constants.STRAWBERRY_PIPS);
-            if (state.is(Blocks.FLOWER_POT) && stack.is(strawberryPip)) {
-                BlockState newState = (DMHNeapolitanCompat.isWhiteStrawberry(level, pos) ?
-                        DMHBlocks.POTTED_WHITE_STRAWBERRIES : DMHBlocks.POTTED_STRAWBERRIES).get().defaultBlockState();
-
-                level.setBlock(pos, newState, 3);
-                player.awardStat(Stats.POT_FLOWER);
-                if (!player.getAbilities().instabuild) {
-                    stack.shrink(1);
-                }
-                level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
-                level.playSound(player, pos, SoundEvents.MOSS_PLACE, SoundSource.BLOCKS);
-                event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
-                event.setCanceled(true);
-            }
         }
     }
 

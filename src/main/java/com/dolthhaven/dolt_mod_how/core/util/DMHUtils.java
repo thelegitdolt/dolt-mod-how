@@ -148,7 +148,6 @@ public class DMHUtils {
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
 
-        public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
         public static final ResourceLocation RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "raked_sand");
         public static final ResourceLocation RED_RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "red_raked_sand");
         public static final ResourceLocation ARID_SAND = new ResourceLocation(ATMOSPHERIC, "arid_sand");

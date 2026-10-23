@@ -12,11 +12,6 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import java.util.function.Supplier;
 
 public class DMHUACompat {
-    public static final Supplier<Block> POTTED_BEACHGRASS = () ->
-            new FlowerPotBlock(UABlocks.BEACHGRASS.get(), PropertyUtil.flowerPot());
-    public static final Supplier<Block> POTTED_TALL_BEACHGRASS = () ->
-            new FlowerPotBlock(UABlocks.TALL_BEACHGRASS.get(), PropertyUtil.flowerPot());
-
     public static boolean isGreatThrasher(Entity thrasher) {
         return thrasher instanceof GreatThrasher;
     }

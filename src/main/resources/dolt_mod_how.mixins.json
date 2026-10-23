@@ -19,8 +19,6 @@
     "galosphere.SterlingHelmetMixin",
     "nethers_delight.StuffedHoglinMixin",
     "oreganized.SpeedometerMixin",
-    "quark.FoodTooltipMixin",
-    "quark.QuarkMixin",
     "species.CombustionEffectMixin",
     "species.CrankbowMixin",
     "species.HopelightBlockMixin",

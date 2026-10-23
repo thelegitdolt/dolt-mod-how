@@ -54,13 +54,6 @@ public class DMHBlockTags extends BlockTagsProvider {
                 .addOptionalTag(new ResourceLocation("forge", "ores/zinc"));
 
         this.tag(DMHTags.CHANNELS_LIGHTNING).add(JUKEBOX);
-        this.tag(DMHTags.ENCASED_PIPES_BLOCKS).add(WHITE_ENCASED_PIPE.get(), BROWN_ENCASED_PIPE.get(), GRAY_ENCASED_PIPE.get(), LIGHT_GRAY_ENCASED_PIPE.get(), RED_ENCASED_PIPE.get(), ORANGE_ENCASED_PIPE.get(),
-                YELLOW_ENCASED_PIPE.get(), LIME_ENCASED_PIPE.get(), GREEN_ENCASED_PIPE.get(), BLUE_ENCASED_PIPE.get(), LIGHT_BLUE_ENCASED_PIPE.get(), CYAN_ENCASED_PIPE.get(), PURPLE_ENCASED_PIPE.get(),
-                MAGENTA_ENCASED_PIPE.get(), PINK_ENCASED_PIPE.get(), BLACK_ENCASED_PIPE.get(), ROSE_ENCASED_PIPE.get(), MAROON_ENCASED_PIPE.get(), GINGER_ENCASED_PIPE.get(), TAN_ENCASED_PIPE.get(),
-                BEIGE_ENCASED_PIPE.get(), CORAL_ENCASED_PIPE.get(), OLIVE_ENCASED_PIPE.get(), FOREST_ENCASED_PIPE.get(), VERDANT_ENCASED_PIPE.get(), AMBER_ENCASED_PIPE.get(),
-                TEAL_ENCASED_PIPE.get(), MINT_ENCASED_PIPE.get(), AQUA_ENCASED_PIPE.get(), SLATE_ENCASED_PIPE.get(), NAVY_ENCASED_PIPE.get(), INDIGO_ENCASED_PIPE.get());
-
-        this.tag(DMHTags.PIPE_BLOCKS).addTag(DMHTags.ENCASED_PIPES_BLOCKS);
     }
 
 }

@@ -33,7 +33,6 @@ public class DMHConfig {
         public final ConfigValue<Boolean> doDispenserCauldrons;
         public final ConfigValue<Boolean> doUntillableFarmland;
 
-
         public final ConfigValue<Boolean> hideBeaconParticles;
         public final ConfigValue<Boolean> elytraInfiniteDurability;
 

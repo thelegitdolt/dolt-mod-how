@@ -6,9 +6,6 @@ import com.dolthhaven.dolt_mod_how.core.registry.DMHMobEffects;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.teamabnormals.blueprint.core.util.DataUtil;
-import it.unimi.dsi.fastutil.objects.Object2FloatMap;
-import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.RecordItem;
@@ -16,7 +13,6 @@ import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.violetmoon.quark.addons.oddities.module.PipesModule;
 
@@ -24,7 +20,6 @@ import java.util.HashSet;
 import java.util.ListIterator;
 import java.util.Set;
 
-import static com.dolthhaven.dolt_mod_how.core.registry.DMHBlocks.*;
 
 public class DoltModHowDataUtil {
     public static void registerData() {
@@ -39,7 +34,6 @@ public class DoltModHowDataUtil {
         if (DMHConfig.COMMON.musicDiscsStack.get()) {
             transformStackSizeMusicDisc();
         }
-        registerPipes();
         if (DMHConfig.COMMON.hasRemovedHunger.get()) {
             transformItemProperties();
         }
@@ -85,42 +79,5 @@ public class DoltModHowDataUtil {
                 }
             }
         }
-    }
-
-    private static void registerPipes() {
-        Set<Block> block = new HashSet<>(PipesModule.blockEntityType.validBlocks);
-        block.add(WHITE_ENCASED_PIPE.get());
-        block.add(BROWN_ENCASED_PIPE.get());
-        block.add(GRAY_ENCASED_PIPE.get());
-        block.add(LIGHT_GRAY_ENCASED_PIPE.get());
-        block.add(RED_ENCASED_PIPE.get());
-        block.add(ORANGE_ENCASED_PIPE.get());
-        block.add(YELLOW_ENCASED_PIPE.get());
-        block.add(LIME_ENCASED_PIPE.get());
-        block.add(GREEN_ENCASED_PIPE.get());
-        block.add(BLUE_ENCASED_PIPE.get());
-        block.add(LIGHT_BLUE_ENCASED_PIPE.get());
-        block.add(CYAN_ENCASED_PIPE.get());
-        block.add(PURPLE_ENCASED_PIPE.get());
-        block.add(MAGENTA_ENCASED_PIPE.get());
-        block.add(PINK_ENCASED_PIPE.get());
-        block.add(BLACK_ENCASED_PIPE.get());
-        block.add(ROSE_ENCASED_PIPE.get());
-        block.add(MAROON_ENCASED_PIPE.get());
-        block.add(GINGER_ENCASED_PIPE.get());
-        block.add(TAN_ENCASED_PIPE.get());
-        block.add(BEIGE_ENCASED_PIPE.get());
-        block.add(CORAL_ENCASED_PIPE.get());
-        block.add(OLIVE_ENCASED_PIPE.get());
-        block.add(FOREST_ENCASED_PIPE.get());
-        block.add(VERDANT_ENCASED_PIPE.get());
-        block.add(AMBER_ENCASED_PIPE.get());
-        block.add(TEAL_ENCASED_PIPE.get());
-        block.add(MINT_ENCASED_PIPE.get());
-        block.add(AQUA_ENCASED_PIPE.get());
-        block.add(SLATE_ENCASED_PIPE.get());
-        block.add(NAVY_ENCASED_PIPE.get());
-        block.add(INDIGO_ENCASED_PIPE.get());
-        PipesModule.blockEntityType.validBlocks = block;
     }
 }

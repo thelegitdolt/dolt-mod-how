@@ -48,9 +48,5 @@ public class DMHItemTags extends ItemTagsProvider {
         this.tag(BlueprintItemTags.BUCKETS)
                 .addTags(DMHTags.ACID_BUCKETS, DMHTags.PURPLE_SODA_BUCKETS, DMHTags.MOLTEN_LEAD_BUCKETS);
 
-
-        copy(DMHTags.PIPE_BLOCKS, DMHTags.PIPES);
-        copy(DMHTags.ENCASED_PIPES_BLOCKS, DMHTags.ENCASED_PIPES);
-
     }
 }

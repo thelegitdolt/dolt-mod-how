@@ -88,48 +88,10 @@ public class DoltModHowLootTables extends LootTableProvider {
             this.dropOther(ARID_RAKED_SAND.get(), AtmosphericBlocks.ARID_SAND.get());
             this.dropOther(RED_ARID_RAKED_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());
             this.dropOther(ASHEN_RAKED_SAND.get(), BBBlocks.ASHEN_SAND.get());
-
-            this.pipes();
         }
 
 
 
-
-
-        private void pipes() {
-            this.dropSelf(WHITE_ENCASED_PIPE.get());
-            this.dropSelf(BROWN_ENCASED_PIPE.get());
-            this.dropSelf(GRAY_ENCASED_PIPE.get());
-            this.dropSelf(LIGHT_GRAY_ENCASED_PIPE.get());
-            this.dropSelf(RED_ENCASED_PIPE.get());
-            this.dropSelf(ORANGE_ENCASED_PIPE.get());
-            this.dropSelf(YELLOW_ENCASED_PIPE.get());
-            this.dropSelf(LIME_ENCASED_PIPE.get());
-            this.dropSelf(GREEN_ENCASED_PIPE.get());
-            this.dropSelf(BLUE_ENCASED_PIPE.get());
-            this.dropSelf(LIGHT_BLUE_ENCASED_PIPE.get());
-            this.dropSelf(CYAN_ENCASED_PIPE.get());
-            this.dropSelf(PURPLE_ENCASED_PIPE.get());
-            this.dropSelf(MAGENTA_ENCASED_PIPE.get());
-            this.dropSelf(PINK_ENCASED_PIPE.get());
-            this.dropSelf(BLACK_ENCASED_PIPE.get());
-            this.dropSelf(ROSE_ENCASED_PIPE.get());
-            this.dropSelf(MAROON_ENCASED_PIPE.get());
-            this.dropSelf(GINGER_ENCASED_PIPE.get());
-            this.dropSelf(TAN_ENCASED_PIPE.get());
-            this.dropSelf(BEIGE_ENCASED_PIPE.get());
-            this.dropSelf(CORAL_ENCASED_PIPE.get());
-            this.dropSelf(OLIVE_ENCASED_PIPE.get());
-            this.dropSelf(FOREST_ENCASED_PIPE.get());
-            this.dropSelf(VERDANT_ENCASED_PIPE.get());
-            this.dropSelf(AMBER_ENCASED_PIPE.get());
-            this.dropSelf(TEAL_ENCASED_PIPE.get());
-            this.dropSelf(MINT_ENCASED_PIPE.get());
-            this.dropSelf(AQUA_ENCASED_PIPE.get());
-            this.dropSelf(SLATE_ENCASED_PIPE.get());
-            this.dropSelf(NAVY_ENCASED_PIPE.get());
-            this.dropSelf(INDIGO_ENCASED_PIPE.get());
-        }
 
         private static <V extends Comparable<V>> LootItemCondition.Builder stateCond(RegistryObject<? extends Block> block, Property<V> property, V v) {
             return LootItemBlockStatePropertyCondition.hasBlockStateProperties(block.get())

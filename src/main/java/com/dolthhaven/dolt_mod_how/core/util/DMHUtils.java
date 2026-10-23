@@ -123,7 +123,6 @@ public class DMHUtils {
         public static final String BUZZIER_BEES = "buzzier_bees";
         public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
         public static final String CAVE_DELIGHT = "cavedelight";
-        public static final String CREATE = "create";
         public static final String DOOM_AND_GLOOM = "doom_and_gloom";
         public static final String DYE_DEPOT = "dye_depot";
         public static final String ENVIRONMENTAL = "environmental";
@@ -135,8 +134,6 @@ public class DMHUtils {
         public static final String NEAPOLITAN = "neapolitan";
         public static final String JNE = "netherexp";
         public static final String OREGANIZED = "oreganized";
-        public static final String QUARK = "quark";
-        public static final String SAVAGE_AND_RAVAGE = "savage_and_ravage";
         public static final String UPGRADE_AQUATIC = "upgrade_aquatic";
         public static final String SPAWN = "spawn";
         public static final String SPECIES = "species";
@@ -147,15 +144,11 @@ public class DMHUtils {
 
         public static final ResourceLocation ALPHACENE_GRASS_BLOCK = new ResourceLocation(SPECIES, "alphacene_grass_block");
 
-        public static final ResourceLocation STURDY_STONE = new ResourceLocation(QUARK, "sturdy_stone");
-
         public static final ResourceLocation FOUR_LEAF_CLOVER = new ResourceLocation(BUZZIER_BEES, "four_leaf_clover");
 
         public static final ResourceLocation GOLDEN_LAVA_BUCKET = new ResourceLocation(CAVERNS_AND_CHASMS, "golden_lava_bucket");
 
         public static final ResourceLocation STRAWBERRY_PIPS = new ResourceLocation(NEAPOLITAN, "strawberry_pips");
-        public static final ResourceLocation BANANA_PEEL = new ResourceLocation(NEAPOLITAN, "banana_peel");
-        public static final ResourceLocation SAND_RAKE = new ResourceLocation(MOWZIES_MOBS, "sand_rake");
         public static final ResourceLocation RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "raked_sand");
         public static final ResourceLocation RED_RAKED_SAND = new ResourceLocation(MOWZIES_MOBS, "red_raked_sand");
         public static final ResourceLocation ARID_SAND = new ResourceLocation(ATMOSPHERIC, "arid_sand");
@@ -169,16 +162,12 @@ public class DMHUtils {
 
         public static final ResourceLocation MOLTEN_LEAD = new ResourceLocation(OREGANIZED, "molten_lead");
         public static final ResourceLocation ECTOPLASM = new ResourceLocation(JNE, "ectoplasm");
-        public static final ResourceLocation DESOLATE_DAGGER = new ResourceLocation(ALEXS_CAVES, "desolate_dagger");
         public static final ResourceLocation DINOSAUR_CHOP = new ResourceLocation(ALEXS_CAVES, "dinosaur_chop");
         public static final ResourceLocation COOKED_DINOSAUR_CHOPS = new ResourceLocation(ALEXS_CAVES, "cooked_dinosaur_chop");
 
-        public static final ResourceLocation ZINC_BLOCK = new ResourceLocation(CREATE, "zinc_block");
 
         public static final ResourceLocation MOWZIES_MOBS_TAB = new ResourceLocation(MOWZIES_MOBS, "mowziesmobs_tab");
-        public static final ResourceLocation CREATE_BUILDING_TAB = new ResourceLocation(CREATE, "palettes");
 
-        public static final ResourceLocation PATHFINDER_QUILL = new ResourceLocation(QUARK,"pathfinders_quill");
         public static final ResourceLocation STICKBUG = new ResourceLocation(SPAWN,"stickbug");
 
 

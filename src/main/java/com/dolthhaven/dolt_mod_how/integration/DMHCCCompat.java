@@ -38,9 +38,6 @@ public class DMHCCCompat {
             new GoldenBucketItem(() -> DMHUtils.getFluidOrWater(DMHUtils.Constants.ECTOPLASM),
                     new Item.Properties().craftRemainder(CCItems.GOLDEN_BUCKET.get()).stacksTo(1));
 
-    public static DefaultDispenseItemBehavior getGoldenBucketDispenseBehavior() {
-        return new FilledGoldenBucketDispenseBehavior();
-    }
 
     // 1 if successfully set, 0 if unsuccessful set, 2 if not even toolbox
     public static int tryClearToolBox(Level level, BlockPos pos, BlockState state, int flag) {
@@ -66,19 +63,5 @@ public class DMHCCCompat {
 
     public static boolean isLargeArrow(Entity entity) {
         return entity instanceof LargeArrow;
-    }
-
-    public static void registerGoldenBuckets() {
-        if (DMHUtils.alexCavesLoaded()) {
-            GoldenBucketItem.GOLDEN_BUCKET_BEHAVIORS.put(state -> state.getFluidState().is(DMHUtils.getFluidOrWater(DMHUtils.Constants.ACID)), DMHItems.GOLDEN_ACID_BUCKET);
-            GoldenBucketItem.GOLDEN_BUCKET_BEHAVIORS.put(state -> state.getFluidState().is(DMHUtils.getFluidOrWater(DMHUtils.Constants.PURPLE_SODA)), DMHItems.GOLDEN_PURPLE_SODA_BUCKET);
-        }
-        if (DMHUtils.oreganized()) {
-            GoldenBucketItem.GOLDEN_BUCKET_BEHAVIORS.put(state -> state.getFluidState().is(DMHUtils.getFluidOrWater(DMHUtils.Constants.MOLTEN_LEAD)), DMHItems.GOLDEN_MOLTEN_LEAD_BUCKET);
-        }
-
-        if (ModList.get().isLoaded(DMHUtils.Constants.JNE)) {
-            GoldenBucketItem.GOLDEN_BUCKET_BEHAVIORS.put(state -> state.getFluidState().is(DMHUtils.getFluidOrWater(DMHUtils.Constants.ECTOPLASM)), DMHItems.GOLDEN_ECTOPLASM_BUCKET);
-        }
     }
 }

@@ -24,11 +24,7 @@ import java.util.Set;
 public class DoltModHowDataUtil {
     public static void registerData() {
         DMHRightClickEvent.registerHoeTills();
-        DMHCauldrons.register();
         DMHMobEffects.registerBrewingRecipes();
-        if (DMHUtils.cavernsChasmsLoaded()) {
-            DMHCCCompat.registerGoldenBuckets();
-        }
         if (DMHConfig.COMMON.musicDiscsStack.get()) {
             transformStackSizeMusicDisc();
         }

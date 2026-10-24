@@ -67,13 +67,6 @@ public class DMHItems {
                 .addItemsAfter(of(Blocks.HAY_BLOCK), WAX_BLOCK)
                 .addItemsAfter(of(Items.DIRT_PATH), ALPHACENE_PATH);
 
-            thing.tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
-                .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.ALEXS_CAVES),
-                        GOLDEN_ACID_BUCKET, GOLDEN_PURPLE_SODA_BUCKET)
-                .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED),
-                        GOLDEN_MOLTEN_LEAD_BUCKET)
-                .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.JNE),
-                        GOLDEN_ECTOPLASM_BUCKET);
 
 
     }

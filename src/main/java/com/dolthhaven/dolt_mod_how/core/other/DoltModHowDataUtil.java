@@ -24,7 +24,6 @@ import java.util.Set;
 public class DoltModHowDataUtil {
     public static void registerData() {
         DMHRightClickEvent.registerHoeTills();
-        DMHRightClickEvent.registerRakeables();
         DMHCauldrons.register();
         DMHMobEffects.registerBrewingRecipes();
         if (DMHUtils.cavernsChasmsLoaded()) {

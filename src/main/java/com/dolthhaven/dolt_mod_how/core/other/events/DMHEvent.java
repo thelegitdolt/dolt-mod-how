@@ -194,25 +194,4 @@ public class DMHEvent {
 //            }
 //        }
     }
-
-    @SubscribeEvent
-    public static void onBlockBreak(BlockEvent.BreakEvent event) {
-        if (!ModList.get().isLoaded(DMHUtils.Constants.AMENDMENTS)) return;
-        BlockState state = event.getState();
-        Player player = event.getPlayer();
-        if (player.getMainHandItem().is(ModTags.KNIVES) && AmendmentsBugfix.isDoubleCakeBlock(state)) {
-            Block doubleCake = state.getBlock();
-            ResourceLocation idrl = DMHUtils.getBlockId(doubleCake);
-            if (idrl == null) return;
-
-            String id = idrl.getPath().replace("/double_", ":");
-            Block block = DMHUtils.getPotentialBlock(new ResourceLocation(id));
-            Item sliceItem = DMHUtils.getPotentialItem(AmendmentsBugfix.CAKE_SLICE_MAP.get(id));
-            if (sliceItem == null || block == null) return;
-
-            int bites = state.getValue(CakeBlock.BITES);
-
-            Block.popResource((Level) event.getLevel(), event.getPos(), new ItemStack(sliceItem, 14 - bites));
-        }
-    }
 }

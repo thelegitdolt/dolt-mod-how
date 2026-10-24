@@ -1,6 +1,3 @@
-// 1.20.1	2026-10-23T00:13:00.135701	Loot Tables
+// 1.20.1	2026-10-23T17:14:47.899801	Loot Tables
 dc7279d9d88ad46b173b59cf603fe27b3582b5be data/dolt_mod_how/loot_tables/blocks/alphacene_path.json
-69585cd0b2418ee751f5f6355ea336e3e98e2491 data/dolt_mod_how/loot_tables/blocks/arid_raked_sand.json
-65ee58dd75f590efa9e990b11feb03ffe34a4501 data/dolt_mod_how/loot_tables/blocks/ashen_raked_sand.json
-14f51fe10844f41e07f2f18e402a6326708db0db data/dolt_mod_how/loot_tables/blocks/red_arid_raked_sand.json
 0f1fa8aa1dbb970494768dc2a9aa4b1cfe254aef data/dolt_mod_how/loot_tables/blocks/wax_block.json

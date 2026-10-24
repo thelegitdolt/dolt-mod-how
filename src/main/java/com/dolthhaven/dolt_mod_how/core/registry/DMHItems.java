@@ -73,13 +73,7 @@ public class DMHItems {
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.OREGANIZED),
                         GOLDEN_MOLTEN_LEAD_BUCKET)
                 .addItemsAfter(ofID(DMHUtils.Constants.GOLDEN_LAVA_BUCKET, DMHUtils.Constants.CAVERNS_AND_CHASMS, DMHUtils.Constants.JNE),
-                        GOLDEN_ECTOPLASM_BUCKET)
-
-                .predicate(DMHItems::mowziesPredicate)
-                .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.ATMOSPHERIC),
-                        ARID_RAKED_SAND, RED_ARID_RAKED_SAND)
-                .addItemsAfter(ofID(DMHUtils.Constants.RED_RAKED_SAND, DMHUtils.Constants.BLASTED_BARRENS),
-                        ASHEN_RAKED_SAND);
+                        GOLDEN_ECTOPLASM_BUCKET);
 
 
     }
@@ -98,10 +92,6 @@ public class DMHItems {
 
     public static Predicate<ItemStack> ofLoaded(Supplier<Item> item, String... modids) {
         return stack -> (BlockSubRegistryHelper.areModsLoaded(modids) && of(item.get()).test(stack));
-    }
-
-    public static boolean mowziesPredicate(BuildCreativeModeTabContentsEvent event) {
-        return event.getTabKey().location().equals(DMHUtils.Constants.MOWZIES_MOBS_TAB);
     }
 
     public static class Food {

@@ -28,50 +28,9 @@ public class DMHBlockStatesGen extends BlueprintBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-
-        rakedSand(ASHEN_RAKED_SAND, BBBlocks.ASHEN_SAND);
-        rakedSand(ARID_RAKED_SAND, AtmosphericBlocks.ARID_SAND);
-        rakedSand(RED_ARID_RAKED_SAND, AtmosphericBlocks.RED_ARID_SAND);
-
         block(WAX_BLOCK);
     }
 
-    private void rakedSand(RegistryObject<? extends Block> sand, RegistryObject<? extends Block> nonRaked) {
-        String cubeTop = "block/cube_top";
-        this.getVariantBuilder(sand.get()).forAllStates(state -> {
-            Function<String, ConfiguredModel.Builder<?>> sandModelFunction = sandType -> {
-                String name = name(sand.get()) + (sandType.isEmpty() ? "" : "_" + sandType.replace("_", ""));
-                return ConfiguredModel.builder().modelFile(this.models().withExistingParent("block/" + name, cubeTop)
-                        .texture("side", blockTexture(nonRaked.get()))
-                        .texture("top", loc(sand).withPath(str -> "block/%s%s".formatted(name(sand.get()),
-                                sandType.isEmpty() ? "" :  "_" + sandType.replace("_", "")))));
-            };
-
-            Function<String, Integer> getFacingValue = str -> switch (str) {
-                case "north_east" ->  270;
-                case "north_west" ->  180;
-                case "south_east" ->  0;
-                case "south_west" ->  90;
-                default -> throw new IllegalStateException("Unexpected value: " + str);
-            };
-
-            String shape = state.getValue(RakedSandBlock.SHAPE).getName();
-            String[] shapeName = shape.split("_");
-
-            if (Objects.equals(shapeName[0], "north") && Objects.equals(shapeName[1], "south")) {
-                return sandModelFunction.apply("").build();
-            }
-            else if (Objects.equals(shapeName[0], "east") && Objects.equals(shapeName[1], "west")) {
-                return sandModelFunction.apply("").rotationY(90).build();
-            }
-            else {
-                int rotationAmount = getFacingValue.apply(shape);
-                return sandModelFunction.apply(shape).rotationY(rotationAmount).build();
-            }
-        });
-
-        this.blockItem(sand.get());
-    }
 
 
     private ResourceLocation loc(Block block) {

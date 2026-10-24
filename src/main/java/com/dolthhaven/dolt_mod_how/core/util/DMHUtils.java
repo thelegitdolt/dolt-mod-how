@@ -164,11 +164,7 @@ public class DMHUtils {
         public static final ResourceLocation DINOSAUR_CHOP = new ResourceLocation(ALEXS_CAVES, "dinosaur_chop");
         public static final ResourceLocation COOKED_DINOSAUR_CHOPS = new ResourceLocation(ALEXS_CAVES, "cooked_dinosaur_chop");
 
-
-        public static final ResourceLocation MOWZIES_MOBS_TAB = new ResourceLocation(MOWZIES_MOBS, "mowziesmobs_tab");
-
         public static final ResourceLocation STICKBUG = new ResourceLocation(SPAWN,"stickbug");
-
 
         public static final ResourceLocation FALLEN_LEAVES = new ResourceLocation(SPAWN,"fallen_leaves");
 

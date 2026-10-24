@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_top",
-  "textures": {
-    "side": "blasted_barrens:block/ashen_sand",
-    "top": "dolt_mod_how:block/ashen_raked_sand_northwest"
-  }
-}

@@ -26,10 +26,6 @@ public class DMHBlocks {
     public static final RegistryObject<Block> ALPHACENE_PATH = HELPER.createBlock("alphacene_path", () ->
             new DirtPathBlock(DMHBlockProps.ALPHACENE_PATH));
 
-    public static final RegistryObject<Block> ARID_RAKED_SAND = HELPER.createBlock("arid_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ? DMHMowziesMobsCompat.RAKED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
-    public static final RegistryObject<Block> RED_ARID_RAKED_SAND = HELPER.createBlock("red_arid_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ? DMHMowziesMobsCompat.RAKED_RED_ARID_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
-    public static final RegistryObject<Block> ASHEN_RAKED_SAND = HELPER.createBlock("ashen_raked_sand", ModList.get().isLoaded(DMHUtils.Constants.MOWZIES_MOBS) ? DMHMowziesMobsCompat.RAKED_ASHEN_SAND : () -> new Block(BlockBehaviour.Properties.copy(Blocks.RED_SAND)));
-
     public static final RegistryObject<Block> WAX_BLOCK = HELPER.createBlock("wax_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.HONEYCOMB_BLOCK)));
 

@@ -73,10 +73,6 @@ public class DoltModHowLootTables extends LootTableProvider {
         protected void generate() {
             this.dropSelf(WAX_BLOCK.get());
             this.dropOther(ALPHACENE_PATH.get(), Blocks.DIRT);
-
-            this.dropOther(ARID_RAKED_SAND.get(), AtmosphericBlocks.ARID_SAND.get());
-            this.dropOther(RED_ARID_RAKED_SAND.get(), AtmosphericBlocks.RED_ARID_SAND.get());
-            this.dropOther(ASHEN_RAKED_SAND.get(), BBBlocks.ASHEN_SAND.get());
         }
 
 

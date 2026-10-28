@@ -13,8 +13,6 @@ public class DMHTrackedData {
     public static final TrackedData<Byte> LEVEL_SATED_BLADE = TrackedData.Builder.create(DataProcessors.BYTE, () -> (byte) 0).build();
     public static final TrackedData<Boolean> IS_DESOLATE_DAGGER = TrackedData.Builder.create(DataProcessors.BOOLEAN, () -> false).build();
 
-    public static final TrackedData<Integer> THUNDERDOME_CHALLENGE_DATA = TrackedData.Builder.create(DataProcessors.INT, () -> 0).build();
-
     public static void registerTrackedData() {
         TrackedDataManager.INSTANCE.registerData(DoltModHow.rl("desolate"), IS_DESOLATE_DAGGER);
         TrackedDataManager.INSTANCE.registerData(DoltModHow.rl("level_double_stab"), LEVEL_DOUBLE_STAB);
@@ -22,7 +20,5 @@ public class DMHTrackedData {
         TrackedDataManager.INSTANCE.registerData(DoltModHow.rl("level_impending_stab"), LEVEL_IMPENDING_STAB);
 
 //        TrackedDataManager.INSTANCE.registerData(DoltModHow.rl("desolate_cleaver_info"), DESOLATE_DAGGER_CLEAVER_INFO);
-
-        TrackedDataManager.INSTANCE.registerData(DoltModHow.rl("thunderdome_time"), THUNDERDOME_CHALLENGE_DATA);
     }
 }

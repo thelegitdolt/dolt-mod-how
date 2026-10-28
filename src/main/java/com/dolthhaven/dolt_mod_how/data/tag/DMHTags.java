@@ -16,10 +16,6 @@ public class DMHTags {
     public static final TagKey<Block> CHANNELS_LIGHTNING = blockTag("channels_lightning");
     public static final TagKey<Block> MINEABLE_SHEARS = externalBlockTag("minecraft", "mineable/shear");
 
-    public static final TagKey<Item> ACID_BUCKETS = externalItemTag("forge", "buckets/acid");
-    public static final TagKey<Item> PURPLE_SODA_BUCKETS = externalItemTag("forge", "buckets/purple_soda");
-    public static final TagKey<Item> MOLTEN_LEAD_BUCKETS = externalItemTag("forge", "buckets/molten_lead");
-    public static final TagKey<Item> ECTOPLASM_BUCKETS = externalItemTag("forge", "buckets/ectoplasm");
     public static final TagKey<Item> LEATHER = itemTag("leather");
 
     public static final TagKey<Item> SHEARS = externalItemTag("forge", "shears");

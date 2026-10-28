@@ -11,25 +11,7 @@
 
   "block.dolt_mod_how.wax_block": "Wax Block",
 
-  "advancements.dolt_mod_how.adventure.thunderdome.description": "Kill 3 mimes back to back after they've copied your armor",
-  "advancements.dolt_mod_how.adventure.thunderdome.title": "Thunderdome",
-  "advancements.dolt_mod_how.nether.rewind_great_distances.description": "Travel at least 1000 blocks with the power of a Rewind Potion",
-  "advancements.dolt_mod_how.nether.rewind_great_distances.title": "Applied Quotient Topology",
-  "advancements.dolt_mod_how.adventure.pvz.description": "Have a Foliaath eat a zombie at the build limit",
-  "advancements.dolt_mod_how.adventure.pvz.title": "Graze the Roof",
-  "advancements.dolt_mod_how.adventure.trigger_mime_totem.description": "Attempt to kill a Mime while holding a Totem of Undying",
-  "advancements.dolt_mod_how.adventure.trigger_mime_totem.title": "One Must Imagine Mime Happy",
-  "advancements.dolt_mod_how.adventure.kill_charged_creeper_with_quake.description": "Have a Quake kill a Charged Creeper",
-  "advancements.dolt_mod_how.adventure.kill_charged_creeper_with_quake.title": "Richter Spawner",
-  "advancements.dolt_mod_how.adventure.witness_holler_possess_jukebox.description": "Have a Holler possess a jukebox",
-  "advancements.dolt_mod_how.adventure.witness_holler_possess_jukebox.title": "Afterlife Jazz",
-  "advancements.dolt_mod_how.adventure.kill_nucleeper_with_tremorzilla.description": "Obliterate a Nucleeper with a beam of pure radioactivity",
-  "advancements.dolt_mod_how.adventure.kill_nucleeper_with_tremorzilla.title": "Nuclear Fusion Redux",
-  "advancements.dolt_mod_how.adventure.kill_stickbug_with_lightning.description": "Channel lightning through a Stickbug in the Rain",
-  "advancements.dolt_mod_how.adventure.kill_stickbug_with_lightning.title": "It's dead! DEAD!!!",
 
-  "advancements.dolt_mod_how.adventure.use_heart_crystal_on_low_health.description": "That was close... too close",
-  "advancements.dolt_mod_how.adventure.use_heart_crystal_on_low_health.title": "Heart of Glass",
   "advancements.dolt_mod_how.story.speed_demon.description": "Achieve 30 meters per second on a speedometer",
   "advancements.dolt_mod_how.story.speed_demon.title": "Speed Demon",
 
@@ -37,8 +19,6 @@
   "advancements.dolt_mod_how.nether.nether_thrasher.description": "Bring a Great Thrasher into the Nether",
   "advancements.dolt_mod_how.nether.nether_thrasher.title": "Fish Out of Water",
 
-  "advancements.dolt_mod_how.adventure.slay_bewereager_with_silver.description": "Slay a Bewereager using a crankbow and silver arrows",
-  "advancements.dolt_mod_how.adventure.slay_bewereager_with_silver.title": "Big Game Hunter",
 
   "effect.dolt_mod_how.generosity": "Generosity",
   "item.minecraft.lingering_potion.effect.generosity": "Lingering Potion of Generosity",

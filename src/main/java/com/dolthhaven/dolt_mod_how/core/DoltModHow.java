@@ -7,7 +7,6 @@ import com.dolthhaven.dolt_mod_how.core.other.DoltModHowDataUtil;
 import com.dolthhaven.dolt_mod_how.core.other.dispensers.DoltModHowDispensers;
 import com.dolthhaven.dolt_mod_how.core.registry.*;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
-import com.dolthhaven.dolt_mod_how.data.DMHAdvancements;
 import com.dolthhaven.dolt_mod_how.data.DMHRecipes;
 import com.dolthhaven.dolt_mod_how.data.DoltModHowLootTables;
 import com.dolthhaven.dolt_mod_how.data.client.DMHBlockStatesGen;
@@ -41,7 +40,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 
 import java.util.concurrent.CompletableFuture;
@@ -100,7 +98,6 @@ public class DoltModHow {
         DMHBlockTags taggies = new DMHBlockTags(packOutput, provider, helper);
         dataGen.addProvider(includeServer, taggies);
         dataGen.addProvider(includeServer, new DMHItemTags(event, taggies));
-        dataGen.addProvider(includeServer, DMHAdvancements.create(event));
         dataGen.addProvider(includeServer, new DMHEntityTags(event));
         dataGen.addProvider(includeServer, new DMHMobEffectTags(event));
         dataGen.addProvider(includeServer, new DoltModHowLootTables(packOutput));

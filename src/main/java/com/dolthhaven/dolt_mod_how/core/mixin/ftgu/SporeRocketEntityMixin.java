@@ -1,14 +1,9 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.ftgu;
 
-import com.dolthhaven.dolt_mod_how.core.DMHConfig;
-import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
-import com.dolthhaven.dolt_mod_how.integration.DMHSnSCompat;
 import com.ninni.ftgu.server.entity.subentities.SporeRocketEntity;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;

@@ -1,21 +1,13 @@
 package com.dolthhaven.dolt_mod_how.core.util;
 
-import com.dolthhaven.dolt_mod_how.core.DoltModHow;
-import com.dolthhaven.dolt_mod_how.integration.DMHACCompat;
-import com.google.common.base.Suppliers;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
@@ -29,7 +21,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 @SuppressWarnings("removal")
 public class DMHUtils {
@@ -40,16 +31,6 @@ public class DMHUtils {
     public static void addToInvOrDrop(Player player, ItemStack stack) {
         if (!player.getInventory().add(stack)) {
             player.drop(stack, true);
-        }
-    }
-
-    public static void printItem(Item item) {
-        ResourceLocation res = ForgeRegistries.ITEMS.getKey(item);
-        if (res == ForgeRegistries.ITEMS.getDefaultKey() || res == null) {
-            DoltModHow.LOGGER.info("DoltModHow.Util.printItem used, but no Item was found!!");
-        }
-        else {
-            DoltModHow.LOGGER.info(res.toString());
         }
     }
 
@@ -71,51 +52,17 @@ public class DMHUtils {
         return block == Blocks.AIR ? null : block;
     }
 
-    public static @Nullable Block getPotentialBlock(String path, String name) {
-       return getPotentialBlock(new ResourceLocation(path, name));
-    }
-
-    public static @NotNull Fluid getFluidOrWater(String path, String name) {
-        return getFluidOrWater(new ResourceLocation(path, name));
-    }
-
     public static @NotNull Fluid getFluidOrWater(ResourceLocation location) {
         Fluid fluid = ForgeRegistries.FLUIDS.getValue(location);
         return fluid != null ? fluid: Fluids.WATER;
-    }
-
-    public static ResourceLocation getFluidID(Fluid fluid) {
-        return ForgeRegistries.FLUIDS.getKey(fluid);
-    }
-
-    public static ResourceLocation getItemId(Item item) {
-        return ForgeRegistries.ITEMS.getKey(item);
     }
 
     public static ResourceLocation getBlockId(Block block) {
         return ForgeRegistries.BLOCKS.getKey(block);
     }
 
-    public static ResourceLocation entityId(EntityType<?> type) {
-        return ForgeRegistries.ENTITY_TYPES.getKey(type);
-    }
-
-    public static int getLargestIndexInArray(int[] oxy) {
-        int large = Integer.MIN_VALUE;
-        int ret = 0;
-        for (int i = 0; i < oxy.length; i++) {
-            if (oxy[i] > large) {
-                large = oxy[i];
-                ret = i;
-            }
-        }
-        return ret;
-    }
-
-
     public static class Constants {
         public static final String ALEXS_CAVES = "alexscaves";
-        public static final String AMENDMENTS = "amendments";
         public static final String ATMOSPHERIC = "atmospheric";
         public static final String BOP = "biomesoplenty";
         public static final String BLASTED_BARRENS = "blasted_barrens";
@@ -203,21 +150,7 @@ public class DMHUtils {
         return ModList.get().isLoaded(Constants.ALEXS_CAVES);
     }
 
-    public static boolean oreganized() {
-        return ModList.get().isLoaded(Constants.OREGANIZED);
-    }
-
     public static boolean cavernsChasmsLoaded() {
         return ModList.get().isLoaded(Constants.CAVERNS_AND_CHASMS);
     }
-
-    public static boolean unreadableCode(Entity killer, Entity victim, DamageSource source) {
-        if (!alexCavesLoaded()) return true;
-        if (DMHACCompat.firstEntityIsTremorzillaAndSecondIsNucleeper(killer, victim)) {
-            return DMHACCompat.isNuclearBeamDamageSource(source);
-        }
-
-        return true;
-    }
-
 }

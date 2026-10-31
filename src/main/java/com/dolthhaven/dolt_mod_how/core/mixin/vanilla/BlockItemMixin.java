@@ -24,7 +24,7 @@ public class BlockItemMixin {
                             result.consumesAction() &&
                             player.getRandom().nextInt(DMHConfig.COMMON.blockPlaceXpChance.get()) == 0;
             if (shouldAward) {
-                ExperienceOrb.award((ServerLevel) player.level(), player.position(), player.getRandom().nextInt(3, 6));
+                ExperienceOrb.award((ServerLevel) player.level(), player.position(), player.getRandom().nextInt(4, 7));
             }
         }
     }

@@ -3,8 +3,6 @@ package com.dolthhaven.dolt_mod_how.core.other;
 import com.dolthhaven.dolt_mod_how.core.DMHConfig;
 import com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent;
 import com.dolthhaven.dolt_mod_how.core.registry.DMHMobEffects;
-import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
-import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -12,13 +10,9 @@ import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.violetmoon.quark.addons.oddities.module.PipesModule;
 
-import java.util.HashSet;
 import java.util.ListIterator;
-import java.util.Set;
 
 
 public class DoltModHowDataUtil {

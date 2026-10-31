@@ -1,55 +1,22 @@
 package com.dolthhaven.dolt_mod_how.integration;
 
-import com.dolthhaven.dolt_mod_how.core.other.DMHTrackedData;
-import com.dolthhaven.dolt_mod_how.core.other.events.DMHRightClickEvent;
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
 import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
-import com.github.alexmodguy.alexscaves.server.block.AcidBlock;
 import com.github.alexmodguy.alexscaves.server.block.DinosaurChopBlock;
 import com.github.alexmodguy.alexscaves.server.block.ThinBoneBlock;
-import com.github.alexmodguy.alexscaves.server.block.blockentity.MetalBarrelBlockEntity;
-import com.github.alexmodguy.alexscaves.server.enchantment.ACEnchantmentRegistry;
-import com.github.alexmodguy.alexscaves.server.entity.ACEntityRegistry;
-import com.github.alexmodguy.alexscaves.server.entity.item.DesolateDaggerEntity;
 import com.github.alexmodguy.alexscaves.server.entity.living.NucleeperEntity;
 import com.github.alexmodguy.alexscaves.server.entity.living.TremorzillaEntity;
-import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
-import com.github.alexmodguy.alexscaves.server.item.RadioactiveOnDestroyedBlockItem;
 import com.github.alexmodguy.alexscaves.server.misc.ACDamageTypes;
-import com.github.alexmodguy.alexscaves.server.misc.ACSoundRegistry;
-import com.teamabnormals.blueprint.common.world.storage.tracking.IDataManager;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.ModList;
 
 public class DMHACCompat {
-
-
-    public static boolean firstEntityIsTremorzillaAndSecondIsNucleeper(Entity entity1, Entity entity2) {
-        return entity1 instanceof TremorzillaEntity && entity2 instanceof NucleeperEntity;
-    }
-
-    public static boolean isNuclearBeamDamageSource(DamageSource source) {
-        return source.is(ACDamageTypes.TREMORZILLA_BEAM);
-    }
-
-    public static boolean isMetalBarrel(Level level, BlockPos pos) {
-        return level.getBlockEntity(pos) instanceof MetalBarrelBlockEntity;
-    }
-
     public static Item getMeatItem(Block block) {
         if (!ModList.get().isLoaded(DMHUtils.Constants.CAVE_DELIGHT)) return null;
 
@@ -86,41 +53,5 @@ public class DMHACCompat {
         else {
             return state.setValue(DinosaurChopBlock.BITES, bites + 1);
         }
-    }
-
-    public static boolean isAcid(BlockState state) {
-        return state.getBlock() instanceof AcidBlock;
-    }
-
-    public static void summonHoveringKnives(Player player, LivingEntity entity, ItemStack stack, int doubleStab, int delayedLevel) {
-        for(int i = 0; i < 1 + doubleStab; ++i) {
-            DesolateDaggerEntity daggerEntity = ACEntityRegistry.DESOLATE_DAGGER.get().create(player.level());
-            daggerEntity.setTargetId(entity.getId());
-            daggerEntity.copyPosition(player);
-            daggerEntity.setItemStack(stack);
-            daggerEntity.orbitFor = (delayedLevel > 0 ? 40 : 20) + player.getRandom().nextInt(10);
-            player.level().addFreshEntity(daggerEntity);
-        }
-    }
-
-    public static void decode(ItemStack stack, int impendingStab, int satedBlade) {
-        stack.enchant(ACEnchantmentRegistry.IMPENDING_STAB.get(), impendingStab);
-        stack.enchant(ACEnchantmentRegistry.SATED_BLADE.get(), satedBlade);
-    }
-
-    public static boolean isDesolateDagger(Item item) {
-        return item == ACItemRegistry.DESOLATE_DAGGER.get();
-    }
-
-    public static void saveToCleaver(Entity entity, ItemStack stack) {
-        IDataManager cleaverData = (IDataManager) entity;
-        cleaverData.setValue(DMHTrackedData.IS_DESOLATE_DAGGER, true);
-        cleaverData.setValue(DMHTrackedData.LEVEL_IMPENDING_STAB, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.IMPENDING_STAB.get()));
-        cleaverData.setValue(DMHTrackedData.LEVEL_DOUBLE_STAB, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.DOUBLE_STAB.get()));
-        cleaverData.setValue(DMHTrackedData.LEVEL_SATED_BLADE, (byte) stack.getEnchantmentLevel(ACEnchantmentRegistry.SATED_BLADE.get()));
-    }
-
-    public static ItemLike getFusionDisc() {
-        return ACItemRegistry.MUSIC_DISC_FUSION.get();
     }
 }

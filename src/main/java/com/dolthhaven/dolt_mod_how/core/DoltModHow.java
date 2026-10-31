@@ -18,7 +18,6 @@ import com.dolthhaven.dolt_mod_how.data.tag.DMHBlockTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHEntityTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHItemTags;
 import com.dolthhaven.dolt_mod_how.data.tag.DMHMobEffectTags;
-import com.dolthhaven.dolt_mod_how.integration.DoltModHowFishBarrelSetup;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.client.screen.splash.SplashSerializers;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;

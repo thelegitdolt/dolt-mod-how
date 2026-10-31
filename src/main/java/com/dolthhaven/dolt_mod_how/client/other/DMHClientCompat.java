@@ -37,16 +37,6 @@ public class DMHClientCompat {
         registerCrossbowPredicate("torch_arrow", () -> TorchArrowModule.torch_arrow);
     }
 
-    private static void registerGoldenBucketIfModLoaded(Supplier<Item> item, String... modids) {
-        if (item.get() == null) {
-            DoltModHow.LOGGER.info("Failed to register item " + item + " this is bad report to Dolt Mod How");
-            return;
-        }
-        if (Arrays.stream(modids).allMatch(ModList.get()::isLoaded)) {
-            registerGoldenBucket(item);
-        }
-    }
-
     private static void registerCrossbowIfModLoaded(String name, Supplier<Item> projectile, String... modids) {
         if (projectile.get() == null) {
             DoltModHow.LOGGER.info("Failed to register crossbow item property " + name + " with item " + projectile.get() + " this is bad please report to dolt mod how");
@@ -58,11 +48,6 @@ public class DMHClientCompat {
 
     private static void registerCrossbowPredicate(String name, Supplier<Item> projectile) {
         ItemProperties.register(Items.CROSSBOW, DoltModHow.rl(name), createCrossbowProjectilePredicate(projectile));
-    }
-
-    private static void registerGoldenBucket(Supplier<Item> bucket) {
-        ItemProperties.register(bucket.get(), DoltModHow.rl("level"), (stack, level, entity, hash) ->
-                stack.getOrCreateTag().getInt("FluidLevel"));
     }
 
     private static ItemPropertyFunction createCrossbowProjectilePredicate(Supplier<Item> projectile) {

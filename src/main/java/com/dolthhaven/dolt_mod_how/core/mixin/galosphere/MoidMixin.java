@@ -1,7 +1,6 @@
 package com.dolthhaven.dolt_mod_how.core.mixin.galosphere;
 
 import com.dolthhaven.dolt_mod_how.core.util.DMHUtils;
-import com.dolthhaven.dolt_mod_how.integration.DMHCCCompat;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.world.level.block.Block;
